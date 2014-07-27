@@ -258,21 +258,10 @@ F 1 "IR OUT" H 8900 3400 50  0000 C CNN
 F 2 "~" H 8900 3500 60  0000 C CNN
 F 3 "~" H 8900 3500 60  0000 C CNN
 	1    8900 3500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Text Label 9050 5600 0    60   ~ 0
 SPEAKER
-$Comp
-L GND #PWR?
-U 1 1 53D53A84
-P 9350 3550
-F 0 "#PWR?" H 9350 3550 30  0001 C CNN
-F 1 "GND" H 9350 3480 30  0001 C CNN
-F 2 "" H 9350 3550 60  0000 C CNN
-F 3 "" H 9350 3550 60  0000 C CNN
-	1    9350 3550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6150 3100 6150 3300
 Wire Wire Line
@@ -292,7 +281,9 @@ Wire Wire Line
 Wire Wire Line
 	3900 6150 3900 6200
 Wire Wire Line
-	3000 5000 4100 5000
+	3000 5000 3850 5000
+Wire Wire Line
+	3850 5000 4100 5000
 Wire Wire Line
 	4100 5000 4100 5100
 Wire Wire Line
@@ -301,7 +292,9 @@ Connection ~ 3850 5000
 Wire Wire Line
 	3600 5600 3600 5950
 Wire Wire Line
-	3900 5750 4350 5750
+	3900 5750 4100 5750
+Wire Wire Line
+	4100 5750 4350 5750
 Wire Wire Line
 	4100 5750 4100 5600
 Connection ~ 3600 5950
@@ -309,7 +302,9 @@ Connection ~ 4100 5750
 Wire Wire Line
 	4750 5750 5050 5750
 Wire Wire Line
-	3300 2350 3850 2350
+	3300 2350 3550 2350
+Wire Wire Line
+	3550 2350 3850 2350
 Wire Wire Line
 	3550 2350 3550 2250
 Connection ~ 3550 2350
@@ -317,10 +312,6 @@ Wire Wire Line
 	3300 2750 3850 2750
 Wire Wire Line
 	3300 2500 3600 2500
-Wire Wire Line
-	9100 3500 9350 3500
-Wire Wire Line
-	9350 3500 9350 3550
 Wire Wire Line
 	8250 3500 8700 3500
 Wire Wire Line
@@ -499,12 +490,18 @@ F 3 "~" H 5950 6000 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5450 5750 6350 5750
+	5450 5750 5650 5750
+Wire Wire Line
+	5650 5750 5950 5750
+Wire Wire Line
+	5950 5750 6350 5750
 Connection ~ 5650 5750
 Wire Wire Line
 	5650 6150 5650 6250
 Wire Wire Line
-	5650 6250 5950 6250
+	5650 6250 5800 6250
+Wire Wire Line
+	5800 6250 5950 6250
 $Comp
 L GND #PWR?
 U 1 1 53D54AC4
@@ -520,4 +517,19 @@ Wire Wire Line
 	5800 6250 5800 6350
 Connection ~ 5800 6250
 Connection ~ 5950 5750
+Wire Wire Line
+	9100 3500 9350 3500
+$Comp
+L GND #PWR?
+U 1 1 53D53A84
+P 9350 3550
+F 0 "#PWR?" H 9350 3550 30  0001 C CNN
+F 1 "GND" H 9350 3480 30  0001 C CNN
+F 2 "" H 9350 3550 60  0000 C CNN
+F 3 "" H 9350 3550 60  0000 C CNN
+	1    9350 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 3500 9350 3550
 $EndSCHEMATC
