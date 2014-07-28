@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 7/27/2014 4:23:26 PM
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 7/27/2014 11:00:46 PM
 
 BeginCmp
 TimeStamp = /53D54000;
@@ -22,16 +22,9 @@ IdModule  = C2;
 EndCmp
 
 BeginCmp
-TimeStamp = /53D53243;
-Reference = C3;
-ValeurCmp = .1uF;
-IdModule  = C2;
-EndCmp
-
-BeginCmp
 TimeStamp = /53D54A2A;
 Reference = C4;
-ValeurCmp = .33uF;
+ValeurCmp = 47nF;
 IdModule  = C2;
 EndCmp
 
@@ -85,6 +78,13 @@ IdModule  = TO92-123;
 EndCmp
 
 BeginCmp
+TimeStamp = /53D59463;
+Reference = Q2;
+ValeurCmp = 2N3904;
+IdModule  = TO92-123;
+EndCmp
+
+BeginCmp
 TimeStamp = /53D52F5A;
 Reference = R1;
 ValeurCmp = 2.2K;
@@ -101,7 +101,7 @@ EndCmp
 BeginCmp
 TimeStamp = /53D52FE8;
 Reference = R3;
-ValeurCmp = 100K;
+ValeurCmp = 47K;
 IdModule  = R3;
 EndCmp
 
@@ -115,7 +115,35 @@ EndCmp
 BeginCmp
 TimeStamp = /53D54A39;
 Reference = R5;
-ValeurCmp = 10K;
+ValeurCmp = 1M;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D596C1;
+Reference = R6;
+ValeurCmp = 220;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D596DA;
+Reference = R7;
+ValeurCmp = 220;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D594A5;
+Reference = R8;
+ValeurCmp = 470;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D59496;
+Reference = R9;
+ValeurCmp = 4.7;
 IdModule  = R3;
 EndCmp
 
