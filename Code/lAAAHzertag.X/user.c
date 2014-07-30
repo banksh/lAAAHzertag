@@ -8,10 +8,9 @@
     #include <htc.h>        /* HiTech General Include File */
 #endif
 
-#include <stdint.h>         /* For uint8_t definition */
-#include <stdbool.h>        /* For true/false definition */
+//#include <stdint.h>         /* For uint8_t definition */
+//#include <stdbool.h>        /* For true/false definition */
 #include <pic.h>
-#include <pic12lf1571.h>
 
 #include "user.h"
 
@@ -42,7 +41,7 @@ uint16_t ADC_read()
     ADCON0 |= (1 << ADON); // Turn ADC on
     __delay_us(6);
     ADCON0 |= (1 << GO); // Set GO bit to start conversion
-    while(^(ADCON0 & (1 << GO))){};
+    while(ADCON0 & (1 << GO)){};
     return ADRESH << 2 + ADRESL >> 6;
 }
 
@@ -50,4 +49,20 @@ void LED_on()
 {
     TRISA &= ^(1 << TRISA5);
     PORTA &= ^(1 << RA5);
+}
+
+void Buzz(/*uint16_t freq, */uint16_t dur)
+{
+    T2CON = 0b00000101; // Timer 2 on, prescale factor is 4
+    PWM3CON |= (1 << PWM3EN) | (1 << PWM3OE);
+    PWM3PRH |= 0b00001111;
+    PWM3PRL |= 0b10011111;
+
+    __delay_ms(dur);
+    PWM3CON &= 0x00;
+}
+
+void Send_Packet(uint8_t data)
+{
+
 }
