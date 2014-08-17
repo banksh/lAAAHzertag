@@ -129,8 +129,12 @@ void main(void)
         if(CHECK_CHAR())
         {
             b=AVAIL_CHAR();
-            if(b == 0x10)
+            if(b == 0x10) {
                 control_transfer();
+            }
+            if((b > 0x80) && (b != my_id)) {
+                Get_hit(b);
+            }
                 //Buzz(5000,150);
         }
         //LED_on();

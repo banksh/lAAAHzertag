@@ -4587,6 +4587,10 @@ void Send_Byte(uint8_t data);
 void Modulate_Serial(void);
 void Disable_Modulation(void);
 void Fire(void);
+uint16_t Read_Memory(uint16_t address);
+void Erase_Memory(uint16_t address);
+void Write_Memory(uint16_t address, uint16_t data);
+void Get_hit(uint8_t ID);
 
 
 # 29 "main.c"
@@ -4624,7 +4628,6 @@ i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0)));
 switch(cmd)
 {
 case 0x01:
-
 i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; x=((y << 4) | x); checksum += x; if(checksum) goto err; i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); if(x != 0x11) goto err;
 Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
 x = 0x02 & 0x0F; y = 0x02 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x02;
@@ -4673,17 +4676,21 @@ Setup();
 while(1)
 {
 
-# 129
+# 128
 Fire();
 if((PIR1bits.RCIF))
 {
 b=(RCREG);
-if(b == 0x10)
+if(b == 0x10) {
 control_transfer();
+}
+if((b > 0x80) && (b != my_id)) {
+Get_hit(b);
+}
 
 }
 
-# 147
+# 150
 }
 
 }

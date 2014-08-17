@@ -24,4 +24,8 @@ void Send_Byte(uint8_t data);
 void Modulate_Serial(void);
 void Disable_Modulation(void);
 void Fire(void);
+uint16_t Read_Memory(uint16_t address);
+void Erase_Memory(uint16_t address);
+void Write_Memory(uint16_t address, uint16_t data);
+void Get_hit(uint8_t ID);
 //void interrupt high_priority High_Priority_Interrupt();

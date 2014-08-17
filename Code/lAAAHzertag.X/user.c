@@ -29,6 +29,7 @@ void Setup(void)
     TRISAbits.TRISA5 = 0;
     TRISAbits.TRISA2 = 0;
     TRISAbits.TRISA0 = 0;
+    PORTAbits.RA5 = 1; // LED default to off
 
     // ADC setup
     //ANSELAbits.ANSA4 = 1; // RA4 as analog input
@@ -58,12 +59,12 @@ uint16_t ADC_read()
 
 void LED_on()
 {
-    PORTAbits.RA5 = 1;
+    PORTAbits.RA5 = 0;
 }
 
 void LED_off()
 {
-    PORTAbits.RA5 = 0;
+    PORTAbits.RA5 = 1;
 }
 
 void Buzz(uint16_t freq, uint16_t dur_ms)
@@ -89,6 +90,7 @@ void Send_Byte(uint8_t data)
     while(!TXSTAbits.TRMT); // Wait for USART to send all data
     Disable_Modulation();
     RCSTAbits.CREN = 1; // Enable receiver
+    RCREG;
 }
 
 void Modulate_Serial(void){
@@ -109,6 +111,60 @@ void Disable_Modulation(void){
     DACCON0bits.DACEN = 0;
 }
 
+uint16_t Read_Memory(uint16_t address){
+    PMCON1bits.CFGS = 0; // Address program memory
+    PMADR = address;
+    PMCON1bits.RD = 1; // Read operation
+    NOP();
+    NOP();
+    return PMDAT;
+}
+
+void Erase_Memory(uint16_t address){
+    INTCONbits.GIE = 0;
+    PMCON1bits.CFGS = 0; // Program memory
+    PMADR = address;
+    PMCON1bits.FREE = 1; // Erase operation
+    PMCON1bits.WREN = 1; // Write enable
+    PMCON2 = 0x55;
+    PMCON2 = 0xAA; // Flash memory unlock sequence
+    PMCON1bits.WR = 1; // Begin erase
+    NOP();
+    NOP();
+    PMCON1bits.WREN = 0;
+    INTCONbits.GIE = 0;
+}
+
+void Write_Memory(uint16_t address, uint16_t data){
+    INTCONbits.GIE = 0;
+    PMCON1bits.CFGS = 0; // Program memory
+    PMADR = address;
+    PMCON1bits.FREE = 0; // Write operation
+    PMCON1bits.LWLO = 1; // Load write latches only
+    PMCON1bits.WREN = 1; // Write enable
+    PMDAT = data;
+    PMCON1bits.LWLO = 0; // Write latches to flash
+    PMCON2 = 0x55;
+    PMCON2 = 0xAA; // Flash memory unlock sequence
+    NOP();
+    NOP();
+    PMCON1bits.WREN = 0;
+    INTCONbits.GIE = 0;
+}
+
+void Get_hit(uint8_t ID){
+    LED_on();
+    Buzz(4000,100);
+    LED_off();
+    Buzz(3500,100);
+    LED_on();
+    Buzz(4000,100);
+    LED_off();
+    Buzz(4500,100);
+    LED_on();
+    Buzz(4000,100);
+    LED_off();
+}
 
 // Interrupts
 
@@ -119,12 +175,7 @@ void interrupt High_Priority_Interrupt(){
        asm("MOVF DACCON0, W");
        asm("XORLW 1<<5");
        asm("MOVWF DACCON0");
-        
-       asm("BANKSEL PORTA");
-       asm("MOVF PORTA, W");
-       asm("XORLW 1<<5");
-       asm("MOVWF PORTA");
-       
+
        TMR1 += 65486;
        PIR1bits.TMR1IF = 0; // Clear the interupt flag
     }
