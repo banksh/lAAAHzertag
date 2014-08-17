@@ -4577,9 +4577,10 @@ uint16_t ADC_read(void);
 void LED_on(void);
 void LED_off(void);
 void Buzz(uint16_t freq, uint16_t dur_ms);
-void Send_Packet(uint8_t data);
+void Send_Byte(uint8_t data);
 void Modulate_Serial(void);
 void Disable_Modulation(void);
+void Fire(void);
 
 # 24 "user.c"
 void Setup(void)
@@ -4592,8 +4593,19 @@ TRISAbits.TRISA2 = 0;
 TRISAbits.TRISA0 = 0;
 
 
-ANSELAbits.ANSA4 = 1;
+
 ADCON1 |= 0b00110000;
+
+
+SPBRGL = 103;
+TXSTAbits.SYNC = 0;
+RCSTAbits.SPEN = 1;
+BAUDCONbits.SCKP = 1;
+TXSTAbits.TXEN = 1;
+
+
+RCSTAbits.CREN = 1;
+
 }
 
 uint16_t ADC_read()
@@ -4628,27 +4640,22 @@ PWM3LDCONbits.LDA = 1;
 for(uint16_t i = 0; i <= dur_ms; i++){
 _delay((unsigned long)((1)*(16000000/4000.0)));
 }
+PWM3CONbits.PWM3OE = 0;
 }
 
-void Send_Packet(uint8_t data)
+void Send_Byte(uint8_t data)
 {
-DACCON0bits.DACEN = 1;
+RCSTAbits.CREN = 0;
 Modulate_Serial();
-
-SPBRGL = 54;
-TXSTAbits.SYNC = 0;
-RCSTAbits.SPEN = 1;
-BAUDCONbits.SCKP = 1;
-TXSTAbits.TXEN = 1;
-
 TXREG = data;
 while(!TXSTAbits.TRMT);
 Disable_Modulation();
-TRISAbits.TRISA0 = 0;
-DACCON0bits.DACEN = 0;
+RCSTAbits.CREN = 1;
 }
 
 void Modulate_Serial(void){
+DACCON0bits.DACEN = 1;
+
 INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
 PIE1bits.TMR1IE = 1;
@@ -4661,6 +4668,7 @@ TMR1 = 65486;
 void Disable_Modulation(void){
 INTCONbits.GIE = 0;
 T1CONbits.TMR1ON = 0;
+DACCON0bits.DACEN = 0;
 }
 
 

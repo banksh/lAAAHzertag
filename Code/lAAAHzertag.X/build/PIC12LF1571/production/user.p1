@@ -14,19 +14,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S57 . . . ]
 "902
 [v _TRISAbits `VS57 ~T0 @X0 0 e@140 ]
-"2193
-[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S123 . ANSA0 ANSA1 ANSA2 . ANSA4 ]
-"2200
-[s S124 :5 `uc 1 ]
-[n S124 . ANSELA ]
-"2192
-[u S122 `S123 1 `S124 1 ]
-[n S122 . . . ]
-"2204
-[v _ANSELAbits `VS122 ~T0 @X0 0 e@396 ]
 "1554
 [v _ADCON1 `Vuc ~T0 @X0 0 e@158 ]
+"2472
+[v _SPBRGL `Vuc ~T0 @X0 0 e@411 ]
+"2577
+[s S151 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S151 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"2576
+[u S150 `S151 1 ]
+[n S150 . . ]
+"2588
+[v _TXSTAbits `VS150 ~T0 @X0 0 e@414 ]
+"2516
+[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S149 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"2515
+[u S148 `S149 1 ]
+[n S148 . . ]
+"2527
+[v _RCSTAbits `VS148 ~T0 @X0 0 e@413 ]
+"2638
+[s S153 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S153 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
+"2637
+[u S152 `S153 1 ]
+[n S152 . . ]
+"2649
+[v _BAUDCONbits `VS152 ~T0 @X0 0 e@415 ]
 "1466
 [v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
 "8211
@@ -113,7 +128,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S404 . . . . . ]
 "7707
 [v _PWM3LDCONbits `VS404 ~T0 @X0 0 e@3519 ]
-"1977
+"24 user.h
+[v _Modulate_Serial `(v ~T0 @X0 0 ef ]
+"2447 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
+[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
+"25 user.h
+[v _Disable_Modulation `(v ~T0 @X0 0 ef ]
+"1977 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
 [s S113 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S113 . . DACPSS0 DACPSS1 . DACOE DACLPS DACEN ]
 "1986
@@ -124,39 +145,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S112 . . . ]
 "1991
 [v _DACCON0bits `VS112 ~T0 @X0 0 e@280 ]
-"24 user.h
-[v _Modulate_Serial `(v ~T0 @X0 0 ef ]
-"2472 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
-[v _SPBRGL `Vuc ~T0 @X0 0 e@411 ]
-"2577
-[s S151 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S151 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"2576
-[u S150 `S151 1 ]
-[n S150 . . ]
-"2588
-[v _TXSTAbits `VS150 ~T0 @X0 0 e@414 ]
-"2516
-[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S149 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"2515
-[u S148 `S149 1 ]
-[n S148 . . ]
-"2527
-[v _RCSTAbits `VS148 ~T0 @X0 0 e@413 ]
-"2638
-[s S153 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S153 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
-"2637
-[u S152 `S153 1 ]
-[n S152 . . ]
-"2649
-[v _BAUDCONbits `VS152 ~T0 @X0 0 e@415 ]
-"2447
-[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-"25 user.h
-[v _Disable_Modulation `(v ~T0 @X0 0 ef ]
-"341 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
+"341
 [s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S27 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
 "351
@@ -3581,9 +3570,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 20: void LED_on(void);
 [; ;user.h: 21: void LED_off(void);
 [; ;user.h: 22: void Buzz(uint16_t freq, uint16_t dur_ms);
-[; ;user.h: 23: void Send_Packet(uint8_t data);
+[; ;user.h: 23: void Send_Byte(uint8_t data);
 [; ;user.h: 24: void Modulate_Serial(void);
 [; ;user.h: 25: void Disable_Modulation(void);
+[; ;user.h: 26: void Fire(void);
 "24 user.c
 [v _Setup `(v ~T0 @X0 1 ef ]
 "25
@@ -3607,38 +3597,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 31: TRISAbits.TRISA0 = 0;
 "31
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 34: ANSELAbits.ANSA4 = 1;
-"34
-[e = . . _ANSELAbits 0 4 -> -> 1 `i `uc ]
 [; ;user.c: 35: ADCON1 |= 0b00110000;
 "35
 [e =| _ADCON1 -> -> 48 `i `uc ]
-[; ;user.c: 36: }
-"36
+[; ;user.c: 38: SPBRGL = 103;
+"38
+[e = _SPBRGL -> -> 103 `i `uc ]
+[; ;user.c: 39: TXSTAbits.SYNC = 0;
+"39
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;user.c: 40: RCSTAbits.SPEN = 1;
+"40
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;user.c: 41: BAUDCONbits.SCKP = 1;
+"41
+[e = . . _BAUDCONbits 0 4 -> -> 1 `i `uc ]
+[; ;user.c: 42: TXSTAbits.TXEN = 1;
+"42
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;user.c: 45: RCSTAbits.CREN = 1;
+"45
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;user.c: 47: }
+"47
 [e :UE 436 ]
 }
-"38
+"49
 [v _ADC_read `(ui ~T0 @X0 1 ef ]
-"39
+"50
 {
-[; ;user.c: 38: uint16_t ADC_read()
-[; ;user.c: 39: {
+[; ;user.c: 49: uint16_t ADC_read()
+[; ;user.c: 50: {
 [e :U _ADC_read ]
 [f ]
-[; ;user.c: 40: ADCON0 |= (1 << CHS1) | (1 << CHS0);
-"40
+[; ;user.c: 51: ADCON0 |= (1 << CHS1) | (1 << CHS0);
+"51
 [e =| _ADCON0 -> | << -> 1 `i -> _CHS1 `i << -> 1 `i -> _CHS0 `i `uc ]
-[; ;user.c: 41: ADCON0 |= (1 << ADON);
-"41
+[; ;user.c: 52: ADCON0 |= (1 << ADON);
+"52
 [e =| _ADCON0 -> << -> 1 `i -> _ADON `i `uc ]
-[; ;user.c: 42: _delay((unsigned long)((6)*(16000000/4000000.0)));
-"42
+[; ;user.c: 53: _delay((unsigned long)((6)*(16000000/4000000.0)));
+"53
 [e ( __delay (1 -> * -> -> 6 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;user.c: 43: ADCON0 |= (1 << GO);
-"43
+[; ;user.c: 54: ADCON0 |= (1 << GO);
+"54
 [e =| _ADCON0 -> << -> 1 `i -> _GO `i `uc ]
-[; ;user.c: 44: while(ADCON0bits.GO){};
-"44
+[; ;user.c: 55: while(ADCON0bits.GO){};
+"55
 [e $U 438  ]
 [e :U 439 ]
 {
@@ -3646,246 +3651,237 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 438 ]
 [e $ != -> . . _ADCON0bits 2 1 `i -> -> -> 0 `i `Vuc `i 439  ]
 [e :U 440 ]
-[; ;user.c: 45: return ADRESH << 2 + ADRESL >> 6;
-"45
+[; ;user.c: 56: return ADRESH << 2 + ADRESL >> 6;
+"56
 [e ) -> >> << -> _ADRESH `i + -> 2 `i -> _ADRESL `i -> 6 `i `ui ]
 [e $UE 437  ]
-[; ;user.c: 46: }
-"46
+[; ;user.c: 57: }
+"57
 [e :UE 437 ]
 }
-"48
+"59
 [v _LED_on `(v ~T0 @X0 1 ef ]
-"49
+"60
 {
-[; ;user.c: 48: void LED_on()
-[; ;user.c: 49: {
+[; ;user.c: 59: void LED_on()
+[; ;user.c: 60: {
 [e :U _LED_on ]
 [f ]
-[; ;user.c: 50: PORTAbits.RA5 = 1;
-"50
+[; ;user.c: 61: PORTAbits.RA5 = 1;
+"61
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-[; ;user.c: 51: }
-"51
+[; ;user.c: 62: }
+"62
 [e :UE 441 ]
 }
-"53
+"64
 [v _LED_off `(v ~T0 @X0 1 ef ]
-"54
+"65
 {
-[; ;user.c: 53: void LED_off()
-[; ;user.c: 54: {
+[; ;user.c: 64: void LED_off()
+[; ;user.c: 65: {
 [e :U _LED_off ]
 [f ]
-[; ;user.c: 55: PORTAbits.RA5 = 0;
-"55
+[; ;user.c: 66: PORTAbits.RA5 = 0;
+"66
 [e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-[; ;user.c: 56: }
-"56
+[; ;user.c: 67: }
+"67
 [e :UE 442 ]
 }
-"58
+"69
 [v _Buzz `(v ~T0 @X0 1 ef2`ui`ui ]
-"59
+"70
 {
-[; ;user.c: 58: void Buzz(uint16_t freq, uint16_t dur_ms)
-[; ;user.c: 59: {
+[; ;user.c: 69: void Buzz(uint16_t freq, uint16_t dur_ms)
+[; ;user.c: 70: {
 [e :U _Buzz ]
-"58
+"69
 [v _freq `ui ~T0 @X0 1 r1 ]
 [v _dur_ms `ui ~T0 @X0 1 r2 ]
-"59
+"70
 [f ]
-[; ;user.c: 60: PWM3CONbits.PWM3EN = 1;
-"60
+[; ;user.c: 71: PWM3CONbits.PWM3EN = 1;
+"71
 [e = . . _PWM3CONbits 2 5 -> -> 1 `i `uc ]
-[; ;user.c: 61: PWM3CONbits.PWM3OE = 1;
-"61
+[; ;user.c: 72: PWM3CONbits.PWM3OE = 1;
+"72
 [e = . . _PWM3CONbits 2 4 -> -> 1 `i `uc ]
-[; ;user.c: 62: PWM3PR = (16000000 / freq) - 1;
-"62
+[; ;user.c: 73: PWM3PR = (16000000 / freq) - 1;
+"73
 [e = _PWM3PR -> - / -> 16000000 `l -> _freq `l -> -> 1 `i `l `us ]
-[; ;user.c: 63: PWM3DC = PWM3PR >> 1;
-"63
+[; ;user.c: 74: PWM3DC = PWM3PR >> 1;
+"74
 [e = _PWM3DC -> >> -> _PWM3PR `ui -> 1 `i `us ]
-[; ;user.c: 64: PWM3PH = 0x0000;
-"64
+[; ;user.c: 75: PWM3PH = 0x0000;
+"75
 [e = _PWM3PH -> -> 0 `i `us ]
-[; ;user.c: 65: PWM3LDCONbits.LDA = 1;
-"65
+[; ;user.c: 76: PWM3LDCONbits.LDA = 1;
+"76
 [e = . . _PWM3LDCONbits 0 3 -> -> 1 `i `uc ]
-[; ;user.c: 67: for(uint16_t i = 0; i <= dur_ms; i++){
-"67
+[; ;user.c: 78: for(uint16_t i = 0; i <= dur_ms; i++){
+"78
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
 [e $U 447  ]
 [e :U 444 ]
 {
-[; ;user.c: 68: _delay((unsigned long)((1)*(16000000/4000.0)));
-"68
+[; ;user.c: 79: _delay((unsigned long)((1)*(16000000/4000.0)));
+"79
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"69
+"80
 }
-"67
+"78
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 447 ]
 [e $ <= _i _dur_ms 444  ]
 [e :U 445 ]
-"69
+"80
 }
-[; ;user.c: 69: }
-[; ;user.c: 70: }
-"70
+[; ;user.c: 80: }
+[; ;user.c: 81: PWM3CONbits.PWM3OE = 0;
+"81
+[e = . . _PWM3CONbits 2 4 -> -> 0 `i `uc ]
+[; ;user.c: 82: }
+"82
 [e :UE 443 ]
 }
-"72
-[v _Send_Packet `(v ~T0 @X0 1 ef1`uc ]
-"73
-{
-[; ;user.c: 72: void Send_Packet(uint8_t data)
-[; ;user.c: 73: {
-[e :U _Send_Packet ]
-"72
-[v _data `uc ~T0 @X0 1 r1 ]
-"73
-[f ]
-[; ;user.c: 74: DACCON0bits.DACEN = 1;
-"74
-[e = . . _DACCON0bits 0 6 -> -> 1 `i `uc ]
-[; ;user.c: 75: Modulate_Serial();
-"75
-[e ( _Modulate_Serial ..  ]
-[; ;user.c: 77: SPBRGL = 54;
-"77
-[e = _SPBRGL -> -> 54 `i `uc ]
-[; ;user.c: 78: TXSTAbits.SYNC = 0;
-"78
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;user.c: 79: RCSTAbits.SPEN = 1;
-"79
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;user.c: 80: BAUDCONbits.SCKP = 1;
-"80
-[e = . . _BAUDCONbits 0 4 -> -> 1 `i `uc ]
-[; ;user.c: 81: TXSTAbits.TXEN = 1;
-"81
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;user.c: 83: TXREG = data;
-"83
-[e = _TXREG _data ]
-[; ;user.c: 84: while(!TXSTAbits.TRMT);
 "84
+[v _Send_Byte `(v ~T0 @X0 1 ef1`uc ]
+"85
+{
+[; ;user.c: 84: void Send_Byte(uint8_t data)
+[; ;user.c: 85: {
+[e :U _Send_Byte ]
+"84
+[v _data `uc ~T0 @X0 1 r1 ]
+"85
+[f ]
+[; ;user.c: 86: RCSTAbits.CREN = 0;
+"86
+[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;user.c: 87: Modulate_Serial();
+"87
+[e ( _Modulate_Serial ..  ]
+[; ;user.c: 88: TXREG = data;
+"88
+[e = _TXREG _data ]
+[; ;user.c: 89: while(!TXSTAbits.TRMT);
+"89
 [e $U 449  ]
 [e :U 450 ]
 [e :U 449 ]
 [e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 450  ]
 [e :U 451 ]
-[; ;user.c: 85: Disable_Modulation();
-"85
+[; ;user.c: 90: Disable_Modulation();
+"90
 [e ( _Disable_Modulation ..  ]
-[; ;user.c: 86: TRISAbits.TRISA0 = 0;
-"86
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 87: DACCON0bits.DACEN = 0;
-"87
-[e = . . _DACCON0bits 0 6 -> -> 0 `i `uc ]
-[; ;user.c: 88: }
-"88
+[; ;user.c: 91: RCSTAbits.CREN = 1;
+"91
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;user.c: 92: }
+"92
 [e :UE 448 ]
 }
-"90
+"94
 [v _Modulate_Serial `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 90: void Modulate_Serial(void){
+[; ;user.c: 94: void Modulate_Serial(void){
 [e :U _Modulate_Serial ]
 [f ]
-[; ;user.c: 91: INTCONbits.GIE = 1;
-"91
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;user.c: 92: INTCONbits.PEIE = 1;
-"92
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;user.c: 93: PIE1bits.TMR1IE = 1;
-"93
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;user.c: 95: T1CONbits.nT1SYNC = 1;
+[; ;user.c: 95: DACCON0bits.DACEN = 1;
 "95
-[e = . . _T1CONbits 0 2 -> -> 1 `i `uc ]
-[; ;user.c: 96: T1CONbits.TMR1ON = 1;
-"96
-[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-[; ;user.c: 97: TMR1 = 65486;
+[e = . . _DACCON0bits 0 6 -> -> 1 `i `uc ]
+[; ;user.c: 97: INTCONbits.GIE = 1;
 "97
-[e = _TMR1 -> -> 65486 `l `us ]
-[; ;user.c: 98: }
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;user.c: 98: INTCONbits.PEIE = 1;
 "98
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;user.c: 99: PIE1bits.TMR1IE = 1;
+"99
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;user.c: 101: T1CONbits.nT1SYNC = 1;
+"101
+[e = . . _T1CONbits 0 2 -> -> 1 `i `uc ]
+[; ;user.c: 102: T1CONbits.TMR1ON = 1;
+"102
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+[; ;user.c: 103: TMR1 = 65486;
+"103
+[e = _TMR1 -> -> 65486 `l `us ]
+[; ;user.c: 104: }
+"104
 [e :UE 452 ]
 }
-"100
+"106
 [v _Disable_Modulation `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 100: void Disable_Modulation(void){
+[; ;user.c: 106: void Disable_Modulation(void){
 [e :U _Disable_Modulation ]
 [f ]
-[; ;user.c: 101: INTCONbits.GIE = 0;
-"101
+[; ;user.c: 107: INTCONbits.GIE = 0;
+"107
 [e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
-[; ;user.c: 102: T1CONbits.TMR1ON = 0;
-"102
+[; ;user.c: 108: T1CONbits.TMR1ON = 0;
+"108
 [e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 103: }
-"103
+[; ;user.c: 109: DACCON0bits.DACEN = 0;
+"109
+[e = . . _DACCON0bits 0 6 -> -> 0 `i `uc ]
+[; ;user.c: 110: }
+"110
 [e :UE 453 ]
 }
-[v F3543 `(v ~T0 @X0 1 tf ]
-"108
-[v _High_Priority_Interrupt `IF3543 ~T0 @X0 1 e ]
+[v F3545 `(v ~T0 @X0 1 tf ]
+"115
+[v _High_Priority_Interrupt `IF3545 ~T0 @X0 1 e ]
 {
-[; ;user.c: 108: void interrupt High_Priority_Interrupt(){
+[; ;user.c: 115: void interrupt High_Priority_Interrupt(){
 [e :U _High_Priority_Interrupt ]
 [f ]
-[; ;user.c: 109: if(PIR1bits.TMR1IF == 1)
-"109
-[e $ ! == -> . . _PIR1bits 0 0 `i -> 1 `i 455  ]
-[; ;user.c: 110: {
-"110
-{
-[; ;user.c: 111: asm("BANKSEL DACCON0");
-"111
-[; <" BANKSEL DACCON0 ;# ">
-[; ;user.c: 112: asm("MOVF DACCON0, W");
-"112
-[; <" MOVF DACCON0, W ;# ">
-[; ;user.c: 113: asm("XORLW 1<<5");
-"113
-[; <" XORLW 1<<5 ;# ">
-[; ;user.c: 114: asm("MOVWF DACCON0");
-"114
-[; <" MOVWF DACCON0 ;# ">
-[; ;user.c: 116: asm("BANKSEL PORTA");
+[; ;user.c: 116: if(PIR1bits.TMR1IF == 1)
 "116
-[; <" BANKSEL PORTA ;# ">
-[; ;user.c: 117: asm("MOVF PORTA, W");
+[e $ ! == -> . . _PIR1bits 0 0 `i -> 1 `i 455  ]
+[; ;user.c: 117: {
 "117
-[; <" MOVF PORTA, W ;# ">
-[; ;user.c: 118: asm("XORLW 1<<5");
+{
+[; ;user.c: 118: asm("BANKSEL DACCON0");
 "118
-[; <" XORLW 1<<5 ;# ">
-[; ;user.c: 119: asm("MOVWF PORTA");
+[; <" BANKSEL DACCON0 ;# ">
+[; ;user.c: 119: asm("MOVF DACCON0, W");
 "119
-[; <" MOVWF PORTA ;# ">
-[; ;user.c: 121: TMR1 += 65486;
+[; <" MOVF DACCON0, W ;# ">
+[; ;user.c: 120: asm("XORLW 1<<5");
+"120
+[; <" XORLW 1<<5 ;# ">
+[; ;user.c: 121: asm("MOVWF DACCON0");
 "121
-[e =+ _TMR1 -> -> 65486 `l `us ]
-[; ;user.c: 122: PIR1bits.TMR1IF = 0;
-"122
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; <" MOVWF DACCON0 ;# ">
+[; ;user.c: 123: asm("BANKSEL PORTA");
 "123
+[; <" BANKSEL PORTA ;# ">
+[; ;user.c: 124: asm("MOVF PORTA, W");
+"124
+[; <" MOVF PORTA, W ;# ">
+[; ;user.c: 125: asm("XORLW 1<<5");
+"125
+[; <" XORLW 1<<5 ;# ">
+[; ;user.c: 126: asm("MOVWF PORTA");
+"126
+[; <" MOVWF PORTA ;# ">
+[; ;user.c: 128: TMR1 += 65486;
+"128
+[e =+ _TMR1 -> -> 65486 `l `us ]
+[; ;user.c: 129: PIR1bits.TMR1IF = 0;
+"129
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"130
 }
 [e :U 455 ]
-[; ;user.c: 123: }
-[; ;user.c: 124: }
-"124
+[; ;user.c: 130: }
+[; ;user.c: 131: }
+"131
 [e :UE 454 ]
 }
