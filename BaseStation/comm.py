@@ -27,16 +27,25 @@ class Comm:
 		CMD_TAKE_LOG: 16,
 	}
 
-	def __init__(self,port,baud,timeout=1000,debug=False):
+	def __init__(self,port,baud,timeout=.1,debug=False):
 		self.s=serial.Serial(port,baud,timeout=timeout)
 		self.debug=debug
 
 	def put_char(self,d):
+		if self.debug:
+			print "TX {0:#04x}".format(d)
 		self.s.write(chr(d))
 		self.s.flush()
+		self.s.read()
 
 	def get_char(self):
-		return ord(self.s.read())
+		c=self.s.read()
+		if not len(c):
+			raise serial.SerialTimeoutException()
+		d=ord(c)
+		if self.debug:
+			print "RX {0:#04x}".format(d)
+		return d
 
 	def wait_for_char(self):
 		while True:
@@ -114,7 +123,6 @@ class Comm:
 	def communicate(self,gun_id,send_cmd,send_params=[],recv_cmd=CMD_ACK):
 		tries=3
 		for i in range(tries):
-			self.flush_comms()
 			self.send_packet(gun_id,send_cmd,send_params)
 			try:
 				(from_id,recvd_cmd,recv_params)=self.recv_cmd()
@@ -130,6 +138,8 @@ class Comm:
 					print "TRY {0}: {1}".format(i+1,str(e))
 			else:
 				break
+
+			self.flush_comms()
 			recv_params=None
 		return recv_params
 

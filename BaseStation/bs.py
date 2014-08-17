@@ -5,9 +5,9 @@ import serial
 import db
 import time
 
-#c=comm.Comm('/dev/ttyS0',1200);
+c=comm.Comm('/dev/ttyUSB0',2400,debug=True);
 #c=comm.SimComm(debug=True);
-c=comm.SimComm2(debug=True);
+#c=comm.SimComm2(debug=True);
 d=db.RAMDatabase()
 
 def new_gun(gun):
@@ -27,6 +27,7 @@ def new_gun(gun):
 	print "Fire your gun again to finish."
 
 def hit_by(gun):
+	c.flush_comms()
 	if gun == 0x80:
 		new_gun(gun)
 		return
