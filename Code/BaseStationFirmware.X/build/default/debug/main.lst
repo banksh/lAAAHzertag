@@ -1,0 +1,124 @@
+MPASM 5.54                          MAIN.ASM   8-17-2014  3:03:04         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001     include <p10f200.inc>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC10F200 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00151         LIST
+                      00002 
+0FFF   0FFB           00003     __CONFIG _WDTE_OFF & _CP_OFF & _MCLRE_ON
+                      00004 
+                      00005     org 0
+0000   0C0E           00006     movlw b'1110'
+0001   0006           00007     tris GPIO
+                      00008 
+0002                  00009 loop:
+0002   0506           00010     bsf GPIO,0
+0003   0000           00011     nop
+0004   0000           00012     nop
+0005   0000           00013     nop
+0006   0000           00014     nop
+0007   0000           00015     nop
+0008   0000           00016     nop
+0009   0000           00017     nop
+000A   0000           00018     nop
+000B   0000           00019     nop
+000C   0000           00020     nop
+000D   0000           00021     nop
+000E   0726           00022     btfss GPIO,1
+000F   0406           00023     bcf GPIO,0
+0010   0000           00024     nop
+0011   0000           00025     nop
+0012   0000           00026     nop
+0013   0000           00027     nop
+0014   0000           00028     nop
+0015   0000           00029     nop
+0016   0000           00030     nop
+0017   0000           00031     nop
+0018   0A??           00032     goto loop
+0FFB                  00033     end
+MPASM 5.54                          MAIN.ASM   8-17-2014  3:03:04         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CAL0                              00000001
+CAL1                              00000002
+CAL2                              00000003
+CAL3                              00000004
+CAL4                              00000005
+CAL5                              00000006
+CAL6                              00000007
+DC                                00000001
+F                                 00000001
+FOSC4                             00000000
+FSR                               00000004
+GP0                               00000000
+GP1                               00000001
+GP2                               00000002
+GP3                               00000003
+GPIO                              00000006
+GPWUF                             00000007
+INDF                              00000000
+NOT_GPPU                          00000006
+NOT_GPWU                          00000007
+NOT_PD                            00000003
+NOT_TO                            00000004
+OSCCAL                            00000005
+PCL                               00000002
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+STATUS                            00000003
+T0CS                              00000005
+T0SE                              00000004
+TMR0                              00000001
+TRISIO0                           00000000
+TRISIO1                           00000001
+TRISIO2                           00000002
+TRISIO3                           00000003
+W                                 00000000
+Z                                 00000002
+_CONFIG                           00000FFF
+_CP_OFF                           00000FFF
+_CP_ON                            00000FF7
+_IDLOC0                           00000100
+_IDLOC1                           00000101
+_IDLOC2                           00000102
+_IDLOC3                           00000103
+_IntRC_OSC                        00000FFF
+_MCLRE_OFF                        00000FEF
+_MCLRE_ON                         00000FFF
+_OSC_IntRC                        00000FFF
+_WDTE_OFF                         00000FFB
+_WDTE_ON                          00000FFF
+_WDT_OFF                          00000FFB
+MPASM 5.54                          MAIN.ASM   8-17-2014  3:03:04         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDT_ON                           00000FFF
+__10F200                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_PICKIT2          1
+loop                              00000002
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
