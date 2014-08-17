@@ -31,8 +31,19 @@ void Setup(void)
     TRISAbits.TRISA0 = 0;
 
     // ADC setup
-    ANSELAbits.ANSA4 = 1; // RA4 as analog input
+    //ANSELAbits.ANSA4 = 1; // RA4 as analog input
     ADCON1 |= 0b00110000; // Use internal RC osc for ADC clock (allows ADC to function in sleep)
+
+    // USART setup
+    SPBRGL = 103; // Baud rate is 2404
+    TXSTAbits.SYNC = 0;  // Asynchronous mode
+    RCSTAbits.SPEN = 1; // Enable EUSART
+    BAUDCONbits.SCKP = 1; // Inverted mode (idle low)
+    TXSTAbits.TXEN = 1; // Enable transmitter
+
+    // RX setup
+    RCSTAbits.CREN = 1; // Enable receiver
+
 }
 
 uint16_t ADC_read()
@@ -67,27 +78,22 @@ void Buzz(uint16_t freq, uint16_t dur_ms)
     for(uint16_t i = 0; i <= dur_ms; i++){
         __delay_ms(1);
     }
+    PWM3CONbits.PWM3OE = 0;
 }
 
-void Send_Packet(uint8_t data)
+void Send_Byte(uint8_t data)
 {
-    DACCON0bits.DACEN = 1; // Enable DAC to send data over serial
+    RCSTAbits.CREN = 0; // Disable receiver
     Modulate_Serial();
-
-    SPBRGL = 54; // Baud rate is 4545
-    TXSTAbits.SYNC = 0;  // Asynchronous mode
-    RCSTAbits.SPEN = 1; // Enable EUSART
-    BAUDCONbits.SCKP = 1; // Inverted mode (idle low)
-    TXSTAbits.TXEN = 1; // Enable transmitter
-
     TXREG = data;
     while(!TXSTAbits.TRMT); // Wait for USART to send all data
     Disable_Modulation();
-    TRISAbits.TRISA0 = 0; // Allow RA0 to drive low
-    DACCON0bits.DACEN = 0;
+    RCSTAbits.CREN = 1; // Enable receiver
 }
 
 void Modulate_Serial(void){
+        DACCON0bits.DACEN = 1; // Enable DAC to send data over serial
+
 	INTCONbits.GIE = 1; // Enable interrupts
 	INTCONbits.PEIE = 1; // Enable peripheral interrupts
 	PIE1bits.TMR1IE = 1; // Enable Timer1 overflow interrupt
@@ -100,6 +106,7 @@ void Modulate_Serial(void){
 void Disable_Modulation(void){
     INTCONbits.GIE = 0;
     T1CONbits.TMR1ON = 0;
+    DACCON0bits.DACEN = 0;
 }
 
 

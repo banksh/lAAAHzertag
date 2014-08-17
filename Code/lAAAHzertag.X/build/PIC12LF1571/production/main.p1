@@ -1,13 +1,36 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"18 user.h
-[v _Setup `(v ~T0 @X0 0 ef ]
 [v F3487 `(v ~T0 @X0 1 tf1`ul ]
 "154 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic.h
 [v __delay `JF3487 ~T0 @X0 0 e ]
 [p i __delay ]
+"475 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
+[s S33 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . TMR1IF TMR2IF . TXIF RCIF ADIF TMR1GIF ]
+"474
+[u S32 `S33 1 ]
+[n S32 . . ]
+"485
+[v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
+"2428
+[v _RCREG `Vuc ~T0 @X0 0 e@409 ]
 "23 user.h
-[v _Send_Packet `(v ~T0 @X0 0 ef1`uc ]
+[v _Send_Byte `(v ~T0 @X0 0 ef1`uc ]
+"418 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
+[s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S30 . RA0 RA1 RA2 RA3 RA4 RA5 ]
+"426
+[s S31 :6 `uc 1 ]
+[n S31 . PORTA ]
+"417
+[u S29 `S30 1 `S31 1 ]
+[n S29 . . . ]
+"430
+[v _PORTAbits `VS29 ~T0 @X0 0 e@12 ]
+"22 user.h
+[v _Buzz `(v ~T0 @X0 0 ef2`ui`ui ]
+[p mainexit ]
+"18
+[v _Setup `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic12lf1572.h: 47: extern volatile unsigned char INDF0 @ 0x000;
@@ -3395,72 +3418,639 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 20: void LED_on(void);
 [; ;user.h: 21: void LED_off(void);
 [; ;user.h: 22: void Buzz(uint16_t freq, uint16_t dur_ms);
-[; ;user.h: 23: void Send_Packet(uint8_t data);
+[; ;user.h: 23: void Send_Byte(uint8_t data);
 [; ;user.h: 24: void Modulate_Serial(void);
 [; ;user.h: 25: void Disable_Modulation(void);
-"28 main.c
+[; ;user.h: 26: void Fire(void);
+"29 main.c
 [p x FOSC=INTOSC ]
-"29
-[p x WDTE=OFF ]
 "30
-[p x PWRTE=OFF ]
+[p x WDTE=OFF ]
 "31
-[p x MCLRE=ON ]
+[p x PWRTE=OFF ]
 "32
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "33
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "34
+[p x BOREN=ON ]
+"35
 [p x CLKOUTEN=OFF ]
-"37
-[p x WRT=OFF ]
 "38
-[p x PLLEN=OFF ]
+[p x WRT=OFF ]
 "39
-[p x STVREN=ON ]
+[p x PLLEN=OFF ]
 "40
-[p x BORV=LO ]
+[p x STVREN=ON ]
 "41
-[p x LPBOREN=OFF ]
+[p x BORV=LO ]
 "42
+[p x LPBOREN=OFF ]
+"43
 [p x LVP=OFF ]
-"44
-[v _main `(v ~T0 @X0 1 ef ]
 "45
-{
-[; ;main.c: 44: void main(void)
-[; ;main.c: 45: {
-[e :U _main ]
-[f ]
-[; ;main.c: 46: Setup();
+[v _my_id `uc ~T0 @X0 1 e ]
+[i _my_id
+-> -> 128 `i `uc
+]
+[; ;main.c: 45: uint8_t my_id=0x80;
 "46
-[e ( _Setup ..  ]
-[; ;main.c: 48: while(1)
-"48
-[e :U 438 ]
-[; ;main.c: 49: {
+[v _my_power_level `uc ~T0 @X0 1 e ]
+[i _my_power_level
+-> -> 0 `i `uc
+]
+[; ;main.c: 46: uint8_t my_power_level=0x00;
+"47
+[v _my_random_number `uc ~T0 @X0 1 e ]
+[i _my_random_number
+-> -> 0 `i `uc
+]
+[; ;main.c: 47: uint8_t my_random_number=0x00;
 "49
+[v _control_transfer `(v ~T0 @X0 1 ef ]
+"50
 {
-[; ;main.c: 53: _delay((unsigned long)((50)*(16000000/4000.0)));
-"53
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;main.c: 54: Send_Packet(0b10101010);
+[; ;main.c: 49: void control_transfer()
+[; ;main.c: 50: {
+[e :U _control_transfer ]
+[f ]
+"51
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+[v _checksum `uc ~T0 @X0 1 a ]
+"52
+[v _i `ui ~T0 @X0 1 a ]
 "54
-[e ( _Send_Packet (1 -> -> 170 `i `uc ]
-[; ;main.c: 58: _delay((unsigned long)((50)*(16000000/4000.0)));
-"58
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;main.c: 59: Send_Packet(0b10110011);
-"59
-[e ( _Send_Packet (1 -> -> 179 `i `uc ]
-"60
+[v _cmd `uc ~T0 @X0 1 a ]
+"55
+[v _power_level `uc ~T0 @X0 1 a ]
+[v _random_number `uc ~T0 @X0 1 a ]
+[v _id `uc ~T0 @X0 1 a ]
+[; ;main.c: 51: uint8_t x,y,checksum;
+[; ;main.c: 52: uint16_t i;
+[; ;main.c: 54: uint8_t cmd;
+[; ;main.c: 55: uint8_t power_level,random_number,id;
+[; ;main.c: 57: checksum = 0; i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y
+"57
+[e = _checksum -> -> 0 `i `uc ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 437  ]
+[e :U 438 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 440  ]
+[e $U 441  ]
+[e :U 440 ]
 }
 [e :U 437 ]
-"48
-[e $U 438  ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 438  ]
 [e :U 439 ]
-[; ;main.c: 60: }
-[; ;main.c: 62: }
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 442  ]
+[e :U 443 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 445  ]
+[e $U 441  ]
+[e :U 445 ]
+}
+[e :U 442 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 443  ]
+[e :U 444 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 446  ]
+[e $U 441  ]
+[e :U 446 ]
+[e = _x -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _x ]
+[e $ ! != -> _x `i -> _my_id `i 447  ]
+[e $U 441  ]
+[e :U 447 ]
+[; ;main.c: 58: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"58
+[e = _i -> -> 0 `i `ui ]
+[e $U 448  ]
+[e :U 449 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 451  ]
+[e $U 441  ]
+[e :U 451 ]
+}
+[e :U 448 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 449  ]
+[e :U 450 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 452  ]
+[e :U 453 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 455  ]
+[e $U 441  ]
+[e :U 455 ]
+}
+[e :U 452 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 453  ]
+[e :U 454 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 456  ]
+[e $U 441  ]
+[e :U 456 ]
+[e = _cmd -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _cmd ]
+[; ;main.c: 60: switch(cmd)
+"60
+[e $U 458  ]
+[; ;main.c: 61: {
+"61
+{
+[; ;main.c: 62: case 0x01:
 "62
+[e :U 459 ]
+[; ;main.c: 64: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"64
+[e = _i -> -> 0 `i `ui ]
+[e $U 460  ]
+[e :U 461 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 463  ]
+[e $U 441  ]
+[e :U 463 ]
+}
+[e :U 460 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 461  ]
+[e :U 462 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 464  ]
+[e :U 465 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 467  ]
+[e $U 441  ]
+[e :U 467 ]
+}
+[e :U 464 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 465  ]
+[e :U 466 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 468  ]
+[e $U 441  ]
+[e :U 468 ]
+[e = _x -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _x ]
+[e $ ! != -> _checksum `i -> -> -> 0 `i `uc `i 469  ]
+[e $U 441  ]
+[e :U 469 ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 470  ]
+[e :U 471 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 473  ]
+[e $U 441  ]
+[e :U 473 ]
+}
+[e :U 470 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 471  ]
+[e :U 472 ]
+[e = _x _RCREG ]
+[e $ ! != -> _x `i -> 17 `i 474  ]
+[e $U 441  ]
+[e :U 474 ]
+[; ;main.c: 65: Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
+"65
+[e ( _Send_Byte (1 -> -> 16 `i `uc ]
+[e = _checksum -> -> 0 `i `uc ]
+[e = _x -> & -> _my_id `i -> 15 `i `uc ]
+[e = _y -> >> -> _my_id `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _my_id ]
+[; ;main.c: 66: x = 0x02 & 0x0F; y = 0x02 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x02;
+"66
+[e = _x -> & -> 2 `i -> 15 `i `uc ]
+[e = _y -> >> -> 2 `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum -> -> 2 `i `uc ]
+[; ;main.c: 67: x = my_random_number & 0x0F; y = my_random_number >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_random_number;
+"67
+[e = _x -> & -> _my_random_number `i -> 15 `i `uc ]
+[e = _y -> >> -> _my_random_number `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _my_random_number ]
+[; ;main.c: 68: x = checksum & 0x0F; y = checksum >> 4; Send_Byte(x); Send_Byte(y); checksum -= checksum; Send_Byte(0x11);
+"68
+[e = _x -> & -> _checksum `i -> 15 `i `uc ]
+[e = _y -> >> -> _checksum `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _checksum ]
+[e ( _Send_Byte (1 -> -> 17 `i `uc ]
+[; ;main.c: 69: break;
+"69
+[e $U 457  ]
+[; ;main.c: 70: case 0x03:
+"70
+[e :U 475 ]
+[; ;main.c: 71: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"71
+[e = _i -> -> 0 `i `ui ]
+[e $U 476  ]
+[e :U 477 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 479  ]
+[e $U 441  ]
+[e :U 479 ]
+}
+[e :U 476 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 477  ]
+[e :U 478 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 480  ]
+[e :U 481 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 483  ]
+[e $U 441  ]
+[e :U 483 ]
+}
+[e :U 480 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 481  ]
+[e :U 482 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 484  ]
+[e $U 441  ]
+[e :U 484 ]
+[e = _random_number -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _random_number ]
+[; ;main.c: 72: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"72
+[e = _i -> -> 0 `i `ui ]
+[e $U 485  ]
+[e :U 486 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 488  ]
+[e $U 441  ]
+[e :U 488 ]
+}
+[e :U 485 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 486  ]
+[e :U 487 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 489  ]
+[e :U 490 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 492  ]
+[e $U 441  ]
+[e :U 492 ]
+}
+[e :U 489 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 490  ]
+[e :U 491 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 493  ]
+[e $U 441  ]
+[e :U 493 ]
+[e = _id -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _id ]
+[; ;main.c: 73: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"73
+[e = _i -> -> 0 `i `ui ]
+[e $U 494  ]
+[e :U 495 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 497  ]
+[e $U 441  ]
+[e :U 497 ]
+}
+[e :U 494 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 495  ]
+[e :U 496 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 498  ]
+[e :U 499 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 501  ]
+[e $U 441  ]
+[e :U 501 ]
+}
+[e :U 498 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 499  ]
+[e :U 500 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 502  ]
+[e $U 441  ]
+[e :U 502 ]
+[e = _x -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _x ]
+[e $ ! != -> _checksum `i -> -> -> 0 `i `uc `i 503  ]
+[e $U 441  ]
+[e :U 503 ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 504  ]
+[e :U 505 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 507  ]
+[e $U 441  ]
+[e :U 507 ]
+}
+[e :U 504 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 505  ]
+[e :U 506 ]
+[e = _x _RCREG ]
+[e $ ! != -> _x `i -> 17 `i 508  ]
+[e $U 441  ]
+[e :U 508 ]
+[; ;main.c: 74: if(random_number != my_random_number) goto err;
+"74
+[e $ ! != -> _random_number `i -> _my_random_number `i 509  ]
+[e $U 441  ]
+[e :U 509 ]
+[; ;main.c: 75: Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
+"75
+[e ( _Send_Byte (1 -> -> 16 `i `uc ]
+[e = _checksum -> -> 0 `i `uc ]
+[e = _x -> & -> _my_id `i -> 15 `i `uc ]
+[e = _y -> >> -> _my_id `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _my_id ]
+[; ;main.c: 76: x = 0x00 & 0x0F; y = 0x00 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x00;
+"76
+[e = _x -> & -> 0 `i -> 15 `i `uc ]
+[e = _y -> >> -> 0 `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum -> -> 0 `i `uc ]
+[; ;main.c: 77: x = checksum & 0x0F; y = checksum >> 4; Send_Byte(x); Send_Byte(y); checksum -= checksum; Send_Byte(0x11);
+"77
+[e = _x -> & -> _checksum `i -> 15 `i `uc ]
+[e = _y -> >> -> _checksum `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _checksum ]
+[e ( _Send_Byte (1 -> -> 17 `i `uc ]
+[; ;main.c: 78: my_id=id;
+"78
+[e = _my_id _id ]
+[; ;main.c: 79: break;
+"79
+[e $U 457  ]
+[; ;main.c: 80: case 0x08:
+"80
+[e :U 510 ]
+[; ;main.c: 81: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"81
+[e = _i -> -> 0 `i `ui ]
+[e $U 511  ]
+[e :U 512 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 514  ]
+[e $U 441  ]
+[e :U 514 ]
+}
+[e :U 511 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 512  ]
+[e :U 513 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 515  ]
+[e :U 516 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 518  ]
+[e $U 441  ]
+[e :U 518 ]
+}
+[e :U 515 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 516  ]
+[e :U 517 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 519  ]
+[e $U 441  ]
+[e :U 519 ]
+[e = _power_level -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _power_level ]
+[; ;main.c: 82: i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if
+"82
+[e = _i -> -> 0 `i `ui ]
+[e $U 520  ]
+[e :U 521 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 523  ]
+[e $U 441  ]
+[e :U 523 ]
+}
+[e :U 520 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 521  ]
+[e :U 522 ]
+[e = _x _RCREG ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 524  ]
+[e :U 525 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 527  ]
+[e $U 441  ]
+[e :U 527 ]
+}
+[e :U 524 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 525  ]
+[e :U 526 ]
+[e = _y _RCREG ]
+[e $ ! || != & -> _x `i ~ -> 15 `i -> 0 `i != & -> _y `i ~ -> 15 `i -> 0 `i 528  ]
+[e $U 441  ]
+[e :U 528 ]
+[e = _x -> | << -> _y `i -> 4 `i -> _x `i `uc ]
+[e =+ _checksum _x ]
+[e $ ! != -> _checksum `i -> -> -> 0 `i `uc `i 529  ]
+[e $U 441  ]
+[e :U 529 ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 530  ]
+[e :U 531 ]
+{
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ++ _i -> -> 1 `i `ui ]
+[e $ ! >= _i -> -> 1000 `i `ui 533  ]
+[e $U 441  ]
+[e :U 533 ]
+}
+[e :U 530 ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 531  ]
+[e :U 532 ]
+[e = _x _RCREG ]
+[e $ ! != -> _x `i -> 17 `i 534  ]
+[e $U 441  ]
+[e :U 534 ]
+[; ;main.c: 83: my_power_level = power_level;
+"83
+[e = _my_power_level _power_level ]
+[; ;main.c: 84: Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
+"84
+[e ( _Send_Byte (1 -> -> 16 `i `uc ]
+[e = _checksum -> -> 0 `i `uc ]
+[e = _x -> & -> _my_id `i -> 15 `i `uc ]
+[e = _y -> >> -> _my_id `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _my_id ]
+[; ;main.c: 85: x = 0x00 & 0x0F; y = 0x00 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x00;
+"85
+[e = _x -> & -> 0 `i -> 15 `i `uc ]
+[e = _y -> >> -> 0 `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum -> -> 0 `i `uc ]
+[; ;main.c: 86: x = checksum & 0x0F; y = checksum >> 4; Send_Byte(x); Send_Byte(y); checksum -= checksum; Send_Byte(0x11);
+"86
+[e = _x -> & -> _checksum `i -> 15 `i `uc ]
+[e = _y -> >> -> _checksum `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 _x ]
+[e ( _Send_Byte (1 _y ]
+[e =- _checksum _checksum ]
+[e ( _Send_Byte (1 -> -> 17 `i `uc ]
+[; ;main.c: 87: break;
+"87
+[e $U 457  ]
+[; ;main.c: 89: default:
+"89
+[e :U 535 ]
+[; ;main.c: 90: goto err;
+"90
+[e $U 441  ]
+"91
+}
+[; ;main.c: 91: }
+[e $U 457  ]
+"60
+[e :U 458 ]
+[e [\ _cmd , $ -> -> 1 `i `uc 459
+ , $ -> -> 3 `i `uc 475
+ , $ -> -> 8 `i `uc 510
+ 535 ]
+"91
+[e :U 457 ]
+[; ;main.c: 92: err:
+"92
+[e :U 441 ]
+[; ;main.c: 93: return;
+"93
+[e $UE 436  ]
+[; ;main.c: 94: }
+"94
 [e :UE 436 ]
+}
+"96
+[v _Fire `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 96: void Fire(){
+[e :U _Fire ]
+[f ]
+[; ;main.c: 97: if (PORTAbits.RA4) {
+"97
+[e $ ! != -> . . _PORTAbits 0 4 `i -> -> -> 0 `i `Vuc `i 537  ]
+{
+[; ;main.c: 98: Send_Byte(my_id);
+"98
+[e ( _Send_Byte (1 _my_id ]
+[; ;main.c: 99: Buzz(3000,50);
+"99
+[e ( _Buzz (2 , -> -> 3000 `i `ui -> -> 50 `i `ui ]
+"100
+}
+[e :U 537 ]
+[; ;main.c: 100: }
+[; ;main.c: 101: }
+"101
+[e :UE 536 ]
+}
+"103
+[v _main `(v ~T0 @X0 1 ef ]
+"104
+{
+[; ;main.c: 103: void main(void)
+[; ;main.c: 104: {
+[e :U _main ]
+[f ]
+"105
+[v _b `uc ~T0 @X0 1 a ]
+[; ;main.c: 105: uint8_t b;
+[; ;main.c: 107: Setup();
+"107
+[e ( _Setup ..  ]
+[; ;main.c: 109: while(1)
+"109
+[e :U 540 ]
+[; ;main.c: 110: {
+"110
+{
+[; ;main.c: 129: Fire();
+"129
+[e ( _Fire ..  ]
+[; ;main.c: 130: if((PIR1bits.RCIF))
+"130
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 542  ]
+[; ;main.c: 131: {
+"131
+{
+[; ;main.c: 132: b=(RCREG);
+"132
+[e = _b _RCREG ]
+[; ;main.c: 133: if(b == 0x10)
+"133
+[e $ ! == -> _b `i -> 16 `i 543  ]
+[; ;main.c: 134: control_transfer();
+"134
+[e ( _control_transfer ..  ]
+[e :U 543 ]
+"136
+}
+[e :U 542 ]
+"147
+}
+[e :U 539 ]
+"109
+[e $U 540  ]
+[e :U 541 ]
+[; ;main.c: 136: }
+[; ;main.c: 147: }
+[; ;main.c: 149: }
+"149
+[e :UE 538 ]
 }
