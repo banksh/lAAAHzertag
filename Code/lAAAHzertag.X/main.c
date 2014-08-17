@@ -42,9 +42,13 @@
 #pragma config LPBOREN = OFF    // Low Power Brown-out Reset enable bit (LPBOR is disabled)
 #pragma config LVP = OFF         // Low-Voltage Programming Enable (Low-voltage programming enabled)
 
+extern config_t config;
+
 uint8_t my_id=0x80;
 uint8_t my_power_level=0x00;
 uint8_t my_random_number=0x00;
+
+
 
 void control_transfer()
 {
@@ -74,7 +78,8 @@ void control_transfer()
             SEND_SOF()
             SEND_DATA_BYTE(CMD_ACK)
             SEND_EOF()
-            my_id=id;
+            //my_id=id;
+            //Write_Device_ID(id);
             break;
         case CMD_SET_POWER: // set power
             READ_DATA_BYTE(power_level)
@@ -103,6 +108,11 @@ void main(void)
 {
     uint8_t b;
 
+    config.health = 16;
+    config.id = 0x80;
+    config.power = 0x16;
+    config.respawn_timer = 10;
+    
     Setup();
 
     while(1)
@@ -137,6 +147,14 @@ void main(void)
             }
                 //Buzz(5000,150);
         }
+
+
+        Save(0x7D0, (uint16_t*) &config, CONFIG_SIZE);
+
+        config.id = 0x92;
+        Load(0x7D0, (uint16_t*) &config, CONFIG_SIZE);
+        //Write_Device_ID(0x82);
+        //my_id = Read_Device_ID();
         //LED_on();
         //Buzz(3500,200);
         //Buzz(4000,200);

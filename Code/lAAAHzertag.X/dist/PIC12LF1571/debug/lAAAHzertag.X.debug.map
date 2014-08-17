@@ -3,10 +3,10 @@ Microchip MPLAB XC8 Compiler V1.32 ()
 Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.32\dat\en_msgs.txt -cs \
-  -h+dist/PIC12LF1571/production\lAAAHzertag.X.production.sym \
-  --cmf=dist/PIC12LF1571/production\lAAAHzertag.X.production.cmf -z \
-  -Q12LF1572 -oC:\Users\Banks\AppData\Local\Temp\s1fnc.6 \
-  -Mdist/PIC12LF1571/production/lAAAHzertag.X.production.map -E1 -ver=XC8 \
+  -h+dist/PIC12LF1571/debug\lAAAHzertag.X.debug.sym \
+  --cmf=dist/PIC12LF1571/debug\lAAAHzertag.X.debug.cmf -z -Q12LF1572 \
+  -oC:\Users\Banks\AppData\Local\Temp\s1d5k.6 \
+  -Mdist/PIC12LF1571/debug/lAAAHzertag.X.debug.map -E1 -ver=XC8 \
   -ASTACK=02019h-020efh -pstack=STACK -ACONST=00h-0FFhx8 -ACODE=00h-07FFh \
   -ASTRCODE=00h-07FFh -AENTRY=00h-0FFhx8 -ASTRING=00h-0FFhx8 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -27,8 +27,8 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 \
   -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Banks\AppData\Local\Temp\s1fnc.obj \
-  dist/PIC12LF1571/production\lAAAHzertag.X.production.obj 
+  C:\Users\Banks\AppData\Local\Temp\s1d5k.obj \
+  dist/PIC12LF1571/debug\lAAAHzertag.X.debug.obj 
 
 Object code version is 3.11
 
@@ -37,11 +37,11 @@ Machine type is 12LF1572
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Banks\AppData\Local\Temp\s1fnc.obj
+C:\Users\Banks\AppData\Local\Temp\s1d5k.obj
                 end_init                             19       19        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             8007     8007        2    1000E       0
-dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+dist/PIC12LF1571/debug\lAAAHzertag.X.debug.obj
                 cinit                                1A       1A        7        8       0
                 intentry                              4        4       15        8       0
                 text13                              3E9      3E9       82        8       0

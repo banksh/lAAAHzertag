@@ -5,7 +5,7 @@
   BE8h - 1000Dh
   10012h - 1003Fh
   
- dist/PIC12LF1571/production\lAAAHzertag.X.production.hex ranges:
+ dist/PIC12LF1571/debug\lAAAHzertag.X.debug.hex ranges:
   0h - 1h
   8h - BE7h
   1000Eh - 10011h
@@ -21,7 +21,7 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/PIC12LF1571/production\lAAAHzertag.X.production.hex
+  1 = dist/PIC12LF1571/debug\lAAAHzertag.X.debug.hex
 00000000: 11------11111111111111111111111111111111111111111111111111111111
 00000040: 1111111111111111111111111111111111111111111111111111111111111111
 00000080: 1111111111111111111111111111111111111111111111111111111111111111

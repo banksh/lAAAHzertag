@@ -21,6 +21,8 @@
 
 /* <Initialize variables in user.h and insert code for user algorithms.> */
 
+config_t config;
+
 void Setup(void)
 {
     OSCCON = 0b01111010; //16MHz internal clock
@@ -120,7 +122,20 @@ uint16_t Read_Memory(uint16_t address){
     return PMDAT;
 }
 
-void Erase_Memory(uint16_t address){
+void Load(uint16_t address, uint16_t* ptr, uint8_t data_length){
+    PMCON1bits.CFGS = 0; // Address program memory
+    PMADR = address;
+    for (uint8_t i=0; i<data_length; i++){
+        PMCON1bits.RD = 1; // Read operation
+        NOP();
+        NOP();
+        *ptr++ = PMDAT;
+        PMADR ++;
+    }
+}
+
+void Save(uint16_t address, uint16_t* ptr, uint8_t data_length){
+    // Erase data
     INTCONbits.GIE = 0;
     PMCON1bits.CFGS = 0; // Program memory
     PMADR = address;
@@ -132,24 +147,29 @@ void Erase_Memory(uint16_t address){
     NOP();
     NOP();
     PMCON1bits.WREN = 0;
-    INTCONbits.GIE = 0;
-}
 
-void Write_Memory(uint16_t address, uint16_t data){
-    INTCONbits.GIE = 0;
-    PMCON1bits.CFGS = 0; // Program memory
-    PMADR = address;
     PMCON1bits.FREE = 0; // Write operation
     PMCON1bits.LWLO = 1; // Load write latches only
     PMCON1bits.WREN = 1; // Write enable
-    PMDAT = data;
-    PMCON1bits.LWLO = 0; // Write latches to flash
+
+    for (uint8_t i=0; ; i++){
+        PMDAT = *ptr++;
+        if(i == data_length) break;
+        PMCON2 = 0x55;
+        PMCON2 = 0xAA; // Flash memory unlock sequence
+        PMCON1bits.WR = 1; // Begin not erase
+        NOP();
+        NOP();
+        PMADR ++;
+    }
+    PMCON1bits.LWLO = 0;
     PMCON2 = 0x55;
     PMCON2 = 0xAA; // Flash memory unlock sequence
+    PMCON1bits.WR = 1; // DO IT
     NOP();
     NOP();
     PMCON1bits.WREN = 0;
-    INTCONbits.GIE = 0;
+    INTCONbits.GIE = 1;
 }
 
 void Get_hit(uint8_t ID){

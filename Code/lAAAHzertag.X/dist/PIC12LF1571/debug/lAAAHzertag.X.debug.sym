@@ -378,8 +378,8 @@ config 1000E 10011 CONFIG 1000E 0
 cstackCOMMON 70 7C COMMON 70 1
 cstackBANK0 20 38 BANK0 20 1
 %locals
-dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-C:\Users\Banks\AppData\Local\Temp\s1fnc.
+dist/PIC12LF1571/debug\lAAAHzertag.X.debug.obj
+C:\Users\Banks\AppData\Local\Temp\s1d5k.
 858 1A 0 CODE 0
 861 1A 0 CODE 0
 884 1A 0 CODE 0
