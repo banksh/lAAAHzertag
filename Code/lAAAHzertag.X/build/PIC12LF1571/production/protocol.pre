@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "protocol.c"
 
 # 21 "C:\Program Files (x86)\Microchip\xc8\v1.32\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4571,7 +4571,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 4 "main.h"
+# 1 "protocol.h"
+uint8_t handle_serial();
+
+# 7 "main.h"
 typedef struct {
 uint16_t id;
 uint16_t power;
@@ -4583,11 +4586,18 @@ uint16_t fire_cheating;
 uint16_t fire_holdoff;
 } config_t;
 
+
+
+typedef uint16_t hitlist_t[16];
+
+
+
 extern config_t config;
+extern hitlist_t hitlist;
 
 void hit_by(uint8_t who);
 
-# 21 "user.h"
+# 7 "user.h"
 void Setup(void);
 uint16_t ADC_read(void);
 void LED_on(void);
@@ -4597,64 +4607,134 @@ void Send_Byte(uint8_t data);
 void Modulate_Serial(void);
 void Disable_Modulation(void);
 uint8_t Fire(void);
-void Erase(uint16_t address);
 void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Get_hit(uint8_t ID);
 void Sleep();
 
-# 1 "protocol.h"
-uint8_t handle_serial();
+uint8_t get_hitlist_length();
+void add_to_hitlist(uint8_t gun);
+
+# 23 "protocol.c"
+uint8_t _x,_y,_checksum;
+uint16_t _i;
 
 
-# 9 "main.c"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config BOREN = ON
-#pragma config CLKOUTEN = OFF
+
+static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!(PIR1bits.RCIF)) {_i++; if(_i >= 10000) return 1;} *val = (RCREG); return 0;}
+
+# 34
+static void SEND_DATA_BYTE(uint8_t b) {_x = b & 0x0F; _y = b >> 4; Send_Byte(_x); _delay((unsigned long)((100)*(16000000/4000000.0))); Send_Byte(_y); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum -= b;}
+static void SEND_SOF() {Send_Byte(0x10); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum = 0; SEND_DATA_BYTE(config.id);}
+static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11); _delay((unsigned long)((100)*(16000000/4000000.0)));;}
 
 
-#pragma config WRT = OFF
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOREN = OFF
-#pragma config LVP = OFF
 
-config_t config;
 
-void main(void)
+uint8_t my_random_number;
+
+static void control_transfer()
 {
+uint8_t i;
+uint8_t cmd;
+uint8_t random_number,id;
+
+uint16_t page;
+uint16_t data[16];
+uint8_t* dptr;
+uint8_t x;
+
+_checksum = 0; if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_x != config.id) goto err;
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; cmd=((_y << 4) | _x); _checksum += cmd;
+
+switch(cmd)
+{
+case 0x01:
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+SEND_SOF();
+SEND_DATA_BYTE(0x02);
+SEND_DATA_BYTE(my_random_number);
+SEND_EOF();
+break;
+case 0x03:
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; random_number=((_y << 4) | _x); _checksum += random_number;
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; id=((_y << 4) | _x); _checksum += id;
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+if(random_number != my_random_number) goto err;
+SEND_SOF();
+SEND_DATA_BYTE(0x00);
+SEND_EOF();
+config.id=id;
+Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+break;
+case 0x04:
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+*((uint8_t*)(&page))=x;
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+*(((uint8_t*)(&page))+1)=x;
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+Load(page,data,16);
+SEND_SOF();
+SEND_DATA_BYTE(0x05);
+dptr=(uint8_t*)data;
+for(i=0;i<32;i++)
+{
+SEND_DATA_BYTE(*dptr++);
+}
+SEND_EOF();
+break;
+case 0x06:
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+*((uint8_t*)(&page))=x;
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+*(((uint8_t*)(&page))+1)=x;
+dptr=(uint8_t*)data;
+for(i=0;i<32;i++)
+{
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;;
+*dptr++=x;
+}
+if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+Save(page,data,16);
+switch(page)
+{
+case 0x7D0:
+Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+break;
+case 0x7E0:
+Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
+break;
+}
+SEND_SOF();
+SEND_DATA_BYTE(0x00);
+SEND_EOF();
+break;
+default:
+goto err;
+}
+err:
+return;
+}
+
+uint8_t handle_serial()
+{
+static uint8_t rx_id=0;
+static uint8_t rx_counter=0;
 uint8_t b;
 
-config.health = 16;
-config.id = 0x80;
-config.power = 0x16;
-config.respawn_timer = 10;
-config.fire_threshold = 500;
-config.fire_holdoff = 8000;
-config.shield = 1;
-config.fire_cheating = 1000;
-
-Setup();
-
-Save(0x7B0,&config,5);
-Erase(0x7B0);
-Save(0x7B0,&config,5);
-
-
-while(1)
-{
-
+if(!(PIR1bits.RCIF)) return 0;
+b=(RCREG);
+if(b == 0x10) {
+control_transfer();
 }
-
+else if((b > 0x80) && (b != config.id)) {
+if(b != rx_id) rx_counter=0;
+rx_id = b;
+rx_counter++;
+if(rx_counter > config.shield) {
+hit_by(b);
+rx_id = 0;
 }
-
-void hit_by(uint8_t who)
-{
-
 }
-
+return 1;
+}

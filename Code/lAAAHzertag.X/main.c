@@ -1,29 +1,9 @@
-/******************************************************************************/
-/* Files to Include                                                           */
-/******************************************************************************/
-
-#if defined(__XC)
-    #include <xc.h>         /* XC8 General Include File */
-#elif defined(HI_TECH_C)
-    #include <htc.h>        /* HiTech General Include File */
-#endif
-
+#include <xc.h>         /* XC8 General Include File */
 #include <stdint.h>        /* For uint8_t definition */
-#include <stdbool.h>       /* For true/false definition */
 
-#include "system.h"        /* System funct/params, like osc/peripheral config */
-#include "user.h"          /* User funct/params, such as InitApp */
+#include "main.h"
+#include "user.h"
 #include "protocol.h"
-
-/******************************************************************************/
-/* User Global Variable Declaration                                           */
-/******************************************************************************/
-
-/* i.e. uint8_t <variable_name>; */
-
-/******************************************************************************/
-/* Main Program                                                               */
-/******************************************************************************/
 
 // CONFIG1
 #pragma config FOSC = INTOSC    //  (INTOSC oscillator; I/O function on CLKIN pin)
@@ -42,130 +22,47 @@
 #pragma config LPBOREN = OFF    // Low Power Brown-out Reset enable bit (LPBOR is disabled)
 #pragma config LVP = OFF         // Low-Voltage Programming Enable (Low-voltage programming enabled)
 
-extern config_t config;
+config_t config;
+hitlist_t hitlist;
 
-uint8_t my_id=0x80;
-uint8_t my_power_level=0x00;
-uint8_t my_random_number=0x00;
-
-
-
-void control_transfer()
+static void LoadFromFlash()
 {
-    uint8_t x,y,checksum; // Used by macros
-    uint16_t i; // Used by macros
-
-    uint8_t cmd;
-    uint8_t power_level,random_number,id;
-
-    ASSERT_SOF()
-    READ_DATA_BYTE(cmd)
-
-    switch(cmd)
+    Load(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
+    if(config.id == 0x3FFF)
     {
-        case CMD_GET_RANDOM_NUMBER:
-            ASSERT_EOF()
-            SEND_SOF()
-            SEND_DATA_BYTE(CMD_TAKE_RANDOM_NUMBER)
-            SEND_DATA_BYTE(my_random_number)
-            SEND_EOF()
-            break;
-        case CMD_ASSIGN_ID:
-            READ_DATA_BYTE(random_number)
-            READ_DATA_BYTE(id)
-            ASSERT_EOF()
-            if(random_number != my_random_number) goto err;
-            SEND_SOF()
-            SEND_DATA_BYTE(CMD_ACK)
-            SEND_EOF()
-            //my_id=id;
-            //Write_Device_ID(id);
-            break;
-        case CMD_SET_POWER: // set power
-            READ_DATA_BYTE(power_level)
-            ASSERT_EOF()
-            my_power_level = power_level;
-            SEND_SOF()
-            SEND_DATA_BYTE(CMD_ACK) // ack
-            SEND_EOF()
-            break;
-        // more commands go here
-        default:
-            goto err;
+        config.health = 16;
+        config.id = 0x80;
+        config.power = 0;
+        config.respawn_timer = 10;
+        config.fire_threshold = 500;
+        config.fire_holdoff = 8000;
+        config.shield = 1;
+        config.fire_cheating = 1000;
+        Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
+        Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
     }
-err:
-    return;
-}
-
-void Fire(){
-    if (PORTAbits.RA4) {
-        Send_Byte(my_id);
-        Buzz(3000,50);
-    }
+    Load(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
 }
 
 void main(void)
 {
-    uint8_t b;
-
-    config.health = 16;
-    config.id = 0x80;
-    config.power = 0x16;
-    config.respawn_timer = 10;
-    
     Setup();
+    LoadFromFlash();
 
     while(1)
-    {/*
-        Send_Byte('E');
-        Send_Byte('r');
-        Send_Byte('i');
-        Send_Byte('c');
-        Send_Byte(',');
-        Send_Byte(' ');
-        Send_Byte('s');
-        Send_Byte('u');
-        Send_Byte('c');
-        Send_Byte('k');
-        Send_Byte(' ');
-        Send_Byte('a');
-        Send_Byte(' ');
-        Send_Byte('d');
-        Send_Byte('i');
-        Send_Byte('c');
-        Send_Byte('k');
-        Send_Byte('\n');*/
-        Fire();
-        if(CHECK_CHAR())
-        {
-            b=AVAIL_CHAR();
-            if(b == 0x10) {
-                control_transfer();
-            }
-            if((b > 0x80) && (b != my_id)) {
-                Get_hit(b);
-            }
-                //Buzz(5000,150);
-        }
-
-
-        Save(0x7D0, (uint16_t*) &config, CONFIG_SIZE);
-
-        config.id = 0x92;
-        Load(0x7D0, (uint16_t*) &config, CONFIG_SIZE);
-        //Write_Device_ID(0x82);
-        //my_id = Read_Device_ID();
-        //LED_on();
-        //Buzz(3500,200);
-        //Buzz(4000,200);
-        //__delay_ms(50);
-        //Send_Packet(0b10101010);
-        //LED_off();
-        //Buzz(5500,200);
-        //Buzz(4000,200);
-        //__delay_ms(50);
-        //Send_Packet(0b10110011);
+    {
+        if(!handle_serial() & !Fire());// Sleep();
     }
+}
 
+void hit_by(uint8_t who)
+{
+  add_to_hitlist(who);
+  Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
+  Buzz(1000,50);
+  if(get_hitlist_length() > config.health)
+  {
+      Buzz(100,2000);
+  }
 }
 

@@ -1,14 +1,33 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"4 main.h
+"475 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
+[s S33 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . TMR1IF TMR2IF . TXIF RCIF ADIF TMR1GIF ]
+"474
+[u S32 `S33 1 ]
+[n S32 . . ]
+"485
+[v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
+"2428
+[v _RCREG `Vuc ~T0 @X0 0 e@409 ]
+"12 user.h
+[v _Send_Byte `(v ~T0 @X0 0 ef1`uc ]
+[v F3487 `(v ~T0 @X0 1 tf1`ul ]
+"154 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic.h
+[v __delay `JF3487 ~T0 @X0 0 e ]
+[p i __delay ]
+"7 main.h
 [s S436 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S436 . id power health shield respawn_timer fire_threshold fire_cheating fire_holdoff ]
-[p mainexit ]
-"21 user.h
-[v _Setup `(v ~T0 @X0 0 ef ]
-"31
+"24
+[v _config `S436 ~T0 @X0 0 e ]
+"16 user.h
 [v _Save `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
-"30
-[v _Erase `(v ~T0 @X0 0 ef1`ui ]
+"17
+[v _Load `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
+"25 main.h
+[v _hitlist `ui ~T0 @X0 -> 0 `x e ]
+"27
+[v _hit_by `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic12lf1572.h: 47: extern volatile unsigned char INDF0 @ 0x000;
@@ -3389,138 +3408,645 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;main.h: 4: typedef struct {
-[; ;main.h: 5: uint16_t id;
-[; ;main.h: 6: uint16_t power;
-[; ;main.h: 7: uint16_t health;
-[; ;main.h: 8: uint16_t shield;
-[; ;main.h: 9: uint16_t respawn_timer;
-[; ;main.h: 10: uint16_t fire_threshold;
-[; ;main.h: 11: uint16_t fire_cheating;
-[; ;main.h: 12: uint16_t fire_holdoff;
-[; ;main.h: 13: } config_t;
-[; ;main.h: 15: extern config_t config;
-[; ;main.h: 17: void hit_by(uint8_t who);
-[; ;user.h: 21: void Setup(void);
-[; ;user.h: 22: uint16_t ADC_read(void);
-[; ;user.h: 23: void LED_on(void);
-[; ;user.h: 24: void LED_off(void);
-[; ;user.h: 25: void Buzz(uint16_t freq, uint16_t dur_ms);
-[; ;user.h: 26: void Send_Byte(uint8_t data);
-[; ;user.h: 27: void Modulate_Serial(void);
-[; ;user.h: 28: void Disable_Modulation(void);
-[; ;user.h: 29: uint8_t Fire(void);
-[; ;user.h: 30: void Erase(uint16_t address);
-[; ;user.h: 31: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 32: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 33: void Get_hit(uint8_t ID);
-[; ;user.h: 34: void Sleep();
 [; ;protocol.h: 1: uint8_t handle_serial();
-"9 main.c
-[p x FOSC=INTOSC ]
-"10
-[p x WDTE=OFF ]
-"11
-[p x PWRTE=OFF ]
-"12
-[p x MCLRE=ON ]
-"13
-[p x CP=OFF ]
-"14
-[p x BOREN=ON ]
-"15
-[p x CLKOUTEN=OFF ]
-"18
-[p x WRT=OFF ]
-"19
-[p x PLLEN=OFF ]
-"20
-[p x STVREN=ON ]
-"21
-[p x BORV=LO ]
-"22
-[p x LPBOREN=OFF ]
-"23
-[p x LVP=OFF ]
-"25
-[v _config `S436 ~T0 @X0 1 e ]
-[; ;main.c: 25: config_t config;
-"27
-[v _main `(v ~T0 @X0 1 ef ]
+[; ;main.h: 7: typedef struct {
+[; ;main.h: 8: uint16_t id;
+[; ;main.h: 9: uint16_t power;
+[; ;main.h: 10: uint16_t health;
+[; ;main.h: 11: uint16_t shield;
+[; ;main.h: 12: uint16_t respawn_timer;
+[; ;main.h: 13: uint16_t fire_threshold;
+[; ;main.h: 14: uint16_t fire_cheating;
+[; ;main.h: 15: uint16_t fire_holdoff;
+[; ;main.h: 16: } config_t;
+[; ;main.h: 20: typedef uint16_t hitlist_t[16];
+[; ;main.h: 24: extern config_t config;
+[; ;main.h: 25: extern hitlist_t hitlist;
+[; ;main.h: 27: void hit_by(uint8_t who);
+[; ;user.h: 7: void Setup(void);
+[; ;user.h: 8: uint16_t ADC_read(void);
+[; ;user.h: 9: void LED_on(void);
+[; ;user.h: 10: void LED_off(void);
+[; ;user.h: 11: void Buzz(uint16_t freq, uint16_t dur_ms);
+[; ;user.h: 12: void Send_Byte(uint8_t data);
+[; ;user.h: 13: void Modulate_Serial(void);
+[; ;user.h: 14: void Disable_Modulation(void);
+[; ;user.h: 15: uint8_t Fire(void);
+[; ;user.h: 16: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 17: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 18: void Get_hit(uint8_t ID);
+[; ;user.h: 19: void Sleep();
+[; ;user.h: 21: uint8_t get_hitlist_length();
+[; ;user.h: 22: void add_to_hitlist(uint8_t gun);
+"23 protocol.c
+[v __x `uc ~T0 @X0 1 e ]
+[v __y `uc ~T0 @X0 1 e ]
+[v __checksum `uc ~T0 @X0 1 e ]
+[; ;protocol.c: 23: uint8_t _x,_y,_checksum;
+"24
+[v __i `ui ~T0 @X0 1 e ]
+[; ;protocol.c: 24: uint16_t _i;
 "28
+[v _GET_CHAR_HELPER `(uc ~T0 @X0 1 sf1`*uc ]
 {
-[; ;main.c: 27: void main(void)
-[; ;main.c: 28: {
-[e :U _main ]
+[; ;protocol.c: 28: static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!(PIR1bits.RCIF)) {_i++; if(_i >= 10000) return 1;} *val = (RCREG); return 0;}
+[e :U _GET_CHAR_HELPER ]
+[v _val `*uc ~T0 @X0 1 r1 ]
 [f ]
-"29
-[v _b `uc ~T0 @X0 1 a ]
-[; ;main.c: 29: uint8_t b;
-[; ;main.c: 31: config.health = 16;
-"31
-[e = . _config 2 -> -> 16 `i `ui ]
-[; ;main.c: 32: config.id = 0x80;
-"32
-[e = . _config 0 -> -> 128 `i `ui ]
-[; ;main.c: 33: config.power = 0x16;
-"33
-[e = . _config 1 -> -> 22 `i `ui ]
-[; ;main.c: 34: config.respawn_timer = 10;
-"34
-[e = . _config 4 -> -> 10 `i `ui ]
-[; ;main.c: 35: config.fire_threshold = 500;
-"35
-[e = . _config 5 -> -> 500 `i `ui ]
-[; ;main.c: 36: config.fire_holdoff = 8000;
-"36
-[e = . _config 7 -> -> 8000 `i `ui ]
-[; ;main.c: 37: config.shield = 1;
-"37
-[e = . _config 3 -> -> 1 `i `ui ]
-[; ;main.c: 38: config.fire_cheating = 1000;
-"38
-[e = . _config 6 -> -> 1000 `i `ui ]
-[; ;main.c: 40: Setup();
-"40
-[e ( _Setup ..  ]
-[; ;main.c: 42: Save(0x7B0,&config,5);
-"42
-[e ( _Save (3 , , -> -> 1968 `i `ui -> &U _config `*ui -> -> 5 `i `uc ]
-[; ;main.c: 43: Erase(0x7B0);
-"43
-[e ( _Erase (1 -> -> 1968 `i `ui ]
-[; ;main.c: 44: Save(0x7B0,&config,5);
-"44
-[e ( _Save (3 , , -> -> 1968 `i `ui -> &U _config `*ui -> -> 5 `i `uc ]
-[; ;main.c: 47: while(1)
-"47
+[e = __i -> -> 0 `i `ui ]
+[e $U 438  ]
 [e :U 439 ]
-[; ;main.c: 48: {
-"48
 {
-"50
+[e ++ __i -> -> 1 `i `ui ]
+[e $ ! >= __i -> -> 10000 `i `ui 441  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 437  ]
+[e :U 441 ]
 }
 [e :U 438 ]
-"47
-[e $U 439  ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 439  ]
 [e :U 440 ]
-[; ;main.c: 50: }
-[; ;main.c: 52: }
-"52
+[e = *U _val _RCREG ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 437  ]
 [e :UE 437 ]
 }
-"54
-[v _hit_by `(v ~T0 @X0 1 ef1`uc ]
-"55
+"34
+[v _SEND_DATA_BYTE `(v ~T0 @X0 1 sf1`uc ]
 {
-[; ;main.c: 54: void hit_by(uint8_t who)
-[; ;main.c: 55: {
-[e :U _hit_by ]
-"54
-[v _who `uc ~T0 @X0 1 r1 ]
-"55
+[; ;protocol.c: 34: static void SEND_DATA_BYTE(uint8_t b) {_x = b & 0x0F; _y = b >> 4; Send_Byte(_x); _delay((unsigned long)((100)*(16000000/4000000.0))); Send_Byte(_y); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum -= b;}
+[e :U _SEND_DATA_BYTE ]
+[v _b `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 57: }
+[e = __x -> & -> _b `i -> 15 `i `uc ]
+[e = __y -> >> -> _b `i -> 4 `i `uc ]
+[e ( _Send_Byte (1 __x ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e ( _Send_Byte (1 __y ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e =- __checksum _b ]
+[e :UE 442 ]
+}
+"35
+[v _SEND_SOF `(v ~T0 @X0 1 sf ]
+{
+[; ;protocol.c: 35: static void SEND_SOF() {Send_Byte(0x10); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum = 0; SEND_DATA_BYTE(config.id);}
+[e :U _SEND_SOF ]
+[f ]
+[e ( _Send_Byte (1 -> -> 16 `i `uc ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e = __checksum -> -> 0 `i `uc ]
+[e ( _SEND_DATA_BYTE (1 -> . _config 0 `uc ]
+[e :UE 443 ]
+}
+"36
+[v _SEND_EOF `(v ~T0 @X0 1 sf ]
+{
+[; ;protocol.c: 36: static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11); _delay((unsigned long)((100)*(16000000/4000000.0)));;}
+[e :U _SEND_EOF ]
+[f ]
+[e ( _SEND_DATA_BYTE (1 __checksum ]
+[e ( _Send_Byte (1 -> -> 17 `i `uc ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[e :UE 444 ]
+}
+"41
+[v _my_random_number `uc ~T0 @X0 1 e ]
+[; ;protocol.c: 41: uint8_t my_random_number;
+"43
+[v _control_transfer `(v ~T0 @X0 1 sf ]
+"44
+{
+[; ;protocol.c: 43: static void control_transfer()
+[; ;protocol.c: 44: {
+[e :U _control_transfer ]
+[f ]
+"45
+[v _i `uc ~T0 @X0 1 a ]
+"46
+[v _cmd `uc ~T0 @X0 1 a ]
+"47
+[v _random_number `uc ~T0 @X0 1 a ]
+[v _id `uc ~T0 @X0 1 a ]
+"49
+[v _page `ui ~T0 @X0 1 a ]
+"50
+[v _data `ui ~T0 @X0 -> 16 `i a ]
+"51
+[v _dptr `*uc ~T0 @X0 1 a ]
+"52
+[v _x `uc ~T0 @X0 1 a ]
+[; ;protocol.c: 45: uint8_t i;
+[; ;protocol.c: 46: uint8_t cmd;
+[; ;protocol.c: 47: uint8_t random_number,id;
+[; ;protocol.c: 49: uint16_t page;
+[; ;protocol.c: 50: uint16_t data[16];
+[; ;protocol.c: 51: uint8_t* dptr;
+[; ;protocol.c: 52: uint8_t x;
+[; ;protocol.c: 54: _checksum = 0; if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_x != config.id) goto err;
+"54
+[e = __checksum -> -> 0 `i `uc ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 446  ]
+[e $U 447  ]
+[e :U 446 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 448  ]
+[e $U 447  ]
+[e :U 448 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 449  ]
+[e $U 447  ]
+[e :U 449 ]
+[e = __x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum __x ]
+[e $ ! != -> __x `ui . _config 0 450  ]
+[e $U 447  ]
+[e :U 450 ]
+[; ;protocol.c: 55: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; cmd=((_y << 4) | _x); _checksum += cmd;
+"55
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 451  ]
+[e $U 447  ]
+[e :U 451 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 452  ]
+[e $U 447  ]
+[e :U 452 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 453  ]
+[e $U 447  ]
+[e :U 453 ]
+[e = _cmd -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _cmd ]
+[; ;protocol.c: 57: switch(cmd)
 "57
-[e :UE 441 ]
+[e $U 455  ]
+[; ;protocol.c: 58: {
+"58
+{
+[; ;protocol.c: 59: case 0x01:
+"59
+[e :U 456 ]
+[; ;protocol.c: 60: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"60
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 457  ]
+[e $U 447  ]
+[e :U 457 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 458  ]
+[e $U 447  ]
+[e :U 458 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 459  ]
+[e $U 447  ]
+[e :U 459 ]
+[e = __x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum __x ]
+[e $ ! != -> __checksum `i -> -> -> 0 `i `uc `i 460  ]
+[e $U 447  ]
+[e :U 460 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 461  ]
+[e $U 447  ]
+[e :U 461 ]
+[e $ ! != -> __x `i -> 17 `i 462  ]
+[e $U 447  ]
+[e :U 462 ]
+[; ;protocol.c: 61: SEND_SOF();
+"61
+[e ( _SEND_SOF ..  ]
+[; ;protocol.c: 62: SEND_DATA_BYTE(0x02);
+"62
+[e ( _SEND_DATA_BYTE (1 -> -> 2 `i `uc ]
+[; ;protocol.c: 63: SEND_DATA_BYTE(my_random_number);
+"63
+[e ( _SEND_DATA_BYTE (1 _my_random_number ]
+[; ;protocol.c: 64: SEND_EOF();
+"64
+[e ( _SEND_EOF ..  ]
+[; ;protocol.c: 65: break;
+"65
+[e $U 454  ]
+[; ;protocol.c: 66: case 0x03:
+"66
+[e :U 463 ]
+[; ;protocol.c: 67: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; random_number=((_y << 4) | _x); _checksum += random_number;
+"67
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 464  ]
+[e $U 447  ]
+[e :U 464 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 465  ]
+[e $U 447  ]
+[e :U 465 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 466  ]
+[e $U 447  ]
+[e :U 466 ]
+[e = _random_number -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _random_number ]
+[; ;protocol.c: 68: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; id=((_y << 4) | _x); _checksum += id;
+"68
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 467  ]
+[e $U 447  ]
+[e :U 467 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 468  ]
+[e $U 447  ]
+[e :U 468 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 469  ]
+[e $U 447  ]
+[e :U 469 ]
+[e = _id -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _id ]
+[; ;protocol.c: 69: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"69
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 470  ]
+[e $U 447  ]
+[e :U 470 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 471  ]
+[e $U 447  ]
+[e :U 471 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 472  ]
+[e $U 447  ]
+[e :U 472 ]
+[e = __x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum __x ]
+[e $ ! != -> __checksum `i -> -> -> 0 `i `uc `i 473  ]
+[e $U 447  ]
+[e :U 473 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 474  ]
+[e $U 447  ]
+[e :U 474 ]
+[e $ ! != -> __x `i -> 17 `i 475  ]
+[e $U 447  ]
+[e :U 475 ]
+[; ;protocol.c: 70: if(random_number != my_random_number) goto err;
+"70
+[e $ ! != -> _random_number `i -> _my_random_number `i 476  ]
+[e $U 447  ]
+[e :U 476 ]
+[; ;protocol.c: 71: SEND_SOF();
+"71
+[e ( _SEND_SOF ..  ]
+[; ;protocol.c: 72: SEND_DATA_BYTE(0x00);
+"72
+[e ( _SEND_DATA_BYTE (1 -> -> 0 `i `uc ]
+[; ;protocol.c: 73: SEND_EOF();
+"73
+[e ( _SEND_EOF ..  ]
+[; ;protocol.c: 74: config.id=id;
+"74
+[e = . _config 0 -> _id `ui ]
+[; ;protocol.c: 75: Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+"75
+[e ( _Save (3 , , -> -> 2000 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]
+[; ;protocol.c: 76: break;
+"76
+[e $U 454  ]
+[; ;protocol.c: 77: case 0x04:
+"77
+[e :U 477 ]
+[; ;protocol.c: 78: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"78
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 478  ]
+[e $U 447  ]
+[e :U 478 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 479  ]
+[e $U 447  ]
+[e :U 479 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 480  ]
+[e $U 447  ]
+[e :U 480 ]
+[e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _x ]
+[; ;protocol.c: 79: *((uint8_t*)(&page))=x;
+"79
+[e = *U -> &U _page `*uc _x ]
+[; ;protocol.c: 80: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"80
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 481  ]
+[e $U 447  ]
+[e :U 481 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 482  ]
+[e $U 447  ]
+[e :U 482 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 483  ]
+[e $U 447  ]
+[e :U 483 ]
+[e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _x ]
+[; ;protocol.c: 81: *(((uint8_t*)(&page))+1)=x;
+"81
+[e = *U + -> &U _page `*uc * -> -> 1 `i `x -> -> # *U -> &U _page `*uc `i `x _x ]
+[; ;protocol.c: 82: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"82
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 484  ]
+[e $U 447  ]
+[e :U 484 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 485  ]
+[e $U 447  ]
+[e :U 485 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 486  ]
+[e $U 447  ]
+[e :U 486 ]
+[e = __x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum __x ]
+[e $ ! != -> __checksum `i -> -> -> 0 `i `uc `i 487  ]
+[e $U 447  ]
+[e :U 487 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 488  ]
+[e $U 447  ]
+[e :U 488 ]
+[e $ ! != -> __x `i -> 17 `i 489  ]
+[e $U 447  ]
+[e :U 489 ]
+[; ;protocol.c: 83: Load(page,data,16);
+"83
+[e ( _Load (3 , , _page &U _data -> -> 16 `i `uc ]
+[; ;protocol.c: 84: SEND_SOF();
+"84
+[e ( _SEND_SOF ..  ]
+[; ;protocol.c: 85: SEND_DATA_BYTE(0x05);
+"85
+[e ( _SEND_DATA_BYTE (1 -> -> 5 `i `uc ]
+[; ;protocol.c: 86: dptr=(uint8_t*)data;
+"86
+[e = _dptr -> &U _data `*uc ]
+[; ;protocol.c: 87: for(i=0;i<32;i++)
+"87
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 32 `i 490  ]
+[e $U 491  ]
+"88
+[e :U 490 ]
+[; ;protocol.c: 88: {
+{
+[; ;protocol.c: 89: SEND_DATA_BYTE(*dptr++);
+"89
+[e ( _SEND_DATA_BYTE (1 *U ++ _dptr * -> -> 1 `i `x -> -> # *U _dptr `i `x ]
+"90
+}
+"87
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 32 `i 490  ]
+[e :U 491 ]
+"90
+}
+[; ;protocol.c: 90: }
+[; ;protocol.c: 91: SEND_EOF();
+"91
+[e ( _SEND_EOF ..  ]
+[; ;protocol.c: 92: break;
+"92
+[e $U 454  ]
+[; ;protocol.c: 93: case 0x06:
+"93
+[e :U 493 ]
+[; ;protocol.c: 94: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"94
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 494  ]
+[e $U 447  ]
+[e :U 494 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 495  ]
+[e $U 447  ]
+[e :U 495 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 496  ]
+[e $U 447  ]
+[e :U 496 ]
+[e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _x ]
+[; ;protocol.c: 95: *((uint8_t*)(&page))=x;
+"95
+[e = *U -> &U _page `*uc _x ]
+[; ;protocol.c: 96: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"96
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 497  ]
+[e $U 447  ]
+[e :U 497 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 498  ]
+[e $U 447  ]
+[e :U 498 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 499  ]
+[e $U 447  ]
+[e :U 499 ]
+[e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _x ]
+[; ;protocol.c: 97: *(((uint8_t*)(&page))+1)=x;
+"97
+[e = *U + -> &U _page `*uc * -> -> 1 `i `x -> -> # *U -> &U _page `*uc `i `x _x ]
+[; ;protocol.c: 98: dptr=(uint8_t*)data;
+"98
+[e = _dptr -> &U _data `*uc ]
+[; ;protocol.c: 99: for(i=0;i<32;i++)
+"99
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 32 `i 500  ]
+[e $U 501  ]
+"100
+[e :U 500 ]
+[; ;protocol.c: 100: {
+{
+[; ;protocol.c: 101: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;;
+"101
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 503  ]
+[e $U 447  ]
+[e :U 503 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 504  ]
+[e $U 447  ]
+[e :U 504 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 505  ]
+[e $U 447  ]
+[e :U 505 ]
+[e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum _x ]
+[; ;protocol.c: 102: *dptr++=x;
+"102
+[e = *U ++ _dptr * -> -> 1 `i `x -> -> # *U _dptr `i `x _x ]
+"103
+}
+"99
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 32 `i 500  ]
+[e :U 501 ]
+"103
+}
+[; ;protocol.c: 103: }
+[; ;protocol.c: 104: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"104
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 506  ]
+[e $U 447  ]
+[e :U 506 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __y `i -> -> -> 0 `i `uc `i 507  ]
+[e $U 447  ]
+[e :U 507 ]
+[e $ ! || != & -> __x `i ~ -> 15 `i -> 0 `i != & -> __y `i ~ -> 15 `i -> 0 `i 508  ]
+[e $U 447  ]
+[e :U 508 ]
+[e = __x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
+[e =+ __checksum __x ]
+[e $ ! != -> __checksum `i -> -> -> 0 `i `uc `i 509  ]
+[e $U 447  ]
+[e :U 509 ]
+[e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 510  ]
+[e $U 447  ]
+[e :U 510 ]
+[e $ ! != -> __x `i -> 17 `i 511  ]
+[e $U 447  ]
+[e :U 511 ]
+[; ;protocol.c: 105: Save(page,data,16);
+"105
+[e ( _Save (3 , , _page &U _data -> -> 16 `i `uc ]
+[; ;protocol.c: 106: switch(page)
+"106
+[e $U 513  ]
+[; ;protocol.c: 107: {
+"107
+{
+[; ;protocol.c: 108: case 0x7D0:
+"108
+[e :U 514 ]
+[; ;protocol.c: 109: Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+"109
+[e ( _Load (3 , , -> -> 2000 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]
+[; ;protocol.c: 110: break;
+"110
+[e $U 512  ]
+[; ;protocol.c: 111: case 0x7E0:
+"111
+[e :U 515 ]
+[; ;protocol.c: 112: Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
+"112
+[e ( _Load (3 , , -> -> 2016 `i `ui &U _hitlist -> / -> * -> 16 `i # `ui `ui -> -> 2 `i `ui `uc ]
+[; ;protocol.c: 113: break;
+"113
+[e $U 512  ]
+"114
+}
+[; ;protocol.c: 114: }
+[e $U 512  ]
+"106
+[e :U 513 ]
+[e [\ _page , $ -> -> 2000 `i `ui 514
+ , $ -> -> 2016 `i `ui 515
+ 512 ]
+"114
+[e :U 512 ]
+[; ;protocol.c: 115: SEND_SOF();
+"115
+[e ( _SEND_SOF ..  ]
+[; ;protocol.c: 116: SEND_DATA_BYTE(0x00);
+"116
+[e ( _SEND_DATA_BYTE (1 -> -> 0 `i `uc ]
+[; ;protocol.c: 117: SEND_EOF();
+"117
+[e ( _SEND_EOF ..  ]
+[; ;protocol.c: 118: break;
+"118
+[e $U 454  ]
+[; ;protocol.c: 119: default:
+"119
+[e :U 516 ]
+[; ;protocol.c: 120: goto err;
+"120
+[e $U 447  ]
+"121
+}
+[; ;protocol.c: 121: }
+[e $U 454  ]
+"57
+[e :U 455 ]
+[e [\ _cmd , $ -> -> 1 `i `uc 456
+ , $ -> -> 3 `i `uc 463
+ , $ -> -> 4 `i `uc 477
+ , $ -> -> 6 `i `uc 493
+ 516 ]
+"121
+[e :U 454 ]
+[; ;protocol.c: 122: err:
+"122
+[e :U 447 ]
+[; ;protocol.c: 123: return;
+"123
+[e $UE 445  ]
+[; ;protocol.c: 124: }
+"124
+[e :UE 445 ]
+}
+"126
+[v _handle_serial `(uc ~T0 @X0 1 ef ]
+"127
+{
+[; ;protocol.c: 126: uint8_t handle_serial()
+[; ;protocol.c: 127: {
+[e :U _handle_serial ]
+[f ]
+"128
+[v F3604 `uc ~T0 @X0 1 s rx_id ]
+[i F3604
+-> -> 0 `i `uc
+]
+"129
+[v F3605 `uc ~T0 @X0 1 s rx_counter ]
+[i F3605
+-> -> 0 `i `uc
+]
+"130
+[v _b `uc ~T0 @X0 1 a ]
+[; ;protocol.c: 128: static uint8_t rx_id=0;
+[; ;protocol.c: 129: static uint8_t rx_counter=0;
+[; ;protocol.c: 130: uint8_t b;
+[; ;protocol.c: 132: if(!(PIR1bits.RCIF)) return 0;
+"132
+[e $ ! ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 518  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 517  ]
+[e :U 518 ]
+[; ;protocol.c: 133: b=(RCREG);
+"133
+[e = _b _RCREG ]
+[; ;protocol.c: 134: if(b == 0x10) {
+"134
+[e $ ! == -> _b `i -> 16 `i 519  ]
+{
+[; ;protocol.c: 135: control_transfer();
+"135
+[e ( _control_transfer ..  ]
+"136
+}
+[; ;protocol.c: 136: }
+[e $U 520  ]
+"137
+[e :U 519 ]
+[; ;protocol.c: 137: else if((b > 0x80) && (b != config.id)) {
+[e $ ! && > -> _b `i -> 128 `i != -> _b `ui . _config 0 521  ]
+{
+[; ;protocol.c: 138: if(b != rx_id) rx_counter=0;
+"138
+[e $ ! != -> _b `i -> F3604 `i 522  ]
+[e = F3605 -> -> 0 `i `uc ]
+[e :U 522 ]
+[; ;protocol.c: 139: rx_id = b;
+"139
+[e = F3604 _b ]
+[; ;protocol.c: 140: rx_counter++;
+"140
+[e ++ F3605 -> -> 1 `i `uc ]
+[; ;protocol.c: 141: if(rx_counter > config.shield) {
+"141
+[e $ ! > -> F3605 `ui . _config 3 523  ]
+{
+[; ;protocol.c: 142: hit_by(b);
+"142
+[e ( _hit_by (1 _b ]
+[; ;protocol.c: 143: rx_id = 0;
+"143
+[e = F3604 -> -> 0 `i `uc ]
+"144
+}
+[e :U 523 ]
+"145
+}
+[e :U 521 ]
+"146
+[e :U 520 ]
+[; ;protocol.c: 144: }
+[; ;protocol.c: 145: }
+[; ;protocol.c: 146: return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 517  ]
+[; ;protocol.c: 147: }
+"147
+[e :UE 517 ]
 }

@@ -4571,15 +4571,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 16 "user.h"
-typedef struct {
-uint16_t id;
-uint16_t power;
-uint16_t health;
-uint16_t respawn_timer;
-} config_t;
-
-# 27
+# 21 "user.h"
 void Setup(void);
 uint16_t ADC_read(void);
 void LED_on(void);
@@ -4588,13 +4580,31 @@ void Buzz(uint16_t freq, uint16_t dur_ms);
 void Send_Byte(uint8_t data);
 void Modulate_Serial(void);
 void Disable_Modulation(void);
-void Fire(void);
+uint8_t Fire(void);
+void Erase(uint16_t address);
 void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Get_hit(uint8_t ID);
+void Sleep();
 
-# 24 "user.c"
-config_t config;
+# 4 "main.h"
+typedef struct {
+uint16_t id;
+uint16_t power;
+uint16_t health;
+uint16_t shield;
+uint16_t respawn_timer;
+uint16_t fire_threshold;
+uint16_t fire_cheating;
+uint16_t fire_holdoff;
+} config_t;
+
+extern config_t config;
+
+void hit_by(uint8_t who);
+
+# 8 "user.c"
+extern config_t config;
 
 void Setup(void)
 {
@@ -4607,7 +4617,7 @@ TRISAbits.TRISA0 = 0;
 PORTAbits.RA5 = 1;
 
 
-
+ANSELAbits.ANSA4 = 1;
 ADCON1 |= 0b00110000;
 
 
@@ -4624,12 +4634,12 @@ RCSTAbits.CREN = 1;
 
 uint16_t ADC_read()
 {
-ADCON0 |= (1 << CHS1) | (1 << CHS0);
-ADCON0 |= (1 << ADON);
+ADCON0bits.CHS = 3;
+ADCON0bits.ADON = 1;
 _delay((unsigned long)((6)*(16000000/4000000.0)));
-ADCON0 |= (1 << GO);
+ADCON0bits.GO = 1;
 while(ADCON0bits.GO){};
-return ADRESH << 2 + ADRESL >> 6;
+return ADRES >> 6;
 }
 
 void LED_on()
@@ -4707,11 +4717,12 @@ PMADR ++;
 }
 }
 
-void Save(uint16_t address, uint16_t* ptr, uint8_t data_length){
+void Erase(uint16_t address)
+{
 
 INTCONbits.GIE = 0;
-PMCON1bits.CFGS = 0;
 PMADR = address;
+PMCON1bits.CFGS = 0;
 PMCON1bits.FREE = 1;
 PMCON1bits.WREN = 1;
 PMCON2 = 0x55;
@@ -4720,27 +4731,27 @@ PMCON1bits.WR = 1;
 __nop();
 __nop();
 PMCON1bits.WREN = 0;
-
-PMCON1bits.FREE = 0;
-PMCON1bits.LWLO = 1;
-PMCON1bits.WREN = 1;
-
-for (uint8_t i=0; ; i++){
-PMDAT = *ptr++;
-if(i == data_length) break;
-PMCON2 = 0x55;
-PMCON2 = 0xAA;
-PMCON1bits.WR = 1;
-__nop();
-__nop();
-PMADR ++;
+INTCONbits.GIE = 1;
 }
-PMCON1bits.LWLO = 0;
+
+void Save(uint16_t address, uint16_t* ptr, uint8_t data_length){
+INTCONbits.GIE = 0;
+PMADR = address;
+PMCON1bits.CFGS = 0;
+PMCON1bits.FREE = 0;
+PMCON1bits.WREN = 1;
+PMCON1bits.LWLO = 1;
+
+for (uint8_t i=1; i<=data_length; i++){
+PMDAT = *ptr++;
+if(i == data_length) PMCON1bits.LWLO = 0;
 PMCON2 = 0x55;
 PMCON2 = 0xAA;
 PMCON1bits.WR = 1;
 __nop();
 __nop();
+PMADRL++;
+}
 PMCON1bits.WREN = 0;
 INTCONbits.GIE = 1;
 }
@@ -4759,15 +4770,51 @@ Buzz(4000,100);
 LED_off();
 }
 
+uint8_t Fire(){
+static uint16_t counter = 0;
+uint16_t a;
+a=ADC_read();
+if (a > config.fire_threshold && a < config.fire_cheating) {
+counter ++;
+if (counter > config.fire_holdoff) {
+LED_on();
+Send_Byte(config.id);
+Buzz(4000, 50);
+counter = config.fire_holdoff;
+}
+}
+else{
+counter = 0;
+LED_off();
+return 0;
+}
+return 1;
+}
+
+void Sleep() {
+INTCONbits.GIE = 1;
+INTCONbits.PEIE = 1;
+PIE1bits.TMR1IE = 1;
+T1CONbits.nT1SYNC = 1;
+T1CONbits.TMR1ON = 1;
+TMR1 = 25536;
+asm("sleep");
+INTCONbits.GIE = 0;
+INTCONbits.PEIE = 0;
+PIE1bits.TMR1IE = 0;
+T1CONbits.TMR1ON = 0;
+Buzz(4000,5);
+}
+
 
 
 void interrupt High_Priority_Interrupt(){
 if(PIR1bits.TMR1IF == 1)
 {
 asm("BANKSEL DACCON0");
-asm("MOVF DACCON0, W");
+asm("MOVF DACCON0 & 0x7F, W");
 asm("XORLW 1<<5");
-asm("MOVWF DACCON0");
+asm("MOVWF DACCON0 & 0x7F");
 
 TMR1 += 65486;
 PIR1bits.TMR1IF = 0;
