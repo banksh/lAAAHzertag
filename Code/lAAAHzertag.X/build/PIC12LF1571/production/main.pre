@@ -4137,7 +4137,7 @@ uint16_t id;
 uint16_t power;
 uint16_t health;
 uint16_t shield;
-uint16_t respawn_timer;
+uint16_t respawn_delay;
 uint16_t fire_threshold;
 uint16_t fire_cheating;
 uint16_t fire_holdoff;
@@ -4151,8 +4151,6 @@ typedef uint16_t hitlist_t[16];
 
 extern config_t config;
 extern hitlist_t hitlist;
-
-void hit_by(uint8_t who);
 
 # 7 "user.h"
 void Setup(void);
@@ -4177,6 +4175,7 @@ void stop_song();
 void handle_music();
 void tone(uint16_t period);
 void tone_off();
+void hit_by(uint8_t who);
 
 # 1 "protocol.h"
 uint8_t handle_serial();
@@ -4210,7 +4209,7 @@ if(config.id == 0x3FFF)
 config.health = 16;
 config.id = 0x80;
 config.power = 0;
-config.respawn_timer = 10;
+config.respawn_delay = 100;
 config.fire_threshold = 500;
 
 config.fire_holdoff = 0;
@@ -4234,15 +4233,3 @@ handle_fire();
 handle_music();
 }
 }
-
-void hit_by(uint8_t who)
-{
-add_to_hitlist(who);
-Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
-Buzz(1000,50);
-if(get_hitlist_length() > config.health)
-{
-Buzz(100,2000);
-}
-}
-

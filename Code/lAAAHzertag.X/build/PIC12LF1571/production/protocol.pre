@@ -4140,7 +4140,7 @@ uint16_t id;
 uint16_t power;
 uint16_t health;
 uint16_t shield;
-uint16_t respawn_timer;
+uint16_t respawn_delay;
 uint16_t fire_threshold;
 uint16_t fire_cheating;
 uint16_t fire_holdoff;
@@ -4154,8 +4154,6 @@ typedef uint16_t hitlist_t[16];
 
 extern config_t config;
 extern hitlist_t hitlist;
-
-void hit_by(uint8_t who);
 
 # 7 "user.h"
 void Setup(void);
@@ -4180,6 +4178,7 @@ void stop_song();
 void handle_music();
 void tone(uint16_t period);
 void tone_off();
+void hit_by(uint8_t who);
 
 # 23 "protocol.c"
 uint8_t _x,_y,_checksum;

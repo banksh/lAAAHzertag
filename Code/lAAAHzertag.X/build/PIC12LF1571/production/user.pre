@@ -4154,6 +4154,7 @@ void stop_song();
 void handle_music();
 void tone(uint16_t period);
 void tone_off();
+void hit_by(uint8_t who);
 
 # 7 "main.h"
 typedef struct {
@@ -4161,7 +4162,7 @@ uint16_t id;
 uint16_t power;
 uint16_t health;
 uint16_t shield;
-uint16_t respawn_timer;
+uint16_t respawn_delay;
 uint16_t fire_threshold;
 uint16_t fire_cheating;
 uint16_t fire_holdoff;
@@ -4176,8 +4177,6 @@ typedef uint16_t hitlist_t[16];
 extern config_t config;
 extern hitlist_t hitlist;
 
-void hit_by(uint8_t who);
-
 # 8 "user.c"
 extern config_t config;
 
@@ -4187,9 +4186,9 @@ uint8_t cur_song_ptr;
 uint8_t cur_song_repeat;
 uint16_t cur_song_duration;
 
-
-
-uint16_t fire_song[] = {16000000/4000,16000000/3500,16000000/3000,16000000/2500,16000000/2000,16000000/1500,16000000/1000,16000000/500,16000000/450,16000000/400,16000000/350,16000000/300,16000000/245,0,0,0};
+# 23
+uint16_t death_song[] = {16000000/260,16000000/250,0,0,0,0,(16000000 / 523.3), (16000000 / 698.5), 0, (16000000 / 659.3), (16000000 / 698.5), (16000000 / 659.3), 0, (16000000 / 587.3), (16000000 / 523.3), (16000000 / 392.0), 0, (16000000 / 392.0), (16000000 / 261.6)};
+uint16_t fire_song[] = {16000000/4000,16000000/3500,16000000/3000,16000000/2500,16000000/2000,16000000/1500,16000000/1000,16000000/500,16000000/450,16000000/400,16000000/350,16000000/300,16000000/250,0,0,0};
 
 void Setup(void)
 {
@@ -4273,9 +4272,6 @@ PIR1bits.TMR1IF=0;
 void handle_music()
 {
 if(!PIR1bits.TMR1IF) return;
-tone(cur_song[cur_song_ptr]);
-TMR1 = -cur_song_duration;
-cur_song_ptr++;
 if(cur_song_ptr >= cur_song_length)
 {
 if(cur_song_repeat)
@@ -4285,8 +4281,12 @@ cur_song_ptr=0;
 else
 {
 stop_song();
+return;
 }
 }
+tone(cur_song[cur_song_ptr]);
+TMR1 = -cur_song_duration;
+cur_song_ptr++;
 PIR1bits.TMR1IF=0;
 }
 
@@ -4394,6 +4394,7 @@ uint8_t handle_fire(){
 static uint16_t timer = 0;
 static uint16_t counter = 0;
 uint16_t a;
+
 a=ADC_read();
 if (a > config.fire_threshold && a < config.fire_cheating)
 {
@@ -4422,7 +4423,7 @@ led_off();
 else
 {
 led_off();
-stop_song();
+if(!config.power && counter) stop_song();
 timer = 0;
 counter = 0;
 return 0;
@@ -4487,5 +4488,36 @@ if(!(hitlist[i] & 0x3F80))
 hitlist[i] |= gun16 << 7;
 return;
 }
+}
+}
+
+void hit_by(uint8_t who)
+{
+uint16_t respawn_timer;
+
+add_to_hitlist(who);
+Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
+play_song(death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
+
+respawn_timer = config.respawn_delay;
+while(respawn_timer)
+{
+respawn_timer--;
+red_led_on();
+for(uint8_t i=0;i<50;i++)
+{
+handle_music();
+_delay((unsigned long)((1)*(16000000/4000.0)));
+}
+if(respawn_timer < 30) led_off();
+for(uint8_t i=0;i<50;i++)
+{
+handle_music();
+_delay((unsigned long)((1)*(16000000/4000.0)));
+}
+}
+if(get_hitlist_length() > config.health)
+{
+
 }
 }

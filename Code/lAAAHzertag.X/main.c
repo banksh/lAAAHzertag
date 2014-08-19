@@ -33,7 +33,7 @@ static void LoadFromFlash()
         config.health = 16;
         config.id = 0x80;
         config.power = 0;
-        config.respawn_timer = 10;
+        config.respawn_delay = 100;
         config.fire_threshold = 500;
         //config.fire_holdoff = 8000;
         config.fire_holdoff = 0;
@@ -57,15 +57,3 @@ void main(void)
         handle_music();
     }
 }
-
-void hit_by(uint8_t who)
-{
-  add_to_hitlist(who);
-  Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
-  Buzz(1000,50);
-  if(get_hitlist_length() > config.health)
-  {
-      Buzz(100,2000);
-  }
-}
-

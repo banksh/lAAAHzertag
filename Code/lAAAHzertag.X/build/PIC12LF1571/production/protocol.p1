@@ -16,7 +16,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 "7 main.h
 [s S355 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S355 . id power health shield respawn_timer fire_threshold fire_cheating fire_holdoff ]
+[n S355 . id power health shield respawn_delay fire_threshold fire_cheating fire_holdoff ]
 "24
 [v _config `S355 ~T0 @X0 0 e ]
 "17 user.h
@@ -25,7 +25,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Load `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
 "25 main.h
 [v _hitlist `ui ~T0 @X0 -> 0 `x e ]
-"27
+"29 user.h
 [v _hit_by `(v ~T0 @X0 0 ef1`uc ]
 [; ;pic12lf1572.h: 44: extern volatile unsigned char INDF0 @ 0x000;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic12lf1572.h
@@ -3002,7 +3002,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 9: uint16_t power;
 [; ;main.h: 10: uint16_t health;
 [; ;main.h: 11: uint16_t shield;
-[; ;main.h: 12: uint16_t respawn_timer;
+[; ;main.h: 12: uint16_t respawn_delay;
 [; ;main.h: 13: uint16_t fire_threshold;
 [; ;main.h: 14: uint16_t fire_cheating;
 [; ;main.h: 15: uint16_t fire_holdoff;
@@ -3010,7 +3010,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 20: typedef uint16_t hitlist_t[16];
 [; ;main.h: 24: extern config_t config;
 [; ;main.h: 25: extern hitlist_t hitlist;
-[; ;main.h: 27: void hit_by(uint8_t who);
 [; ;user.h: 7: void Setup(void);
 [; ;user.h: 8: uint16_t ADC_read(void);
 [; ;user.h: 9: void green_led_on(void);
@@ -3032,6 +3031,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 26: void handle_music();
 [; ;user.h: 27: void tone(uint16_t period);
 [; ;user.h: 28: void tone_off();
+[; ;user.h: 29: void hit_by(uint8_t who);
 "23 protocol.c
 [v __x `uc ~T0 @X0 1 e ]
 [v __y `uc ~T0 @X0 1 e ]

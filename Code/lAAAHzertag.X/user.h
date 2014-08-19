@@ -26,3 +26,4 @@ void stop_song();
 void handle_music();
 void tone(uint16_t period);
 void tone_off();
+void hit_by(uint8_t who);

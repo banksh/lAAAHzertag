@@ -13,9 +13,15 @@ uint8_t cur_song_ptr;
 uint8_t cur_song_repeat;
 uint16_t cur_song_duration;
 
-#define F _XTAL_FREQ
+#define NOTE_LOWC (_XTAL_FREQ / 261.6)
+#define NOTE_C (_XTAL_FREQ / 523.3)
+#define NOTE_F (_XTAL_FREQ / 698.5)
+#define NOTE_E (_XTAL_FREQ / 659.3)
+#define NOTE_D (_XTAL_FREQ / 587.3)
+#define NOTE_LOWG (_XTAL_FREQ / 392.0)
 
-uint16_t fire_song[] = {F/4000,F/3500,F/3000,F/2500,F/2000,F/1500,F/1000,F/500,F/450,F/400,F/350,F/300,F/245,0,0,0};
+uint16_t death_song[] = {_XTAL_FREQ/260,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, 0, NOTE_D, NOTE_C, NOTE_LOWG, 0, NOTE_LOWG, NOTE_LOWC};
+uint16_t fire_song[] = {_XTAL_FREQ/4000,_XTAL_FREQ/3500,_XTAL_FREQ/3000,_XTAL_FREQ/2500,_XTAL_FREQ/2000,_XTAL_FREQ/1500,_XTAL_FREQ/1000,_XTAL_FREQ/500,_XTAL_FREQ/450,_XTAL_FREQ/400,_XTAL_FREQ/350,_XTAL_FREQ/300,_XTAL_FREQ/250,0,0,0};
 
 void Setup(void)
 {
@@ -99,9 +105,6 @@ void stop_song()
 void handle_music()
 {
     if(!PIR1bits.TMR1IF) return;
-    tone(cur_song[cur_song_ptr]);
-    TMR1 = -cur_song_duration;
-    cur_song_ptr++;
     if(cur_song_ptr >= cur_song_length)
     {
         if(cur_song_repeat)
@@ -111,8 +114,12 @@ void handle_music()
         else
         {
             stop_song();
+            return;
         }
     }
+    tone(cur_song[cur_song_ptr]);
+    TMR1 = -cur_song_duration;
+    cur_song_ptr++;
     PIR1bits.TMR1IF=0;
 }
 
@@ -220,6 +227,7 @@ uint8_t handle_fire(){
     static uint16_t timer = 0; // for holdoff
     static uint16_t counter = 0; // for power
     uint16_t a;
+
     a=ADC_read();
     if (a > config.fire_threshold && a < config.fire_cheating)
     {
@@ -248,7 +256,7 @@ uint8_t handle_fire(){
     else
     {
         led_off();
-        stop_song();
+        if(!config.power && counter) stop_song();
         timer = 0;
         counter = 0;
         return 0;
@@ -314,4 +322,35 @@ void add_to_hitlist(uint8_t gun)
             return;
         }
     }
+}
+
+void hit_by(uint8_t who)
+{
+  uint16_t respawn_timer;
+
+  add_to_hitlist(who);
+  Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
+  play_song(death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
+
+  respawn_timer = config.respawn_delay;
+  while(respawn_timer)
+  {
+    respawn_timer--;
+    red_led_on();
+    for(uint8_t i=0;i<50;i++)
+    {
+        handle_music();
+        __delay_ms(1);
+    }
+    if(respawn_timer < 30) led_off();
+    for(uint8_t i=0;i<50;i++)
+    {
+        handle_music();
+        __delay_ms(1);
+    }
+  }
+  if(get_hitlist_length() > config.health)
+  {
+      // No, like, you're actually dead
+  }
 }

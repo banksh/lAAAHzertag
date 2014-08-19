@@ -9,7 +9,7 @@ typedef struct {
     uint16_t power;
     uint16_t health;
     uint16_t shield;
-    uint16_t respawn_timer;
+    uint16_t respawn_delay;
     uint16_t fire_threshold;
     uint16_t fire_cheating;
     uint16_t fire_holdoff;
@@ -23,8 +23,6 @@ typedef uint16_t hitlist_t[16];
 
 extern config_t config;
 extern hitlist_t hitlist;
-
-void hit_by(uint8_t who);
 
 #endif
 

@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.21\dat\en_msgs.txt -cs \
   -h+dist/PIC12LF1571/production\lAAAHzertag.X.production.sym \
   --cmf=dist/PIC12LF1571/production\lAAAHzertag.X.production.cmf -z \
-  -Q12LF1572 -oC:\Users\Eric\AppData\Local\Temp\s4uc.6 \
+  -Q12LF1572 -oC:\Users\Eric\AppData\Local\Temp\s4vk.6 \
   -Mdist/PIC12LF1571/production/lAAAHzertag.X.production.map -E1 -ver=XC8 \
   -ACONST=00h-0FFhx8 -ACODE=00h-07FFh -ASTRCODE=00h-07FFh \
   -AENTRY=00h-0FFhx8 -ASTRING=00h-0FFhx8 -ACOMMON=070h-07Fh \
@@ -26,7 +26,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 \
   -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Eric\AppData\Local\Temp\s4uc.obj \
+  C:\Users\Eric\AppData\Local\Temp\s4vk.obj \
   dist/PIC12LF1571/production\lAAAHzertag.X.production.obj 
 
 Object code version is 3.11
@@ -36,89 +36,91 @@ Machine type is 12LF1572
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Eric\AppData\Local\Temp\s4uc.obj
+C:\Users\Eric\AppData\Local\Temp\s4vk.obj
                 end_init                             15       15        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             8007     8007        2    1000E       0
 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-                cinit                                16       16       18        8       0
+                cinit                                16       16       23        8       0
                 intentry                              4        4       11        8       0
-                text27                              5CC      5CC       25        8       0
-                text26                              489      489       40        8       0
-                text25                              656      656       1E        8       0
-                text24                              3EE      3EE       54        8       0
-                text23                              442      442       47        8       0
-                text22                              718      718        3        8       0
-                text21                              6AE      6AE       1D        8       0
-                text20                              309      309       82        8       0
-                text19                              53C      53C       34        8       0
-                text18                              504      504       38        8       0
-                text17                              570      570       31        8       0
-                text16                              691      691       1D        8       0
-                text15                              6EE      6EE        7        8       0
-                text14                              711      711        4        8       0
-                text13                              6CB      6CB        E        8       0
-                text12                              614      614       22        8       0
-                text11                              6D9      6D9        B        8       0
-                text10                              6E4      6E4        A        8       0
-                text9                                2E       2E      2DB        8       0
-                text8                               4C9      4C9       3B        8       0
-                text7                               674      674       1D        8       0
-                text6                               70C      70C        5        8       0
-                text5                               715      715        3        8       0
-                text4                               5F1      5F1       23        8       0
-                text3                               707      707        5        8       0
-                text2                               38B      38B       63        8       0
-                text1                               5A1      5A1       2B        8       0
-                maintext                            701      701        6        8       0
-                cstackBANK0                          20       20       2B       20       1
-                cstackCOMMON                         70       70        D       70       1
-                inittext                            6FB      6FB        6        8       0
-                clrtext                             6F5      6F5        6        8       0
+                text26                              590      590       25        8       0
+                text25                              486      486       40        8       0
+                text24                              61B      61B       1E        8       0
+                text23                              6DC      6DC        3        8       0
+                text22                              6D0      6D0        5        8       0
+                text21                              673      673       17        8       0
+                text20                              539      539       31        8       0
+                text19                              6CB      6CB        5        8       0
+                text18                              6D9      6D9        3        8       0
+                text17                              5B5      5B5       24        8       0
+                text16                              43F      43F       47        8       0
+                text15                              501      501       38        8       0
+                text14                              3EB      3EB       54        8       0
+                text13                              383      383       68        8       0
+                text12                              656      656       1D        8       0
+                text11                              6AD      6AD        7        8       0
+                text10                              6D5      6D5        4        8       0
+                text9                               68A      68A        E        8       0
+                text8                               5D9      5D9       22        8       0
+                text7                               698      698        B        8       0
+                text6                               6A3      6A3        A        8       0
+                text5                                39       39      2DB        8       0
+                text4                               4C6      4C6       3B        8       0
+                text3                               639      639       1D        8       0
+                text2                               6C6      6C6        5        8       0
+                text1                               314      314       6F        8       0
+                maintext                            6C0      6C0        6        8       0
+                cstackBANK0                          20       20       2A       20       1
+                cstackCOMMON                         70       70        C       70       1
+                inittext                            6BA      6BA        6        8       0
+                clrtext                             6B4      6B4        6        8       0
+                dataBANK2                           120      120       26      120       1
                 dataBANK1                            C0       C0       20       A0       1
                 bssBANK1                             A0       A0       20       A0       1
-                bssBANK0                             4B       4B       22       20       1
-                idataBANK1                          636      636       20        8       0
+                bssBANK0                             4A       4A       22       20       1
+                bssCOMMON                            7C       7C        1       70       1
+                idataBANK2                          56A      56A       26        8       0
+                idataBANK1                          5FB      5FB       20        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
 
         CLASS   CODE           
                 end_init                             15       15        1         0
-                cinit                                16       16       18         0
+                cinit                                16       16       23         0
                 intentry                              4        4       11         0
                 reset_vec                             0        0        1         0
-                text27                              5CC      5CC       25         0
-                text26                              489      489       40         0
-                text25                              656      656       1E         0
-                text24                              3EE      3EE       54         0
-                text23                              442      442       47         0
-                text22                              718      718        3         0
-                text21                              6AE      6AE       1D         0
-                text20                              309      309       82         0
-                text19                              53C      53C       34         0
-                text18                              504      504       38         0
-                text17                              570      570       31         0
-                text16                              691      691       1D         0
-                text15                              6EE      6EE        7         0
-                text14                              711      711        4         0
-                text13                              6CB      6CB        E         0
-                text12                              614      614       22         0
-                text11                              6D9      6D9        B         0
-                text10                              6E4      6E4        A         0
-                text9                                2E       2E      2DB         0
-                text8                               4C9      4C9       3B         0
-                text7                               674      674       1D         0
-                text6                               70C      70C        5         0
-                text5                               715      715        3         0
-                text4                               5F1      5F1       23         0
-                text3                               707      707        5         0
-                text2                               38B      38B       63         0
-                text1                               5A1      5A1       2B         0
-                maintext                            701      701        6         0
-                inittext                            6FB      6FB        6         0
-                clrtext                             6F5      6F5        6         0
-                idataBANK1                          636      636       20         0
+                text26                              590      590       25         0
+                text25                              486      486       40         0
+                text24                              61B      61B       1E         0
+                text23                              6DC      6DC        3         0
+                text22                              6D0      6D0        5         0
+                text21                              673      673       17         0
+                text20                              539      539       31         0
+                text19                              6CB      6CB        5         0
+                text18                              6D9      6D9        3         0
+                text17                              5B5      5B5       24         0
+                text16                              43F      43F       47         0
+                text15                              501      501       38         0
+                text14                              3EB      3EB       54         0
+                text13                              383      383       68         0
+                text12                              656      656       1D         0
+                text11                              6AD      6AD        7         0
+                text10                              6D5      6D5        4         0
+                text9                               68A      68A        E         0
+                text8                               5D9      5D9       22         0
+                text7                               698      698        B         0
+                text6                               6A3      6A3        A         0
+                text5                                39       39      2DB         0
+                text4                               4C6      4C6       3B         0
+                text3                               639      639       1D         0
+                text2                               6C6      6C6        5         0
+                text1                               314      314       6F         0
+                maintext                            6C0      6C0        6         0
+                inittext                            6BA      6BA        6         0
+                clrtext                             6B4      6B4        6         0
+                idataBANK2                          56A      56A       26         0
+                idataBANK1                          5FB      5FB       20         0
 
         CLASS   STRCODE        
 
@@ -127,17 +129,19 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRING         
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        D         1
+                cstackCOMMON                         70       70        C         1
+                bssCOMMON                            7C       7C        1         1
 
         CLASS   BANK0          
-                cstackBANK0                          20       20       2B         1
-                bssBANK0                             4B       4B       22         1
+                cstackBANK0                          20       20       2A         1
+                bssBANK0                             4A       4A       22         1
 
         CLASS   BANK1          
                 dataBANK1                            C0       C0       20         1
                 bssBANK1                             A0       A0       20         1
 
         CLASS   BANK2          
+                dataBANK2                           120      120       26         1
 
         CLASS   BIGRAM         
 
@@ -280,31 +284,32 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  000717  00071B         8       0  CODE        2
-                cstackBANK0                    000020  00004D  00006D        20       1  BANK0       1
+                intentry                       000004  0006DB  0006DF         8       0  CODE        2
+                cstackBANK0                    000020  00004C  00006C        20       1  BANK0       1
                 cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
                 bssBANK1                       0000A0  000040  0000E0        A0       1  BANK1       1
+                dataBANK2                      000120  000026  000146       120       1  BANK2       1
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0006D-0006F               3           1
+        BANK0            0006C-0006F               4           1
         BANK1            000E0-000EF              10           1
-        BANK2            00120-0016F              50           1
+        BANK2            00146-0016F              2A           1
         BIGRAM           02000-020EF              F0           1
         CODE             00001-00003               3           2
-                         0071B-007FF              E5
+                         006DF-007FF             121
         COMMON           0007D-0007D               1           1
         CONST            00001-00003               3           2
-                         0071B-007FF              E5
+                         006DF-007FF              21
         ENTRY            00001-00003               3           2
-                         0071B-007FF              E5
+                         006DF-007FF              21
         IDLOC            08000-08003               4           2
-        RAM              0006D-0006F               3           1
+        RAM              0006C-0006F               4           1
                          000E0-000EF              10
-                         00120-0016F              50
+                         00146-0016F              2A
         SFR0             00000-0001F              20           1
         SFR1             00080-0009F              20           1
         SFR10            00500-0056F              70           1
@@ -338,22 +343,17 @@ UNUSED ADDRESS RANGES
         SFR8             00400-0046F              70           1
         SFR9             00480-004EF              70           1
         STRCODE          00001-00003               3           2
-                         0071B-007FF              E5
+                         006DF-007FF             121
         STRING           00001-00003               3           2
-                         0071B-007FF              E5
+                         006DF-007FF              21
 
                                   Symbol Table
 
 ?_ADC_read                        cstackCOMMON 00071
-?_Buzz                            cstackBANK0  00028
 ?_Load                            cstackCOMMON 00071
 ?_Save                            cstackCOMMON 00071
-?___aldiv                         cstackCOMMON 00071
 ?_play_song                       cstackCOMMON 00071
-?_tone                            cstackBANK0  00026
-Buzz@dur_ms                       cstackBANK0  0002A
-Buzz@freq                         cstackBANK0  00028
-Buzz@i                            cstackBANK0  0002E
+?_tone                            cstackCOMMON 00071
 GET_CHAR_HELPER@val               cstackCOMMON 00072
 Load@address                      cstackCOMMON 00071
 Load@data_length                  cstackCOMMON 00074
@@ -367,20 +367,19 @@ Save@ptr                          cstackCOMMON 00073
 Send_Byte@data                    cstackCOMMON 00071
 _ADCON0bits                       (abs)        0009D
 _ADCON1                           (abs)        0009E
-_ADC_read                         text7        00674
+_ADC_read                         text3        00639
 _ADRES                            (abs)        0009B
 _ANSELA                           (abs)        0018C
 _ANSELAbits                       (abs)        0018C
 _BAUDCONbits                      (abs)        0019F
-_Buzz                             text19       0053C
 _DACCON0bits                      (abs)        00118
-_Disable_Modulation               text14       00711
-_GET_CHAR_HELPER                  text16       00691
+_Disable_Modulation               text10       006D5
+_GET_CHAR_HELPER                  text12       00656
 _High_Priority_Interrupt          intentry     00004
 _INTCONbits                       (abs)        0000B
-_Load                             text27       005CC
-_LoadFromFlash                    text26       00489
-_Modulate_Serial                  text15       006EE
+_Load                             text26       00590
+_LoadFromFlash                    text25       00486
+_Modulate_Serial                  text11       006AD
 _OPTION_REGbits                   (abs)        00095
 _OSCCON                           (abs)        00099
 _PIE1bits                         (abs)        00091
@@ -398,13 +397,13 @@ _PWM3PH                           (abs)        00DB1
 _PWM3PR                           (abs)        00DB5
 _RCREG                            (abs)        00199
 _RCSTAbits                        (abs)        0019D
-_SEND_DATA_BYTE                   text12       00614
-_SEND_EOF                         text10       006E4
-_SEND_SOF                         text11       006D9
+_SEND_DATA_BYTE                   text8        005D9
+_SEND_EOF                         text6        006A3
+_SEND_SOF                         text7        00698
 _SPBRGL                           (abs)        0019B
-_Save                             text23       00442
-_Send_Byte                        text13       006CB
-_Setup                            text25       00656
+_Save                             text16       0043F
+_Send_Byte                        text9        0068A
+_Setup                            text24       0061B
 _T1CONbits                        (abs)        00018
 _TMR0                             (abs)        00015
 _TMR1                             (abs)        00016
@@ -460,7 +459,8 @@ __Hbank9                          bank9        00000
 __Hbigram                         bigram       00000
 __HbssBANK0                       bssBANK0     00000
 __HbssBANK1                       bssBANK1     00000
-__Hcinit                          cinit        0002E
+__HbssCOMMON                      bssCOMMON    00000
+__Hcinit                          cinit        00039
 __Hclrtext                        clrtext      00000
 __Hcode                           code         00000
 __Hcommon                         common       00000
@@ -468,10 +468,12 @@ __Hconfig                         config       08009
 __HcstackBANK0                    cstackBANK0  00000
 __HcstackCOMMON                   cstackCOMMON 00000
 __HdataBANK1                      dataBANK1    00000
+__HdataBANK2                      dataBANK2    00000
 __Heeprom_data                    eeprom_data  00000
 __Hend_init                       end_init     00016
 __Hfunctab                        functab      00000
 __HidataBANK1                     idataBANK1   00000
+__HidataBANK2                     idataBANK2   00000
 __Hidloc                          idloc        00000
 __Hinit                           init         00015
 __Hinittext                       inittext     00000
@@ -550,6 +552,7 @@ __Lbank9                          bank9        00000
 __Lbigram                         bigram       00000
 __LbssBANK0                       bssBANK0     00000
 __LbssBANK1                       bssBANK1     00000
+__LbssCOMMON                      bssCOMMON    00000
 __Lcinit                          cinit        00016
 __Lclrtext                        clrtext      00000
 __Lcode                           code         00000
@@ -558,10 +561,12 @@ __Lconfig                         config       08007
 __LcstackBANK0                    cstackBANK0  00000
 __LcstackCOMMON                   cstackCOMMON 00000
 __LdataBANK1                      dataBANK1    00000
+__LdataBANK2                      dataBANK2    00000
 __Leeprom_data                    eeprom_data  00000
 __Lend_init                       end_init     00015
 __Lfunctab                        functab      00000
 __LidataBANK1                     idataBANK1   00000
+__LidataBANK2                     idataBANK2   00000
 __Lidloc                          idloc        00000
 __Linit                           init         00015
 __Linittext                       inittext     00000
@@ -605,84 +610,78 @@ __Lsfr9                           sfr9         00000
 __Lstrings                        strings      00000
 __Ltext                           text         00000
 __S0                              (abs)        08009
-__S1                              (abs)        000E0
-___aldiv                          text20       00309
-___aldiv@counter                  cstackBANK0  00020
-___aldiv@dividend                 cstackCOMMON 00075
-___aldiv@divisor                  cstackCOMMON 00071
-___aldiv@quotient                 cstackBANK0  00022
-___aldiv@sign                     cstackBANK0  00021
+__S1                              (abs)        00146
 ___latbits                        (abs)        00000
-__checksum                        bssBANK0     00053
-__end_of_ADC_read                 text7        00691
-__end_of_Buzz                     text19       00570
-__end_of_Disable_Modulation       text14       00715
-__end_of_GET_CHAR_HELPER          text16       006AE
+__checksum                        bssBANK0     00054
+__end_of_ADC_read                 text3        00656
+__end_of_Disable_Modulation       text10       006D9
+__end_of_GET_CHAR_HELPER          text12       00673
 __end_of_High_Priority_Interrupt  intentry     00015
-__end_of_Load                     text27       005F1
-__end_of_LoadFromFlash            text26       004C9
-__end_of_Modulate_Serial          text15       006F5
-__end_of_SEND_DATA_BYTE           text12       00636
-__end_of_SEND_EOF                 text10       006EE
-__end_of_SEND_SOF                 text11       006E4
-__end_of_Save                     text23       00489
-__end_of_Send_Byte                text13       006D9
-__end_of_Setup                    text25       00674
-__end_of___aldiv                  text20       0038B
-__end_of__initialization          cinit        0002C
-__end_of_add_to_hitlist           text24       00442
-__end_of_control_transfer         text9        00309
-__end_of_get_hitlist_length       text18       0053C
-__end_of_green_led_on             text6        00711
-__end_of_handle_fire              text2        003EE
-__end_of_handle_music             text1        005CC
-__end_of_handle_serial            text8        00504
-__end_of_hit_by                   text17       005A1
-__end_of_led_off                  text5        00718
-__end_of_main                     maintext     00707
-__end_of_play_song                text4        00614
-__end_of_stop_song                text3        0070C
-__end_of_tone                     text21       006CB
-__end_of_tone_off                 text22       0071B
-__i                               bssBANK0     0004B
+__end_of_Load                     text26       005B5
+__end_of_LoadFromFlash            text25       004C6
+__end_of_Modulate_Serial          text11       006B4
+__end_of_SEND_DATA_BYTE           text8        005FB
+__end_of_SEND_EOF                 text6        006AD
+__end_of_SEND_SOF                 text7        006A3
+__end_of_Save                     text16       00486
+__end_of_Send_Byte                text9        00698
+__end_of_Setup                    text24       00639
+__end_of__initialization          cinit        00037
+__end_of_add_to_hitlist           text14       0043F
+__end_of_control_transfer         text5        00314
+__end_of_get_hitlist_length       text15       00539
+__end_of_green_led_on             text2        006CB
+__end_of_handle_fire              text1        00383
+__end_of_handle_music             text20       0056A
+__end_of_handle_serial            text4        00501
+__end_of_hit_by                   text13       003EB
+__end_of_led_off                  text18       006DC
+__end_of_main                     maintext     006C6
+__end_of_play_song                text17       005D9
+__end_of_red_led_on               text19       006D0
+__end_of_stop_song                text22       006D5
+__end_of_tone                     text21       0068A
+__end_of_tone_off                 text23       006DF
+__i                               bssBANK0     0004A
 __initialization                  cinit        00016
-__pbssBANK0                       bssBANK0     0004B
+__pbssBANK0                       bssBANK0     0004A
 __pbssBANK1                       bssBANK1     000A0
+__pbssCOMMON                      bssCOMMON    0007C
 __pcstackBANK0                    cstackBANK0  00020
 __pcstackCOMMON                   cstackCOMMON 00070
 __pdataBANK1                      dataBANK1    000C0
-__pidataBANK1                     idataBANK1   00636
+__pdataBANK2                      dataBANK2    00120
+__pidataBANK1                     idataBANK1   005FB
+__pidataBANK2                     idataBANK2   0056A
 __pintentry                       intentry     00004
-__pmaintext                       maintext     00701
-__ptext1                          text1        005A1
-__ptext10                         text10       006E4
-__ptext11                         text11       006D9
-__ptext12                         text12       00614
-__ptext13                         text13       006CB
-__ptext14                         text14       00711
-__ptext15                         text15       006EE
-__ptext16                         text16       00691
-__ptext17                         text17       00570
-__ptext18                         text18       00504
-__ptext19                         text19       0053C
-__ptext2                          text2        0038B
-__ptext20                         text20       00309
-__ptext21                         text21       006AE
-__ptext22                         text22       00718
-__ptext23                         text23       00442
-__ptext24                         text24       003EE
-__ptext25                         text25       00656
-__ptext26                         text26       00489
-__ptext27                         text27       005CC
-__ptext3                          text3        00707
-__ptext4                          text4        005F1
-__ptext5                          text5        00715
-__ptext6                          text6        0070C
-__ptext7                          text7        00674
-__ptext8                          text8        004C9
-__ptext9                          text9        0002E
+__pmaintext                       maintext     006C0
+__ptext1                          text1        00314
+__ptext10                         text10       006D5
+__ptext11                         text11       006AD
+__ptext12                         text12       00656
+__ptext13                         text13       00383
+__ptext14                         text14       003EB
+__ptext15                         text15       00501
+__ptext16                         text16       0043F
+__ptext17                         text17       005B5
+__ptext18                         text18       006D9
+__ptext19                         text19       006CB
+__ptext2                          text2        006C6
+__ptext20                         text20       00539
+__ptext21                         text21       00673
+__ptext22                         text22       006D0
+__ptext23                         text23       006DC
+__ptext24                         text24       0061B
+__ptext25                         text25       00486
+__ptext26                         text26       00590
+__ptext3                          text3        00639
+__ptext4                          text4        004C6
+__ptext5                          text5        00039
+__ptext6                          text6        006A3
+__ptext7                          text7        00698
+__ptext8                          text8        005D9
+__ptext9                          text9        0068A
 __size_of_ADC_read                (abs)        00000
-__size_of_Buzz                    (abs)        00000
 __size_of_Disable_Modulation      (abs)        00000
 __size_of_GET_CHAR_HELPER         (abs)        00000
 __size_of_High_Priority_Interrupt (abs)        00000
@@ -695,7 +694,6 @@ __size_of_SEND_SOF                (abs)        00000
 __size_of_Save                    (abs)        00000
 __size_of_Send_Byte               (abs)        00000
 __size_of_Setup                   (abs)        00000
-__size_of___aldiv                 (abs)        00000
 __size_of_add_to_hitlist          (abs)        00000
 __size_of_control_transfer        (abs)        00000
 __size_of_get_hitlist_length      (abs)        00000
@@ -707,39 +705,42 @@ __size_of_hit_by                  (abs)        00000
 __size_of_led_off                 (abs)        00000
 __size_of_main                    (abs)        00000
 __size_of_play_song               (abs)        00000
+__size_of_red_led_on              (abs)        00000
 __size_of_stop_song               (abs)        00000
 __size_of_tone                    (abs)        00000
 __size_of_tone_off                (abs)        00000
-__x                               bssBANK0     0006B
-__y                               bssBANK0     0006C
-_add_to_hitlist                   text24       003EE
-_config                           bssBANK0     0005B
-_control_transfer                 text9        0002E
-_cur_song                         bssBANK0     00054
-_cur_song_duration                bssBANK0     0004D
+__x                               bssBANK0     0006A
+__y                               bssBANK0     0006B
+_add_to_hitlist                   text14       003EB
+_config                           bssBANK0     0005A
+_control_transfer                 text5        00039
+_cur_song                         bssBANK0     0004C
+_cur_song_duration                bssBANK0     0004E
 _cur_song_length                  bssBANK0     00055
-_cur_song_ptr                     bssBANK0     00056
-_cur_song_repeat                  bssBANK0     00057
+_cur_song_ptr                     bssCOMMON    0007C
+_cur_song_repeat                  bssBANK0     00056
+_death_song                       dataBANK2    00120
 _fire_song                        dataBANK1    000C0
-_get_hitlist_length               text18       00504
-_green_led_on                     text6        0070C
-_handle_fire                      text2        0038B
-_handle_music                     text1        005A1
-_handle_serial                    text8        004C9
-_hit_by                           text17       00570
+_get_hitlist_length               text15       00501
+_green_led_on                     text2        006C6
+_handle_fire                      text1        00314
+_handle_music                     text20       00539
+_handle_serial                    text4        004C6
+_hit_by                           text13       00383
 _hitlist                          bssBANK1     000A0
-_led_off                          text5        00715
-_main                             maintext     00701
-_my_random_number                 bssBANK0     00058
-_play_song                        text4        005F1
-_stop_song                        text3        00707
-_tone                             text21       006AE
-_tone_off                         text22       00718
+_led_off                          text18       006D9
+_main                             maintext     006C0
+_my_random_number                 bssBANK0     00057
+_play_song                        text17       005B5
+_red_led_on                       text19       006CB
+_stop_song                        text22       006D0
+_tone                             text21       00673
+_tone_off                         text23       006DC
 add_to_hitlist@gun                cstackCOMMON 00075
 add_to_hitlist@gun16              cstackCOMMON 00076
 add_to_hitlist@i                  cstackCOMMON 00078
 btemp                             (abs)        0007E
-clear_ram0                        clrtext      006F5
+clear_ram0                        clrtext      006B4
 control_transfer@cmd              cstackBANK0  00040
 control_transfer@data             cstackBANK0  00020
 control_transfer@dptr             cstackBANK0  00043
@@ -748,30 +749,33 @@ control_transfer@id               cstackBANK0  00042
 control_transfer@page             cstackBANK0  00045
 control_transfer@random_number    cstackBANK0  00041
 control_transfer@x                cstackBANK0  00047
-end_of_initialization             cinit        0002C
+end_of_initialization             cinit        00037
 get_hitlist_length@i              cstackCOMMON 00075
-handle_fire@a                     cstackCOMMON 0007A
-handle_fire@counter               bssBANK0     0004F
-handle_fire@timer                 bssBANK0     00051
-handle_serial@b                   cstackBANK0  0004A
-handle_serial@rx_counter          bssBANK0     00059
-handle_serial@rx_id               bssBANK0     0005A
-hit_by@who                        cstackCOMMON 0007C
-init_ram                          inittext     006FB
+handle_fire@a                     cstackBANK0  00020
+handle_fire@counter               bssBANK0     00050
+handle_fire@timer                 bssBANK0     00052
+handle_serial@b                   cstackCOMMON 0007B
+handle_serial@rx_counter          bssBANK0     00058
+handle_serial@rx_id               bssBANK0     00059
+hit_by@i                          cstackBANK0  00023
+hit_by@i_685                      cstackBANK0  00024
+hit_by@respawn_timer              cstackBANK0  00021
+hit_by@who                        cstackBANK0  00020
+init_ram                          inittext     006BA
 intlevel0                         functab      00000
 intlevel1                         functab      00000
 intlevel2                         functab      00000
 intlevel3                         functab      00000
 intlevel4                         functab      00000
 intlevel5                         functab      00000
-play_song@length                  cstackCOMMON 00071
-play_song@note_duration           cstackCOMMON 00072
-play_song@repeat                  cstackCOMMON 00074
-play_song@song                    cstackCOMMON 00077
+play_song@length                  cstackCOMMON 00073
+play_song@note_duration           cstackCOMMON 00074
+play_song@repeat                  cstackCOMMON 00076
+play_song@song                    cstackCOMMON 00071
 reset_vec                         reset_vec    00000
 start                             init         00015
 start_initialization              cinit        00016
-tone@period                       cstackBANK0  00026
+tone@period                       cstackCOMMON 00071
 wtemp0                            (abs)        0007E
 
 
@@ -810,57 +814,26 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _handle_music *****************
- Defined at:
-		line 100 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, status,2, status,0, btemp+1, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       2       0       0
-      Totals:         0       2       0       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		_stop_song
-		_tone
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
  *************** function _handle_fire *****************
  Defined at:
-		line 219 in file "user.c"
+		line 226 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  a               2   10[COMMON] unsigned int 
+  a               2    0[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, status,2, status,0, btemp+1, pclath, cstack
+		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
       Params:         0       0       0       0
-      Locals:         2       0       0       0
+      Locals:         0       2       0       0
       Temps:          2       0       0       0
-      Totals:         4       0       0       0
+      Totals:         2       2       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    3
@@ -876,73 +849,7 @@ Total ram usage:        4 bytes
  This function uses a non-reentrant model
 
 
- *************** function _stop_song *****************
- Defined at:
-		line 93 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       0       0       0
-      Totals:         0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		_tone_off
- This function is called by:
-		_handle_music
-		_handle_fire
- This function uses a non-reentrant model
-
-
- *************** function _play_song *****************
- Defined at:
-		line 80 in file "user.c"
- Parameters:    Size  Location     Type
-  song            1    wreg     PTR unsigned int 
-		 -> fire_song(32), 
-  length          1    1[COMMON] unsigned char 
-  note_duratio    2    2[COMMON] unsigned int 
-  repeat          1    4[COMMON] unsigned char 
- Auto vars:     Size  Location     Type
-  song            1    7[COMMON] PTR unsigned int 
-		 -> fire_song(32), 
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         4       0       0       0
-      Locals:         1       0       0       0
-      Temps:          2       0       0       0
-      Totals:         7       0       0       0
-Total ram usage:        7 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_handle_fire
- This function uses a non-reentrant model
-
-
- *************** function _led_off *****************
+ *************** function _green_led_on *****************
  Defined at:
 		line 75 in file "user.c"
  Parameters:    Size  Location     Type
@@ -972,39 +879,9 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _green_led_on *****************
- Defined at:
-		line 69 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       0       0       0
-      Totals:         0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_handle_fire
- This function uses a non-reentrant model
-
-
  *************** function _ADC_read *****************
  Defined at:
-		line 53 in file "user.c"
+		line 59 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1038,7 +915,7 @@ Total ram usage:        4 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  b               1   42[BANK0 ] unsigned char 
+  b               1   11[COMMON] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -1049,9 +926,9 @@ Total ram usage:        4 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
       Params:         0       0       0       0
-      Locals:         0       1       0       0
+      Locals:         1       0       0       0
       Temps:          0       2       0       0
-      Totals:         0       3       0       0
+      Totals:         1       2       0       0
 Total ram usage:        3 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    6
@@ -1202,7 +1079,7 @@ Total ram usage:        3 bytes
 
  *************** function _Send_Byte *****************
  Defined at:
-		line 142 in file "user.c"
+		line 149 in file "user.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1236,7 +1113,7 @@ Total ram usage:        1 bytes
 
  *************** function _Disable_Modulation *****************
  Defined at:
-		line 159 in file "user.c"
+		line 166 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1266,7 +1143,7 @@ Total ram usage:        0 bytes
 
  *************** function _Modulate_Serial *****************
  Defined at:
-		line 152 in file "user.c"
+		line 159 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1328,40 +1205,78 @@ Total ram usage:        2 bytes
 
  *************** function _hit_by *****************
  Defined at:
-		line 62 in file "main.c"
+		line 328 in file "user.c"
  Parameters:    Size  Location     Type
   who             1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  who             1   12[COMMON] unsigned char 
+  who             1    0[BANK0 ] unsigned char 
+  i               1    4[BANK0 ] unsigned char 
+  i               1    3[BANK0 ] unsigned char 
+  respawn_time    2    1[BANK0 ] unsigned int 
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, status,2, status,0, btemp+1, pclath, cstack
+		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
       Params:         0       0       0       0
-      Locals:         1       0       0       0
-      Temps:          0       2       0       0
-      Totals:         1       2       0       0
-Total ram usage:        3 bytes
+      Locals:         0       5       0       0
+      Temps:          2       0       0       0
+      Totals:         2       5       0       0
+Total ram usage:        7 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
-		_add_to_hitlist
+		_handle_music
+		_red_led_on
+		_led_off
+		_play_song
 		_Save
-		_Buzz
 		_get_hitlist_length
+		_add_to_hitlist
  This function is called by:
 		_handle_serial
  This function uses a non-reentrant model
 
 
+ *************** function _add_to_hitlist *****************
+ Defined at:
+		line 310 in file "user.c"
+ Parameters:    Size  Location     Type
+  gun             1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  gun             1    5[COMMON] unsigned char 
+  i               1    8[COMMON] unsigned char 
+  gun16           2    6[COMMON] unsigned int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         4       0       0       0
+      Temps:          4       0       0       0
+      Totals:         8       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_hit_by
+ This function uses a non-reentrant model
+
+
  *************** function _get_hitlist_length *****************
  Defined at:
-		line 291 in file "user.c"
+		line 299 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1389,138 +1304,9 @@ Total ram usage:        5 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Buzz *****************
- Defined at:
-		line 135 in file "user.c"
- Parameters:    Size  Location     Type
-  freq            2    8[BANK0 ] unsigned int 
-  dur_ms          2   10[BANK0 ] unsigned int 
- Auto vars:     Size  Location     Type
-  i               2   14[BANK0 ] unsigned int 
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       4       0       0
-      Locals:         0       2       0       0
-      Temps:          0       2       0       0
-      Totals:         0       8       0       0
-Total ram usage:        8 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		_tone_off
-		_tone
-		___aldiv
- This function is called by:
-		_hit_by
-		_Sleep
- This function uses a non-reentrant model
-
-
- *************** function ___aldiv *****************
- Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\aldiv.c"
- Parameters:    Size  Location     Type
-  divisor         4    1[COMMON] long 
-  dividend        4    5[COMMON] long 
- Auto vars:     Size  Location     Type
-  quotient        4    2[BANK0 ] long 
-  sign            1    1[BANK0 ] unsigned char 
-  counter         1    0[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  4    1[COMMON] long 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         8       0       0       0
-      Locals:         0       6       0       0
-      Temps:          1       0       0       0
-      Totals:         9       6       0       0
-Total ram usage:       15 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_Buzz
- This function uses a non-reentrant model
-
-
- *************** function _tone *****************
- Defined at:
-		line 120 in file "user.c"
- Parameters:    Size  Location     Type
-  period          2    6[BANK0 ] unsigned int 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       2       0       0
-      Locals:         0       0       0       0
-      Temps:          2       0       0       0
-      Totals:         2       2       0       0
-Total ram usage:        4 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_handle_music
-		_Buzz
- This function uses a non-reentrant model
-
-
- *************** function _tone_off *****************
- Defined at:
-		line 130 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       0       0       0
-      Totals:         0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_stop_song
-		_Buzz
- This function uses a non-reentrant model
-
-
  *************** function _Save *****************
  Defined at:
-		line 185 in file "user.c"
+		line 192 in file "user.c"
  Parameters:    Size  Location     Type
   address         2    1[COMMON] unsigned int 
   ptr             1    3[COMMON] PTR unsigned int 
@@ -1552,29 +1338,93 @@ Total ram usage:        6 bytes
  This function uses a non-reentrant model
 
 
- *************** function _add_to_hitlist *****************
+ *************** function _play_song *****************
  Defined at:
-		line 302 in file "user.c"
+		line 86 in file "user.c"
  Parameters:    Size  Location     Type
-  gun             1    wreg     unsigned char 
+  song            2    1[COMMON] PTR unsigned int 
+		 -> death_song(38), fire_song(32), 
+  length          1    3[COMMON] unsigned char 
+  note_duratio    2    4[COMMON] unsigned int 
+  repeat          1    6[COMMON] unsigned char 
  Auto vars:     Size  Location     Type
-  gun             1    5[COMMON] unsigned char 
-  i               1    8[COMMON] unsigned char 
-  gun16           2    6[COMMON] unsigned int 
+		None
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, fsr1l, fsr1h, status,2, status,0
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         6       0       0       0
+      Locals:         0       0       0       0
+      Temps:          2       0       0       0
+      Totals:         8       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_handle_fire
+		_hit_by
+ This function uses a non-reentrant model
+
+
+ *************** function _led_off *****************
+ Defined at:
+		line 81 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
       Params:         0       0       0       0
-      Locals:         4       0       0       0
-      Temps:          4       0       0       0
-      Totals:         8       0       0       0
-Total ram usage:        8 bytes
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_handle_fire
+		_hit_by
+ This function uses a non-reentrant model
+
+
+ *************** function _red_led_on *****************
+ Defined at:
+		line 69 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       0       0       0
+Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    1
  This function calls:
@@ -1584,9 +1434,134 @@ Total ram usage:        8 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _handle_music *****************
+ Defined at:
+		line 106 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          2       0       0       0
+      Totals:         2       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_stop_song
+		_tone
+ This function is called by:
+		_main
+		_hit_by
+ This function uses a non-reentrant model
+
+
+ *************** function _tone *****************
+ Defined at:
+		line 127 in file "user.c"
+ Parameters:    Size  Location     Type
+  period          2    1[COMMON] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         2       0       0       0
+      Locals:         0       0       0       0
+      Temps:          2       0       0       0
+      Totals:         4       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_handle_music
+		_Buzz
+ This function uses a non-reentrant model
+
+
+ *************** function _stop_song *****************
+ Defined at:
+		line 99 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_tone_off
+ This function is called by:
+		_handle_music
+		_handle_fire
+ This function uses a non-reentrant model
+
+
+ *************** function _tone_off *****************
+ Defined at:
+		line 137 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_stop_song
+		_Buzz
+ This function uses a non-reentrant model
+
+
  *************** function _Setup *****************
  Defined at:
-		line 21 in file "user.c"
+		line 27 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1646,7 +1621,7 @@ Total ram usage:        2 bytes
 
  *************** function _Load *****************
  Defined at:
-		line 173 in file "user.c"
+		line 180 in file "user.c"
  Parameters:    Size  Location     Type
   address         2    1[COMMON] unsigned int 
   ptr             1    3[COMMON] PTR unsigned int 
@@ -1680,7 +1655,7 @@ Total ram usage:        6 bytes
 
  *************** function _High_Priority_Interrupt *****************
  Defined at:
-		line 277 in file "user.c"
+		line 285 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1712,52 +1687,47 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initializatio		CODE           	0016	0000	22
+		__initializatio		CODE           	0016	0000	33
 
-shared estimated size: 22
+shared estimated size: 33
 
 main.c
-		_hit_by        		CODE           	0570	0000	49
-		_main          		CODE           	0701	0000	6
-		_LoadFromFlash 		CODE           	0489	0000	64
+		_main          		CODE           	06C0	0000	6
+		_LoadFromFlash 		CODE           	0486	0000	64
 
-main.c estimated size: 119
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\aldiv.c
-		___aldiv       		CODE           	0309	0000	130
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\aldiv.c estimated size: 130
+main.c estimated size: 70
 
 user.c
-		_Buzz          		CODE           	053C	0000	52
-		_Load          		CODE           	05CC	0000	37
-		_tone          		CODE           	06AE	0000	29
-		_led_off       		CODE           	0715	0000	3
-		_handle_fire   		CODE           	038B	0000	99
-		_handle_music  		CODE           	05A1	0000	43
-		_ADC_read      		CODE           	0674	0000	29
+		_Load          		CODE           	0590	0000	37
+		_red_led_on    		CODE           	06CB	0000	5
+		_hit_by        		CODE           	0383	0000	104
+		_tone          		CODE           	0673	0000	23
+		_led_off       		CODE           	06D9	0000	3
+		_handle_fire   		CODE           	0314	0000	111
+		_handle_music  		CODE           	0539	0000	49
+		_ADC_read      		CODE           	0639	0000	29
 		_High_Priority_		CODE           	0004	0000	17
-		_play_song     		CODE           	05F1	0000	35
-		_Setup         		CODE           	0656	0000	30
-		_stop_song     		CODE           	0707	0000	5
-		_add_to_hitlist		CODE           	03EE	0000	84
-		_Disable_Modula		CODE           	0711	0000	4
-		_green_led_on  		CODE           	070C	0000	5
-		_Send_Byte     		CODE           	06CB	0000	14
-		_Save          		CODE           	0442	0000	71
-		_tone_off      		CODE           	0718	0000	3
-		_get_hitlist_le		CODE           	0504	0000	56
-		_Modulate_Seria		CODE           	06EE	0000	7
+		_play_song     		CODE           	05B5	0000	36
+		_Setup         		CODE           	061B	0000	30
+		_stop_song     		CODE           	06D0	0000	5
+		_add_to_hitlist		CODE           	03EB	0000	84
+		_Disable_Modula		CODE           	06D5	0000	4
+		_green_led_on  		CODE           	06C6	0000	5
+		_Send_Byte     		CODE           	068A	0000	14
+		_Save          		CODE           	043F	0000	71
+		_tone_off      		CODE           	06DC	0000	3
+		_get_hitlist_le		CODE           	0501	0000	56
+		_Modulate_Seria		CODE           	06AD	0000	7
 
-user.c estimated size: 623
+user.c estimated size: 693
 
 protocol.c
-		_SEND_EOF      		CODE           	06E4	0000	10
-		_SEND_DATA_BYTE		CODE           	0614	0000	34
-		_handle_serial 		CODE           	04C9	0000	59
-		_control_transf		CODE           	002E	0000	731
-		_GET_CHAR_HELPE		CODE           	0691	0000	29
-		_SEND_SOF      		CODE           	06D9	0000	11
+		_SEND_EOF      		CODE           	06A3	0000	10
+		_SEND_DATA_BYTE		CODE           	05D9	0000	34
+		_handle_serial 		CODE           	04C6	0000	59
+		_control_transf		CODE           	0039	0000	731
+		_GET_CHAR_HELPE		CODE           	0656	0000	29
+		_SEND_SOF      		CODE           	0698	0000	11
 
 protocol.c estimated size: 874
 

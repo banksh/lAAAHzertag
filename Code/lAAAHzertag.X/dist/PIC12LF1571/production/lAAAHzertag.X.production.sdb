@@ -78,8 +78,6 @@
 [v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
 "49
 [v _main main `(v  1 e 0 0 ]
-"62
-[v _hit_by hit_by `(v  1 e 0 0 ]
 "28 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
 "34
@@ -92,51 +90,53 @@
 [v _control_transfer control_transfer `(v  1 s 0 control_transfer ]
 "127
 [v _handle_serial handle_serial `(uc  1 e 1 0 ]
-"21 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"27 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Setup Setup `(v  1 e 0 0 ]
-"53
+"59
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
-"63
-[v _red_led_on red_led_on `(v  1 e 0 0 ]
 "69
-[v _green_led_on green_led_on `(v  1 e 0 0 ]
+[v _red_led_on red_led_on `(v  1 e 0 0 ]
 "75
+[v _green_led_on green_led_on `(v  1 e 0 0 ]
+"81
 [v _led_off led_off `(v  1 e 0 0 ]
-"80
+"86
 [v _play_song play_song `(v  1 e 0 0 ]
-"93
+"99
 [v _stop_song stop_song `(v  1 e 0 0 ]
-"100
+"106
 [v _handle_music handle_music `(v  1 e 0 0 ]
-"120
+"127
 [v _tone tone `(v  1 e 0 0 ]
-"130
+"137
 [v _tone_off tone_off `(v  1 e 0 0 ]
-"135
-[v _Buzz Buzz `(v  1 e 0 0 ]
 "142
+[v _Buzz Buzz `(v  1 e 0 0 ]
+"149
 [v _Send_Byte Send_Byte `(v  1 e 0 0 ]
-"152
-[v _Modulate_Serial Modulate_Serial `(v  1 e 0 0 ]
 "159
+[v _Modulate_Serial Modulate_Serial `(v  1 e 0 0 ]
+"166
 [v _Disable_Modulation Disable_Modulation `(v  1 e 0 0 ]
-"164
+"171
 [v _Read_Memory Read_Memory `(ui  1 e 2 0 ]
-"173
+"180
 [v _Load Load `(v  1 e 0 0 ]
-"185
+"192
 [v _Save Save `(v  1 e 0 0 ]
-"219
+"226
 [v _handle_fire handle_fire `(uc  1 e 1 0 ]
-"259
+"267
 [v _Sleep Sleep `(v  1 e 0 0 ]
-"277
+"285
 [v _High_Priority_Interrupt High_Priority_Interrupt `II(v  1 e 0 0 ]
-"291
+"299
 [v _get_hitlist_length get_hitlist_length `(uc  1 e 1 0 ]
-"302
+"310
 [v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
-[s S196 . 1 `uc 1 IOCIF 1 0 :1:0 
+"328
+[v _hit_by hit_by `(v  1 e 0 0 ]
+[s S172 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -146,14 +146,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "355 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic12lf1572.h
-[s S205 . 1 `uc 1 . 1 0 :2:0 
+[s S181 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S210 . 1 `S196 1 . 1 0 `S205 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES210  1 e 1 @11 ]
-[s S89 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S186 . 1 `S172 1 . 1 0 `S181 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES186  1 e 1 @11 ]
+[s S65 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -161,11 +161,11 @@
 `uc 1 TRISA5 1 0 :1:5 
 ]
 "427
-[s S96 . 1 `uc 1 TRISA 1 0 :6:0 
+[s S72 . 1 `uc 1 TRISA 1 0 :6:0 
 ]
-[u S98 . 1 `S89 1 . 1 0 `S96 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES98  1 e 1 @12 ]
-[s S361 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S74 . 1 `S65 1 . 1 0 `S72 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES74  1 e 1 @12 ]
+[s S337 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXIF 1 0 :1:4 
@@ -174,13 +174,13 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "482
-[u S369 . 1 `S361 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES369  1 e 1 @17 ]
+[u S345 . 1 `S337 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES345  1 e 1 @17 ]
 "568
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
 "587
 [v _TMR1 TMR1 `VEus  1 e 2 @22 ]
-[s S260 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S236 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -190,17 +190,17 @@
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
 "653
-[s S269 . 1 `uc 1 . 1 0 :4:0 
+[s S245 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[u S273 . 1 `S260 1 . 1 0 `S269 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES273  1 e 1 @24 ]
+[u S249 . 1 `S236 1 . 1 0 `S245 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES249  1 e 1 @24 ]
 "899
-[v _TRISAbits TRISAbits `VES98  1 e 1 @140 ]
+[v _TRISAbits TRISAbits `VES74  1 e 1 @140 ]
 "954
-[v _PIE1bits PIE1bits `VES369  1 e 1 @145 ]
-[s S228 . 1 `uc 1 PS0 1 0 :1:0 
+[v _PIE1bits PIE1bits `VES345  1 e 1 @145 ]
+[s S204 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -210,18 +210,18 @@
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "1063
-[s S237 . 1 `uc 1 PS 1 0 :3:0 
+[s S213 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S242 . 1 `S228 1 . 1 0 `S237 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES242  1 e 1 @149 ]
+[u S218 . 1 `S204 1 . 1 0 `S213 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES218  1 e 1 @149 ]
 "1293
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
 "1414
 [v _ADRES ADRES `VEus  1 e 2 @155 ]
-[s S290 . 1 `uc 1 ADON 1 0 :1:0 
+[s S266 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -230,21 +230,21 @@
 `uc 1 CHS4 1 0 :1:6 
 ]
 "1487
-[s S298 . 1 `uc 1 . 1 0 :1:0 
+[s S274 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S302 . 1 `uc 1 . 1 0 :1:0 
+[s S278 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S305 . 1 `uc 1 . 1 0 :1:0 
+[s S281 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[u S308 . 1 `S290 1 . 1 0 `S298 1 . 1 0 `S302 1 . 1 0 `S305 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES308  1 e 1 @157 ]
+[u S284 . 1 `S266 1 . 1 0 `S274 1 . 1 0 `S278 1 . 1 0 `S281 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES284  1 e 1 @157 ]
 "1546
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
-[s S448 . 1 `uc 1 . 1 0 :2:0 
+[s S424 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACPSS0 1 0 :1:2 
 `uc 1 DACPSS1 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
@@ -253,31 +253,31 @@
 `uc 1 DACEN 1 0 :1:7 
 ]
 "1983
-[s S456 . 1 `uc 1 . 1 0 :2:0 
+[s S432 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACPSS 1 0 :2:2 
 ]
-[u S459 . 1 `S448 1 . 1 0 `S456 1 . 1 0 ]
-[v _DACCON0bits DACCON0bits `VES459  1 e 1 @280 ]
+[u S435 . 1 `S424 1 . 1 0 `S432 1 . 1 0 ]
+[v _DACCON0bits DACCON0bits `VES435  1 e 1 @280 ]
 "2179
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-[s S111 . 1 `uc 1 ANSA0 1 0 :1:0 
+[s S87 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 ANSA4 1 0 :1:4 
 ]
 "2196
-[s S117 . 1 `uc 1 ANSELA 1 0 :5:0 
+[s S93 . 1 `uc 1 ANSELA 1 0 :5:0 
 ]
-[u S119 . 1 `S111 1 . 1 0 `S117 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES119  1 e 1 @396 ]
+[u S95 . 1 `S87 1 . 1 0 `S93 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES95  1 e 1 @396 ]
 "2225
 [v _PMADR PMADR `VEus  1 e 2 @401 ]
 "2231
 [v _PMADRL PMADRL `VEuc  1 e 1 @401 ]
 "2269
 [v _PMDAT PMDAT `VEus  1 e 2 @403 ]
-[s S475 . 1 `uc 1 RD 1 0 :1:0 
+[s S451 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -286,8 +286,8 @@
 `uc 1 CFGS 1 0 :1:6 
 ]
 "2329
-[u S483 . 1 `S475 1 . 1 0 ]
-[v _PMCON1bits PMCON1bits `VES483  1 e 1 @405 ]
+[u S459 . 1 `S451 1 . 1 0 ]
+[v _PMCON1bits PMCON1bits `VES459  1 e 1 @405 ]
 "2368
 [v _PMCON2 PMCON2 `VEuc  1 e 1 @406 ]
 "2420
@@ -296,7 +296,7 @@
 [v _TXREG TXREG `VEuc  1 e 1 @410 ]
 "2464
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
-[s S133 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S109 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -306,19 +306,19 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2519
-[u S142 . 1 `S133 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES142  1 e 1 @413 ]
+[u S118 . 1 `S109 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES118  1 e 1 @413 ]
 "2580
-[v _TXSTAbits TXSTAbits `VES142  1 e 1 @414 ]
+[v _TXSTAbits TXSTAbits `VES118  1 e 1 @414 ]
 "2641
-[v _BAUDCONbits BAUDCONbits `VES142  1 e 1 @415 ]
+[v _BAUDCONbits BAUDCONbits `VES118  1 e 1 @415 ]
 "5478
 [v _PWM3PH PWM3PH `VEus  1 e 2 @3505 ]
 "5622
 [v _PWM3DC PWM3DC `VEus  1 e 2 @3507 ]
 "5766
 [v _PWM3PR PWM3PR `VEus  1 e 2 @3509 ]
-[s S389 . 1 `uc 1 . 1 0 :2:0 
+[s S365 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PWM3MOD 1 0 :2:2 
 `uc 1 PWM3POL 1 0 :1:4 
 `uc 1 PWM3OUT 1 0 :1:5 
@@ -326,24 +326,24 @@
 `uc 1 PWM3EN 1 0 :1:7 
 ]
 "6218
-[s S396 . 1 `uc 1 . 1 0 :2:0 
+[s S372 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PWM3MOD0 1 0 :1:2 
 `uc 1 PWM3MOD1 1 0 :1:3 
 ]
-[u S400 . 1 `S389 1 . 1 0 `S396 1 . 1 0 ]
-[v _PWM3CONbits PWM3CONbits `VES400  1 e 1 @3515 ]
-[s S418 . 1 `uc 1 PWM3LDS 1 0 :3:0 
+[u S376 . 1 `S365 1 . 1 0 `S372 1 . 1 0 ]
+[v _PWM3CONbits PWM3CONbits `VES376  1 e 1 @3515 ]
+[s S394 . 1 `uc 1 PWM3LDS 1 0 :3:0 
 `uc 1 . 1 0 :3:3 
 `uc 1 PWM3LDM 1 0 :1:6 
 `uc 1 PWM3LD 1 0 :1:7 
 ]
 "6407
-[s S423 . 1 `uc 1 PWM3LDS0 1 0 :1:0 
+[s S399 . 1 `uc 1 PWM3LDS0 1 0 :1:0 
 `uc 1 PWM3LDS1 1 0 :1:1 
 ]
-[u S426 . 1 `S418 1 . 1 0 `S423 1 . 1 0 ]
-[v _PWM3LDCONbits PWM3LDCONbits `VES426  1 e 1 @3519 ]
-[s S19 . 16 `ui 1 id 2 0 `ui 1 power 2 2 `ui 1 health 2 4 `ui 1 shield 2 6 `ui 1 respawn_timer 2 8 `ui 1 fire_threshold 2 10 `ui 1 fire_cheating 2 12 `ui 1 fire_holdoff 2 14 ]
+[u S402 . 1 `S394 1 . 1 0 `S399 1 . 1 0 ]
+[v _PWM3LDCONbits PWM3LDCONbits `VES402  1 e 1 @3519 ]
+[s S19 . 16 `ui 1 id 2 0 `ui 1 power 2 2 `ui 1 health 2 4 `ui 1 shield 2 6 `ui 1 respawn_delay 2 8 `ui 1 fire_threshold 2 10 `ui 1 fire_cheating 2 12 `ui 1 fire_holdoff 2 14 ]
 "25 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _config config `S19  1 e 16 0 ]
 "26
@@ -357,7 +357,7 @@
 "41
 [v _my_random_number my_random_number `uc  1 e 1 0 ]
 "10 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _cur_song cur_song `*.4ui  1 e 1 0 ]
+[v _cur_song cur_song `*.39ui  1 e 2 0 ]
 "11
 [v _cur_song_length cur_song_length `uc  1 e 1 0 ]
 "12
@@ -366,64 +366,41 @@
 [v _cur_song_repeat cur_song_repeat `uc  1 e 1 0 ]
 "14
 [v _cur_song_duration cur_song_duration `ui  1 e 2 0 ]
-"18
+"23
+[v _death_song death_song `[19]ui  1 e 38 0 ]
+"24
 [v _fire_song fire_song `[16]ui  1 e 32 0 ]
 "49 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
 "59
 } 0
-"100 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _handle_music handle_music `(v  1 e 0 0 ]
-{
-"117
-} 0
-"219
+"226 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _handle_fire handle_fire `(uc  1 e 1 0 ]
 {
-"222
-[v handle_fire@a a `ui  1 a 2 10 ]
-"220
+"229
+[v handle_fire@a a `ui  1 a 2 0 ]
+"227
 [v handle_fire@timer timer `ui  1 s 2 timer ]
-"221
+"228
 [v handle_fire@counter counter `ui  1 s 2 counter ]
-"257
-} 0
-"93
-[v _stop_song stop_song `(v  1 e 0 0 ]
-{
-"97
-} 0
-"80
-[v _play_song play_song `(v  1 e 0 0 ]
-{
-[v play_song@song song `*.4ui  1 a 1 7 ]
-[v play_song@song song `*.4ui  1 a 1 7 ]
-[v play_song@length length `uc  1 p 1 1 ]
-[v play_song@note_duration note_duration `ui  1 p 2 2 ]
-[v play_song@repeat repeat `uc  1 p 1 4 ]
-"90
+"265
 } 0
 "75
-[v _led_off led_off `(v  1 e 0 0 ]
-{
-"77
-} 0
-"69
 [v _green_led_on green_led_on `(v  1 e 0 0 ]
 {
-"72
+"78
 } 0
-"53
+"59
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
 {
-"60
+"66
 } 0
 "127 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _handle_serial handle_serial `(uc  1 e 1 0 ]
 {
 "130
-[v handle_serial@b b `uc  1 a 1 42 ]
+[v handle_serial@b b `uc  1 a 1 11 ]
 "128
 [v handle_serial@rx_id rx_id `uc  1 s 1 rx_id ]
 "129
@@ -464,22 +441,22 @@
 [v SEND_DATA_BYTE@b b `uc  1 a 1 4 ]
 [v SEND_DATA_BYTE@b b `uc  1 a 1 4 ]
 } 0
-"142 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"149 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Send_Byte Send_Byte `(v  1 e 0 0 ]
 {
 [v Send_Byte@data data `uc  1 a 1 1 ]
 [v Send_Byte@data data `uc  1 a 1 1 ]
-"150
+"157
 } 0
-"159
+"166
 [v _Disable_Modulation Disable_Modulation `(v  1 e 0 0 ]
 {
-"162
+"169
 } 0
-"152
+"159
 [v _Modulate_Serial Modulate_Serial `(v  1 e 0 0 ]
 {
-"157
+"164
 } 0
 "28 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
@@ -487,100 +464,113 @@
 [v GET_CHAR_HELPER@val val `*.4uc  1 a 1 2 ]
 [v GET_CHAR_HELPER@val val `*.4uc  1 a 1 2 ]
 } 0
-"62 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"328 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _hit_by hit_by `(v  1 e 0 0 ]
 {
-[v hit_by@who who `uc  1 a 1 12 ]
-[v hit_by@who who `uc  1 a 1 12 ]
-"70
+[v hit_by@who who `uc  1 a 1 0 ]
+"346
+[v hit_by@i_685 i `uc  1 a 1 4 ]
+"340
+[v hit_by@i i `uc  1 a 1 3 ]
+"329
+[v hit_by@respawn_timer respawn_timer `ui  1 a 2 1 ]
+"328
+[v hit_by@who who `uc  1 a 1 0 ]
+"356
 } 0
-"291 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _get_hitlist_length get_hitlist_length `(uc  1 e 1 0 ]
-{
-"292
-[v get_hitlist_length@i i `uc  1 a 1 5 ]
-"299
-} 0
-"135
-[v _Buzz Buzz `(v  1 e 0 0 ]
-{
-"137
-[v Buzz@i i `ui  1 a 2 14 ]
-"135
-[v Buzz@freq freq `ui  1 p 2 8 ]
-[v Buzz@dur_ms dur_ms `ui  1 p 2 10 ]
-"139
-} 0
-"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
-{
-"6
-[v ___aldiv@quotient quotient `l  1 a 4 2 ]
-"7
-[v ___aldiv@sign sign `uc  1 a 1 1 ]
-[v ___aldiv@counter counter `uc  1 a 1 0 ]
-"5
-[v ___aldiv@divisor divisor `l  1 p 4 1 ]
-[v ___aldiv@dividend dividend `l  1 p 4 5 ]
-"37
-} 0
-"120 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _tone tone `(v  1 e 0 0 ]
-{
-[v tone@period period `ui  1 p 2 6 ]
-"127
-} 0
-"130
-[v _tone_off tone_off `(v  1 e 0 0 ]
-{
-"132
-} 0
-"185
-[v _Save Save `(v  1 e 0 0 ]
-{
-"205
-[v Save@i i `uc  1 a 1 6 ]
-"185
-[v Save@address address `ui  1 p 2 1 ]
-[v Save@ptr ptr `*.4ui  1 p 1 3 ]
-[v Save@data_length data_length `uc  1 p 1 4 ]
-"217
-} 0
-"302
+"310
 [v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
 {
 [v add_to_hitlist@gun gun `uc  1 a 1 5 ]
-"304
+"312
 [v add_to_hitlist@i i `uc  1 a 1 8 ]
-"303
+"311
 [v add_to_hitlist@gun16 gun16 `ui  1 a 2 6 ]
-"302
+"310
 [v add_to_hitlist@gun gun `uc  1 a 1 5 ]
-"317
+"325
 } 0
-"21
+"299
+[v _get_hitlist_length get_hitlist_length `(uc  1 e 1 0 ]
+{
+"300
+[v get_hitlist_length@i i `uc  1 a 1 5 ]
+"307
+} 0
+"192
+[v _Save Save `(v  1 e 0 0 ]
+{
+"212
+[v Save@i i `uc  1 a 1 6 ]
+"192
+[v Save@address address `ui  1 p 2 1 ]
+[v Save@ptr ptr `*.4ui  1 p 1 3 ]
+[v Save@data_length data_length `uc  1 p 1 4 ]
+"224
+} 0
+"86
+[v _play_song play_song `(v  1 e 0 0 ]
+{
+[v play_song@song song `*.39ui  1 p 2 1 ]
+[v play_song@length length `uc  1 p 1 3 ]
+[v play_song@note_duration note_duration `ui  1 p 2 4 ]
+[v play_song@repeat repeat `uc  1 p 1 6 ]
+"96
+} 0
+"81
+[v _led_off led_off `(v  1 e 0 0 ]
+{
+"83
+} 0
+"69
+[v _red_led_on red_led_on `(v  1 e 0 0 ]
+{
+"72
+} 0
+"106
+[v _handle_music handle_music `(v  1 e 0 0 ]
+{
+"124
+} 0
+"127
+[v _tone tone `(v  1 e 0 0 ]
+{
+[v tone@period period `ui  1 p 2 1 ]
+"134
+} 0
+"99
+[v _stop_song stop_song `(v  1 e 0 0 ]
+{
+"103
+} 0
+"137
+[v _tone_off tone_off `(v  1 e 0 0 ]
+{
+"139
+} 0
+"27
 [v _Setup Setup `(v  1 e 0 0 ]
 {
-"50
+"56
 } 0
 "29 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
 {
 "46
 } 0
-"173 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"180 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Load Load `(v  1 e 0 0 ]
 {
-"176
+"183
 [v Load@i i `uc  1 a 1 6 ]
-"173
+"180
 [v Load@address address `ui  1 p 2 1 ]
 [v Load@ptr ptr `*.4ui  1 p 1 3 ]
 [v Load@data_length data_length `uc  1 p 1 4 ]
-"183
+"190
 } 0
-"277
+"285
 [v _High_Priority_Interrupt High_Priority_Interrupt `II(v  1 e 0 0 ]
 {
-"288
+"296
 } 0

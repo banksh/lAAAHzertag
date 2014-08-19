@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "7 main.h
 [s S355 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S355 . id power health shield respawn_timer fire_threshold fire_cheating fire_holdoff ]
+[n S355 . id power health shield respawn_delay fire_threshold fire_cheating fire_holdoff ]
 "18 user.h
 [v _Load `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
 [p mainexit ]
@@ -13,14 +13,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _handle_fire `(uc ~T0 @X0 0 ef ]
 "26
 [v _handle_music `(v ~T0 @X0 0 ef ]
-"23
-[v _add_to_hitlist `(v ~T0 @X0 0 ef1`uc ]
-"17
-[v _Save `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
-"12
-[v _Buzz `(v ~T0 @X0 0 ef2`ui`ui ]
-"22
-[v _get_hitlist_length `(uc ~T0 @X0 0 ef ]
 [; ;pic12lf1572.h: 44: extern volatile unsigned char INDF0 @ 0x000;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic12lf1572.h
 [; ;pic12lf1572.h: 46: asm("INDF0 equ 00h");
@@ -2995,7 +2987,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 9: uint16_t power;
 [; ;main.h: 10: uint16_t health;
 [; ;main.h: 11: uint16_t shield;
-[; ;main.h: 12: uint16_t respawn_timer;
+[; ;main.h: 12: uint16_t respawn_delay;
 [; ;main.h: 13: uint16_t fire_threshold;
 [; ;main.h: 14: uint16_t fire_cheating;
 [; ;main.h: 15: uint16_t fire_holdoff;
@@ -3003,7 +2995,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 20: typedef uint16_t hitlist_t[16];
 [; ;main.h: 24: extern config_t config;
 [; ;main.h: 25: extern hitlist_t hitlist;
-[; ;main.h: 27: void hit_by(uint8_t who);
 [; ;user.h: 7: void Setup(void);
 [; ;user.h: 8: uint16_t ADC_read(void);
 [; ;user.h: 9: void green_led_on(void);
@@ -3025,6 +3016,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 26: void handle_music();
 [; ;user.h: 27: void tone(uint16_t period);
 [; ;user.h: 28: void tone_off();
+[; ;user.h: 29: void hit_by(uint8_t who);
 [; ;protocol.h: 1: uint8_t handle_serial();
 "9 main.c
 [p x FOSC=INTOSC ]
@@ -3083,9 +3075,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 35: config.power = 0;
 "35
 [e = . _config 1 -> -> 0 `i `ui ]
-[; ;main.c: 36: config.respawn_timer = 10;
+[; ;main.c: 36: config.respawn_delay = 100;
 "36
-[e = . _config 4 -> -> 10 `i `ui ]
+[e = . _config 4 -> -> 100 `i `ui ]
 [; ;main.c: 37: config.fire_threshold = 500;
 "37
 [e = . _config 5 -> -> 500 `i `ui ]
@@ -3147,38 +3139,4 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 59: }
 "59
 [e :UE 358 ]
-}
-"62
-[v _hit_by `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;main.c: 61: void hit_by(uint8_t who)
-[; ;main.c: 62: {
-[e :U _hit_by ]
-[v _who `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;main.c: 63: add_to_hitlist(who);
-"63
-[e ( _add_to_hitlist (1 _who ]
-[; ;main.c: 64: Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
-"64
-[e ( _Save (3 , , -> -> 2016 `i `ui &U _hitlist -> / -> * -> 16 `i # `ui `ui -> -> 2 `i `ui `uc ]
-[; ;main.c: 65: Buzz(1000,50);
-"65
-[e ( _Buzz (2 , -> -> 1000 `i `ui -> -> 50 `i `ui ]
-[; ;main.c: 66: if(get_hitlist_length() > config.health)
-"66
-[e $ ! > -> ( _get_hitlist_length ..  `ui . _config 2 363  ]
-[; ;main.c: 67: {
-"67
-{
-[; ;main.c: 68: Buzz(100,2000);
-"68
-[e ( _Buzz (2 , -> -> 100 `i `ui -> -> 2000 `i `ui ]
-"69
-}
-[e :U 363 ]
-[; ;main.c: 69: }
-[; ;main.c: 70: }
-"70
-[e :UE 362 ]
 }
