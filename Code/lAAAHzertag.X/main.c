@@ -35,11 +35,12 @@ static void LoadFromFlash()
         config.power = 0;
         config.respawn_timer = 10;
         config.fire_threshold = 500;
-        config.fire_holdoff = 8000;
+        //config.fire_holdoff = 8000;
+        config.fire_holdoff = 0;
         config.shield = 1;
-        config.fire_cheating = 1000;
-        Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
-        Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
+        config.fire_cheating = 2000;
+    //    Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
+    //    Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
     }
     Load(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
 }
@@ -51,7 +52,9 @@ void main(void)
 
     while(1)
     {
-        if(!handle_serial() & !Fire());// Sleep();
+        handle_serial();
+        handle_fire();
+        handle_music();
     }
 }
 
