@@ -4571,36 +4571,60 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.32\include\stdbool.h"
-typedef unsigned char bool;
-
-# 19 "system.h"
-void ConfigureOscillator(void);
-
-# 16 "user.h"
+# 7 "main.h"
 typedef struct {
 uint16_t id;
 uint16_t power;
 uint16_t health;
-uint16_t respawn_timer;
+uint16_t shield;
+uint16_t respawn_delay;
+uint16_t fire_threshold;
+uint16_t fire_cheating;
+uint16_t fire_holdoff;
+uint16_t death_period;
 } config_t;
 
-# 27
+
+
+typedef uint16_t hitlist_t[16];
+
+
+
+extern config_t config;
+extern hitlist_t hitlist;
+
+# 11 "user.h"
 void Setup(void);
 uint16_t ADC_read(void);
-void LED_on(void);
-void LED_off(void);
+void green_led_on(void);
+void red_led_on(void);
+void led_off(void);
 void Buzz(uint16_t freq, uint16_t dur_ms);
 void Send_Byte(uint8_t data);
 void Modulate_Serial(void);
 void Disable_Modulation(void);
-void Fire(void);
+uint8_t handle_fire(void);
 void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Get_hit(uint8_t ID);
+void Sleep();
+
+uint8_t get_hitlist_length();
+void add_to_hitlist(uint8_t gun);
+void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
+void stop_song();
+void handle_music();
+void tone(uint16_t period);
+void tone_off();
+void hit_by(uint8_t who);
+void super_dead_mode();
+
+# 1 "protocol.h"
+uint8_t handle_serial();
+void control_transfer();
 
 
-# 29 "main.c"
+# 9 "main.c"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -4617,104 +4641,41 @@ void Get_hit(uint8_t ID);
 #pragma config LPBOREN = OFF
 #pragma config LVP = OFF
 
-extern config_t config;
+config_t config;
+hitlist_t hitlist;
 
-uint8_t my_id=0x80;
-uint8_t my_power_level=0x00;
-uint8_t my_random_number=0x00;
-
-
-
-void control_transfer()
+static void LoadFromFlash()
 {
-uint8_t x,y,checksum;
-uint16_t i;
-
-uint8_t cmd;
-uint8_t power_level,random_number,id;
-
-checksum = 0; i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; x=((y << 4) | x); checksum += x; if(x != my_id) goto err;
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; cmd=((y << 4) | x); checksum += cmd;
-
-switch(cmd)
+Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+if(config.id == 0x3FFF)
 {
-case 0x01:
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; x=((y << 4) | x); checksum += x; if(checksum) goto err; i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); if(x != 0x11) goto err;
-Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
-x = 0x02 & 0x0F; y = 0x02 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x02;
-x = my_random_number & 0x0F; y = my_random_number >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_random_number;
-x = checksum & 0x0F; y = checksum >> 4; Send_Byte(x); Send_Byte(y); checksum -= checksum; Send_Byte(0x11);
-break;
-case 0x03:
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; random_number=((y << 4) | x); checksum += random_number;
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; id=((y << 4) | x); checksum += id;
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; x=((y << 4) | x); checksum += x; if(checksum) goto err; i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); if(x != 0x11) goto err;
-if(random_number != my_random_number) goto err;
-Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
-x = 0x00 & 0x0F; y = 0x00 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x00;
-x = checksum & 0x0F; y = checksum >> 4; Send_Byte(x); Send_Byte(y); checksum -= checksum; Send_Byte(0x11);
-
-
-break;
-case 0x08:
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; power_level=((y << 4) | x); checksum += power_level;
-i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} y = (RCREG); if((x & (~0x0F)) || (y & (~0x0F))) goto err; x=((y << 4) | x); checksum += x; if(checksum) goto err; i=0; while(!PIR1bits.RCIF) {_delay((unsigned long)((100)*(16000000/4000000.0))); i++; if(i >= 1000) goto err;} x = (RCREG); if(x != 0x11) goto err;
-my_power_level = power_level;
-Send_Byte(0x10); checksum = 0; x = my_id & 0x0F; y = my_id >> 4; Send_Byte(x); Send_Byte(y); checksum -= my_id;
-x = 0x00 & 0x0F; y = 0x00 >> 4; Send_Byte(x); Send_Byte(y); checksum -= 0x00;
-x = checksum & 0x0F; y = checksum >> 4; Send_Byte(x); Send_Byte(y); checksum -= checksum; Send_Byte(0x11);
-break;
-
-default:
-goto err;
+config.health = 16;
+config.id = 0x80;
+config.power = 0;
+config.respawn_delay = 100;
+config.fire_threshold = 500;
+config.fire_holdoff = 8000;
+config.shield = 2;
+config.fire_cheating = 1000;
+config.death_period = 3000;
+Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 }
-err:
-return;
-}
-
-void Fire(){
-if (PORTAbits.RA4) {
-Send_Byte(my_id);
-Buzz(3000,50);
-}
+Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 }
 
 void main(void)
 {
-uint8_t b;
-
-config.health = 16;
-config.id = 0x80;
-config.power = 0x16;
-config.respawn_timer = 10;
-
 Setup();
+LoadFromFlash();
+if(!config.health) {
+super_dead_mode();
+}
 
 while(1)
 {
-
-# 138
-Fire();
-if((PIR1bits.RCIF))
-{
-b=(RCREG);
-if(b == 0x10) {
-control_transfer();
+handle_serial();
+handle_fire();
+handle_music();
 }
-if((b > 0x80) && (b != my_id)) {
-Get_hit(b);
 }
-
-}
-
-
-Save(0x7D0, (uint16_t*) &config, 4);
-
-config.id = 0x92;
-Load(0x7D0, (uint16_t*) &config, 4);
-
-# 168
-}
-
-}
-

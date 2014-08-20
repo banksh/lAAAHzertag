@@ -75,39 +75,71 @@
 [v ___bmul __bmul `(uc  1 e 1 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\pic\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"53 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
-[v _control_transfer control_transfer `(v  1 e 0 0 ]
-"100
-[v _Fire Fire `(v  1 e 0 0 ]
-"107
+"28 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+[v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
+"48
 [v _main main `(v  1 e 0 0 ]
-"26 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _Setup Setup `(v  1 e 0 0 ]
-"52
-[v _ADC_read ADC_read `(ui  1 e 2 0 ]
-"62
-[v _LED_on LED_on `(v  1 e 0 0 ]
-"67
-[v _LED_off LED_off `(v  1 e 0 0 ]
-"72
-[v _Buzz Buzz `(v  1 e 0 0 ]
-"87
-[v _Send_Byte Send_Byte `(v  1 e 0 0 ]
-"98
-[v _Modulate_Serial Modulate_Serial `(v  1 e 0 0 ]
-"110
-[v _Disable_Modulation Disable_Modulation `(v  1 e 0 0 ]
-"116
-[v _Read_Memory Read_Memory `(ui  1 e 2 0 ]
-"125
-[v _Load Load `(v  1 e 0 0 ]
+"31 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+[v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
+"37
+[v _SEND_DATA_BYTE SEND_DATA_BYTE `(v  1 s 0 SEND_DATA_BYTE ]
+"38
+[v _SEND_SOF SEND_SOF `(v  1 s 0 SEND_SOF ]
+"39
+[v _SEND_EOF SEND_EOF `(v  1 s 0 SEND_EOF ]
+"46
+[v _control_transfer control_transfer `(v  1 e 0 0 ]
 "137
+[v _handle_serial handle_serial `(uc  1 e 1 0 ]
+"31 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _Setup Setup `(v  1 e 0 0 ]
+"68
+[v _ADC_read ADC_read `(ui  1 e 2 0 ]
+"78
+[v _red_led_on red_led_on `(v  1 e 0 0 ]
+"84
+[v _green_led_on green_led_on `(v  1 e 0 0 ]
+"90
+[v _led_off led_off `(v  1 e 0 0 ]
+"95
+[v _play_song play_song `(v  1 e 0 0 ]
+"108
+[v _stop_song stop_song `(v  1 e 0 0 ]
+"115
+[v _handle_music handle_music `(v  1 e 0 0 ]
+"136
+[v _tone tone `(v  1 e 0 0 ]
+"146
+[v _tone_off tone_off `(v  1 e 0 0 ]
+"151
+[v _Buzz Buzz `(v  1 e 0 0 ]
+"158
+[v _Send_Byte Send_Byte `(v  1 e 0 0 ]
+"169
+[v _Modulate_Serial Modulate_Serial `(v  1 e 0 0 ]
+"176
+[v _Disable_Modulation Disable_Modulation `(v  1 e 0 0 ]
+"181
+[v _Read_Memory Read_Memory `(ui  1 e 2 0 ]
+"190
+[v _Load Load `(v  1 e 0 0 ]
+"202
 [v _Save Save `(v  1 e 0 0 ]
-"175
-[v _Get_hit Get_hit `(v  1 e 0 0 ]
-"191
+"236
+[v _handle_fire handle_fire `(uc  1 e 1 0 ]
+"277
+[v _Sleep Sleep `(v  1 e 0 0 ]
+"295
 [v _High_Priority_Interrupt High_Priority_Interrupt `II(v  1 e 0 0 ]
-[s S426 . 1 `uc 1 IOCIF 1 0 :1:0 
+"308
+[v _get_hitlist_length get_hitlist_length `(uc  1 e 1 0 ]
+"319
+[v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
+"337
+[v _super_dead_mode super_dead_mode `(v  1 e 0 0 ]
+"363
+[v _hit_by hit_by `(v  1 e 0 0 ]
+[s S186 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -117,26 +149,26 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "358 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
-[s S435 . 1 `uc 1 . 1 0 :2:0 
+[s S195 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S440 . 1 `S426 1 . 1 0 `S435 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES440  1 e 1 @11 ]
-[s S50 . 1 `uc 1 RA0 1 0 :1:0 
-`uc 1 RA1 1 0 :1:1 
-`uc 1 RA2 1 0 :1:2 
-`uc 1 RA3 1 0 :1:3 
-`uc 1 RA4 1 0 :1:4 
-`uc 1 RA5 1 0 :1:5 
+[u S200 . 1 `S186 1 . 1 0 `S195 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES200  1 e 1 @11 ]
+[s S79 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
 ]
 "430
-[s S57 . 1 `uc 1 PORTA 1 0 :6:0 
+[s S86 . 1 `uc 1 TRISA 1 0 :6:0 
 ]
-[u S59 . 1 `S50 1 . 1 0 `S57 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES59  1 e 1 @12 ]
-[s S25 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S88 . 1 `S79 1 . 1 0 `S86 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES88  1 e 1 @12 ]
+[s S380 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXIF 1 0 :1:4 
@@ -145,11 +177,13 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "485
-[u S33 . 1 `S25 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES33  1 e 1 @17 ]
+[u S388 . 1 `S380 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES388  1 e 1 @17 ]
+"571
+[v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
 "590
 [v _TMR1 TMR1 `VEus  1 e 2 @22 ]
-[s S477 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S250 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -159,25 +193,55 @@
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
 "656
-[s S486 . 1 `uc 1 . 1 0 :4:0 
+[s S259 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[u S490 . 1 `S477 1 . 1 0 `S486 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES490  1 e 1 @24 ]
+[u S263 . 1 `S250 1 . 1 0 `S259 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES263  1 e 1 @24 ]
+"776
+[v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
+[s S280 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+"835
+[s S288 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+[u S292 . 1 `S280 1 . 1 0 `S288 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES292  1 e 1 @28 ]
 "902
-[v _TRISAbits TRISAbits `VES59  1 e 1 @140 ]
+[v _TRISAbits TRISAbits `VES88  1 e 1 @140 ]
 "957
-[v _PIE1bits PIE1bits `VES33  1 e 1 @145 ]
+[v _PIE1bits PIE1bits `VES388  1 e 1 @145 ]
+[s S218 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 TMR0SE 1 0 :1:4 
+`uc 1 TMR0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nWPUEN 1 0 :1:7 
+]
+"1066
+[s S227 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+]
+[u S232 . 1 `S218 1 . 1 0 `S227 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES232  1 e 1 @149 ]
 "1296
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
-"1428
-[v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
-"1447
-[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
-"1466
-[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
-[s S255 . 1 `uc 1 ADON 1 0 :1:0 
+"1422
+[v _ADRES ADRES `VEus  1 e 2 @155 ]
+[s S308 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -186,21 +250,21 @@
 `uc 1 CHS4 1 0 :1:6 
 ]
 "1495
-[s S263 . 1 `uc 1 . 1 0 :1:0 
+[s S316 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S267 . 1 `uc 1 . 1 0 :1:0 
+[s S320 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S270 . 1 `uc 1 . 1 0 :1:0 
+[s S323 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[u S273 . 1 `S255 1 . 1 0 `S263 1 . 1 0 `S267 1 . 1 0 `S270 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES273  1 e 1 @157 ]
+[u S326 . 1 `S308 1 . 1 0 `S316 1 . 1 0 `S320 1 . 1 0 `S323 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES326  1 e 1 @157 ]
 "1554
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
-[s S400 . 1 `uc 1 . 1 0 :2:0 
+[s S509 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACPSS0 1 0 :1:2 
 `uc 1 DACPSS1 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
@@ -209,18 +273,31 @@
 `uc 1 DACEN 1 0 :1:7 
 ]
 "1991
-[s S408 . 1 `uc 1 . 1 0 :2:0 
+[s S517 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACPSS 1 0 :2:2 
 ]
-[u S411 . 1 `S400 1 . 1 0 `S408 1 . 1 0 ]
-[v _DACCON0bits DACCON0bits `VES411  1 e 1 @280 ]
+[u S520 . 1 `S509 1 . 1 0 `S517 1 . 1 0 ]
+[v _DACCON0bits DACCON0bits `VES520  1 e 1 @280 ]
 "2187
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+[s S101 . 1 `uc 1 ANSA0 1 0 :1:0 
+`uc 1 ANSA1 1 0 :1:1 
+`uc 1 ANSA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ANSA4 1 0 :1:4 
+]
+"2204
+[s S107 . 1 `uc 1 ANSELA 1 0 :5:0 
+]
+[u S109 . 1 `S101 1 . 1 0 `S107 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES109  1 e 1 @396 ]
 "2233
 [v _PMADR PMADR `VEus  1 e 2 @401 ]
+"2239
+[v _PMADRL PMADRL `VEuc  1 e 1 @401 ]
 "2277
 [v _PMDAT PMDAT `VEus  1 e 2 @403 ]
-[s S508 . 1 `uc 1 RD 1 0 :1:0 
+[s S536 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -229,8 +306,8 @@
 `uc 1 CFGS 1 0 :1:6 
 ]
 "2337
-[u S516 . 1 `S508 1 . 1 0 ]
-[v _PMCON1bits PMCON1bits `VES516  1 e 1 @405 ]
+[u S544 . 1 `S536 1 . 1 0 ]
+[v _PMCON1bits PMCON1bits `VES544  1 e 1 @405 ]
 "2376
 [v _PMCON2 PMCON2 `VEuc  1 e 1 @406 ]
 "2428
@@ -239,7 +316,7 @@
 [v _TXREG TXREG `VEuc  1 e 1 @410 ]
 "2472
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
-[s S185 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S123 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -249,19 +326,19 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2527
-[u S194 . 1 `S185 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES194  1 e 1 @413 ]
+[u S132 . 1 `S123 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES132  1 e 1 @413 ]
 "2588
-[v _TXSTAbits TXSTAbits `VES194  1 e 1 @414 ]
+[v _TXSTAbits TXSTAbits `VES132  1 e 1 @414 ]
 "2649
-[v _BAUDCONbits BAUDCONbits `VES194  1 e 1 @415 ]
+[v _BAUDCONbits BAUDCONbits `VES132  1 e 1 @415 ]
 "6416
 [v _PWM3PH PWM3PH `VEus  1 e 2 @3505 ]
 "6576
 [v _PWM3DC PWM3DC `VEus  1 e 2 @3507 ]
 "6736
 [v _PWM3PR PWM3PR `VEus  1 e 2 @3509 ]
-[s S299 . 1 `uc 1 . 1 0 :2:0 
+[s S408 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 MODE 1 0 :2:2 
 `uc 1 POL 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
@@ -269,177 +346,279 @@
 `uc 1 EN 1 0 :1:7 
 ]
 "7249
-[s S306 . 1 `uc 1 . 1 0 :2:0 
+[s S415 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PWM3MODE0 1 0 :1:2 
 `uc 1 PWM3MODE1 1 0 :1:3 
 ]
-[s S310 . 1 `uc 1 . 1 0 :2:0 
+[s S419 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PWM3MODE 1 0 :2:2 
 `uc 1 PWM3POL 1 0 :1:4 
 `uc 1 PWM3OUT 1 0 :1:5 
 `uc 1 PWM3OE 1 0 :1:6 
 `uc 1 PWM3EN 1 0 :1:7 
 ]
-[s S317 . 1 `uc 1 . 1 0 :2:0 
+[s S426 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 MODE0 1 0 :1:2 
 `uc 1 MODE1 1 0 :1:3 
 ]
-[u S321 . 1 `S299 1 . 1 0 `S306 1 . 1 0 `S310 1 . 1 0 `S317 1 . 1 0 ]
-[v _PWM3CONbits PWM3CONbits `VES321  1 e 1 @3515 ]
-[s S352 . 1 `uc 1 LDS 1 0 :2:0 
+[u S430 . 1 `S408 1 . 1 0 `S415 1 . 1 0 `S419 1 . 1 0 `S426 1 . 1 0 ]
+[v _PWM3CONbits PWM3CONbits `VES430  1 e 1 @3515 ]
+[s S461 . 1 `uc 1 LDS 1 0 :2:0 
 `uc 1 . 1 0 :4:2 
 `uc 1 LDT 1 0 :1:6 
 `uc 1 LDA 1 0 :1:7 
 ]
 "7707
-[s S357 . 1 `uc 1 PWM3LDS0 1 0 :1:0 
+[s S466 . 1 `uc 1 PWM3LDS0 1 0 :1:0 
 `uc 1 PWM3LDS1 1 0 :1:1 
 ]
-[s S360 . 1 `uc 1 PWM3LDS 1 0 :2:0 
+[s S469 . 1 `uc 1 PWM3LDS 1 0 :2:0 
 `uc 1 . 1 0 :4:2 
 `uc 1 PWM3LDM 1 0 :1:6 
 `uc 1 PWM3LD 1 0 :1:7 
 ]
-[s S365 . 1 `uc 1 LDS0 1 0 :1:0 
+[s S474 . 1 `uc 1 LDS0 1 0 :1:0 
 `uc 1 LDS1 1 0 :1:1 
 ]
-[u S368 . 1 `S352 1 . 1 0 `S357 1 . 1 0 `S360 1 . 1 0 `S365 1 . 1 0 ]
-[v _PWM3LDCONbits PWM3LDCONbits `VES368  1 e 1 @3519 ]
-"8137
-[v _ADON ADON `VEb  1 e 0 @1256 ]
-"8209
-[v _CHS0 CHS0 `VEb  1 e 0 @1258 ]
-"8211
-[v _CHS1 CHS1 `VEb  1 e 0 @1259 ]
-"8321
-[v _GO GO `VEb  1 e 0 @1257 ]
-"47 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
-[v _my_id my_id `uc  1 e 1 0 ]
-"48
-[v _my_power_level my_power_level `uc  1 e 1 0 ]
-"49
+[u S477 . 1 `S461 1 . 1 0 `S466 1 . 1 0 `S469 1 . 1 0 `S474 1 . 1 0 ]
+[v _PWM3LDCONbits PWM3LDCONbits `VES477  1 e 1 @3519 ]
+[s S19 . 18 `ui 1 id 2 0 `ui 1 power 2 2 `ui 1 health 2 4 `ui 1 shield 2 6 `ui 1 respawn_delay 2 8 `ui 1 fire_threshold 2 10 `ui 1 fire_cheating 2 12 `ui 1 fire_holdoff 2 14 `ui 1 death_period 2 16 ]
+"25 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+[v _config config `S19  1 e 18 0 ]
+"26
+[v _hitlist hitlist `[16]ui  1 e 32 0 ]
+"26 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+[v __x _x `uc  1 e 1 0 ]
+[v __y _y `uc  1 e 1 0 ]
+[v __checksum _checksum `uc  1 e 1 0 ]
+"27
+[v __i _i `ui  1 e 2 0 ]
+"29
+[v _one_up one_up `DCC[6]ui  1 e 12 0 ]
+"44
 [v _my_random_number my_random_number `uc  1 e 1 0 ]
-[s S78 . 8 `ui 1 id 2 0 `ui 1 power 2 2 `ui 1 health 2 4 `ui 1 respawn_timer 2 6 ]
-"24 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _config config `S78  1 e 8 0 ]
-"107 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"12 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _cur_song cur_song `*.25ui  1 e 2 0 ]
+"13
+[v _cur_song_length cur_song_length `uc  1 e 1 0 ]
+"14
+[v _cur_song_ptr cur_song_ptr `uc  1 e 1 0 ]
+"15
+[v _cur_song_repeat cur_song_repeat `uc  1 e 1 0 ]
+"16
+[v _cur_song_duration cur_song_duration `ui  1 e 2 0 ]
+"26
+[v _death_song death_song `DCC[19]ui  1 e 38 0 ]
+"27
+[v _fire_song fire_song `DCC[16]ui  1 e 32 0 ]
+"28
+[v _dead_song dead_song `DCC[3]ui  1 e 6 0 ]
+"48 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"109
-[v main@b b `uc  1 a 1 14 ]
-"170
+"62
 } 0
-"53
+"137 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+[v _handle_serial handle_serial `(uc  1 e 1 0 ]
+{
+"141
+[v handle_serial@b b `uc  1 a 1 11 ]
+"139
+[v handle_serial@rx_id rx_id `uc  1 s 1 rx_id ]
+"140
+[v handle_serial@rx_counter rx_counter `uc  1 s 1 rx_counter ]
+"164
+} 0
+"363 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _hit_by hit_by `(v  1 e 0 0 ]
+{
+[v hit_by@who who `uc  1 a 1 wreg ]
+"396
+[v hit_by@i_790 i `uc  1 a 1 51 ]
+"386
+[v hit_by@i i `uc  1 a 1 50 ]
+"365
+[v hit_by@respawn_timer respawn_timer `ui  1 a 2 48 ]
+"363
+[v hit_by@who who `uc  1 a 1 wreg ]
+"367
+[v hit_by@who who `uc  1 a 1 47 ]
+"402
+} 0
+"337
+[v _super_dead_mode super_dead_mode `(v  1 e 0 0 ]
+{
+"342
+[v super_dead_mode@b b `uc  1 a 1 42 ]
+"338
+[v super_dead_mode@counter counter `ui  1 a 2 43 ]
+"361
+} 0
+"115
+[v _handle_music handle_music `(v  1 e 0 0 ]
+{
+"134
+} 0
+"136
+[v _tone tone `(v  1 e 0 0 ]
+{
+[v tone@period period `ui  1 p 2 1 ]
+"144
+} 0
+"46 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _control_transfer control_transfer `(v  1 e 0 0 ]
 {
-"56
-[v control_transfer@i i `ui  1 a 2 5 ]
+"53
+[v control_transfer@data data `[16]ui  1 a 32 0 ]
+"52
+[v control_transfer@page page `ui  1 a 2 37 ]
 "55
-[v control_transfer@x x `uc  1 a 1 8 ]
-[v control_transfer@y y `uc  1 a 1 7 ]
-[v control_transfer@checksum checksum `uc  1 a 1 4 ]
-"59
-[v control_transfer@random_number random_number `uc  1 a 1 3 ]
-[v control_transfer@power_level power_level `uc  1 a 1 2 ]
-"58
-[v control_transfer@cmd cmd `uc  1 a 1 1 ]
-"59
-[v control_transfer@id id `uc  1 a 1 0 ]
-"98
-} 0
-"26 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _Setup Setup `(v  1 e 0 0 ]
-{
+[v control_transfer@x x `uc  1 a 1 39 ]
+"48
+[v control_transfer@i i `uc  1 a 1 36 ]
+"54
+[v control_transfer@dptr dptr `*.4uc  1 a 1 35 ]
 "50
-} 0
-"137
-[v _Save Save `(v  1 e 0 0 ]
-{
-"155
-[v Save@i i `uc  1 a 1 6 ]
-"137
-[v Save@address address `ui  1 p 2 1 ]
-[v Save@ptr ptr `*.4ui  1 p 1 3 ]
-[v Save@data_length data_length `uc  1 p 1 4 ]
-"173
-} 0
-"125
-[v _Load Load `(v  1 e 0 0 ]
-{
-"128
-[v Load@i i `uc  1 a 1 6 ]
-"125
-[v Load@address address `ui  1 p 2 1 ]
-[v Load@ptr ptr `*.4ui  1 p 1 3 ]
-[v Load@data_length data_length `uc  1 p 1 4 ]
+[v control_transfer@id id `uc  1 a 1 34 ]
+[v control_transfer@random_number random_number `uc  1 a 1 33 ]
+"49
+[v control_transfer@cmd cmd `uc  1 a 1 32 ]
 "135
 } 0
-"175
-[v _Get_hit Get_hit `(v  1 e 0 0 ]
+"38
+[v _SEND_SOF SEND_SOF `(v  1 s 0 SEND_SOF ]
 {
-[v Get_hit@ID ID `uc  1 a 1 wreg ]
-[v Get_hit@ID ID `uc  1 a 1 wreg ]
-"187
 } 0
-"62
-[v _LED_on LED_on `(v  1 e 0 0 ]
+"39
+[v _SEND_EOF SEND_EOF `(v  1 s 0 SEND_EOF ]
 {
-"65
 } 0
-"67
-[v _LED_off LED_off `(v  1 e 0 0 ]
+"37
+[v _SEND_DATA_BYTE SEND_DATA_BYTE `(v  1 s 0 SEND_DATA_BYTE ]
 {
-"70
+[v SEND_DATA_BYTE@b b `uc  1 a 1 wreg ]
+[v SEND_DATA_BYTE@b b `uc  1 a 1 wreg ]
+[v SEND_DATA_BYTE@b b `uc  1 a 1 4 ]
 } 0
-"100 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
-[v _Fire Fire `(v  1 e 0 0 ]
+"31
+[v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
 {
-"105
+[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 wreg ]
+[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 wreg ]
+[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 2 ]
 } 0
-"87 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"319 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
+{
+[v add_to_hitlist@gun gun `uc  1 a 1 wreg ]
+"322
+[v add_to_hitlist@i i `uc  1 a 1 8 ]
+"321
+[v add_to_hitlist@gun16 gun16 `ui  1 a 2 6 ]
+"319
+[v add_to_hitlist@gun gun `uc  1 a 1 wreg ]
+"321
+[v add_to_hitlist@gun gun `uc  1 a 1 5 ]
+"335
+} 0
+"236
+[v _handle_fire handle_fire `(uc  1 e 1 0 ]
+{
+"239
+[v handle_fire@a a `ui  1 a 2 0 ]
+"237
+[v handle_fire@timer timer `ui  1 s 2 timer ]
+"238
+[v handle_fire@counter counter `ui  1 s 2 counter ]
+"275
+} 0
+"108
+[v _stop_song stop_song `(v  1 e 0 0 ]
+{
+"113
+} 0
+"146
+[v _tone_off tone_off `(v  1 e 0 0 ]
+{
+"149
+} 0
+"78
+[v _red_led_on red_led_on `(v  1 e 0 0 ]
+{
+"82
+} 0
+"95
+[v _play_song play_song `(v  1 e 0 0 ]
+{
+[v play_song@song song `*.25ui  1 p 2 1 ]
+[v play_song@length length `uc  1 p 1 3 ]
+[v play_song@note_duration note_duration `ui  1 p 2 4 ]
+[v play_song@repeat repeat `uc  1 p 1 6 ]
+"106
+} 0
+"90
+[v _led_off led_off `(v  1 e 0 0 ]
+{
+"93
+} 0
+"158
 [v _Send_Byte Send_Byte `(v  1 e 0 0 ]
 {
 [v Send_Byte@data data `uc  1 a 1 wreg ]
 [v Send_Byte@data data `uc  1 a 1 wreg ]
-"89
+"160
 [v Send_Byte@data data `uc  1 a 1 1 ]
-"96
+"167
 } 0
-"98
+"169
 [v _Modulate_Serial Modulate_Serial `(v  1 e 0 0 ]
 {
-"108
+"174
 } 0
-"110
+"176
 [v _Disable_Modulation Disable_Modulation `(v  1 e 0 0 ]
 {
-"114
+"179
 } 0
-"72
-[v _Buzz Buzz `(v  1 e 0 0 ]
+"68
+[v _ADC_read ADC_read `(ui  1 e 2 0 ]
 {
-"81
-[v Buzz@i i `ui  1 a 2 10 ]
-"72
-[v Buzz@freq freq `ui  1 p 2 6 ]
-[v Buzz@dur_ms dur_ms `ui  1 p 2 8 ]
-"85
+"76
 } 0
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"31
+[v _Setup Setup `(v  1 e 0 0 ]
 {
-"11
-[v ___aldiv@quotient quotient `l  1 a 4 2 ]
-"12
-[v ___aldiv@sign sign `uc  1 a 1 1 ]
-[v ___aldiv@counter counter `uc  1 a 1 0 ]
-"6
-[v ___aldiv@divisor divisor `l  1 p 4 1 ]
-[v ___aldiv@dividend dividend `l  1 p 4 5 ]
-"42
+"66
 } 0
-"191 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"28 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+[v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
+{
+"46
+} 0
+"202 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _Save Save `(v  1 e 0 0 ]
+{
+"222
+[v Save@i i `uc  1 a 1 6 ]
+"202
+[v Save@address address `ui  1 p 2 1 ]
+[v Save@ptr ptr `*.4ui  1 p 1 3 ]
+[v Save@data_length data_length `uc  1 p 1 4 ]
+"234
+} 0
+"190
+[v _Load Load `(v  1 e 0 0 ]
+{
+"193
+[v Load@i i `uc  1 a 1 6 ]
+"190
+[v Load@address address `ui  1 p 2 1 ]
+[v Load@ptr ptr `*.4ui  1 p 1 3 ]
+[v Load@data_length data_length `uc  1 p 1 4 ]
+"200
+} 0
+"295
 [v _High_Priority_Interrupt High_Priority_Interrupt `II(v  1 e 0 0 ]
 {
-"202
+"306
 } 0
