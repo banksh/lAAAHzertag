@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
 import serial
+import struct
+import array
+import time
 
 class CommException(Exception):
 	pass
@@ -13,38 +16,37 @@ class Comm:
 	CMD_GET_RANDOM_NUMBER = 0x01
 	CMD_TAKE_RANDOM_NUMBER = 0x02
 	CMD_ASSIGN_ID = 0x03
-	CMD_GET_LOG = 0x04
-	CMD_TAKE_LOG = 0x05
-	CMD_CLEAR_LOG = 0x06
-	CMD_SET_HEALTH = 0x07
-	CMD_SET_POWER = 0x08
-	CMD_SET_DELAY = 0x09
+	CMD_GET_FLASH_PAGE = 0x04
+	CMD_TAKE_FLASH_PAGE = 0x05
+	CMD_SET_FLASH_PAGE = 0x06
+	CMD_SUCCESS = 0x07
 
 	# Only need these for responses the computer might see
 	CMD_LENGTHS = {
 		CMD_ACK: 0,
 		CMD_TAKE_RANDOM_NUMBER: 1,
-		CMD_TAKE_LOG: 16,
+		CMD_TAKE_FLASH_PAGE: 32,
 	}
 
 	def __init__(self,port,baud,timeout=.1,debug=False):
-		self.s=serial.Serial(port,baud,timeout=timeout)
+		self.s=serial.Serial(port,baud,timeout=timeout,)
 		self.debug=debug
 
 	def put_char(self,d):
-		if self.debug:
-			print "TX {0:#04x}".format(d)
+		#if self.debug:
+		#	print "TX {0:#04x}".format(d)
 		self.s.write(chr(d))
 		self.s.flush()
 		self.s.read()
+		time.sleep(0.01)
 
 	def get_char(self):
 		c=self.s.read()
 		if not len(c):
 			raise serial.SerialTimeoutException()
 		d=ord(c)
-		if self.debug:
-			print "RX {0:#04x}".format(d)
+		#if self.debug:
+		#	print "RX {0:#04x}".format(d)
 		return d
 
 	def wait_for_char(self):
@@ -143,6 +145,7 @@ class Comm:
 			recv_params=None
 		return recv_params
 
+	
 	def get_random_number(self,gun_id):
 		r=self.communicate(gun_id,self.CMD_GET_RANDOM_NUMBER,[],self.CMD_TAKE_RANDOM_NUMBER)
 		if r is None:
@@ -152,20 +155,22 @@ class Comm:
 	def assign_id(self,old_gun_id,last_random_number,new_gun_id):
 		return self.communicate(old_gun_id,self.CMD_ASSIGN_ID,[last_random_number,new_gun_id]) is not None
 
-	def get_log(self,gun_id):
-		r=self.communicate(gun_id,self.CMD_GET_LOG,[],self.CMD_TAKE_LOG)
+	def get_flash_page(self,gun_id,page):
+		page = [ord(c) for c in struct.pack('H',page)]
+		r=self.communicate(gun_id,self.CMD_GET_FLASH_PAGE, page,self.CMD_TAKE_FLASH_PAGE)
 		if r is None:
 			return None
-		return r[0:r.index(0)]
+		return struct.unpack('H'*16,array.array('B',r).tostring())
 
-	def set_health(self,gun_id,health):
-		return self.communicate(gun_id,self.CMD_SET_HEALTH,[health]) is not None
+	def set_flash_page(self,gun_id,page,values):
+		page = [ord(c) for c in struct.pack('H',page)]
+		values = [ord(c) for c in struct.pack('H'*16,*values)]
+		r=self.communicate(gun_id,self.CMD_SET_FLASH_PAGE, page+values)
+		return r is not None
 
-	def set_power(self,gun_id,power):
-		return self.communicate(gun_id,self.CMD_SET_POWER,[power]) is not None
-
-	def set_delay(self,gun_id,delay):
-		return self.communicate(gun_id,self.CMD_SET_DELAY,[delay]) is not None
+	def success(self,gun_id):
+		r=self.communicate(gun_id,self.CMD_SUCCESS)
+		return r is not None
 
 class SimComm(Comm):
 	def __init__(self,debug=False):
