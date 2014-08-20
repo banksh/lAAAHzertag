@@ -5,6 +5,8 @@
 #include "user.h"
 #include "main.h"
 
+#include "protocol.h"
+
 extern config_t config;
 
 uint16_t* cur_song;
@@ -20,8 +22,11 @@ uint16_t cur_song_duration;
 #define NOTE_D (_XTAL_FREQ / 587.3)
 #define NOTE_LOWG (_XTAL_FREQ / 392.0)
 
-uint16_t death_song[] = {_XTAL_FREQ/260,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, 0, NOTE_D, NOTE_C, NOTE_LOWG, 0, NOTE_LOWG, NOTE_LOWC};
-uint16_t fire_song[] = {_XTAL_FREQ/4000,_XTAL_FREQ/3500,_XTAL_FREQ/3000,_XTAL_FREQ/2500,_XTAL_FREQ/2000,_XTAL_FREQ/1500,_XTAL_FREQ/1000,_XTAL_FREQ/500,_XTAL_FREQ/450,_XTAL_FREQ/400,_XTAL_FREQ/350,_XTAL_FREQ/300,_XTAL_FREQ/250,0,0,0};
+
+const uint16_t death_song[] = {_XTAL_FREQ/260,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, 0, NOTE_D, NOTE_C, NOTE_LOWG, 0, NOTE_LOWG, NOTE_LOWC};
+const uint16_t fire_song[] = {_XTAL_FREQ/4000,_XTAL_FREQ/3500,_XTAL_FREQ/3000,_XTAL_FREQ/2500,_XTAL_FREQ/2000,_XTAL_FREQ/1500,_XTAL_FREQ/1000,_XTAL_FREQ/500,_XTAL_FREQ/450,_XTAL_FREQ/400,_XTAL_FREQ/350,_XTAL_FREQ/300,_XTAL_FREQ/250,0,0,0};
+const uint16_t dead_song[] = {NOTE_LOWG, NOTE_LOWC, NOTE_LOWC};
+
 
 void Setup(void)
 {
@@ -53,6 +58,11 @@ void Setup(void)
 
     // TMR1 setup (music)
     T1CONbits.T1CKPS=3;
+
+    // TMR2 setup (counter)
+    T2CONbits.T2CKPS = 3;
+    T2CONbits.T2OUTPS = 15;
+    T2CONbits.TMR2ON = 1;
 }
 
 uint16_t ADC_read()
@@ -241,7 +251,7 @@ uint8_t handle_fire(){
             {
                 if(!counter)
                 {
-                    green_led_on();
+                    red_led_on();
                     play_song(fire_song,sizeof(fire_song)/sizeof(uint16_t),3000,!(config.power));
                 }
                 Send_Byte(config.id);
@@ -324,13 +334,50 @@ void add_to_hitlist(uint8_t gun)
     }
 }
 
+void super_dead_mode(){
+    uint16_t counter = 0;
+    while(!config.health){
+        handle_music();
+        // Manage base station comms
+        uint8_t b;
+        if(CHECK_CHAR()){
+            b=AVAIL_CHAR();
+            if(b == 0x10) {
+                control_transfer();
+            }
+        }
+        counter++;
+        __delay_ms(1);
+        if(counter > config.death_period){
+            counter = 0;
+            led_off();
+            Send_Byte(config.id);
+            play_song(dead_song,sizeof(dead_song)/sizeof(uint16_t),10000,0);
+        }
+        if(counter == config.death_period-50){
+            red_led_on();
+        }
+    }
+}
+
 void hit_by(uint8_t who)
 {
   uint16_t respawn_timer;
 
   add_to_hitlist(who);
   Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
+
+  config.health --;
+  Save(FLASH_CONFIG,(uint16_t*)&config, CONFIG_SIZE);
+
   play_song(death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
+
+  if(!config.health)
+  {
+    red_led_on();
+    super_dead_mode();
+    return;
+  }
 
   respawn_timer = config.respawn_delay;
   while(respawn_timer)
@@ -342,15 +389,15 @@ void hit_by(uint8_t who)
         handle_music();
         __delay_ms(1);
     }
-    if(respawn_timer < 30) led_off();
+
+    if(respawn_timer < 30)
+    {
+        led_off();
+    }
     for(uint8_t i=0;i<50;i++)
     {
         handle_music();
         __delay_ms(1);
     }
-  }
-  if(get_hitlist_length() > config.health)
-  {
-      // No, like, you're actually dead
   }
 }

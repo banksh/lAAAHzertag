@@ -35,12 +35,12 @@ static void LoadFromFlash()
         config.power = 0;
         config.respawn_delay = 100;
         config.fire_threshold = 500;
-        //config.fire_holdoff = 8000;
-        config.fire_holdoff = 0;
-        config.shield = 1;
-        config.fire_cheating = 2000;
-    //    Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
-    //    Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
+        config.fire_holdoff = 8000;
+        config.shield = 2;
+        config.fire_cheating = 1000;
+        config.death_period = 3000;
+        Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
+        Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
     }
     Load(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
 }
@@ -49,6 +49,9 @@ void main(void)
 {
     Setup();
     LoadFromFlash();
+    if(!config.health) {
+        super_dead_mode();
+    }
 
     while(1)
     {

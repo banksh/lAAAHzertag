@@ -13,6 +13,7 @@ typedef struct {
     uint16_t fire_threshold;
     uint16_t fire_cheating;
     uint16_t fire_holdoff;
+    uint16_t death_period;
 } config_t;
 
 #define CONFIG_SIZE (sizeof(config_t)/2)
@@ -25,4 +26,3 @@ extern config_t config;
 extern hitlist_t hitlist;
 
 #endif
-

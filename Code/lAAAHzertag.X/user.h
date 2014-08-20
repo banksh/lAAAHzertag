@@ -4,6 +4,10 @@
 #define __delay_ms(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000.0)))
 
 
+
+#define CHECK_CHAR() (PIR1bits.RCIF)
+#define AVAIL_CHAR() (RCREG)
+
 void Setup(void);         /* I/O and Peripheral Initialization */
 uint16_t ADC_read(void);
 void green_led_on(void);
@@ -27,3 +31,4 @@ void handle_music();
 void tone(uint16_t period);
 void tone_off();
 void hit_by(uint8_t who);
+void super_dead_mode();
