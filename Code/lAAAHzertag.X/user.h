@@ -3,12 +3,13 @@
 #define __delay_us(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000000.0)))
 #define __delay_ms(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000.0)))
 
-
+extern uint8_t my_random_number;
 
 #define CHECK_CHAR() (PIR1bits.RCIF)
 #define AVAIL_CHAR() (RCREG)
 
-void Setup(void);         /* I/O and Peripheral Initialization */
+void Setup(void);
+void cheat(void);
 uint16_t ADC_read(void);
 void green_led_on(void);
 void red_led_on(void);

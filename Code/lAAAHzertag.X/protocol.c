@@ -41,8 +41,6 @@ static void SEND_EOF() {SEND_DATA_BYTE(_checksum); PUT_CHAR(CB_EOF);}
 #define ASSERT_SOF() _checksum = 0; READ_DATA_BYTE(_x) if(_x != (uint8_t)config.id) goto err;
 #define ASSERT_EOF() READ_DATA_BYTE(_x) if(_checksum) goto err; GET_CHAR(_x) if(_x != CB_EOF) goto err;
 
-uint8_t my_random_number;
-
 void control_transfer()
 {
     uint8_t i;

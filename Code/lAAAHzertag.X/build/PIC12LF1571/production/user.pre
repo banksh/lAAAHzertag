@@ -4571,8 +4571,14 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 11 "user.h"
+# 6 "user.h"
+extern uint8_t my_random_number;
+
+
+
+
 void Setup(void);
+void cheat(void);
 uint16_t ADC_read(void);
 void green_led_on(void);
 void red_led_on(void);
@@ -4626,14 +4632,16 @@ void control_transfer();
 # 10 "user.c"
 extern config_t config;
 
+
+uint8_t my_random_number;
 uint16_t* cur_song;
 uint8_t cur_song_length;
 uint8_t cur_song_ptr;
 uint8_t cur_song_repeat;
 uint16_t cur_song_duration;
 
-# 26
-const uint16_t death_song[] = {16000000/260,16000000/250,0,0,0,0,(16000000 / 523.3), (16000000 / 698.5), 0, (16000000 / 659.3), (16000000 / 698.5), (16000000 / 659.3), 0, (16000000 / 587.3), (16000000 / 523.3), (16000000 / 392.0), 0, (16000000 / 392.0), (16000000 / 261.6)};
+# 28
+const uint16_t death_song[] = {16000000/260};
 const uint16_t fire_song[] = {16000000/4000,16000000/3500,16000000/3000,16000000/2500,16000000/2000,16000000/1500,16000000/1000,16000000/500,16000000/450,16000000/400,16000000/350,16000000/300,16000000/250,0,0,0};
 const uint16_t dead_song[] = {(16000000 / 392.0), (16000000 / 261.6), (16000000 / 261.6)};
 
@@ -4768,6 +4776,12 @@ tone_off();
 void Send_Byte(uint8_t data)
 {
 RCSTAbits.CREN = 0;
+
+for(uint16_t i=0; i<100; i++){
+if(PORTAbits.RA1){break;}
+_delay((unsigned long)((1)*(16000000/4000.0)));
+if(i==99){cheat();}
+}
 Modulate_Serial();
 TXREG = data;
 while(!TXSTAbits.TRMT);
@@ -4843,14 +4857,29 @@ PMCON1bits.WREN = 0;
 INTCONbits.GIE = 1;
 }
 
+void cheat(){
+while(1){
+
+tone(7813);
+_delay((unsigned long)((200)*(16000000/4000.0)));
+tone_off();
+}
+}
+
 uint8_t handle_fire(){
 static uint16_t timer = 0;
 static uint16_t counter = 0;
 uint16_t a;
 
 a=ADC_read();
+if (a > config.fire_cheating){
+cheat();
+}
 if (a > config.fire_threshold && a < config.fire_cheating)
 {
+while(!my_random_number){
+my_random_number = TMR0;
+}
 if(timer < config.fire_holdoff)
 {
 timer ++;
@@ -4978,7 +5007,7 @@ add_to_hitlist(who);
 Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 
 config.health --;
-Save(0x7D0,(uint16_t*)&config, (sizeof(config_t)/2));
+Save(0x7F0,(uint16_t*)&config, (sizeof(config_t)/2));
 
 play_song(death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
 

@@ -4593,8 +4593,14 @@ typedef uint16_t hitlist_t[16];
 extern config_t config;
 extern hitlist_t hitlist;
 
-# 11 "user.h"
+# 6 "user.h"
+extern uint8_t my_random_number;
+
+
+
+
 void Setup(void);
+void cheat(void);
 uint16_t ADC_read(void);
 void green_led_on(void);
 void red_led_on(void);
@@ -4646,10 +4652,10 @@ hitlist_t hitlist;
 
 static void LoadFromFlash()
 {
-Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+Load(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 if(config.id == 0x3FFF)
 {
-config.health = 16;
+config.health = 2;
 config.id = 0x80;
 config.power = 0;
 config.respawn_delay = 100;
@@ -4658,7 +4664,7 @@ config.fire_holdoff = 8000;
 config.shield = 2;
 config.fire_cheating = 1000;
 config.death_period = 3000;
-Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 }
 Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));

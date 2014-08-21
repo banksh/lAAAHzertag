@@ -1,7 +1,7 @@
 #ifndef __MAIN_H
 #define	__MAIN_H
 
-#define FLASH_CONFIG 0x7D0
+#define FLASH_CONFIG 0x7F0
 #define FLASH_HITLIST 0x7E0
 
 typedef struct {

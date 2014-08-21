@@ -9,6 +9,8 @@
 
 extern config_t config;
 
+
+uint8_t my_random_number;
 uint16_t* cur_song;
 uint8_t cur_song_length;
 uint8_t cur_song_ptr;
@@ -23,7 +25,7 @@ uint16_t cur_song_duration;
 #define NOTE_LOWG (_XTAL_FREQ / 392.0)
 
 
-const uint16_t death_song[] = {_XTAL_FREQ/260,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, 0, NOTE_D, NOTE_C, NOTE_LOWG, 0, NOTE_LOWG, NOTE_LOWC};
+const uint16_t death_song[] = {_XTAL_FREQ/260};//,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, 0, NOTE_D, NOTE_C, NOTE_LOWG, 0, NOTE_LOWG, NOTE_LOWC};
 const uint16_t fire_song[] = {_XTAL_FREQ/4000,_XTAL_FREQ/3500,_XTAL_FREQ/3000,_XTAL_FREQ/2500,_XTAL_FREQ/2000,_XTAL_FREQ/1500,_XTAL_FREQ/1000,_XTAL_FREQ/500,_XTAL_FREQ/450,_XTAL_FREQ/400,_XTAL_FREQ/350,_XTAL_FREQ/300,_XTAL_FREQ/250,0,0,0};
 const uint16_t dead_song[] = {NOTE_LOWG, NOTE_LOWC, NOTE_LOWC};
 
@@ -158,6 +160,12 @@ void Buzz(uint16_t freq, uint16_t dur_ms)
 void Send_Byte(uint8_t data)
 {
     RCSTAbits.CREN = 0; // Disable receiver
+    //if (!PORTAbits.RA1){cheat();} // IR receiver isn't in place
+    for(uint16_t i=0; i<100; i++){
+        if(PORTAbits.RA1){break;} // You aren't cheating if RA1 is high
+        __delay_ms(1);
+        if(i==99){cheat();}
+    }
     Modulate_Serial();
     TXREG = data;
     while(!TXSTAbits.TRMT); // Wait for USART to send all data
@@ -233,14 +241,29 @@ void Save(uint16_t address, uint16_t* ptr, uint8_t data_length){
     INTCONbits.GIE = 1;
 }
 
+void cheat(){
+    while(1){
+        //tone(((uint16_t)TMR0)<<3);
+        tone(7813);
+        __delay_ms(200);
+        tone_off();
+    }
+}
+
 uint8_t handle_fire(){
     static uint16_t timer = 0; // for holdoff
     static uint16_t counter = 0; // for power
     uint16_t a;
 
     a=ADC_read();
+    if (a > config.fire_cheating){
+        cheat();
+    }
     if (a > config.fire_threshold && a < config.fire_cheating)
     {
+        while(!my_random_number){
+            my_random_number = TMR0;
+        }
         if(timer < config.fire_holdoff)
         {
             timer ++;

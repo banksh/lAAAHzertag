@@ -9,7 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
 "2428
 [v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-"17 user.h
+"18 user.h
 [v _Send_Byte `(v ~T0 @X0 0 ef1`uc ]
 [v F3487 `(v ~T0 @X0 1 tf1`ul ]
 "154 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic.h
@@ -20,13 +20,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S436 . id power health shield respawn_delay fire_threshold fire_cheating fire_holdoff death_period ]
 "25
 [v _config `S436 ~T0 @X0 0 e ]
-"21 user.h
-[v _Save `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
+"6 user.h
+[v _my_random_number `uc ~T0 @X0 0 e ]
 "22
+[v _Save `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
+"23
 [v _Load `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
 "26 main.h
 [v _hitlist `ui ~T0 @X0 -> 0 `x e ]
-"28 user.h
+"29 user.h
 [v _play_song `(v ~T0 @X0 0 ef4`*ui`uc`ui`uc ]
 "776 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
 [v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
@@ -38,7 +40,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S148 . . ]
 "2527
 [v _RCSTAbits `VS148 ~T0 @X0 0 e@413 ]
-"33 user.h
+"34 user.h
 [v _hit_by `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
@@ -3436,29 +3438,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 21: typedef uint16_t hitlist_t[16];
 [; ;main.h: 25: extern config_t config;
 [; ;main.h: 26: extern hitlist_t hitlist;
+[; ;user.h: 6: extern uint8_t my_random_number;
 [; ;user.h: 11: void Setup(void);
-[; ;user.h: 12: uint16_t ADC_read(void);
-[; ;user.h: 13: void green_led_on(void);
-[; ;user.h: 14: void red_led_on(void);
-[; ;user.h: 15: void led_off(void);
-[; ;user.h: 16: void Buzz(uint16_t freq, uint16_t dur_ms);
-[; ;user.h: 17: void Send_Byte(uint8_t data);
-[; ;user.h: 18: void Modulate_Serial(void);
-[; ;user.h: 19: void Disable_Modulation(void);
-[; ;user.h: 20: uint8_t handle_fire(void);
-[; ;user.h: 21: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 22: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 23: void Get_hit(uint8_t ID);
-[; ;user.h: 24: void Sleep();
-[; ;user.h: 26: uint8_t get_hitlist_length();
-[; ;user.h: 27: void add_to_hitlist(uint8_t gun);
-[; ;user.h: 28: void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
-[; ;user.h: 29: void stop_song();
-[; ;user.h: 30: void handle_music();
-[; ;user.h: 31: void tone(uint16_t period);
-[; ;user.h: 32: void tone_off();
-[; ;user.h: 33: void hit_by(uint8_t who);
-[; ;user.h: 34: void super_dead_mode();
+[; ;user.h: 12: void cheat(void);
+[; ;user.h: 13: uint16_t ADC_read(void);
+[; ;user.h: 14: void green_led_on(void);
+[; ;user.h: 15: void red_led_on(void);
+[; ;user.h: 16: void led_off(void);
+[; ;user.h: 17: void Buzz(uint16_t freq, uint16_t dur_ms);
+[; ;user.h: 18: void Send_Byte(uint8_t data);
+[; ;user.h: 19: void Modulate_Serial(void);
+[; ;user.h: 20: void Disable_Modulation(void);
+[; ;user.h: 21: uint8_t handle_fire(void);
+[; ;user.h: 22: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 23: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 24: void Get_hit(uint8_t ID);
+[; ;user.h: 25: void Sleep();
+[; ;user.h: 27: uint8_t get_hitlist_length();
+[; ;user.h: 28: void add_to_hitlist(uint8_t gun);
+[; ;user.h: 29: void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
+[; ;user.h: 30: void stop_song();
+[; ;user.h: 31: void handle_music();
+[; ;user.h: 32: void tone(uint16_t period);
+[; ;user.h: 33: void tone_off();
+[; ;user.h: 34: void hit_by(uint8_t who);
+[; ;user.h: 35: void super_dead_mode();
 "26 protocol.c
 [v __x `uc ~T0 @X0 1 e ]
 [v __y `uc ~T0 @X0 1 e ]
@@ -3545,40 +3549,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 444 ]
 }
 "44
-[v _my_random_number `uc ~T0 @X0 1 e ]
-[; ;protocol.c: 44: uint8_t my_random_number;
-"46
 [v _control_transfer `(v ~T0 @X0 1 ef ]
-"47
+"45
 {
-[; ;protocol.c: 46: void control_transfer()
-[; ;protocol.c: 47: {
+[; ;protocol.c: 44: void control_transfer()
+[; ;protocol.c: 45: {
 [e :U _control_transfer ]
 [f ]
-"48
+"46
 [v _i `uc ~T0 @X0 1 a ]
-"49
+"47
 [v _cmd `uc ~T0 @X0 1 a ]
-"50
+"48
 [v _random_number `uc ~T0 @X0 1 a ]
 [v _id `uc ~T0 @X0 1 a ]
-"52
+"50
 [v _page `ui ~T0 @X0 1 a ]
-"53
+"51
 [v _data `ui ~T0 @X0 -> 16 `i a ]
-"54
+"52
 [v _dptr `*uc ~T0 @X0 1 a ]
-"55
+"53
 [v _x `uc ~T0 @X0 1 a ]
-[; ;protocol.c: 48: uint8_t i;
-[; ;protocol.c: 49: uint8_t cmd;
-[; ;protocol.c: 50: uint8_t random_number,id;
-[; ;protocol.c: 52: uint16_t page;
-[; ;protocol.c: 53: uint16_t data[16];
-[; ;protocol.c: 54: uint8_t* dptr;
-[; ;protocol.c: 55: uint8_t x;
-[; ;protocol.c: 57: _checksum = 0; if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_x != (uint8_t)config.id) goto err;
-"57
+[; ;protocol.c: 46: uint8_t i;
+[; ;protocol.c: 47: uint8_t cmd;
+[; ;protocol.c: 48: uint8_t random_number,id;
+[; ;protocol.c: 50: uint16_t page;
+[; ;protocol.c: 51: uint16_t data[16];
+[; ;protocol.c: 52: uint8_t* dptr;
+[; ;protocol.c: 53: uint8_t x;
+[; ;protocol.c: 55: _checksum = 0; if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_x != (uint8_t)config.id) goto err;
+"55
 [e = __checksum -> -> 0 `i `uc ]
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 446  ]
 [e $U 447  ]
@@ -3594,8 +3595,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> __x `i -> -> . _config 0 `uc `i 450  ]
 [e $U 447  ]
 [e :U 450 ]
-[; ;protocol.c: 58: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; cmd=((_y << 4) | _x); _checksum += cmd;
-"58
+[; ;protocol.c: 56: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; cmd=((_y << 4) | _x); _checksum += cmd;
+"56
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 451  ]
 [e $U 447  ]
 [e :U 451 ]
@@ -3607,17 +3608,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 453 ]
 [e = _cmd -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _cmd ]
-[; ;protocol.c: 60: switch(cmd)
-"60
+[; ;protocol.c: 58: switch(cmd)
+"58
 [e $U 455  ]
-[; ;protocol.c: 61: {
-"61
+[; ;protocol.c: 59: {
+"59
 {
-[; ;protocol.c: 62: case 0x01:
-"62
+[; ;protocol.c: 60: case 0x01:
+"60
 [e :U 456 ]
-[; ;protocol.c: 63: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
-"63
+[; ;protocol.c: 61: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"61
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 457  ]
 [e $U 447  ]
 [e :U 457 ]
@@ -3638,26 +3639,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> __x `i -> 17 `i 462  ]
 [e $U 447  ]
 [e :U 462 ]
-[; ;protocol.c: 64: SEND_SOF();
-"64
+[; ;protocol.c: 62: SEND_SOF();
+"62
 [e ( _SEND_SOF ..  ]
-[; ;protocol.c: 65: SEND_DATA_BYTE(0x02);
-"65
+[; ;protocol.c: 63: SEND_DATA_BYTE(0x02);
+"63
 [e ( _SEND_DATA_BYTE (1 -> -> 2 `i `uc ]
-[; ;protocol.c: 66: SEND_DATA_BYTE(my_random_number);
-"66
+[; ;protocol.c: 64: SEND_DATA_BYTE(my_random_number);
+"64
 [e ( _SEND_DATA_BYTE (1 _my_random_number ]
-[; ;protocol.c: 67: SEND_EOF();
-"67
+[; ;protocol.c: 65: SEND_EOF();
+"65
 [e ( _SEND_EOF ..  ]
-[; ;protocol.c: 68: break;
-"68
+[; ;protocol.c: 66: break;
+"66
 [e $U 454  ]
-[; ;protocol.c: 69: case 0x03:
-"69
+[; ;protocol.c: 67: case 0x03:
+"67
 [e :U 463 ]
-[; ;protocol.c: 70: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; random_number=((_y << 4) | _x); _checksum += random_number;
-"70
+[; ;protocol.c: 68: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; random_number=((_y << 4) | _x); _checksum += random_number;
+"68
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 464  ]
 [e $U 447  ]
 [e :U 464 ]
@@ -3669,8 +3670,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 466 ]
 [e = _random_number -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _random_number ]
-[; ;protocol.c: 71: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; id=((_y << 4) | _x); _checksum += id;
-"71
+[; ;protocol.c: 69: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; id=((_y << 4) | _x); _checksum += id;
+"69
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 467  ]
 [e $U 447  ]
 [e :U 467 ]
@@ -3682,8 +3683,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 469 ]
 [e = _id -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _id ]
-[; ;protocol.c: 72: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
-"72
+[; ;protocol.c: 70: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"70
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 470  ]
 [e $U 447  ]
 [e :U 470 ]
@@ -3704,34 +3705,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> __x `i -> 17 `i 475  ]
 [e $U 447  ]
 [e :U 475 ]
-[; ;protocol.c: 73: if(random_number != my_random_number) goto err;
-"73
+[; ;protocol.c: 71: if(random_number != my_random_number) goto err;
+"71
 [e $ ! != -> _random_number `i -> _my_random_number `i 476  ]
 [e $U 447  ]
 [e :U 476 ]
-[; ;protocol.c: 74: SEND_SOF();
-"74
+[; ;protocol.c: 72: SEND_SOF();
+"72
 [e ( _SEND_SOF ..  ]
-[; ;protocol.c: 75: SEND_DATA_BYTE(0x00);
-"75
+[; ;protocol.c: 73: SEND_DATA_BYTE(0x00);
+"73
 [e ( _SEND_DATA_BYTE (1 -> -> 0 `i `uc ]
-[; ;protocol.c: 76: SEND_EOF();
-"76
+[; ;protocol.c: 74: SEND_EOF();
+"74
 [e ( _SEND_EOF ..  ]
-[; ;protocol.c: 77: config.id=id | (1<<9);
-"77
+[; ;protocol.c: 75: config.id=id | (1<<9);
+"75
 [e = . _config 0 -> | -> _id `i << -> 1 `i -> 9 `i `ui ]
-[; ;protocol.c: 78: Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
-"78
-[e ( _Save (3 , , -> -> 2000 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]
-[; ;protocol.c: 79: break;
-"79
+[; ;protocol.c: 76: Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
+"76
+[e ( _Save (3 , , -> -> 2032 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]
+[; ;protocol.c: 77: break;
+"77
 [e $U 454  ]
-[; ;protocol.c: 80: case 0x04:
-"80
+[; ;protocol.c: 78: case 0x04:
+"78
 [e :U 477 ]
-[; ;protocol.c: 81: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
-"81
+[; ;protocol.c: 79: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"79
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 478  ]
 [e $U 447  ]
 [e :U 478 ]
@@ -3743,11 +3744,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 480 ]
 [e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _x ]
-[; ;protocol.c: 82: *((uint8_t*)(&page))=x;
-"82
+[; ;protocol.c: 80: *((uint8_t*)(&page))=x;
+"80
 [e = *U -> &U _page `*uc _x ]
-[; ;protocol.c: 83: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
-"83
+[; ;protocol.c: 81: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"81
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 481  ]
 [e $U 447  ]
 [e :U 481 ]
@@ -3759,11 +3760,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 483 ]
 [e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _x ]
-[; ;protocol.c: 84: *(((uint8_t*)(&page))+1)=x;
-"84
+[; ;protocol.c: 82: *(((uint8_t*)(&page))+1)=x;
+"82
 [e = *U + -> &U _page `*uc * -> -> 1 `i `x -> -> # *U -> &U _page `*uc `i `x _x ]
-[; ;protocol.c: 85: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
-"85
+[; ;protocol.c: 83: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"83
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 484  ]
 [e $U 447  ]
 [e :U 484 ]
@@ -3784,51 +3785,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> __x `i -> 17 `i 489  ]
 [e $U 447  ]
 [e :U 489 ]
-[; ;protocol.c: 86: Load(page,data,16);
-"86
+[; ;protocol.c: 84: Load(page,data,16);
+"84
 [e ( _Load (3 , , _page &U _data -> -> 16 `i `uc ]
-[; ;protocol.c: 87: SEND_SOF();
-"87
+[; ;protocol.c: 85: SEND_SOF();
+"85
 [e ( _SEND_SOF ..  ]
-[; ;protocol.c: 88: SEND_DATA_BYTE(0x05);
-"88
+[; ;protocol.c: 86: SEND_DATA_BYTE(0x05);
+"86
 [e ( _SEND_DATA_BYTE (1 -> -> 5 `i `uc ]
-[; ;protocol.c: 89: dptr=(uint8_t*)data;
-"89
+[; ;protocol.c: 87: dptr=(uint8_t*)data;
+"87
 [e = _dptr -> &U _data `*uc ]
-[; ;protocol.c: 90: for(i=0;i<32;i++)
-"90
+[; ;protocol.c: 88: for(i=0;i<32;i++)
+"88
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 32 `i 490  ]
 [e $U 491  ]
-"91
+"89
 [e :U 490 ]
-[; ;protocol.c: 91: {
+[; ;protocol.c: 89: {
 {
-[; ;protocol.c: 92: SEND_DATA_BYTE(*dptr++);
-"92
-[e ( _SEND_DATA_BYTE (1 *U ++ _dptr * -> -> 1 `i `x -> -> # *U _dptr `i `x ]
-"93
-}
+[; ;protocol.c: 90: SEND_DATA_BYTE(*dptr++);
 "90
+[e ( _SEND_DATA_BYTE (1 *U ++ _dptr * -> -> 1 `i `x -> -> # *U _dptr `i `x ]
+"91
+}
+"88
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 32 `i 490  ]
 [e :U 491 ]
-"93
+"91
 }
-[; ;protocol.c: 93: }
-[; ;protocol.c: 94: SEND_EOF();
-"94
+[; ;protocol.c: 91: }
+[; ;protocol.c: 92: SEND_EOF();
+"92
 [e ( _SEND_EOF ..  ]
-[; ;protocol.c: 95: break;
-"95
+[; ;protocol.c: 93: break;
+"93
 [e $U 454  ]
-[; ;protocol.c: 96: case 0x06:
-"96
+[; ;protocol.c: 94: case 0x06:
+"94
 [e :U 493 ]
-[; ;protocol.c: 97: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
-"97
+[; ;protocol.c: 95: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"95
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 494  ]
 [e $U 447  ]
 [e :U 494 ]
@@ -3840,11 +3841,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 496 ]
 [e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _x ]
-[; ;protocol.c: 98: *((uint8_t*)(&page))=x;
-"98
+[; ;protocol.c: 96: *((uint8_t*)(&page))=x;
+"96
 [e = *U -> &U _page `*uc _x ]
-[; ;protocol.c: 99: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
-"99
+[; ;protocol.c: 97: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
+"97
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 497  ]
 [e $U 447  ]
 [e :U 497 ]
@@ -3856,24 +3857,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 499 ]
 [e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _x ]
-[; ;protocol.c: 100: *(((uint8_t*)(&page))+1)=x;
-"100
+[; ;protocol.c: 98: *(((uint8_t*)(&page))+1)=x;
+"98
 [e = *U + -> &U _page `*uc * -> -> 1 `i `x -> -> # *U -> &U _page `*uc `i `x _x ]
-[; ;protocol.c: 101: dptr=(uint8_t*)data;
-"101
+[; ;protocol.c: 99: dptr=(uint8_t*)data;
+"99
 [e = _dptr -> &U _data `*uc ]
-[; ;protocol.c: 102: for(i=0;i<32;i++)
-"102
+[; ;protocol.c: 100: for(i=0;i<32;i++)
+"100
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 32 `i 500  ]
 [e $U 501  ]
-"103
+"101
 [e :U 500 ]
-[; ;protocol.c: 103: {
+[; ;protocol.c: 101: {
 {
-[; ;protocol.c: 104: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;;
-"104
+[; ;protocol.c: 102: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;;
+"102
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 503  ]
 [e $U 447  ]
 [e :U 503 ]
@@ -3885,20 +3886,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 505 ]
 [e = _x -> | << -> __y `i -> 4 `i -> __x `i `uc ]
 [e =+ __checksum _x ]
-[; ;protocol.c: 105: *dptr++=x;
-"105
+[; ;protocol.c: 103: *dptr++=x;
+"103
 [e = *U ++ _dptr * -> -> 1 `i `x -> -> # *U _dptr `i `x _x ]
-"106
+"104
 }
-"102
+"100
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 32 `i 500  ]
 [e :U 501 ]
-"106
+"104
 }
-[; ;protocol.c: 106: }
-[; ;protocol.c: 107: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
-"107
+[; ;protocol.c: 104: }
+[; ;protocol.c: 105: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"105
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 506  ]
 [e $U 447  ]
 [e :U 506 ]
@@ -3919,61 +3920,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> __x `i -> 17 `i 511  ]
 [e $U 447  ]
 [e :U 511 ]
-[; ;protocol.c: 108: Save(page,data,16);
-"108
+[; ;protocol.c: 106: Save(page,data,16);
+"106
 [e ( _Save (3 , , _page &U _data -> -> 16 `i `uc ]
-[; ;protocol.c: 109: switch(page)
-"109
+[; ;protocol.c: 107: switch(page)
+"107
 [e $U 513  ]
-[; ;protocol.c: 110: {
-"110
+[; ;protocol.c: 108: {
+"108
 {
-[; ;protocol.c: 111: case 0x7D0:
-"111
-[e :U 514 ]
-[; ;protocol.c: 112: Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
-"112
-[e ( _Load (3 , , -> -> 2000 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]
-[; ;protocol.c: 113: break;
-"113
-[e $U 512  ]
-[; ;protocol.c: 114: case 0x7E0:
-"114
-[e :U 515 ]
-[; ;protocol.c: 115: Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
-"115
-[e ( _Load (3 , , -> -> 2016 `i `ui &U _hitlist -> / -> * -> 16 `i # `ui `ui -> -> 2 `i `ui `uc ]
-[; ;protocol.c: 116: break;
-"116
-[e $U 512  ]
-"117
-}
-[; ;protocol.c: 117: }
-[e $U 512  ]
+[; ;protocol.c: 109: case 0x7F0:
 "109
+[e :U 514 ]
+[; ;protocol.c: 110: Load(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
+"110
+[e ( _Load (3 , , -> -> 2032 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]
+[; ;protocol.c: 111: break;
+"111
+[e $U 512  ]
+[; ;protocol.c: 112: case 0x7E0:
+"112
+[e :U 515 ]
+[; ;protocol.c: 113: Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
+"113
+[e ( _Load (3 , , -> -> 2016 `i `ui &U _hitlist -> / -> * -> 16 `i # `ui `ui -> -> 2 `i `ui `uc ]
+[; ;protocol.c: 114: break;
+"114
+[e $U 512  ]
+"115
+}
+[; ;protocol.c: 115: }
+[e $U 512  ]
+"107
 [e :U 513 ]
-[e [\ _page , $ -> -> 2000 `i `ui 514
+[e [\ _page , $ -> -> 2032 `i `ui 514
  , $ -> -> 2016 `i `ui 515
  512 ]
-"117
+"115
 [e :U 512 ]
-[; ;protocol.c: 118: SEND_SOF();
-"118
+[; ;protocol.c: 116: SEND_SOF();
+"116
 [e ( _SEND_SOF ..  ]
-[; ;protocol.c: 119: SEND_DATA_BYTE(0x00);
-"119
+[; ;protocol.c: 117: SEND_DATA_BYTE(0x00);
+"117
 [e ( _SEND_DATA_BYTE (1 -> -> 0 `i `uc ]
-[; ;protocol.c: 120: SEND_EOF();
-"120
+[; ;protocol.c: 118: SEND_EOF();
+"118
 [e ( _SEND_EOF ..  ]
-[; ;protocol.c: 121: break;
-"121
+[; ;protocol.c: 119: break;
+"119
 [e $U 454  ]
-[; ;protocol.c: 122: case 0x7:
-"122
+[; ;protocol.c: 120: case 0x7:
+"120
 [e :U 516 ]
-[; ;protocol.c: 123: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
-"123
+[; ;protocol.c: 121: if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; _x=((_y << 4) | _x); _checksum += _x; if(_checksum) goto err; if(GET_CHAR_HELPER(&(_x))) goto err; if(_x != 0x11) goto err;
+"121
 [e $ ! != -> ( _GET_CHAR_HELPER (1 &U __x `i -> -> -> 0 `i `uc `i 517  ]
 [e $U 447  ]
 [e :U 517 ]
@@ -3994,32 +3995,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> __x `i -> 17 `i 522  ]
 [e $U 447  ]
 [e :U 522 ]
-[; ;protocol.c: 124: play_song(one_up,sizeof(one_up)/sizeof(uint16_t),65000,0);
-"124
+[; ;protocol.c: 122: play_song(one_up,sizeof(one_up)/sizeof(uint16_t),65000,0);
+"122
 [e ( _play_song (4 , , , -> &U _one_up `*ui -> / -> # _one_up `ui -> # `ui `ui `uc -> -> 65000 `l `ui -> -> 0 `i `uc ]
-[; ;protocol.c: 125: SEND_SOF();
-"125
+[; ;protocol.c: 123: SEND_SOF();
+"123
 [e ( _SEND_SOF ..  ]
-[; ;protocol.c: 126: SEND_DATA_BYTE(0x00);
-"126
+[; ;protocol.c: 124: SEND_DATA_BYTE(0x00);
+"124
 [e ( _SEND_DATA_BYTE (1 -> -> 0 `i `uc ]
-[; ;protocol.c: 127: SEND_EOF();
-"127
+[; ;protocol.c: 125: SEND_EOF();
+"125
 [e ( _SEND_EOF ..  ]
-[; ;protocol.c: 128: break;
+[; ;protocol.c: 126: break;
+"126
+[e $U 454  ]
+[; ;protocol.c: 128: default:
 "128
-[e $U 454  ]
-[; ;protocol.c: 130: default:
-"130
 [e :U 523 ]
-[; ;protocol.c: 131: goto err;
-"131
+[; ;protocol.c: 129: goto err;
+"129
 [e $U 447  ]
-"132
+"130
 }
-[; ;protocol.c: 132: }
+[; ;protocol.c: 130: }
 [e $U 454  ]
-"60
+"58
 [e :U 455 ]
 [e [\ _cmd , $ -> -> 1 `i `uc 456
  , $ -> -> 3 `i `uc 463
@@ -4027,116 +4028,116 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 6 `i `uc 493
  , $ -> -> 7 `i `uc 516
  523 ]
-"132
+"130
 [e :U 454 ]
-[; ;protocol.c: 133: err:
-"133
+[; ;protocol.c: 131: err:
+"131
 [e :U 447 ]
-[; ;protocol.c: 134: return;
-"134
+[; ;protocol.c: 132: return;
+"132
 [e $UE 445  ]
-[; ;protocol.c: 135: }
-"135
+[; ;protocol.c: 133: }
+"133
 [e :UE 445 ]
 }
-"137
+"135
 [v _handle_serial `(uc ~T0 @X0 1 ef ]
-"138
+"136
 {
-[; ;protocol.c: 137: uint8_t handle_serial()
-[; ;protocol.c: 138: {
+[; ;protocol.c: 135: uint8_t handle_serial()
+[; ;protocol.c: 136: {
 [e :U _handle_serial ]
 [f ]
+"137
+[v F3623 `uc ~T0 @X0 1 s rx_id ]
+[i F3623
+-> -> 0 `i `uc
+]
+"138
+[v F3624 `uc ~T0 @X0 1 s rx_counter ]
+[i F3624
+-> -> 0 `i `uc
+]
 "139
-[v F3621 `uc ~T0 @X0 1 s rx_id ]
-[i F3621
--> -> 0 `i `uc
-]
-"140
-[v F3622 `uc ~T0 @X0 1 s rx_counter ]
-[i F3622
--> -> 0 `i `uc
-]
-"141
 [v _b `uc ~T0 @X0 1 a ]
-[; ;protocol.c: 139: static uint8_t rx_id=0;
-[; ;protocol.c: 140: static uint8_t rx_counter=0;
-[; ;protocol.c: 141: uint8_t b;
-[; ;protocol.c: 143: if(!(PIR1bits.RCIF)) return 0;
-"143
+[; ;protocol.c: 137: static uint8_t rx_id=0;
+[; ;protocol.c: 138: static uint8_t rx_counter=0;
+[; ;protocol.c: 139: uint8_t b;
+[; ;protocol.c: 141: if(!(PIR1bits.RCIF)) return 0;
+"141
 [e $ ! ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 525  ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 524  ]
 [e :U 525 ]
-[; ;protocol.c: 144: b=(RCREG);
-"144
+[; ;protocol.c: 142: b=(RCREG);
+"142
 [e = _b _RCREG ]
-[; ;protocol.c: 145: if(b == 0x10) {
-"145
+[; ;protocol.c: 143: if(b == 0x10) {
+"143
 [e $ ! == -> _b `i -> 16 `i 526  ]
 {
-[; ;protocol.c: 146: control_transfer();
-"146
+[; ;protocol.c: 144: control_transfer();
+"144
 [e ( _control_transfer ..  ]
-"147
+"145
 }
-[; ;protocol.c: 147: }
+[; ;protocol.c: 145: }
 [e $U 527  ]
-"149
+"147
 [e :U 526 ]
-[; ;protocol.c: 149: else if((b > 0x80) && (b != config.id) && (config.id != 0x80) && !(config.id & (1<<9))) {
+[; ;protocol.c: 147: else if((b > 0x80) && (b != config.id) && (config.id != 0x80) && !(config.id & (1<<9))) {
 [e $ ! && && && > -> _b `i -> 128 `i != -> _b `ui . _config 0 != . _config 0 -> -> 128 `i `ui ! != & . _config 0 -> << -> 1 `i -> 9 `i `ui -> -> 0 `i `ui 528  ]
 {
-[; ;protocol.c: 150: if((b != rx_id) || PIR1bits.TMR2IF) rx_counter=0;
-"150
-[e $ ! || != -> _b `i -> F3621 `i != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 529  ]
-[e = F3622 -> -> 0 `i `uc ]
+[; ;protocol.c: 148: if((b != rx_id) || PIR1bits.TMR2IF) rx_counter=0;
+"148
+[e $ ! || != -> _b `i -> F3623 `i != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 529  ]
+[e = F3624 -> -> 0 `i `uc ]
 [e :U 529 ]
-[; ;protocol.c: 151: TMR2 = 0;
-"151
+[; ;protocol.c: 149: TMR2 = 0;
+"149
 [e = _TMR2 -> -> 0 `i `uc ]
-[; ;protocol.c: 152: PIR1bits.TMR2IF = 0;
-"152
+[; ;protocol.c: 150: PIR1bits.TMR2IF = 0;
+"150
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;protocol.c: 153: rx_id = b;
+[; ;protocol.c: 151: rx_id = b;
+"151
+[e = F3623 _b ]
+[; ;protocol.c: 152: rx_counter++;
+"152
+[e ++ F3624 -> -> 1 `i `uc ]
+[; ;protocol.c: 153: if(rx_counter > config.shield) {
 "153
-[e = F3621 _b ]
-[; ;protocol.c: 154: rx_counter++;
-"154
-[e ++ F3622 -> -> 1 `i `uc ]
-[; ;protocol.c: 155: if(rx_counter > config.shield) {
-"155
-[e $ ! > -> F3622 `ui . _config 3 530  ]
+[e $ ! > -> F3624 `ui . _config 3 530  ]
 {
-[; ;protocol.c: 156: RCSTAbits.CREN = 0;
-"156
+[; ;protocol.c: 154: RCSTAbits.CREN = 0;
+"154
 [e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;protocol.c: 157: hit_by(b);
-"157
+[; ;protocol.c: 155: hit_by(b);
+"155
 [e ( _hit_by (1 _b ]
-[; ;protocol.c: 158: rx_id = 0;
-"158
-[e = F3621 -> -> 0 `i `uc ]
-[; ;protocol.c: 159: (RCREG);
-"159
+[; ;protocol.c: 156: rx_id = 0;
+"156
+[e = F3623 -> -> 0 `i `uc ]
+[; ;protocol.c: 157: (RCREG);
+"157
 [e _RCREG ]
-[; ;protocol.c: 160: RCSTAbits.CREN = 1;
-"160
+[; ;protocol.c: 158: RCSTAbits.CREN = 1;
+"158
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"161
+"159
 }
 [e :U 530 ]
-"162
+"160
 }
 [e :U 528 ]
-"163
+"161
 [e :U 527 ]
-[; ;protocol.c: 161: }
-[; ;protocol.c: 162: }
-[; ;protocol.c: 163: return 1;
+[; ;protocol.c: 159: }
+[; ;protocol.c: 160: }
+[; ;protocol.c: 161: return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 524  ]
-[; ;protocol.c: 164: }
-"164
+[; ;protocol.c: 162: }
+"162
 [e :UE 524 ]
 }

@@ -30,7 +30,7 @@ static void LoadFromFlash()
     Load(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
     if(config.id == 0x3FFF)
     {
-        config.health = 16;
+        config.health = 2;
         config.id = 0x80;
         config.power = 0;
         config.respawn_delay = 100;

@@ -4597,8 +4597,14 @@ typedef uint16_t hitlist_t[16];
 extern config_t config;
 extern hitlist_t hitlist;
 
-# 11 "user.h"
+# 6 "user.h"
+extern uint8_t my_random_number;
+
+
+
+
 void Setup(void);
+void cheat(void);
 uint16_t ADC_read(void);
 void green_led_on(void);
 void red_led_on(void);
@@ -4639,8 +4645,6 @@ static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11); _delay((unsi
 
 
 
-uint8_t my_random_number;
-
 void control_transfer()
 {
 uint8_t i;
@@ -4673,7 +4677,7 @@ SEND_SOF();
 SEND_DATA_BYTE(0x00);
 SEND_EOF();
 config.id=id | (1<<9);
-Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 break;
 case 0x04:
 if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; x=((_y << 4) | _x); _checksum += x;
@@ -4706,8 +4710,8 @@ if(GET_CHAR_HELPER(&(_x))) goto err; if(GET_CHAR_HELPER(&(_y))) goto err; if((_x
 Save(page,data,16);
 switch(page)
 {
-case 0x7D0:
-Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+case 0x7F0:
+Load(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 break;
 case 0x7E0:
 Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
