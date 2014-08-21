@@ -8,6 +8,9 @@ import time
 class CommException(Exception):
 	pass
 
+class CommFailed(Exception):
+	pass
+
 class Comm:
 	CB_SOF = 0x10
 	CB_EOF = 0x11
@@ -149,28 +152,32 @@ class Comm:
 	def get_random_number(self,gun_id):
 		r=self.communicate(gun_id,self.CMD_GET_RANDOM_NUMBER,[],self.CMD_TAKE_RANDOM_NUMBER)
 		if r is None:
-			return None
+			raise CommFailed()
 		return r[0]
 
 	def assign_id(self,old_gun_id,last_random_number,new_gun_id):
-		return self.communicate(old_gun_id,self.CMD_ASSIGN_ID,[last_random_number,new_gun_id]) is not None
+		result=self.communicate(old_gun_id,self.CMD_ASSIGN_ID,[last_random_number,new_gun_id])
+		if result is None:
+			raise CommFailed()
 
 	def get_flash_page(self,gun_id,page):
 		page = [ord(c) for c in struct.pack('H',page)]
 		r=self.communicate(gun_id,self.CMD_GET_FLASH_PAGE, page,self.CMD_TAKE_FLASH_PAGE)
 		if r is None:
-			return None
+			raise CommFailed()
 		return struct.unpack('H'*16,array.array('B',r).tostring())
 
 	def set_flash_page(self,gun_id,page,values):
 		page = [ord(c) for c in struct.pack('H',page)]
 		values = [ord(c) for c in struct.pack('H'*16,*values)]
 		r=self.communicate(gun_id,self.CMD_SET_FLASH_PAGE, page+values)
-		return r is not None
+		if r is None:
+			return CommFailed()
 
 	def success(self,gun_id):
 		r=self.communicate(gun_id,self.CMD_SUCCESS)
-		return r is not None
+		if r is None:
+			return CommFailed()
 
 class SimComm(Comm):
 	def __init__(self,debug=False):
