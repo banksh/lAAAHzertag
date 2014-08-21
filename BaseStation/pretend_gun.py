@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import comm
+import time
 
 c=comm.Comm('/dev/ttyUSB0',2400)
 
@@ -13,4 +14,6 @@ def rd():
 	return int(s)
 
 while True:
-	c.put_char(rd())
+	b=rd()
+	for i in range(3):
+		c.put_char(b)
