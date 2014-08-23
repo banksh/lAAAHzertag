@@ -2,20 +2,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "7 main.h
 [s S436 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S436 . id power health shield respawn_delay fire_threshold fire_cheating fire_holdoff death_period ]
-"23 user.h
+"18 user.h
 [v _Load `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
-"22
+"17
 [v _Save `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
 [p mainexit ]
-"11
+"8
 [v _Setup `(v ~T0 @X0 0 ef ]
-"35
+"29
 [v _super_dead_mode `(v ~T0 @X0 0 ef ]
 "1 protocol.h
 [v _handle_serial `(uc ~T0 @X0 0 ef ]
-"21 user.h
+"16 user.h
 [v _handle_fire `(uc ~T0 @X0 0 ef ]
-"31
+"25
 [v _handle_music `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
@@ -3411,31 +3411,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 21: typedef uint16_t hitlist_t[16];
 [; ;main.h: 25: extern config_t config;
 [; ;main.h: 26: extern hitlist_t hitlist;
-[; ;user.h: 6: extern uint8_t my_random_number;
-[; ;user.h: 11: void Setup(void);
-[; ;user.h: 12: void cheat(void);
-[; ;user.h: 13: uint16_t ADC_read(void);
-[; ;user.h: 14: void green_led_on(void);
-[; ;user.h: 15: void red_led_on(void);
-[; ;user.h: 16: void led_off(void);
-[; ;user.h: 17: void Buzz(uint16_t freq, uint16_t dur_ms);
-[; ;user.h: 18: void Send_Byte(uint8_t data);
-[; ;user.h: 19: void Modulate_Serial(void);
-[; ;user.h: 20: void Disable_Modulation(void);
-[; ;user.h: 21: uint8_t handle_fire(void);
-[; ;user.h: 22: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 23: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 24: void Get_hit(uint8_t ID);
-[; ;user.h: 25: void Sleep();
-[; ;user.h: 27: uint8_t get_hitlist_length();
-[; ;user.h: 28: void add_to_hitlist(uint8_t gun);
-[; ;user.h: 29: void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
-[; ;user.h: 30: void stop_song();
-[; ;user.h: 31: void handle_music();
-[; ;user.h: 32: void tone(uint16_t period);
-[; ;user.h: 33: void tone_off();
-[; ;user.h: 34: void hit_by(uint8_t who);
-[; ;user.h: 35: void super_dead_mode();
+[; ;user.h: 3: extern uint8_t my_random_number;
+[; ;user.h: 8: void Setup(void);
+[; ;user.h: 9: void cheat(void);
+[; ;user.h: 10: uint16_t ADC_read(void);
+[; ;user.h: 11: void green_led_on(void);
+[; ;user.h: 12: void red_led_on(void);
+[; ;user.h: 13: void led_off(void);
+[; ;user.h: 14: void Buzz(uint16_t freq, uint16_t dur_ms);
+[; ;user.h: 15: void Send_Byte(uint8_t data);
+[; ;user.h: 16: uint8_t handle_fire(void);
+[; ;user.h: 17: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 18: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 19: void Get_hit(uint8_t ID);
+[; ;user.h: 21: uint8_t get_hitlist_length();
+[; ;user.h: 22: void add_to_hitlist(uint8_t gun);
+[; ;user.h: 23: void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
+[; ;user.h: 24: void stop_song();
+[; ;user.h: 25: void handle_music();
+[; ;user.h: 26: void tone(uint16_t period);
+[; ;user.h: 27: void tone_off();
+[; ;user.h: 28: void hit_by(uint8_t who);
+[; ;user.h: 29: void super_dead_mode();
+[; ;user.h: 30: void delay_1_ms();
 [; ;protocol.h: 1: uint8_t handle_serial();
 [; ;protocol.h: 2: void control_transfer();
 "9 main.c
@@ -3487,33 +3485,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 32: {
 "32
 {
-[; ;main.c: 33: config.health = 2;
+[; ;main.c: 33: config.health = 1;
 "33
-[e = . _config 2 -> -> 2 `i `ui ]
+[e = . _config 2 -> -> 1 `i `ui ]
 [; ;main.c: 34: config.id = 0x80;
 "34
 [e = . _config 0 -> -> 128 `i `ui ]
 [; ;main.c: 35: config.power = 0;
 "35
 [e = . _config 1 -> -> 0 `i `ui ]
-[; ;main.c: 36: config.respawn_delay = 100;
-"36
-[e = . _config 4 -> -> 100 `i `ui ]
 [; ;main.c: 37: config.fire_threshold = 500;
 "37
 [e = . _config 5 -> -> 500 `i `ui ]
-[; ;main.c: 38: config.fire_holdoff = 8000;
+[; ;main.c: 38: config.fire_holdoff = 4000;
 "38
-[e = . _config 7 -> -> 8000 `i `ui ]
-[; ;main.c: 39: config.shield = 2;
-"39
-[e = . _config 3 -> -> 2 `i `ui ]
+[e = . _config 7 -> -> 4000 `i `ui ]
 [; ;main.c: 40: config.fire_cheating = 1000;
 "40
 [e = . _config 6 -> -> 1000 `i `ui ]
-[; ;main.c: 41: config.death_period = 3000;
-"41
-[e = . _config 8 -> -> 3000 `i `ui ]
 [; ;main.c: 42: Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 "42
 [e ( _Save (3 , , -> -> 2032 `i `ui -> &U _config `*ui -> / -> # `S436 `ui -> -> 2 `i `ui `uc ]

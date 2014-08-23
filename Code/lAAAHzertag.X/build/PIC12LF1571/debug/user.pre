@@ -4571,21 +4571,24 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 11 "user.h"
+# 3 "user.h"
+extern uint8_t my_random_number;
+
+
+
+
 void Setup(void);
+void cheat(void);
 uint16_t ADC_read(void);
 void green_led_on(void);
 void red_led_on(void);
 void led_off(void);
 void Buzz(uint16_t freq, uint16_t dur_ms);
 void Send_Byte(uint8_t data);
-void Modulate_Serial(void);
-void Disable_Modulation(void);
 uint8_t handle_fire(void);
 void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Get_hit(uint8_t ID);
-void Sleep();
 
 uint8_t get_hitlist_length();
 void add_to_hitlist(uint8_t gun);
@@ -4596,6 +4599,7 @@ void tone(uint16_t period);
 void tone_off();
 void hit_by(uint8_t who);
 void super_dead_mode();
+void delay_1_ms();
 
 # 7 "main.h"
 typedef struct {
@@ -4626,17 +4630,18 @@ void control_transfer();
 # 10 "user.c"
 extern config_t config;
 
+
+uint8_t my_random_number;
 uint16_t* cur_song;
 uint8_t cur_song_length;
 uint8_t cur_song_ptr;
 uint8_t cur_song_repeat;
 uint16_t cur_song_duration;
 
-# 26
-const uint16_t death_song[] = {16000000/260,16000000/250,0,0,0,0,(16000000 / 523.3), (16000000 / 698.5), 0, (16000000 / 659.3), (16000000 / 698.5), (16000000 / 659.3), 0, (16000000 / 587.3), (16000000 / 523.3), (16000000 / 392.0), 0, (16000000 / 392.0), (16000000 / 261.6)};
+# 28
+const uint16_t death_song[] = {16000000/260,16000000/250,0,0,0,0,(16000000 / 523.3), (16000000 / 698.5), 0, (16000000 / 659.3), (16000000 / 698.5), (16000000 / 659.3), (16000000 / 587.3), 0, (16000000 / 523.3), (16000000 / 392.0),0, (16000000 / 392.0), (16000000 / 261.6)};
 const uint16_t fire_song[] = {16000000/4000,16000000/3500,16000000/3000,16000000/2500,16000000/2000,16000000/1500,16000000/1000,16000000/500,16000000/450,16000000/400,16000000/350,16000000/300,16000000/250,0,0,0};
-const uint16_t dead_song[] = {(16000000 / 392.0), (16000000 / 261.6), (16000000 / 261.6)};
-
+const uint16_t dead_song[] = {(16000000 / 523.3), (16000000 / 392.0), (16000000 / 261.6)};
 
 void Setup(void)
 {
@@ -4673,13 +4678,14 @@ T1CONbits.T1CKPS=3;
 T2CONbits.T2CKPS = 3;
 T2CONbits.T2OUTPS = 15;
 T2CONbits.TMR2ON = 1;
+
+ADCON0bits.CHS = 3;
+ADCON0bits.ADON = 1;
+delay_1_ms();
 }
 
 uint16_t ADC_read()
 {
-ADCON0bits.CHS = 3;
-ADCON0bits.ADON = 1;
-_delay((unsigned long)((6)*(16000000/4000000.0)));
 ADCON0bits.GO = 1;
 while(ADCON0bits.GO){};
 return ADRES >> 6;
@@ -4697,11 +4703,6 @@ TRISAbits.TRISA5 = 0;
 PORTAbits.RA5 = 1;
 }
 
-void led_off()
-{
-TRISAbits.TRISA5 = 1;
-}
-
 void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat)
 {
 cur_song=song;
@@ -4717,7 +4718,7 @@ T1CONbits.TMR1ON = 1;
 
 void stop_song()
 {
-tone_off();
+{PWM3CONbits.PWM3OE = 0;};
 T1CONbits.TMR1ON=0;
 PIR1bits.TMR1IF=0;
 }
@@ -4753,39 +4754,24 @@ PWM3PH = 0x0000;
 PWM3LDCONbits.PWM3LD = 1;
 }
 
-void tone_off()
-{
-PWM3CONbits.PWM3OE = 0;
-}
-
-void Buzz(uint16_t freq, uint16_t dur_ms)
-{
-tone((16000000 / freq)-1);
-for(uint16_t i=0;i<dur_ms;i++) _delay((unsigned long)((1)*(16000000/4000.0)));
-tone_off();
-}
-
+# 155
 void Send_Byte(uint8_t data)
 {
 RCSTAbits.CREN = 0;
-Modulate_Serial();
+
+for(uint16_t i=0; i<100; i++){
+if(PORTAbits.RA1){break;}
+delay_1_ms();
+if(i==99){cheat();}
+}
+
+{ DACCON0bits.DACEN = 1; TMR0=0; INTCONbits.TMR0IF=1; INTCONbits.TMR0IE=1;};
 TXREG = data;
 while(!TXSTAbits.TRMT);
-Disable_Modulation();
+{ INTCONbits.TMR0IE=0; DACCON0bits.DACEN=0;};
 RCSTAbits.CREN = 1;
 RCREG;
-}
-
-void Modulate_Serial(void){
-DACCON0bits.DACEN = 1;
-TMR0=0;
-INTCONbits.TMR0IF=1;
-INTCONbits.TMR0IE=1;
-}
-
-void Disable_Modulation(void){
-INTCONbits.TMR0IE=0;
-DACCON0bits.DACEN=0;
+delay_1_ms();
 }
 
 uint16_t Read_Memory(uint16_t address){
@@ -4843,14 +4829,34 @@ PMCON1bits.WREN = 0;
 INTCONbits.GIE = 1;
 }
 
+void cheat(){
+while(1){
+red_led_on();
+tone(7813);
+for(uint8_t i=0; i<200; i++){
+delay_1_ms();
+}
+{TRISAbits.TRISA5 = 1;};
+for(uint8_t i=0; i<200; i++){
+delay_1_ms();
+}
+}
+}
+
 uint8_t handle_fire(){
 static uint16_t timer = 0;
 static uint16_t counter = 0;
 uint16_t a;
 
 a=ADC_read();
+if (a > config.fire_cheating){
+cheat();
+}
 if (a > config.fire_threshold && a < config.fire_cheating)
 {
+while(!my_random_number){
+my_random_number = TMR0;
+}
 if(timer < config.fire_holdoff)
 {
 timer ++;
@@ -4861,7 +4867,7 @@ if(!config.power || counter <= config.power)
 {
 if(!counter)
 {
-red_led_on();
+green_led_on();
 play_song(fire_song,sizeof(fire_song)/sizeof(uint16_t),3000,!(config.power));
 }
 Send_Byte(config.id);
@@ -4869,13 +4875,13 @@ counter++;
 }
 else
 {
-led_off();
+{TRISAbits.TRISA5 = 1;};
 }
 }
 }
 else
 {
-led_off();
+{TRISAbits.TRISA5 = 1;};
 if(!config.power && counter) stop_song();
 timer = 0;
 counter = 0;
@@ -4884,27 +4890,9 @@ return 0;
 return 1;
 }
 
-void Sleep() {
-
-INTCONbits.GIE = 1;
-INTCONbits.PEIE = 1;
-PIE1bits.TMR1IE = 1;
-T1CONbits.nT1SYNC = 1;
-T1CONbits.TMR1ON = 1;
-TMR1 = 25536;
-asm("sleep");
-INTCONbits.GIE = 0;
-INTCONbits.PEIE = 0;
-PIE1bits.TMR1IE = 0;
-T1CONbits.TMR1ON = 0;
-Buzz(4000,5);
-}
-
 
 
 void interrupt High_Priority_Interrupt(){
-if(INTCONbits.TMR0IF)
-{
 asm("BANKSEL DACCON0");
 asm("MOVF DACCON0 & 0x7F, W");
 asm("XORLW 1<<5");
@@ -4912,18 +4900,6 @@ asm("MOVWF DACCON0 & 0x7F");
 
 TMR0 -= 50;
 INTCONbits.TMR0IF = 0;
-}
-}
-
-uint8_t get_hitlist_length()
-{
-uint8_t i;
-for(i=0;i<(sizeof(hitlist_t)/2);i++)
-{
-if(!(hitlist[i] & 0x007F)) return 2*i;
-if(!(hitlist[i] & 0x3F80)) return 2*i+1;
-}
-return 2*i;
 }
 
 void add_to_hitlist(uint8_t gun)
@@ -4957,10 +4933,10 @@ control_transfer();
 }
 }
 counter++;
-_delay((unsigned long)((1)*(16000000/4000.0)));
+delay_1_ms();
 if(counter > config.death_period){
 counter = 0;
-led_off();
+{TRISAbits.TRISA5 = 1;};
 Send_Byte(config.id);
 play_song(dead_song,sizeof(dead_song)/sizeof(uint16_t),10000,0);
 }
@@ -4978,12 +4954,13 @@ add_to_hitlist(who);
 Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 
 config.health --;
-Save(0x7D0,(uint16_t*)&config, (sizeof(config_t)/2));
+Save(0x7F0,(uint16_t*)&config, (sizeof(config_t)/2));
 
 play_song(death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
 
 if(!config.health)
 {
+red_led_on();
 super_dead_mode();
 return;
 }
@@ -4996,17 +4973,23 @@ red_led_on();
 for(uint8_t i=0;i<50;i++)
 {
 handle_music();
-_delay((unsigned long)((1)*(16000000/4000.0)));
+delay_1_ms();
 }
 
 if(respawn_timer < 30)
 {
-led_off();
+{TRISAbits.TRISA5 = 1;};
 }
 for(uint8_t i=0;i<50;i++)
 {
 handle_music();
-_delay((unsigned long)((1)*(16000000/4000.0)));
+delay_1_ms();
 }
+}
+}
+
+void delay_1_ms(){
+for (uint16_t i=0; i<4000/14; i++){
+__nop();
 }
 }

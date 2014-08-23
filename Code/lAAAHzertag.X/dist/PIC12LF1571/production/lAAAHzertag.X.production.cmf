@@ -11,67 +11,64 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-end_init CODE 0 17 17 1 2
+$C:\Users\Banks\AppData\Local\Temp\sdig.obj
+end_init CODE 0 15 15 1 2
 reset_vec CODE 0 0 0 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-cinit CODE 0 18 18 10 2
-intentry CODE 0 4 4 13 2
-text26 CODE 0 765 765 25 2
-text25 CODE 0 5C2 5C2 47 2
-text24 CODE 0 45C 45C 60 2
-text23 CODE 0 7AE 7AE 23 2
-text22 CODE 0 680 680 1D 2
-text21 CODE 0 6F5 6F5 4 2
-text20 CODE 0 6DE 6DE 7 2
-text19 CODE 0 69D 69D 17 2
-text18 CODE 0 6FC 6FC 3 2
-text17 CODE 0 6B4 6B4 13 2
-text16 CODE 0 609 609 38 2
-text15 CODE 0 6F9 6F9 3 2
-text14 CODE 0 78A 78A 24 2
-text13 CODE 0 6F0 6F0 5 2
-text12 CODE 0 6EB 6EB 5 2
-text11 CODE 0 344 344 93 2
-text10 CODE 0 56E 56E 54 2
-text9 CODE 0 663 663 1D 2
-text8 CODE 0 641 641 22 2
-text7 CODE 0 6D3 6D3 B 2
-text6 CODE 0 7D1 7D1 D 2
-text5 CODE 0 28 28 31C 2
-text4 CODE 0 734 734 31 2
-text3 CODE 0 4BC 4BC 5E 2
-text2 CODE 0 3D7 3D7 85 2
-text1 CODE 0 51A 51A 54 2
-maintext CODE 0 6C7 6C7 C 2
-cstackBANK0 BANK0 1 20 20 3E 1
+cinit CODE 0 16 16 10 2
+intentry CODE 0 4 4 11 2
+text24 CODE 0 788 788 25 2
+text23 CODE 0 6AC 6AC 47 2
+text22 CODE 0 658 658 54 2
+text21 CODE 0 7D1 7D1 F 2
+text20 CODE 0 75E 75E 2A 2
+text19 CODE 0 4BD 4BD 12 2
+text18 CODE 0 4FA 4FA 5 2
+text17 CODE 0 4A6 4A6 17 2
+text16 CODE 0 44D 44D 21 2
+text15 CODE 0 6F3 6F3 3A 2
+text14 CODE 0 4F5 4F5 5 2
+text13 CODE 0 7AD 7AD 24 2
+text12 CODE 0 4EF 4EF 6 2
+text11 CODE 0 342 342 94 2
+text10 CODE 0 604 604 54 2
+text9 CODE 0 46E 46E 1E 2
+text8 CODE 0 48C 48C 1A 2
+text7 CODE 0 4E9 4E9 6 2
+text6 CODE 0 4DB 4DB 8 2
+text5 CODE 0 26 26 31C 2
+text4 CODE 0 72D 72D 31 2
+text3 CODE 0 558 558 57 2
+text2 CODE 0 3D6 3D6 77 2
+text1 CODE 0 5AF 5AF 55 2
+maintext CODE 0 4CF 4CF C 2
+cstackBANK0 BANK0 1 20 20 3C 1
 cstackCOMMON COMMON 1 70 70 C 1
-clrtext CODE 0 6E5 6E5 6 2
+clrtext CODE 0 4E3 4E3 6 2
 bssBANK1 BANK1 1 A0 A0 32 1
-bssBANK0 BANK0 1 5E 5E 12 1
+bssBANK0 BANK0 1 5C 5C 12 1
 bssCOMMON COMMON 1 7C 7C 1 1
-stringtext STRCODE 0 700 700 34 2
+stringtext STRCODE 0 500 500 58 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
+BANK0 0006E-0006F 1
 BANK1 000D2-000EF 1
 BANK2 00120-0016F 1
 BIGRAM 02000-020EF 1
 CODE 00002-00003 2
-CODE 006FF-006FF 2
-CODE 007DE-007DF 2
+CODE 004FF-004FF 2
 COMMON 0007D-0007D 1
 CONST 00002-00003 2
-CONST 006FF-006FF 2
-CONST 007DE-007DF 2
+CONST 004FF-004FF 2
 ENTRY 00002-00003 2
-ENTRY 006FF-006FF 2
-ENTRY 007DE-007DF 2
+ENTRY 004FF-004FF 2
 IDLOC 08000-08003 2
+RAM 0006E-0006F 1
 RAM 000D2-000EF 1
 RAM 00120-0016F 1
 SFR0 00000-0001F 1
@@ -108,11 +105,9 @@ SFR8 00400-0046F 1
 SFR9 00480-004EF 1
 STACK 02082-020EF 1
 STRCODE 00002-00003 2
-STRCODE 006FF-006FF 2
-STRCODE 007DE-007DF 2
+STRCODE 004FF-004FF 2
 STRING 00002-00003 2
-STRING 006FF-006FF 2
-STRING 007DE-007DF 2
+STRING 004FF-004FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -127,377 +122,376 @@ STRING 007DE-007DF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":208 4 intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":318 4 intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":319 9 intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":321 B intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":322 C intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":323 D intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":324 E intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":326 F intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":327 12 intentry CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":329 13 intentry CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1337 18 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1340 18 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1414 18 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1418 19 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1419 1A cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1420 1B cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1421 1C cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1422 1D cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1423 1E cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1427 1F cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1428 20 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1429 21 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1430 22 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1431 23 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1432 24 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1438 25 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1439 25 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1440 26 cinit CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1441 27 cinit CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":44 28 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":55 28 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":56 52 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":58 75 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":61 76 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":62 A5 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":63 A6 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":64 A8 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":65 AB text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":66 AC text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":68 AD text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":69 D0 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":70 F3 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":71 122 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":72 127 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":73 128 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":74 12A text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":75 12B text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":76 132 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":77 140 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":79 141 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":80 164 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":81 168 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":82 18B text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":83 18F text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":84 1BE text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":85 1CE text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":86 1CF text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":87 1D1 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":88 1D6 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":90 1DB text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":88 1E5 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":92 1ED text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":93 1EE text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":95 1EF text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":96 212 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":97 216 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":98 239 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":99 23D text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":100 241 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":102 246 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":103 269 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":100 274 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":105 27C text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":106 2AB text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":107 2BB text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":110 2BC text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":111 2CA text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":113 2CB text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":115 2D9 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":107 2DA text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":116 2E8 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":117 2E9 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":118 2EB text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":119 2EC text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":121 2ED text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":122 31C text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":123 32B text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":124 32C text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":125 32E text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":130 32F text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":58 330 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":130 342 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":133 343 text5 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":253 344 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":258 344 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":259 34C text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":260 357 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":262 358 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":264 36F text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":266 36F text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":265 372 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":264 376 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":267 377 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":269 383 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":270 387 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":273 388 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":275 39B text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":277 3A0 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":278 3A1 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":280 3BA text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":281 3BD text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":282 3C2 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":285 3C3 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":288 3C4 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":291 3C5 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":292 3C6 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":293 3D1 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":294 3D4 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":295 3D6 text11 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":386 3D7 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":390 3D9 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":391 3DB text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":393 3E9 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":394 3EE text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":396 3FC text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":398 408 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":400 40D text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":401 40E text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":402 40F text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":405 410 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":406 41A text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":408 41E text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":409 422 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":410 423 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":412 429 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":413 42A text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":410 434 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":416 43D text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":418 444 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":420 445 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":422 44B text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":423 44C text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":420 456 text2 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":28 45C text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":30 45C text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":31 469 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":33 472 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":34 476 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":35 47A text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":36 47C text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":37 480 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":38 484 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":39 488 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":40 48C text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":41 490 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":42 494 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":43 4A1 text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":45 4AE text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":46 4BB text24 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":360 4BC text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":361 4BC text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":362 4BF text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":363 4C7 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":366 4C8 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":367 4CB text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":368 4D1 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":369 4D5 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":372 4D6 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":373 4DB text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":374 4E4 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":375 4F0 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":376 4F3 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":377 4F4 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":378 4F7 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":380 506 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":381 518 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":362 519 text3 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":135 51A text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":141 51A text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":142 51D text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":143 523 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":144 527 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":145 528 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":147 529 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":148 545 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":149 54B text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":150 54C text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":151 54D text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":152 551 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":153 555 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":154 563 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":155 565 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":156 568 text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":157 56A text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":158 56C text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":161 56D text1 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":342 56E text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":344 56F text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":345 577 text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":347 57C text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":349 58E text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":350 597 text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":352 598 text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":354 5AA text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":355 5BC text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":345 5BD text10 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":210 5C2 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":212 5C2 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":213 5C3 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":214 5CA text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":215 5CB text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":216 5CC text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":217 5CD text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":218 5CF text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":219 5D1 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":220 5D2 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":221 5D3 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":222 5D4 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":224 5D6 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":225 5DC text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":226 5DD text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":227 5DE text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":228 5DF text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":230 5E0 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":231 5E6 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":232 5F1 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":233 5F5 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":234 5F7 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":235 5F9 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":236 5FA text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":237 5FB text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":238 5FC text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":230 601 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":240 606 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":241 607 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":242 608 text25 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":160 609 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":162 60B text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":164 60D text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":165 617 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":166 619 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":167 622 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":164 629 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":169 635 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":170 636 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":171 63A text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":172 63C text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":173 63D text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":174 63F text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":175 640 text16 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":37 641 text8 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":31 663 text9 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":70 680 text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":72 680 text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":73 685 text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":74 686 text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":75 68B text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":76 68D text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":77 68F text22 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":138 69D text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":140 69D text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":141 69F text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":142 6A0 text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":143 6A6 text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":144 6B0 text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":145 6B2 text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":146 6B3 text19 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":244 6B4 text17 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":245 6B4 text17 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":247 6B4 text17 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":248 6B9 text17 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":249 6C5 text17 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":245 6C6 text17 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":48 6C7 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":50 6C7 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":51 6C8 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":52 6C9 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":53 6CE maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":56 6CF maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":58 6CF maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":59 6D0 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":60 6D1 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":56 6D2 maintext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":39 6D3 text7 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":177 6DE text20 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":178 6DE text20 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":179 6E0 text20 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":180 6E2 text20 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":181 6E3 text20 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":182 6E4 text20 CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1403 6E5 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1404 6E5 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1405 6E6 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1406 6E6 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1407 6E7 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1408 6E8 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1409 6E9 clrtext CODE
-"C:\Users\Banks\AppData\Local\Temp\s3h2k.":1410 6EA clrtext CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":110 6EB text12 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":112 6EB text12 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":113 6EC text12 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":114 6EE text12 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":115 6EF text12 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":80 6F0 text13 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":82 6F0 text13 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":83 6F2 text13 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":84 6F4 text13 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":184 6F5 text21 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":185 6F5 text21 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":186 6F6 text21 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":187 6F8 text21 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":92 6F9 text15 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":94 6F9 text15 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":95 6FB text15 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":148 6FC text18 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":150 6FC text18 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":151 6FE text18 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":196 4 intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":295 4 intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":296 9 intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":297 A intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":298 B intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":299 C intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":301 D intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":302 10 intentry CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":303 11 intentry CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1388 16 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1391 16 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1465 16 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1469 17 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1470 18 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1471 19 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1472 1A cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1473 1B cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1474 1C cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1478 1D cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1479 1E cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1480 1F cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1481 20 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1482 21 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1483 22 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1489 23 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1490 23 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1491 24 cinit CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1492 25 cinit CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":44 26 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":55 26 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":56 50 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":58 73 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":61 74 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":62 A3 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":63 A4 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":64 A6 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":65 A9 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":66 AA text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":68 AB text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":69 CE text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":70 F1 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":71 120 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":72 125 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":73 126 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":74 128 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":75 129 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":76 130 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":77 13E text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":79 13F text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":80 162 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":81 166 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":82 189 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":83 18D text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":84 1BC text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":85 1CC text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":86 1CD text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":87 1CF text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":88 1D4 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":90 1D9 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":88 1E3 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":92 1EB text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":93 1EC text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":95 1ED text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":96 210 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":97 214 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":98 237 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":99 23B text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":100 23F text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":102 244 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":103 267 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":100 272 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":105 27A text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":106 2A9 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":107 2B9 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":110 2BA text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":111 2C8 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":113 2C9 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":115 2D7 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":107 2D8 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":116 2E6 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":117 2E7 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":118 2E9 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":119 2EA text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":121 2EB text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":122 31A text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":123 329 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":124 32A text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":125 32C text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":130 32D text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":58 32E text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":130 340 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":133 341 text5 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":246 342 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":251 342 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":252 34A text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":253 355 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":255 356 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":257 36D text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":259 36D text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":258 370 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":257 374 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":260 375 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":262 381 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":263 385 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":266 386 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":268 399 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":270 39E text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":271 39F text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":273 3B9 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":274 3BC text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":275 3C1 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":276 3C2 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":278 3C2 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":281 3C3 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":282 3C4 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":284 3C4 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":285 3C6 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":286 3D0 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":287 3D3 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":288 3D5 text11 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":349 3D6 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":353 3D8 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":354 3DA text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":356 3E8 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":357 3ED text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":359 3FB text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":361 40A text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":363 40F text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":364 410 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":365 411 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":368 412 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":369 41C text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":371 420 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":372 424 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":373 425 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":375 42B text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":376 42C text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":373 42D text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":379 436 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":381 43D text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":383 43F text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":385 445 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":386 446 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":383 447 text2 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":232 44D text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":233 44D text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":234 44D text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":235 44E text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":236 453 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":237 458 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":236 459 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":239 461 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":240 463 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":241 468 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":240 469 text16 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":31 46E text9 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":37 48C text8 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":133 4A6 text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":135 4A6 text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":136 4A8 text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":137 4A9 text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":138 4AF text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":139 4B9 text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":140 4BB text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":141 4BC text17 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":73 4BD text19 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":75 4BD text19 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":76 4BF text19 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":77 4C1 text19 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":48 4CF maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":50 4CF maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":51 4D0 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":52 4D1 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":53 4D6 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":56 4D7 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":58 4D7 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":59 4D8 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":60 4D9 maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":56 4DA maintext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":38 4DB text6 CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1454 4E3 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1455 4E3 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1456 4E4 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1457 4E4 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1458 4E5 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1459 4E6 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1460 4E7 clrtext CODE
+"C:\Users\Banks\AppData\Local\Temp\sdig.":1461 4E8 clrtext CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":39 4E9 text7 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":105 4EF text12 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":107 4EF text12 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":108 4F1 text12 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":109 4F3 text12 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":110 4F4 text12 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":86 4F5 text14 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":88 4F5 text14 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":89 4F7 text14 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":90 4F9 text14 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":80 4FA text18 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":82 4FA text18 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":83 4FC text18 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":84 4FE text18 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":323 558 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":324 558 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":325 55B text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":326 563 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":329 564 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":330 567 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":331 56E text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":332 572 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":335 573 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":336 578 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":337 579 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":338 585 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":339 588 text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":340 58A text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":341 58C text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":343 59B text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":344 5AD text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":325 5AE text3 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":135 5AF text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":141 5AF text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":142 5B2 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":143 5B9 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":144 5BD text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":145 5BE text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":147 5BF text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":148 5DB text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":149 5E1 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":150 5E2 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":151 5E3 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":152 5E7 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":153 5EB text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":154 5F9 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":155 5FB text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":156 5FE text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":157 600 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":158 602 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":161 603 text1 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":305 604 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":307 605 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":308 60D text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":310 612 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":312 624 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":313 62D text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":315 62E text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":317 640 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":318 652 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":308 653 text10 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":28 658 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":30 658 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":31 665 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":33 66E text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":34 672 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":35 676 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":37 678 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":38 67C text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":40 680 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":42 684 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":43 691 text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":45 69E text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c":46 6AB text22 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":198 6AC text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":200 6AC text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":201 6AD text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":202 6B4 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":203 6B5 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":204 6B6 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":205 6B7 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":206 6B9 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":207 6BB text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":208 6BC text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":209 6BD text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":210 6BE text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":212 6C0 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":213 6C6 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":214 6C7 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":215 6C8 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":216 6C9 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":218 6CA text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":219 6D0 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":220 6DB text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":221 6DF text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":222 6E1 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":223 6E3 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":224 6E4 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":225 6E5 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":226 6E6 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":218 6EB text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":228 6F0 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":229 6F1 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":230 6F2 text23 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":155 6F3 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":157 6F4 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":158 6F8 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":159 6F9 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":161 6FB text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":162 704 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":163 707 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":164 708 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":161 70E text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":167 719 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":168 71F text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":169 722 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":170 724 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":171 727 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":172 729 text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":173 72A text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":174 72B text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":175 72C text15 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":112 72D text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":114 72D text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":115 730 text4 CODE
 "C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":117 734 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":119 734 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":120 737 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":122 73B text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":124 73E text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":125 73F text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":128 740 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":129 741 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":132 742 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":133 753 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":134 75F text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":135 763 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":136 764 text4 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":198 765 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":199 765 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":200 767 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":201 76D text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":202 772 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":203 773 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":204 774 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":205 775 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":206 781 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":201 785 text26 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":97 78A text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":99 78A text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":100 791 text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":101 795 text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":102 796 text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":103 79A text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":105 7A0 text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":106 7AB text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":107 7AC text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":108 7AD text14 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":33 7AE text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":35 7AE text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":37 7B1 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":38 7B3 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":39 7B5 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":42 7B6 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":43 7B8 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":46 7BD text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":47 7C0 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":48 7C1 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":49 7C2 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":50 7C3 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":53 7C4 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":56 7C5 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":59 7C6 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":62 7C8 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":65 7CB text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":66 7CD text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":67 7CF text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":68 7D0 text23 CODE
-"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c":38 7D1 text6 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":119 737 text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":120 738 text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":123 739 text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":124 73A text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":127 73B text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":128 74C text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":129 758 text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":130 75C text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":131 75D text4 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":32 75E text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":34 75E text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":36 761 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":37 763 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":38 765 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":41 766 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":42 768 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":45 76D text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":46 770 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":47 771 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":48 772 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":49 773 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":52 774 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":55 775 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":58 776 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":61 778 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":64 77B text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":65 77D text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":66 77F text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":68 780 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":69 785 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":70 786 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":71 787 text20 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":186 788 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":187 788 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":188 78A text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":189 790 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":190 795 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":191 796 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":192 797 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":193 798 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":194 7A4 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":189 7A8 text24 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":92 7AD text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":94 7AD text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":95 7B4 text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":96 7B8 text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":97 7B9 text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":98 7BD text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":100 7C3 text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":101 7CE text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":102 7CF text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":103 7D0 text13 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":391 7D1 text21 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":392 7D1 text21 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":393 7DA text21 CODE
+"C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c":392 7DB text21 CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -510,56 +504,55 @@ $dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__end_of_cheat D8E 0 CODE 0 text17 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_handle_fire 688 0 CODE 0 text11 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_cheat 8DC 0 CODE 0 text16 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_handle_fire 684 0 CODE 0 text11 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PWM3LDCONbits DBF 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_cheat 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__i 5E 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__i 5C 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __x 7C 0 COMMON 1 bssCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__y 6F 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__y 6D 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __S0 8009 0 ABS 0 - -
 __S1 D2 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
-__Hintentry 2E 0 CODE 0 intentry -
+__Hintentry 2A 0 CODE 0 intentry -
 __size_of_Send_Byte 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
 __CFG_BOREN$ON 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_Load F14 0 CODE 0 text26 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_Load F5A 0 CODE 0 text24 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _TMR0 15 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _TMR1 16 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _TMR2 1A 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-control_transfer@random_number 48 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_red_led_on DEA 0 CODE 0 text13 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_ADC_read D00 0 CODE 0 text22 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_Load ECA 0 CODE 0 text26 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_Save B84 0 CODE 0 text25 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_tone D3A 0 CODE 0 text19 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_SEND_EOF DBC 0 CODE 0 text7 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_main D8E 0 CODE 0 maintext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-Send_Byte@i 21 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+control_transfer@random_number 46 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_red_led_on 9FE 0 CODE 0 text18 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_ADC_read 97A 0 CODE 0 text19 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_Load F10 0 CODE 0 text24 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_Save D58 0 CODE 0 text23 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_tone 94C 0 CODE 0 text17 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_SEND_EOF 9DE 0 CODE 0 text7 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_main 99E 0 CODE 0 maintext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Banks\AppData\Local\Temp\sdig.obj
+Send_Byte@i 7A 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 btemp 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 ltemp 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 ttemp 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 wtemp 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-start 2E 0 CODE 0 init C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-__end_of_hit_by 8B8 0 CODE 0 text2 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+start 2A 0 CODE 0 init C:\Users\Banks\AppData\Local\Temp\sdig.obj
+__end_of_hit_by 89A 0 CODE 0 text2 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_SEND_SOF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_add_to_hitlist ADC 0 CODE 0 text10 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_add_to_hitlist C08 0 CODE 0 text10 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_Load 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 play_song@note_duration 74 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _RCREG 199 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _TXREG 19A 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Banks\AppData\Local\Temp\sdig.obj
+hit_by@i_747 58 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PMADR 191 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__size_of_led_off 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PMDAT 193 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_my_random_number 6C 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_my_random_number 6A 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _ADRES 9B 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_tone_off DF8 0 CODE 0 text18 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 ttemp0 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 ltemp1 82 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
@@ -577,9 +570,8 @@ wtemp5 88 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hconfig 10012 0 CONFIG 0 config -
 __Lconfig 1000E 0 CONFIG 0 config -
-__end_of_tone D68 0 CODE 0 text19 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_handle_serial A34 0 CODE 0 text1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__size_of_Disable_Modulation 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_tone 97A 0 CODE 0 text17 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_handle_serial B5E 0 CODE 0 text1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_handle_serial 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 Load@i 76 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 play_song@length 73 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
@@ -587,30 +579,30 @@ Save@i 76 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.prod
 ?_ADC_read 71 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbigram 0 0 ABS 0 bigram -
 __Lbigram 0 0 ABS 0 bigram -
-_cur_song_repeat 6B 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_cur_song_repeat 69 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_cheat D68 0 CODE 0 text17 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_cur_song 60 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_cheat 89A 0 CODE 0 text16 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_cur_song 5E 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_Setup F5C 0 CODE 0 text23 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_Setup EBC 0 CODE 0 text20 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_play_song 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_death_song E68 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_death_song A4C 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_hit_by 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_SEND_DATA_BYTE 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 __Lfunctab 0 0 CODE 0 functab -
 _ADCON1 9E 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PMCON2 196 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_LoadFromFlash 8B8 0 CODE 0 text24 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+delay_1_ms@i 71 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_LoadFromFlash CB0 0 CODE 0 text22 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hcommon 0 0 ABS 0 common -
 __Lcommon 0 0 ABS 0 common -
-_PIE1bits 91 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _PWM3DC DB3 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PIR1bits 11 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Banks\AppData\Local\Temp\sdig.obj
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _ANSELA 18C 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PWM3PH DB1 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
@@ -621,7 +613,6 @@ __Habs1 0 0 ABS 0 abs1 -
 __Labs1 0 0 ABS 0 abs1 -
 _PWM3PR DB5 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hsfr0 0 0 ABS 0 sfr0 -
-hit_by@i_797 5A 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Lsfr1 0 0 ABS 0 sfr1 -
@@ -642,42 +633,40 @@ __Hsfr8 0 0 ABS 0 sfr8 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Hsfr9 0 0 ABS 0 sfr9 -
 __Lsfr9 0 0 ABS 0 sfr9 -
-__end_of_led_off DF8 0 CODE 0 text15 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_stop_song 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_tone 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_SEND_DATA_BYTE C82 0 CODE 0 text8 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_SEND_DATA_BYTE 918 0 CODE 0 text8 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 play_song@song 71 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_Send_Byte C12 0 CODE 0 text16 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_Send_Byte DE6 0 CODE 0 text15 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+cheat@i 76 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_ADC_read 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hcode 0 0 ABS 0 code -
 __Lcode 0 0 ABS 0 code -
-handle_fire@timer 66 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+handle_fire@timer 64 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _config C0 0 BANK1 1 bssBANK1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_fire_song E40 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-stackhi 20EF 0 ABS 0 - C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-_dead_song E58 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_fire_song A8C 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+stackhi 20EF 0 ABS 0 - C:\Users\Banks\AppData\Local\Temp\sdig.obj
+_dead_song AA4 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
-_fire_song E00 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_fire_song A4C 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__size_of_tone_off 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_play_song F14 0 CODE 0 text14 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_stop_song DD6 0 CODE 0 text12 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-stacklo 2082 0 ABS 0 - C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-__Hinit 2E 0 CODE 0 init -
-__Linit 2E 0 CODE 0 init -
-_one_up E40 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_SEND_DATA_BYTE CC6 0 CODE 0 text8 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_play_song F5A 0 CODE 0 text13 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_stop_song 9DE 0 CODE 0 text12 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+stacklo 2082 0 ABS 0 - C:\Users\Banks\AppData\Local\Temp\sdig.obj
+__Hinit 2A 0 CODE 0 init -
+__Linit 2A 0 CODE 0 init -
+_one_up A8C 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_SEND_DATA_BYTE 94C 0 CODE 0 text8 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 add_to_hitlist@i 78 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_hit_by 7AE 0 CODE 0 text2 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_main DA6 0 CODE 0 maintext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__size_of_Modulate_Serial 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_hit_by 7AC 0 CODE 0 text2 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_main 9B6 0 CODE 0 maintext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Htext 0 0 ABS 0 text -
 __Ltext 0 0 ABS 0 text -
-hit_by@who 56 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_handle_fire 7AE 0 CODE 0 text11 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+hit_by@who 54 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_handle_fire 7AC 0 CODE 0 text11 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_super_dead_mode 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-end_of_initialization 4A 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+end_of_initialization 46 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Hsfr20 0 0 ABS 0 sfr20 -
@@ -689,7 +678,7 @@ __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Hsfr21 0 0 ABS 0 sfr21 -
 __Lsfr21 0 0 ABS 0 sfr21 -
-__end_of_handle_music ECA 0 CODE 0 text4 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_handle_music EBC 0 CODE 0 text4 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hsfr31 0 0 ABS 0 sfr31 -
 __Hsfr12 0 0 ABS 0 sfr12 -
 __Lsfr31 0 0 ABS 0 sfr31 -
@@ -708,7 +697,7 @@ __Hsfr15 0 0 ABS 0 sfr15 -
 __Lsfr15 0 0 ABS 0 sfr15 -
 __Hsfr25 0 0 ABS 0 sfr25 -
 __Lsfr25 0 0 ABS 0 sfr25 -
-__end_of_dead_song E64 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_dead_song AB0 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hsfr16 0 0 ABS 0 sfr16 -
 __Lsfr16 0 0 ABS 0 sfr16 -
 __Hsfr26 0 0 ABS 0 sfr26 -
@@ -726,8 +715,8 @@ __Hsfr19 0 0 ABS 0 sfr19 -
 __Lsfr19 0 0 ABS 0 sfr19 -
 __Hsfr29 0 0 ABS 0 sfr29 -
 __Lsfr29 0 0 ABS 0 sfr29 -
-__end_of_ADC_read D3A 0 CODE 0 text22 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_cur_song_ptr 6A 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_ADC_read 99E 0 CODE 0 text19 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_cur_song_ptr 68 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _TRISAbits 8C 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_control_transfer 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _RCSTAbits 19D 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
@@ -737,19 +726,18 @@ _T1CONbits 18 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
 _T2CONbits 1C 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lstrings 0 0 ABS 0 strings -
-__checksum 68 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-super_dead_mode@b 51 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__checksum 66 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+super_dead_mode@b 4F 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 Load@data_length 74 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_Disable_Modulation DEA 0 CODE 0 text21 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 Save@data_length 74 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 -
-__end_of_High_Priority_Interrupt 2E 0 CODE 0 intentry dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_High_Priority_Interrupt 2A 0 CODE 0 intentry dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Lbank2 0 0 ABS 0 bank2 -
-__end_of_handle_serial ADC 0 CODE 0 text1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_handle_serial C08 0 CODE 0 text1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank3 0 0 BANK3 1 bank3 -
 __Lbank3 0 0 BANK3 1 bank3 -
 ___latbits 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
@@ -766,72 +754,77 @@ __Hbank7 0 0 BANK7 1 bank7 -
 __Lbank7 0 0 BANK7 1 bank7 -
 __Hbank8 0 0 BANK8 1 bank8 -
 __Lbank8 0 0 BANK8 1 bank8 -
-handle_serial@rx_counter 6D 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+handle_serial@rx_counter 6B 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank9 0 0 BANK9 1 bank9 -
 __Lbank9 0 0 BANK9 1 bank9 -
-__ptext1 A34 0 CODE 0 text1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_play_song F5C 0 CODE 0 text14 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext2 7AE 0 CODE 0 text2 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_Setup FA2 0 CODE 0 text23 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext3 978 0 CODE 0 text3 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext1 B5E 0 CODE 0 text1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_play_song FA2 0 CODE 0 text13 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext2 7AC 0 CODE 0 text2 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_Setup F10 0 CODE 0 text20 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext3 AB0 0 CODE 0 text3 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 GET_CHAR_HELPER@val 72 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext4 E68 0 CODE 0 text4 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext4 E5A 0 CODE 0 text4 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_SEND_EOF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext5 50 0 CODE 0 text5 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext6 FA2 0 CODE 0 text6 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext7 DA6 0 CODE 0 text7 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext8 C82 0 CODE 0 text8 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_cur_song_length 69 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext9 CC6 0 CODE 0 text9 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext5 4C 0 CODE 0 text5 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext6 9B6 0 CODE 0 text6 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_green_led_on 9EA 0 CODE 0 text14 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext7 9D2 0 CODE 0 text7 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext8 918 0 CODE 0 text8 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_cur_song_length 67 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext9 8DC 0 CODE 0 text9 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+cheat@i_724 77 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lclrtext 0 0 ABS 0 clrtext -
-__end_of_stop_song DE0 0 CODE 0 text12 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_stop_song 9EA 0 CODE 0 text12 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 tone@period 71 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_control_transfer 688 0 CODE 0 text5 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of__initialization 4A 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_control_transfer 684 0 CODE 0 text5 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of__initialization 46 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _PWM3CONbits DBB 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _BAUDCONbits 19F 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-hit_by@i 59 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_GET_CHAR_HELPER D00 0 CODE 0 text9 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_add_to_hitlist B84 0 CODE 0 text10 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_Disable_Modulation DF2 0 CODE 0 text21 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_delay_1_ms FC0 0 CODE 0 text21 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+hit_by@i 57 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_GET_CHAR_HELPER 918 0 CODE 0 text9 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_add_to_hitlist CB0 0 CODE 0 text10 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_red_led_on 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_led_off DF2 0 CODE 0 text15 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hidloc 0 0 IDLOC 0 idloc -
 __Lidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
 __Lstack 0 0 STACK 2 stack -
-SEND_DATA_BYTE@b 23 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+SEND_DATA_BYTE@b 22 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_delay_1_ms FA2 0 CODE 0 text21 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hspace_0 8009 0 ABS 0 - -
 __Lspace_0 0 0 ABS 0 - -
-hit_by@respawn_timer 57 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_death_song E64 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+hit_by@respawn_timer 55 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_death_song A00 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _High_Priority_Interrupt 8 0 CODE 0 intentry dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hspace_1 D2 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 Load@ptr 73 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__Hcinit 50 0 CODE 0 cinit -
-__Lcinit 30 0 CODE 0 cinit -
+__Hcinit 4C 0 CODE 0 cinit -
+__Lcinit 2C 0 CODE 0 cinit -
 Save@ptr 73 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-handle_fire@a 23 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+handle_fire@a 22 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hspace_3 0 0 ABS 0 - -
 __CFG_LPBOREN$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lspace_3 0 0 ABS 0 - -
 __size_of_main 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _hitlist A0 0 BANK1 1 bssBANK1 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_GET_CHAR_HELPER 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_red_led_on DE0 0 CODE 0 text13 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_red_led_on 9F4 0 CODE 0 text18 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_Save 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_BORV$LO 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__size_of_delay_1_ms 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_green_led_on 9F4 0 CODE 0 text14 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 Load@address 71 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 Save@address 71 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-clear_ram0 DCA 0 CODE 0 clrtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+clear_ram0 9C6 0 CODE 0 clrtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__size_of_green_led_on 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __Hbank10 0 0 BANK10 1 bank10 -
-__pbssBANK0 5E 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__pbssBANK0 5C 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lbank10 0 0 BANK10 1 bank10 -
 __Hbank20 0 0 BANK20 1 bank20 -
 __Lbank20 0 0 BANK20 1 bank20 -
@@ -846,7 +839,7 @@ __Hbank12 0 0 BANK12 1 bank12 -
 __Lbank31 0 0 BANK31 1 bank31 -
 __Lbank12 0 0 BANK12 1 bank12 -
 __Hbank22 0 0 BANK22 1 bank22 -
-super_dead_mode@counter 52 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+super_dead_mode@counter 50 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Lbank22 0 0 BANK22 1 bank22 -
 __Hbank13 0 0 BANK13 1 bank13 -
 __Lbank13 0 0 BANK13 1 bank13 -
@@ -861,110 +854,105 @@ __Hstringtext 0 0 ABS 0 stringtext -
 __Lstringtext 0 0 ABS 0 stringtext -
 __Hbank24 0 0 BANK24 1 bank24 -
 __Lbank24 0 0 BANK24 1 bank24 -
-__pstringtext E00 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext10 ADC 0 CODE 0 text10 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__pstringtext A00 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext10 C08 0 CODE 0 text10 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank15 0 0 BANK15 1 bank15 -
 __Lbank15 0 0 BANK15 1 bank15 -
-__ptext20 DBC 0 CODE 0 text20 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext20 EBC 0 CODE 0 text20 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank25 0 0 BANK25 1 bank25 -
 __Lbank25 0 0 BANK25 1 bank25 -
-__ptext11 688 0 CODE 0 text11 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext11 684 0 CODE 0 text11 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank16 0 0 BANK16 1 bank16 -
 __Lbank16 0 0 BANK16 1 bank16 -
-__ptext21 DEA 0 CODE 0 text21 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext21 FA2 0 CODE 0 text21 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank26 0 0 BANK26 1 bank26 -
 __Lbank26 0 0 BANK26 1 bank26 -
-__ptext12 DD6 0 CODE 0 text12 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext12 9DE 0 CODE 0 text12 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank17 0 0 BANK17 1 bank17 -
 __Lbank17 0 0 BANK17 1 bank17 -
-__ptext22 D00 0 CODE 0 text22 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext22 CB0 0 CODE 0 text22 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank27 0 0 BANK27 1 bank27 -
 __Lbank27 0 0 BANK27 1 bank27 -
 __CFG_PLLEN$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext13 DE0 0 CODE 0 text13 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext13 F5A 0 CODE 0 text13 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank18 0 0 BANK18 1 bank18 -
 __Lbank18 0 0 BANK18 1 bank18 -
 _ADCON0bits 9D 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_super_dead_mode 978 0 CODE 0 text3 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext23 F5C 0 CODE 0 text23 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_super_dead_mode AB0 0 CODE 0 text3 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext23 D58 0 CODE 0 text23 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank28 0 0 BANK28 1 bank28 -
 __Lbank28 0 0 BANK28 1 bank28 -
 _PMCON1bits 195 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext14 F14 0 CODE 0 text14 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext14 9EA 0 CODE 0 text14 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank19 0 0 BANK19 1 bank19 -
 __Lbank19 0 0 BANK19 1 bank19 -
-__ptext24 8B8 0 CODE 0 text24 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext24 F10 0 CODE 0 text24 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hbank29 0 0 BANK29 1 bank29 -
 __Lbank29 0 0 BANK29 1 bank29 -
-__ptext15 DF2 0 CODE 0 text15 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext25 B84 0 CODE 0 text25 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext16 C12 0 CODE 0 text16 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext26 ECA 0 CODE 0 text26 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext17 D68 0 CODE 0 text17 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext15 DE6 0 CODE 0 text15 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext16 89A 0 CODE 0 text16 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext17 94C 0 CODE 0 text17 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _ANSELAbits 18C 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__ptext18 DF8 0 CODE 0 text18 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext18 9F4 0 CODE 0 text18 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
-__ptext19 D3A 0 CODE 0 text19 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__ptext19 97A 0 CODE 0 text19 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __pbssCOMMON 7C 0 COMMON 1 bssCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _INTCONbits B 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_Send_Byte C82 0 CODE 0 text16 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__Hend_init 30 0 CODE 0 end_init -
-__Lend_init 2E 0 CODE 0 end_init -
-handle_serial@b 5D 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_control_transfer 50 0 CODE 0 text5 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_one_up E58 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_SEND_EOF DA6 0 CODE 0 text7 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-Send_Byte@data 20 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_GET_CHAR_HELPER CC6 0 CODE 0 text9 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_Send_Byte E5A 0 CODE 0 text15 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__Hend_init 2C 0 CODE 0 end_init -
+__Lend_init 2A 0 CODE 0 end_init -
+handle_serial@b 5B 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_control_transfer 4C 0 CODE 0 text5 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_one_up AA4 0 STRCODE 0 stringtext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_SEND_EOF 9D2 0 CODE 0 text7 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+Send_Byte@data 79 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_GET_CHAR_HELPER 8DC 0 CODE 0 text9 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-handle_fire@counter 64 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_LoadFromFlash 978 0 CODE 0 text24 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+handle_fire@counter 62 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_LoadFromFlash D58 0 CODE 0 text22 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 play_song@repeat 76 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_Save C12 0 CODE 0 text25 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_Modulate_Serial DBC 0 CODE 0 text20 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_SEND_SOF FA2 0 CODE 0 text6 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_tone_off DFE 0 CODE 0 text18 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-control_transfer@i 4B 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-control_transfer@x 4E 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-control_transfer@id 49 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_Save DE6 0 CODE 0 text23 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_SEND_SOF 9B6 0 CODE 0 text6 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+control_transfer@i 49 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+control_transfer@x 4C 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\sdig.obj
+control_transfer@id 47 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-control_transfer@cmd 47 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-handle_serial@rx_id 6E 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\s3h2k.obj
-_handle_music E68 0 CODE 0 text4 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\sdig.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\sdig.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\sdig.obj
+control_transfer@cmd 45 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\sdig.obj
+handle_serial@rx_id 6C 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Banks\AppData\Local\Temp\sdig.obj
+_handle_music E5A 0 CODE 0 text4 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_LoadFromFlash 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_SEND_SOF FBC 0 CODE 0 text6 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-control_transfer@page 4C 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-control_transfer@data 27 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_SEND_SOF 9C6 0 CODE 0 text6 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+control_transfer@page 4A 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+control_transfer@data 25 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_Setup 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-control_transfer@dptr 4A 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-start_initialization 30 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+control_transfer@dptr 48 0 BANK0 1 cstackBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+start_initialization 2C 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_handle_fire 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __Hmaintext 0 0 ABS 0 maintext -
 __Lmaintext 0 0 ABS 0 maintext -
-__pmaintext D8E 0 CODE 0 maintext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__pmaintext 99E 0 CODE 0 maintext dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 add_to_hitlist@gun 75 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 _OPTION_REGbits 95 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 add_to_hitlist@gun16 76 0 COMMON 1 cstackCOMMON dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__initialization 30 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_Modulate_Serial DCA 0 CODE 0 text20 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-__end_of_super_dead_mode A34 0 CODE 0 text3 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__initialization 2C 0 CODE 0 cinit dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+__end_of_super_dead_mode B5E 0 CODE 0 text3 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_CP$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __size_of_handle_music 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
-_cur_song_duration 62 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+_cur_song_duration 60 0 BANK0 1 bssBANK0 dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -992,10 +980,10 @@ __CFG_LVP$OFF 0 0 ABS 0 - dist/PIC12LF1571/production\lAAAHzertag.X.production.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 reset_vec 0 0 0 2 2
-intentry 0 4 8 6FB 2
+intentry 0 4 8 4FB 2
 config 0 8007 1000E 2 2
 cstackCOMMON 1 70 70 D 1
-cstackBANK0 1 20 20 50 1
+cstackBANK0 1 20 20 4E 1
 bssBANK1 1 A0 A0 32 1
-stringtext 0 700 E00 34 2
-text4 0 734 E68 AA 2
+stringtext 0 500 A00 58 2
+text3 0 558 AB0 288 2

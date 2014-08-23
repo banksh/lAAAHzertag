@@ -4593,21 +4593,24 @@ typedef uint16_t hitlist_t[16];
 extern config_t config;
 extern hitlist_t hitlist;
 
-# 11 "user.h"
+# 3 "user.h"
+extern uint8_t my_random_number;
+
+
+
+
 void Setup(void);
+void cheat(void);
 uint16_t ADC_read(void);
 void green_led_on(void);
 void red_led_on(void);
 void led_off(void);
 void Buzz(uint16_t freq, uint16_t dur_ms);
 void Send_Byte(uint8_t data);
-void Modulate_Serial(void);
-void Disable_Modulation(void);
 uint8_t handle_fire(void);
 void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Get_hit(uint8_t ID);
-void Sleep();
 
 uint8_t get_hitlist_length();
 void add_to_hitlist(uint8_t gun);
@@ -4618,6 +4621,7 @@ void tone(uint16_t period);
 void tone_off();
 void hit_by(uint8_t who);
 void super_dead_mode();
+void delay_1_ms();
 
 # 1 "protocol.h"
 uint8_t handle_serial();
@@ -4646,19 +4650,19 @@ hitlist_t hitlist;
 
 static void LoadFromFlash()
 {
-Load(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+Load(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 if(config.id == 0x3FFF)
 {
-config.health = 16;
+config.health = 1;
 config.id = 0x80;
 config.power = 0;
-config.respawn_delay = 100;
+
 config.fire_threshold = 500;
-config.fire_holdoff = 8000;
-config.shield = 2;
+config.fire_holdoff = 4000;
+
 config.fire_cheating = 1000;
-config.death_period = 3000;
-Save(0x7D0,(uint16_t*)&config,(sizeof(config_t)/2));
+
+Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 }
 Load(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));

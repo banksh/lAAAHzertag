@@ -9,26 +9,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
 "2428
 [v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-"18 user.h
+"15 user.h
 [v _Send_Byte `(v ~T0 @X0 0 ef1`uc ]
-[v F3487 `(v ~T0 @X0 1 tf1`ul ]
-"154 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic.h
-[v __delay `JF3487 ~T0 @X0 0 e ]
-[p i __delay ]
 "7 main.h
 [s S436 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S436 . id power health shield respawn_delay fire_threshold fire_cheating fire_holdoff death_period ]
 "25
 [v _config `S436 ~T0 @X0 0 e ]
-"6 user.h
+"3 user.h
 [v _my_random_number `uc ~T0 @X0 0 e ]
-"22
+"17
 [v _Save `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
-"23
+"18
 [v _Load `(v ~T0 @X0 0 ef3`ui`*ui`uc ]
 "26 main.h
 [v _hitlist `ui ~T0 @X0 -> 0 `x e ]
-"29 user.h
+"23 user.h
 [v _play_song `(v ~T0 @X0 0 ef4`*ui`uc`ui`uc ]
 "776 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
 [v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
@@ -40,7 +36,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S148 . . ]
 "2527
 [v _RCSTAbits `VS148 ~T0 @X0 0 e@413 ]
-"34 user.h
+"28 user.h
 [v _hit_by `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
@@ -3438,31 +3434,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 21: typedef uint16_t hitlist_t[16];
 [; ;main.h: 25: extern config_t config;
 [; ;main.h: 26: extern hitlist_t hitlist;
-[; ;user.h: 6: extern uint8_t my_random_number;
-[; ;user.h: 11: void Setup(void);
-[; ;user.h: 12: void cheat(void);
-[; ;user.h: 13: uint16_t ADC_read(void);
-[; ;user.h: 14: void green_led_on(void);
-[; ;user.h: 15: void red_led_on(void);
-[; ;user.h: 16: void led_off(void);
-[; ;user.h: 17: void Buzz(uint16_t freq, uint16_t dur_ms);
-[; ;user.h: 18: void Send_Byte(uint8_t data);
-[; ;user.h: 19: void Modulate_Serial(void);
-[; ;user.h: 20: void Disable_Modulation(void);
-[; ;user.h: 21: uint8_t handle_fire(void);
-[; ;user.h: 22: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 23: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
-[; ;user.h: 24: void Get_hit(uint8_t ID);
-[; ;user.h: 25: void Sleep();
-[; ;user.h: 27: uint8_t get_hitlist_length();
-[; ;user.h: 28: void add_to_hitlist(uint8_t gun);
-[; ;user.h: 29: void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
-[; ;user.h: 30: void stop_song();
-[; ;user.h: 31: void handle_music();
-[; ;user.h: 32: void tone(uint16_t period);
-[; ;user.h: 33: void tone_off();
-[; ;user.h: 34: void hit_by(uint8_t who);
-[; ;user.h: 35: void super_dead_mode();
+[; ;user.h: 3: extern uint8_t my_random_number;
+[; ;user.h: 8: void Setup(void);
+[; ;user.h: 9: void cheat(void);
+[; ;user.h: 10: uint16_t ADC_read(void);
+[; ;user.h: 11: void green_led_on(void);
+[; ;user.h: 12: void red_led_on(void);
+[; ;user.h: 13: void led_off(void);
+[; ;user.h: 14: void Buzz(uint16_t freq, uint16_t dur_ms);
+[; ;user.h: 15: void Send_Byte(uint8_t data);
+[; ;user.h: 16: uint8_t handle_fire(void);
+[; ;user.h: 17: void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 18: void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
+[; ;user.h: 19: void Get_hit(uint8_t ID);
+[; ;user.h: 21: uint8_t get_hitlist_length();
+[; ;user.h: 22: void add_to_hitlist(uint8_t gun);
+[; ;user.h: 23: void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat);
+[; ;user.h: 24: void stop_song();
+[; ;user.h: 25: void handle_music();
+[; ;user.h: 26: void tone(uint16_t period);
+[; ;user.h: 27: void tone_off();
+[; ;user.h: 28: void hit_by(uint8_t who);
+[; ;user.h: 29: void super_dead_mode();
+[; ;user.h: 30: void delay_1_ms();
 "26 protocol.c
 [v __x `uc ~T0 @X0 1 e ]
 [v __y `uc ~T0 @X0 1 e ]
@@ -3487,7 +3481,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "31
 [v _GET_CHAR_HELPER `(uc ~T0 @X0 1 sf1`*uc ]
 {
-[; ;protocol.c: 31: static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!(PIR1bits.RCIF)) {_i++; if(_i >= 30000) return 1;} *val = (RCREG); return 0;}
+[; ;protocol.c: 31: static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!(PIR1bits.RCIF)) {_i++; if(_i >= 30000) return 1;} *val = (RCREG^0b10101010); return 0;}
 [e :U _GET_CHAR_HELPER ]
 [v _val `*uc ~T0 @X0 1 r1 ]
 [f ]
@@ -3504,7 +3498,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 438 ]
 [e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 439  ]
 [e :U 440 ]
-[e = *U _val _RCREG ]
+[e = *U _val -> ^ -> _RCREG `i -> 170 `i `uc ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 437  ]
 [e :UE 437 ]
@@ -3512,27 +3506,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 "37
 [v _SEND_DATA_BYTE `(v ~T0 @X0 1 sf1`uc ]
 {
-[; ;protocol.c: 37: static void SEND_DATA_BYTE(uint8_t b) {_x = b & 0x0F; _y = b >> 4; Send_Byte(_x); _delay((unsigned long)((100)*(16000000/4000000.0))); Send_Byte(_y); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum -= b;}
+[; ;protocol.c: 37: static void SEND_DATA_BYTE(uint8_t b) {_x = b & 0x0F; _y = b >> 4; Send_Byte(_x); Send_Byte(_y); _checksum -= b;}
 [e :U _SEND_DATA_BYTE ]
 [v _b `uc ~T0 @X0 1 r1 ]
 [f ]
 [e = __x -> & -> _b `i -> 15 `i `uc ]
 [e = __y -> >> -> _b `i -> 4 `i `uc ]
 [e ( _Send_Byte (1 __x ]
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [e ( _Send_Byte (1 __y ]
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [e =- __checksum _b ]
 [e :UE 442 ]
 }
 "38
 [v _SEND_SOF `(v ~T0 @X0 1 sf ]
 {
-[; ;protocol.c: 38: static void SEND_SOF() {Send_Byte(0x10); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum = 0; SEND_DATA_BYTE(config.id);}
+[; ;protocol.c: 38: static void SEND_SOF() {Send_Byte(0x10); _checksum = 0; SEND_DATA_BYTE(config.id);}
 [e :U _SEND_SOF ]
 [f ]
 [e ( _Send_Byte (1 -> -> 16 `i `uc ]
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [e = __checksum -> -> 0 `i `uc ]
 [e ( _SEND_DATA_BYTE (1 -> . _config 0 `uc ]
 [e :UE 443 ]
@@ -3540,12 +3531,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "39
 [v _SEND_EOF `(v ~T0 @X0 1 sf ]
 {
-[; ;protocol.c: 39: static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11); _delay((unsigned long)((100)*(16000000/4000000.0)));;}
+[; ;protocol.c: 39: static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11);;}
 [e :U _SEND_EOF ]
 [f ]
 [e ( _SEND_DATA_BYTE (1 __checksum ]
 [e ( _Send_Byte (1 -> -> 17 `i `uc ]
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [e :UE 444 ]
 }
 "44
@@ -4049,13 +4039,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _handle_serial ]
 [f ]
 "137
-[v F3623 `uc ~T0 @X0 1 s rx_id ]
-[i F3623
+[v F3615 `uc ~T0 @X0 1 s rx_id ]
+[i F3615
 -> -> 0 `i `uc
 ]
 "138
-[v F3624 `uc ~T0 @X0 1 s rx_counter ]
-[i F3624
+[v F3616 `uc ~T0 @X0 1 s rx_counter ]
+[i F3616
 -> -> 0 `i `uc
 ]
 "139
@@ -4069,9 +4059,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ) -> -> 0 `i `uc ]
 [e $UE 524  ]
 [e :U 525 ]
-[; ;protocol.c: 142: b=(RCREG);
+[; ;protocol.c: 142: b=(RCREG^0b10101010);
 "142
-[e = _b _RCREG ]
+[e = _b -> ^ -> _RCREG `i -> 170 `i `uc ]
 [; ;protocol.c: 143: if(b == 0x10) {
 "143
 [e $ ! == -> _b `i -> 16 `i 526  ]
@@ -4090,8 +4080,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;protocol.c: 148: if((b != rx_id) || PIR1bits.TMR2IF) rx_counter=0;
 "148
-[e $ ! || != -> _b `i -> F3623 `i != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 529  ]
-[e = F3624 -> -> 0 `i `uc ]
+[e $ ! || != -> _b `i -> F3615 `i != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 529  ]
+[e = F3616 -> -> 0 `i `uc ]
 [e :U 529 ]
 [; ;protocol.c: 149: TMR2 = 0;
 "149
@@ -4101,13 +4091,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
 [; ;protocol.c: 151: rx_id = b;
 "151
-[e = F3623 _b ]
+[e = F3615 _b ]
 [; ;protocol.c: 152: rx_counter++;
 "152
-[e ++ F3624 -> -> 1 `i `uc ]
+[e ++ F3616 -> -> 1 `i `uc ]
 [; ;protocol.c: 153: if(rx_counter > config.shield) {
 "153
-[e $ ! > -> F3624 `ui . _config 3 530  ]
+[e $ ! > -> F3616 `ui . _config 3 530  ]
 {
 [; ;protocol.c: 154: RCSTAbits.CREN = 0;
 "154
@@ -4117,10 +4107,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _hit_by (1 _b ]
 [; ;protocol.c: 156: rx_id = 0;
 "156
-[e = F3623 -> -> 0 `i `uc ]
-[; ;protocol.c: 157: (RCREG);
+[e = F3615 -> -> 0 `i `uc ]
+[; ;protocol.c: 157: (RCREG^0b10101010);
 "157
-[e _RCREG ]
+[e ^ -> _RCREG `i -> 170 `i ]
 [; ;protocol.c: 158: RCSTAbits.CREN = 1;
 "158
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]

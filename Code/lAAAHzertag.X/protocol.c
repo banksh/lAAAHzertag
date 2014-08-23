@@ -30,7 +30,7 @@ const uint16_t one_up[] = {_XTAL_FREQ/659.3,_XTAL_FREQ/784,_XTAL_FREQ/1318.5,_XT
 
 static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!CHECK_CHAR()) {_i++; if(_i >= SERIAL_TIMEOUT) return 1;} *val = AVAIL_CHAR(); return 0;}
 #define GET_CHAR(gb) if(GET_CHAR_HELPER(&(gb))) goto err;
-#define PUT_CHAR(pb) Send_Byte(pb); __delay_us(SEND_SPACING);
+#define PUT_CHAR(pb) Send_Byte(pb);
 
 #define READ_DATA_BYTE(b) GET_CHAR(_x) GET_CHAR(_y) if((_x & (~0x0F)) || (_y & (~0x0F))) goto err; b=((_y << 4) | _x); _checksum += b;
 

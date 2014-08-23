@@ -4597,7 +4597,7 @@ typedef uint16_t hitlist_t[16];
 extern config_t config;
 extern hitlist_t hitlist;
 
-# 6 "user.h"
+# 3 "user.h"
 extern uint8_t my_random_number;
 
 
@@ -4611,13 +4611,10 @@ void red_led_on(void);
 void led_off(void);
 void Buzz(uint16_t freq, uint16_t dur_ms);
 void Send_Byte(uint8_t data);
-void Modulate_Serial(void);
-void Disable_Modulation(void);
 uint8_t handle_fire(void);
 void Save(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Load(uint16_t address, uint16_t* ptr, uint8_t data_length);
 void Get_hit(uint8_t ID);
-void Sleep();
 
 uint8_t get_hitlist_length();
 void add_to_hitlist(uint8_t gun);
@@ -4628,6 +4625,7 @@ void tone(uint16_t period);
 void tone_off();
 void hit_by(uint8_t who);
 void super_dead_mode();
+void delay_1_ms();
 
 # 26 "protocol.c"
 uint8_t _x,_y,_checksum;
@@ -4635,12 +4633,12 @@ uint16_t _i;
 
 const uint16_t one_up[] = {16000000/659.3,16000000/784,16000000/1318.5,16000000/1046.5,16000000/1174.7,16000000/1568};
 
-static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!(PIR1bits.RCIF)) {_i++; if(_i >= 30000) return 1;} *val = (RCREG); return 0;}
+static uint8_t GET_CHAR_HELPER(uint8_t* val) {_i=0; while(!(PIR1bits.RCIF)) {_i++; if(_i >= 30000) return 1;} *val = (RCREG^0b10101010); return 0;}
 
 # 37
-static void SEND_DATA_BYTE(uint8_t b) {_x = b & 0x0F; _y = b >> 4; Send_Byte(_x); _delay((unsigned long)((100)*(16000000/4000000.0))); Send_Byte(_y); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum -= b;}
-static void SEND_SOF() {Send_Byte(0x10); _delay((unsigned long)((100)*(16000000/4000000.0))); _checksum = 0; SEND_DATA_BYTE(config.id);}
-static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11); _delay((unsigned long)((100)*(16000000/4000000.0)));;}
+static void SEND_DATA_BYTE(uint8_t b) {_x = b & 0x0F; _y = b >> 4; Send_Byte(_x); Send_Byte(_y); _checksum -= b;}
+static void SEND_SOF() {Send_Byte(0x10); _checksum = 0; SEND_DATA_BYTE(config.id);}
+static void SEND_EOF() {SEND_DATA_BYTE(_checksum); Send_Byte(0x11);;}
 
 
 
@@ -4743,7 +4741,7 @@ static uint8_t rx_counter=0;
 uint8_t b;
 
 if(!(PIR1bits.RCIF)) return 0;
-b=(RCREG);
+b=(RCREG^0b10101010);
 if(b == 0x10) {
 control_transfer();
 }
@@ -4758,7 +4756,7 @@ if(rx_counter > config.shield) {
 RCSTAbits.CREN = 0;
 hit_by(b);
 rx_id = 0;
-(RCREG);
+(RCREG^0b10101010);
 RCSTAbits.CREN = 1;
 }
 }

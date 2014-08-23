@@ -25,10 +25,9 @@ uint16_t cur_song_duration;
 #define NOTE_LOWG (_XTAL_FREQ / 392.0)
 
 
-const uint16_t death_song[] = {_XTAL_FREQ/260};//,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, 0, NOTE_D, NOTE_C, NOTE_LOWG, 0, NOTE_LOWG, NOTE_LOWC};
+const uint16_t death_song[] = {_XTAL_FREQ/260,_XTAL_FREQ/250,0,0,0,0,NOTE_C, NOTE_F, 0, NOTE_E, NOTE_F, NOTE_E, NOTE_D, 0, NOTE_C, NOTE_LOWG,0, NOTE_LOWG, NOTE_LOWC};
 const uint16_t fire_song[] = {_XTAL_FREQ/4000,_XTAL_FREQ/3500,_XTAL_FREQ/3000,_XTAL_FREQ/2500,_XTAL_FREQ/2000,_XTAL_FREQ/1500,_XTAL_FREQ/1000,_XTAL_FREQ/500,_XTAL_FREQ/450,_XTAL_FREQ/400,_XTAL_FREQ/350,_XTAL_FREQ/300,_XTAL_FREQ/250,0,0,0};
-const uint16_t dead_song[] = {NOTE_LOWG, NOTE_LOWC, NOTE_LOWC};
-
+const uint16_t dead_song[] = {NOTE_C, NOTE_LOWG, NOTE_LOWC};
 
 void Setup(void)
 {
@@ -65,13 +64,14 @@ void Setup(void)
     T2CONbits.T2CKPS = 3;
     T2CONbits.T2OUTPS = 15;
     T2CONbits.TMR2ON = 1;
+
+    ADCON0bits.CHS = 3;
+    ADCON0bits.ADON = 1; // Turn ADC on
+    delay_1_ms();
 }
 
 uint16_t ADC_read()
 {
-    ADCON0bits.CHS = 3;
-    ADCON0bits.ADON = 1; // Turn ADC on
-    __delay_us(6);
     ADCON0bits.GO = 1; // Set GO bit to start conversion
     while(ADCON0bits.GO){};
     return ADRES >> 6;
@@ -87,11 +87,6 @@ void green_led_on()
 {
     TRISAbits.TRISA5 = 0;
     PORTAbits.RA5 = 1;
-}
-
-void led_off()
-{
-    TRISAbits.TRISA5 = 1;
 }
 
 void play_song(uint16_t* song,uint8_t length,uint16_t note_duration,uint8_t repeat)
@@ -145,45 +140,38 @@ void tone(uint16_t period)
     PWM3LDCONbits.PWM3LD = 1;
 }
 
-void tone_off()
-{
-    PWM3CONbits.PWM3OE = 0;
+#define Modulate_Serial() {\
+    DACCON0bits.DACEN = 1;\
+    TMR0=0;\
+    INTCONbits.TMR0IF=1;\
+    INTCONbits.TMR0IE=1;\
 }
 
-void Buzz(uint16_t freq, uint16_t dur_ms)
-{
-    tone((_XTAL_FREQ / freq)-1);
-    for(uint16_t i=0;i<dur_ms;i++) __delay_ms(1);
-    tone_off();
+#define Disable_Modulation() {\
+    INTCONbits.TMR0IE=0;\
+    DACCON0bits.DACEN=0;\
 }
 
 void Send_Byte(uint8_t data)
 {
+    data ^= 0b10101010; 
+    delay_1_ms();
     RCSTAbits.CREN = 0; // Disable receiver
     //if (!PORTAbits.RA1){cheat();} // IR receiver isn't in place
     for(uint16_t i=0; i<100; i++){
         if(PORTAbits.RA1){break;} // You aren't cheating if RA1 is high
-        __delay_ms(1);
+        delay_1_ms();
         if(i==99){cheat();}
     }
+
     Modulate_Serial();
     TXREG = data;
     while(!TXSTAbits.TRMT); // Wait for USART to send all data
     Disable_Modulation();
     RCSTAbits.CREN = 1; // Enable receiver
     RCREG;
-}
-
-void Modulate_Serial(void){
-    DACCON0bits.DACEN = 1; // Enable DAC to send data over serial
-    TMR0=0;
-    INTCONbits.TMR0IF=1;
-    INTCONbits.TMR0IE=1; // Execute interrupt immediately
-}
-
-void Disable_Modulation(void){
-    INTCONbits.TMR0IE=0; // Turn off interrupt
-    DACCON0bits.DACEN=0;
+    delay_1_ms();
+    delay_1_ms();
 }
 
 uint16_t Read_Memory(uint16_t address){
@@ -243,10 +231,15 @@ void Save(uint16_t address, uint16_t* ptr, uint8_t data_length){
 
 void cheat(){
     while(1){
-        //tone(((uint16_t)TMR0)<<3);
+        red_led_on();
         tone(7813);
-        __delay_ms(200);
-        tone_off();
+        for(uint8_t i=0; i<200; i++){
+            delay_1_ms();
+        }
+        led_off();
+        for(uint8_t i=0; i<200; i++){
+            delay_1_ms();
+        }
     }
 }
 
@@ -274,7 +267,7 @@ uint8_t handle_fire(){
             {
                 if(!counter)
                 {
-                    red_led_on();
+                    green_led_on();
                     play_song(fire_song,sizeof(fire_song)/sizeof(uint16_t),3000,!(config.power));
                 }
                 Send_Byte(config.id);
@@ -297,46 +290,16 @@ uint8_t handle_fire(){
     return 1;
 }
 
-void Sleep() {
-    // This is fucked, needs fixing
-    INTCONbits.GIE = 1; // Enable interrupts
-    INTCONbits.PEIE = 1; // Enable peripheral interrupts
-    PIE1bits.TMR1IE = 1; // Enable Timer1 overflow interrupt
-    T1CONbits.nT1SYNC = 1; // Don't synchronize external clock input
-    T1CONbits.TMR1ON = 1; // Turn on timer
-    TMR1 = 25536; // Sleep for 10ms
-    asm("sleep");
-    INTCONbits.GIE = 0;
-    INTCONbits.PEIE = 0;
-    PIE1bits.TMR1IE = 0;
-    T1CONbits.TMR1ON = 0;
-    Buzz(4000,5);
-}
-
 // Interrupts
 
 void interrupt High_Priority_Interrupt(){
-   if(INTCONbits.TMR0IF) // TMR1 register overflowed
-   {
-       asm("BANKSEL DACCON0"); // Use DAC to generate 38KHz carrier wave
-       asm("MOVF DACCON0 & 0x7F, W");
-       asm("XORLW 1<<5");
-       asm("MOVWF DACCON0 & 0x7F");
+   asm("BANKSEL DACCON0"); // Use DAC to generate 38KHz carrier wave
+   asm("MOVF DACCON0 & 0x7F, W");
+   asm("XORLW 1<<5");
+   asm("MOVWF DACCON0 & 0x7F");
 
-       TMR0 -= 50;
-       INTCONbits.TMR0IF = 0; // Clear the interupt flag
-   }
-}
-
-uint8_t get_hitlist_length()
-{
-    uint8_t i;
-    for(i=0;i<HITLIST_SIZE;i++)
-    {
-        if(!(hitlist[i] & 0x007F)) return 2*i;
-        if(!(hitlist[i] & 0x3F80)) return 2*i+1;
-    }
-    return 2*i;
+   TMR0 -= 50;
+   INTCONbits.TMR0IF = 0; // Clear the interupt flag
 }
 
 void add_to_hitlist(uint8_t gun)
@@ -370,7 +333,7 @@ void super_dead_mode(){
             }
         }
         counter++;
-        __delay_ms(1);
+        delay_1_ms();
         if(counter > config.death_period){
             counter = 0;
             led_off();
@@ -410,7 +373,7 @@ void hit_by(uint8_t who)
     for(uint8_t i=0;i<50;i++)
     {
         handle_music();
-        __delay_ms(1);
+        delay_1_ms();
     }
 
     if(respawn_timer < 30)
@@ -420,7 +383,13 @@ void hit_by(uint8_t who)
     for(uint8_t i=0;i<50;i++)
     {
         handle_music();
-        __delay_ms(1);
+        delay_1_ms();
     }
   }
+}
+
+void delay_1_ms(){
+    for (uint16_t i=0; i<4000/14; i++){
+        NOP();
+    }
 }

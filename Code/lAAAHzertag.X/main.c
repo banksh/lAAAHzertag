@@ -30,15 +30,15 @@ static void LoadFromFlash()
     Load(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
     if(config.id == 0x3FFF)
     {
-        config.health = 2;
+        config.health = 1;
         config.id = 0x80;
         config.power = 0;
-        config.respawn_delay = 100;
+        //config.respawn_delay = 100;
         config.fire_threshold = 500;
-        config.fire_holdoff = 8000;
-        config.shield = 2;
+        config.fire_holdoff = 4000;
+        //config.shield = 2;
         config.fire_cheating = 1000;
-        config.death_period = 3000;
+        //config.death_period = 3000;
         Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
         Save(FLASH_HITLIST,(uint16_t*)&hitlist,HITLIST_SIZE);
     }
