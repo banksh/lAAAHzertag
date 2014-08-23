@@ -31,25 +31,28 @@ class Comm:
 		CMD_TAKE_FLASH_PAGE: 32,
 	}
 
-	def __init__(self,port,baud,timeout=.2,debug=False):
+	def __init__(self,port,baud,timeout=.1,debug=False):
 		self.s=serial.Serial(port,baud,timeout=timeout,)
 		self.debug=debug
 
 	def put_char(self,d):
-		if self.debug:
-			print "TX {0:#04x}".format(d)
+		#if self.debug:
+		#	print "TX {0:#04x}".format(d)
+		d ^= 0xAA
+		time.sleep(0.002)
 		self.s.write(chr(d))
 		self.s.flush()
 		self.s.read()
-		time.sleep(0.05)
+		time.sleep(0.002)
 
 	def get_char(self):
 		c=self.s.read()
 		if not len(c):
 			raise serial.SerialTimeoutException()
 		d=ord(c)
-		if self.debug:
-			print "RX {0:#04x}".format(d)
+		#if self.debug:
+		#	print "RX {0:#04x}".format(d)
+		d ^= 0xAA
 		return d
 
 	def wait_for_char(self):
