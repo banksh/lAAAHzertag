@@ -31,25 +31,25 @@ class Comm:
 		CMD_TAKE_FLASH_PAGE: 32,
 	}
 
-	def __init__(self,port,baud,timeout=.1,debug=False):
+	def __init__(self,port,baud,timeout=.2,debug=False):
 		self.s=serial.Serial(port,baud,timeout=timeout,)
 		self.debug=debug
 
 	def put_char(self,d):
-		#if self.debug:
-		#	print "TX {0:#04x}".format(d)
+		if self.debug:
+			print "TX {0:#04x}".format(d)
 		self.s.write(chr(d))
 		self.s.flush()
 		self.s.read()
-		time.sleep(0.01)
+		time.sleep(0.05)
 
 	def get_char(self):
 		c=self.s.read()
 		if not len(c):
 			raise serial.SerialTimeoutException()
 		d=ord(c)
-		#if self.debug:
-		#	print "RX {0:#04x}".format(d)
+		if self.debug:
+			print "RX {0:#04x}".format(d)
 		return d
 
 	def wait_for_char(self):
@@ -72,6 +72,10 @@ class Comm:
 		self.put_char(y)
 
 	def assert_start_of_frame(self):
+		#while True:
+		#	b=self.get_char()
+		#	if b == self.CB_SOF:
+		#		break
 		b=self.get_char()
 		if b != self.CB_SOF:
 			raise CommException("Did not receive SOF: {0:#04x}".format(b))
