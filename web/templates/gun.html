@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/scorechart.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+
+    <script type='text/javascript' src="/static/js/underscore.js"></script>
+    <script type='text/javascript' src="/static/js/backbone.js"></script>
+    <script type='text/javascript' src="/static/js/bootstrap.js"></script>
+
+    <title>Yay lasers!</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a href="/gun/id/{{ gun_id }}">Gun: {{ athena }}</a></li>
+                <li><a href="/">High Scores</a></li>
+                <li><a href="/instructions.html">Assembly</a></li>
+                <li><a href="/rules.html">Rules</a></li>
+            </ul>
+            <h2 class="muted">lAAAHzertag!</h2>
+        </div>
+
+        <hr></hr>
+
+        <div class="row marketing"> 
+            <h3>Top Hits</h3>
+            <h4>Gun: {{ athena }}</h4>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th class="col-lg-2">#</th>
+                        <th class="col-lg-8">Athena</th>
+                        <th class="col-lg-2">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for gun_id, athena, score in hits %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td>{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row marketing"> 
+            <h3>Most Hit By</h3>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th class="col-lg-2">#</th>
+                        <th class="col-lg-8">Athena</th>
+                        <th class="col-lg-2">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for gun_id, athena, score in hits %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td>{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
