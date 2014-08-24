@@ -38,10 +38,12 @@ class Comm:
 	def put_char(self,d):
 		#if self.debug:
 		#	print "TX {0:#04x}".format(d)
+		d ^= 0xAA
+		time.sleep(0.002)
 		self.s.write(chr(d))
 		self.s.flush()
 		self.s.read()
-		time.sleep(0.01)
+		time.sleep(0.002)
 
 	def get_char(self):
 		c=self.s.read()
@@ -50,6 +52,7 @@ class Comm:
 		d=ord(c)
 		#if self.debug:
 		#	print "RX {0:#04x}".format(d)
+		d ^= 0xAA
 		return d
 
 	def wait_for_char(self):
@@ -72,6 +75,10 @@ class Comm:
 		self.put_char(y)
 
 	def assert_start_of_frame(self):
+		#while True:
+		#	b=self.get_char()
+		#	if b == self.CB_SOF:
+		#		break
 		b=self.get_char()
 		if b != self.CB_SOF:
 			raise CommException("Did not receive SOF: {0:#04x}".format(b))
