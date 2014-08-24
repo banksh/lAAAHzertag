@@ -11,7 +11,7 @@ import Tkinter
 c=comm.Comm('/dev/ttyUSB0',2400,debug=True);
 #c=comm.SimComm(debug=True);
 #c=comm.SimComm2(debug=True);
-d=db.RAMDatabase()
+d=db.Database('/home/ervanalb/lAAAHzertag/BaseStation/guns.db')
 
 BG={
 'idle':'#660000',
@@ -69,11 +69,11 @@ def new_gun(gun_id):
 	rn=c.get_random_number(gun_id)
 	new_gun_id=d.new_gun_id()
 	c.assign_id(gun_id,rn,new_gun_id)
-	d.confirm_new_gun_id()
+	d.confirm_id(new_gun_id)
 
 	set_text("Welcome! Enter your name:")
 	name=get_text_input()
-	d.add_new_name(new_gun_id,name)
+	d.add_name(new_gun_id,name)
 	set_text("Fire your gun again to finish.")
 
 def init_gun(gun_id,config):
@@ -105,7 +105,13 @@ def talk(gun_id,config):
 	config[gun.CONFIG_FIRE_HOLDOFF]=1000
 	config[gun.CONFIG_FIRE_HOLDOFF]=1000
 
-	print "Hitlist:",retrieve_hitlist(gun_id)
+	hitlist=retrieve_hitlist(gun_id)
+
+	print "HITLIST"
+	print hitlist
+	for victim in hitlist:
+		d.add_hit(gun_id,victim)
+
 	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config)
 	c.success(gun_id)
 	graphic_success()
