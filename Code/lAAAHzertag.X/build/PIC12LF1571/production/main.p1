@@ -3073,24 +3073,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 32: {
 "32
 {
-[; ;main.c: 33: config.health = 1;
+[; ;main.c: 33: config.id = 0x80;
 "33
-[e = . _config 2 -> -> 1 `i `ui ]
-[; ;main.c: 34: config.id = 0x80;
-"34
 [e = . _config 0 -> -> 128 `i `ui ]
-[; ;main.c: 35: config.power = 0;
-"35
+[; ;main.c: 34: config.power = 0;
+"34
 [e = . _config 1 -> -> 0 `i `ui ]
-[; ;main.c: 37: config.fire_threshold = 500;
+[; ;main.c: 35: config.health = 1;
+"35
+[e = . _config 2 -> -> 1 `i `ui ]
+[; ;main.c: 36: config.shield = 2;
+"36
+[e = . _config 3 -> -> 2 `i `ui ]
+[; ;main.c: 37: config.respawn_delay = 100;
 "37
-[e = . _config 5 -> -> 500 `i `ui ]
-[; ;main.c: 38: config.fire_holdoff = 4000;
+[e = . _config 4 -> -> 100 `i `ui ]
+[; ;main.c: 38: config.fire_threshold = 500;
 "38
-[e = . _config 7 -> -> 4000 `i `ui ]
-[; ;main.c: 40: config.fire_cheating = 1000;
-"40
+[e = . _config 5 -> -> 500 `i `ui ]
+[; ;main.c: 39: config.fire_cheating = 1000;
+"39
 [e = . _config 6 -> -> 1000 `i `ui ]
+[; ;main.c: 40: config.fire_holdoff = 4000;
+"40
+[e = . _config 7 -> -> 4000 `i `ui ]
+[; ;main.c: 41: config.death_period = 3000;
+"41
+[e = . _config 8 -> -> 3000 `i `ui ]
 [; ;main.c: 42: Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 "42
 [e ( _Save (3 , , -> -> 2032 `i `ui -> &U _config `*ui -> / -> # `S355 `ui -> -> 2 `i `ui `uc ]

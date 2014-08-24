@@ -4213,15 +4213,15 @@ static void LoadFromFlash()
 Load(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 if(config.id == 0x3FFF)
 {
-config.health = 1;
 config.id = 0x80;
 config.power = 0;
-
+config.health = 1;
+config.shield = 2;
+config.respawn_delay = 100;
 config.fire_threshold = 500;
-config.fire_holdoff = 4000;
-
 config.fire_cheating = 1000;
-
+config.fire_holdoff = 4000;
+config.death_period = 3000;
 Save(0x7F0,(uint16_t*)&config,(sizeof(config_t)/2));
 Save(0x7E0,(uint16_t*)&hitlist,(sizeof(hitlist_t)/2));
 }
