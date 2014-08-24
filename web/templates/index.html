@@ -1,34 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/static/scorechart.css">
-<title>Yay lasers!</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/scorechart.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+
+    <script type='text/javascript' src="/static/js/underscore.js"></script>
+    <script type='text/javascript' src="/static/js/backbone.js"></script>
+    <script type='text/javascript' src="/static/js/bootstrap.js"></script>
+
+    <title>Yay lasers!</title>
 </head>
 <body>
-<div class="Header">
-	<div class="Title">lAAAHzertag!</div>
-	<div id="Navigator">
-		<ul>
-			<li><a href="high_scores.html">High Scores</a></li>
-			<li><a href="instructions.html">Instructions</a></li>
-			<li><a href="about.html">About</a></li>
-		</ul></div>
-	<div class="Categories"></div>
-</div>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a href="/">High Scores</a></li>
+                <li><a href="/instructions.html">Assembly</a></li>
+                <li><a href="/rules.html">Rules</a></li>
+            </ul>
+            <h2 class="muted">lAAAHzertag!</h2>
+        </div>
 
-<div class="Border"></div>
-<div id="Data_titles">
-	<div class="Data_title">Points</div>
-	<div class="Data_title">Name</div>
-	<div class="Data_title">Recently hit</div>
-	<div class="Data_title">Recently hit by</div>
-</div>
-<div id="Data">
-	<div class="Data_list"><div id="Points"></div></div>
-	<div class="Data_list"><div id="Names"></div></div>
-	<div class="Data_list"><div id="Hits"></div></div>
-	<div class="Data_list"><div id="Hit by"></div></div>
-</div>
-</div>
+        <hr></hr>
+
+        <div class="row marketing">
+            <h3>High Scores</h3>
+        </div>
+        <div class="row marketing">
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th class="col-lg-2">#</th>
+                        <th class="col-lg-8">Athena</th>
+                        <th class="col-lg-2">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for gun_id, athena, score in high_scores %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td>{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="row marketing">
+            <h3>Most Hit</h3>
+        </div>
+        <div class="row marketing">
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th class="col-lg-2">#</th>
+                        <th class="col-lg-8">Athena</th>
+                        <th class="col-lg-2">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for gun_id, athena, score in most_hit %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td>{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
