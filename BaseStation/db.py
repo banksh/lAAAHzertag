@@ -24,6 +24,18 @@ class Database:
 		return self.c.execute("SELECT athena FROM guns WHERE gun_id=?", (gun_id,)).fetchone()[0]
 	def dump_db(self):
 		return self.c.execute("SELECT * from guns")
+	def read_config(self, gun_id):
+		p = self.c.execute("SELECT config from guns WHERE gun_id=?",(gun_id,)).fetchone()[0]
+		return pickle.loads(p)
+	def set_config(self, gun_id, config):
+		self.c.execute("UPDATE guns SET config=? WHERE gun_id=?", (pickle.dumps(config),gun_id,))
+		self.conn.commit()
+	def read_hits(self, gun_id):
+		p = self.c.execute("SELECT hits from guns WHERE gun_id=?",(gun_id,)).fetchone()[0]
+		return pickle.loads(p)
+	def set_hits(self, gun_id, hits):
+		self.c.execute("UPDATE guns SET hits=? WHERE gun_id=?", (pickle.dumps(hits), gun_id,))
+		self.conn.commit()
 	def close(self):
 		self.conn.close()
 
@@ -49,11 +61,16 @@ class RAMDatabase:
 if __name__ == '__main__':
 	db = Database()
 	db.blacklist.append(149)
+
 	n = db.new_gun_id()
 	db.confirm_id(n)
 	db.add_name(n, "maxj")
+	db.set_config(n, {"PowerLevel":9000})
+	db.set_hits(n, [0x81])
+
+	print db.read_config(n)
+	print db.read_hits(n)
 	print db.get_name_from_gun(n)
-	for row in db.dump_db():
-		print row
+
 	db.close()
 	
