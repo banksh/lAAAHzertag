@@ -17,7 +17,6 @@ class Database:
     def __init__(self, filename="guns.db"):
         self.conn = sq.connect(filename)
         self.c = self.conn.cursor()
-        self.blacklist = [0xFF, 0xE0]
         self.setup_db()
 
     def setup_db(self):
@@ -38,7 +37,7 @@ class Database:
                   )''')
     def new_gun_id(self):
         m = self.c.execute('SELECT gun_id FROM guns').fetchall()
-	ids = {x[0] for x in m} | set(self.blacklist)
+	ids = {x[0] for x in m}
         v = 0x81
         while v in ids:
             v += 1
@@ -54,7 +53,6 @@ class Database:
         self.c.execute("UPDATE guns SET athena=? WHERE gun_id=?", (name, gun_id,))
         self.conn.commit()
     def get_name_from_gun(self, gun_id):
-        print gun_id
         return self.c.execute("SELECT athena FROM guns WHERE gun_id=?", (gun_id,)).fetchone()[0]
     def get_gun_from_name(self, athena):
         return self.c.execute("SELECT gun_id FROM guns WHERE athena=?", (athena,)).fetchone()[0]

@@ -3,11 +3,12 @@ from __future__ import absolute_import
 
 import cPickle as pickle
 import db
+import os
 
 from flask import Flask, request, render_template, g
 app = Flask(__name__)
 
-DATABASE = '/home/ervanalb/lAAAHzertag/BaseStation/guns.db'
+DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)),'guns.db')
 
 def get_db():
     gdb = getattr(g, '_database', None)

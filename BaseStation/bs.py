@@ -7,11 +7,24 @@ import time
 import gun
 import graphics
 import Tkinter
+import os
 
 c=comm.Comm('/dev/ttyUSB0',2400,debug=True);
 #c=comm.SimComm(debug=True);
 #c=comm.SimComm2(debug=True);
-d=db.Database('/home/ervanalb/lAAAHzertag/BaseStation/guns.db')
+DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)),'guns.db')
+d=db.Database(DATABASE)
+
+DEFAULT_CONFIG=[0x3FFF]*16
+
+DEFAULT_CONFIG[gun.CONFIG_POWER]=0
+DEFAULT_CONFIG[gun.CONFIG_HEALTH]=10
+DEFAULT_CONFIG[gun.CONFIG_SHIELD]=2
+DEFAULT_CONFIG[gun.CONFIG_RESPAWN_DELAY]=100
+DEFAULT_CONFIG[gun.CONFIG_FIRE_THRESHOLD]=500
+DEFAULT_CONFIG[gun.CONFIG_FIRE_CHEATING]=1000
+DEFAULT_CONFIG[gun.CONFIG_FIRE_HOLDOFF]=1000
+DEFAULT_CONFIG[gun.CONFIG_DEATH_PERIOD]=3000
 
 BG={
 'idle':'#660000',
@@ -27,9 +40,9 @@ cv=Tkinter.Canvas(fsg,width=fsg.width,height=fsg.height,highlightthickness=0,bg=
 cv.pack()
 
 coord = fsg.center()
-arc = cv.create_text(coord, text=DEFAULT_TEXT, fill="white", justify=Tkinter.CENTER, font=("Helvetica",72))
+arc = cv.create_text(coord, text=DEFAULT_TEXT, fill="white", justify=Tkinter.CENTER, font=("Helvetica",64))
 
-txt = Tkinter.Entry(cv,justify=Tkinter.CENTER,font=("Helvetica",72),highlightthickness=0,border=0,bg=BG['talk'],fg='white')
+txt = Tkinter.Entry(cv,justify=Tkinter.CENTER,font=("Helvetica",64),highlightthickness=0,border=0,bg=BG['talk'],fg='white')
 w=cv.create_window((coord[0],coord[1]+120),window=txt)
 
 cv.itemconfig(w,state=Tkinter.HIDDEN)
@@ -74,21 +87,12 @@ def new_gun(gun_id):
 	set_text("Welcome! Enter your name:")
 	name=get_text_input()
 	d.add_name(new_gun_id,name)
+
+	config=DEFAULT_CONFIG
+	config[gun.CONFIG_ID]=new_gun_id
+	d.set_config(new_gun_id,config)
+
 	set_text("Fire your gun again to finish.")
-
-def init_gun(gun_id,config):
-	config[gun.CONFIG_ID]=gun_id
-	config[gun.CONFIG_HEALTH]=16
-	config[gun.CONFIG_RESPAWN_DELAY]=100
-	config[gun.CONFIG_SHIELD]=2
-	config[gun.CONFIG_DEATH_PERIOD]=3000
-	config[gun.CONFIG_FIRE_THRESHOLD]=500
-	config[gun.CONFIG_FIRE_CHEATING]=2000
-	config[gun.CONFIG_FIRE_HOLDOFF]=1000
-
-	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config)
-	c.success(gun_id)
-	graphic_success()
 
 def retrieve_hitlist(gun_id):
 	hitlist = c.get_flash_page(gun_id,gun.FLASH_HITLIST)
@@ -100,23 +104,17 @@ def retrieve_hitlist(gun_id):
 	return hitlist
 
 def talk(gun_id,config):
-	config[gun.CONFIG_HEALTH] = 16
-	config[gun.CONFIG_FIRE_THRESHOLD]=500
-	config[gun.CONFIG_FIRE_HOLDOFF]=1000
-	config[gun.CONFIG_FIRE_HOLDOFF]=1000
-
 	hitlist=retrieve_hitlist(gun_id)
 
-	print "HITLIST"
-	print hitlist
+	#print "HITLIST"
+	#print hitlist
 	for victim in hitlist:
 		d.add_hit(gun_id,victim)
 
+	config=d.read_config(gun_id)
 	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config)
 	c.success(gun_id)
 	graphic_success()
-
-#default_config=(gun_id, 0, 2, 2, 100, 500, 1000, 8000, 3000, 16383, 16383, 16383, 16383, 16383, 16383, 16383)
 
 def hit_by(gun_id):
 	c.flush_comms()
@@ -126,11 +124,8 @@ def hit_by(gun_id):
 		else:
 			gun_name=d.get_name_from_gun(gun_id)
 			config=list(c.get_flash_page(gun_id,gun.FLASH_CONFIG))
-			if config[gun.CONFIG_ID] & gun.CONFIG_ID_INIT_FLAG:
-				init_gun(gun_id,config)
-			else:
-				set_text("Hello, {0}\nSyncing...".format(gun_name))
-				talk(gun_id,config)
+			set_text("Hello, {0}\nSyncing...".format(gun_name))
+			talk(gun_id,config)
 	except comm.CommFailed:
 		print "Failed."
 		set_text(DEFAULT_TEXT)
