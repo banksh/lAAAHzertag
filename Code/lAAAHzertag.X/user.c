@@ -268,7 +268,7 @@ uint8_t handle_fire(){
                 if(!counter)
                 {
                     green_led_on();
-                    play_song(fire_song,sizeof(fire_song)/sizeof(uint16_t),3000,!(config.power));
+                    play_song((uint16_t*)fire_song,sizeof(fire_song)/sizeof(uint16_t),3000,!(config.power));
                 }
                 Send_Byte(config.id);
                 counter++;
@@ -338,7 +338,7 @@ void super_dead_mode(){
             counter = 0;
             led_off();
             Send_Byte(config.id);
-            play_song(dead_song,sizeof(dead_song)/sizeof(uint16_t),10000,0);
+            play_song((uint16_t*)dead_song,sizeof(dead_song)/sizeof(uint16_t),10000,0);
         }
         if(counter == config.death_period-50){
             red_led_on();
@@ -356,7 +356,7 @@ void hit_by(uint8_t who)
   config.health --;
   Save(FLASH_CONFIG,(uint16_t*)&config, CONFIG_SIZE);
 
-  play_song(death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
+  play_song((uint16_t*)death_song,sizeof(death_song)/sizeof(uint16_t),60000,0);
 
   if(!config.health)
   {

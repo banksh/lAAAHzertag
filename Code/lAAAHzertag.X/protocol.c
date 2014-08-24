@@ -18,8 +18,6 @@
 #define CMD_SET_FLASH_PAGE 0x06
 #define CMD_SUCCESS 0x7
 
-#define ID_INIT_FLAG (1<<9)
-
 #define CB_SOF 0x10
 #define CB_EOF 0x11
 
@@ -72,7 +70,7 @@ void control_transfer()
             SEND_SOF();
             SEND_DATA_BYTE(CMD_ACK);
             SEND_EOF();
-            config.id=id | ID_INIT_FLAG;
+            config.id=id;
             Save(FLASH_CONFIG,(uint16_t*)&config,CONFIG_SIZE);
             break;
         case CMD_GET_FLASH_PAGE:
@@ -119,7 +117,7 @@ void control_transfer()
             break;
         case CMD_SUCCESS:
             ASSERT_EOF()
-            play_song(one_up,sizeof(one_up)/sizeof(uint16_t),65000,0);
+            play_song((uint16_t*)one_up,sizeof(one_up)/sizeof(uint16_t),65000,0);
             SEND_SOF();
             SEND_DATA_BYTE(CMD_ACK);
             SEND_EOF();
@@ -144,7 +142,7 @@ uint8_t handle_serial()
         control_transfer();
     }
 
-    else if((b > 0x80) && (b != config.id) && (config.id != 0x80) && !(config.id & ID_INIT_FLAG)) {
+    else if((b > 0x80) && (b != config.id) && (config.id != 0x80)) {
         if((b != rx_id) || PIR1bits.TMR2IF) rx_counter=0;
         TMR2 = 0; // Using timer2 to time out hits
         PIR1bits.TMR2IF = 0;

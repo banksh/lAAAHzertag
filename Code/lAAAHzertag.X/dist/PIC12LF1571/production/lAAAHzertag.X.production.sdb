@@ -2,112 +2,111 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 12LF1572 ]
-[d frameptr 6 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abdiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abmod.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\abmod.c
 [v ___abmod __abmod `(c  1 e 1 0 ]
-"33 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\abtoft.c
+"34 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\abtoft.c
 [v ___abtoft __abtoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\aldiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\almod.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\almod.c
 [v ___almod __almod `(l  1 e 4 0 ]
-"42 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\altoft.c
+"43 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\altoft.c
 [v ___altoft __altoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\atdiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\atdiv.c
 [v ___atdiv __atdiv `(m  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\atmod.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\atmod.c
 [v ___atmod __atmod `(m  1 e 3 0 ]
-"37 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\attoft.c
+"38 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\attoft.c
 [v ___attoft __attoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awdiv.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awmod.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
-"32 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\awtoft.c
+"33 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\float.c
-[v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftadd.c
-[v ___ftadd __ftadd `(f  1 e 3 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftge.c
-[v ___ftge __ftge `(b  1 e 0 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftneg.c
-[v ___ftneg __ftneg `(f  1 e 3 0 ]
-"18 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ftsub.c
-[v ___ftsub __ftsub `(f  1 e 3 0 ]
-"44 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\fttol.c
-[v ___fttol __fttol `(l  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
-"27 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lbtoft.c
-[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\llmod.c
-[v ___llmod __llmod `(ul  1 e 4 0 ]
-"35 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lltoft.c
-[v ___lltoft __lltoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ltdiv.c
-[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\ltmod.c
-[v ___ltmod __ltmod `(um  1 e 3 0 ]
-"30 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lttoft.c
-[v ___lttoft __lttoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"28 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\lwtoft.c
-[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul24.c
-[v ___tmul __tmul `(um  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul32.c
-[v ___lmul __lmul `(ul  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\common\Umul8.c
+"3 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\bmul.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
-"49 C:\Program Files (x86)\Microchip\xc8\v1.32\sources\pic\ftdiv.c
+"63 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"87 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"50 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"28 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"52 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"17 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"45 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"36 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lmul.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"29 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\tmul.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic\wmul.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"29 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
-"48
+"49
 [v _main main `(v  1 e 0 0 ]
-"31 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+"29 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
-"37
+"35
 [v _SEND_DATA_BYTE SEND_DATA_BYTE `(v  1 s 0 SEND_DATA_BYTE ]
-"38
+"36
 [v _SEND_SOF SEND_SOF `(v  1 s 0 SEND_SOF ]
-"39
+"37
 [v _SEND_EOF SEND_EOF `(v  1 s 0 SEND_EOF ]
-"44
+"43
 [v _control_transfer control_transfer `(v  1 e 0 0 ]
-"135
+"134
 [v _handle_serial handle_serial `(uc  1 e 1 0 ]
-"32 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"33 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Setup Setup `(v  1 e 0 0 ]
-"73
+"74
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
-"80
+"81
 [v _red_led_on red_led_on `(v  1 e 0 0 ]
-"86
+"87
 [v _green_led_on green_led_on `(v  1 e 0 0 ]
-"92
+"93
 [v _play_song play_song `(v  1 e 0 0 ]
-"105
+"106
 [v _stop_song stop_song `(v  1 e 0 0 ]
-"112
+"113
 [v _handle_music handle_music `(v  1 e 0 0 ]
-"133
+"134
 [v _tone tone `(v  1 e 0 0 ]
-"155
+"156
 [v _Send_Byte Send_Byte `(v  1 e 0 0 ]
 "177
 [v _Read_Memory Read_Memory `(ui  1 e 2 0 ]
@@ -121,15 +120,15 @@
 [v _handle_fire handle_fire `(uc  1 e 1 0 ]
 "295
 [v _High_Priority_Interrupt High_Priority_Interrupt `II(v  1 e 0 0 ]
-"305
+"306
 [v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
 "323
 [v _super_dead_mode super_dead_mode `(v  1 e 0 0 ]
-"349
+"350
 [v _hit_by hit_by `(v  1 e 0 0 ]
 "391
 [v _delay_1_ms delay_1_ms `(v  1 e 0 0 ]
-[s S186 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S185 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -138,27 +137,27 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"358 C:\Program Files (x86)\Microchip\xc8\v1.32\include\pic12lf1572.h
-[s S195 . 1 `uc 1 . 1 0 :2:0 
+"355 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic12lf1572.h
+[s S194 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S200 . 1 `S186 1 . 1 0 `S195 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES200  1 e 1 @11 ]
-[s S79 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S199 . 1 `S185 1 . 1 0 `S194 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES199  1 e 1 @11 ]
+[s S78 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
 `uc 1 TRISA4 1 0 :1:4 
 `uc 1 TRISA5 1 0 :1:5 
 ]
-"430
-[s S86 . 1 `uc 1 TRISA 1 0 :6:0 
+"427
+[s S85 . 1 `uc 1 TRISA 1 0 :6:0 
 ]
-[u S88 . 1 `S79 1 . 1 0 `S86 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES88  1 e 1 @12 ]
-[s S378 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S87 . 1 `S78 1 . 1 0 `S85 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES87  1 e 1 @12 ]
+[s S377 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXIF 1 0 :1:4 
@@ -166,14 +165,14 @@
 `uc 1 ADIF 1 0 :1:6 
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
-"485
-[u S386 . 1 `S378 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES386  1 e 1 @17 ]
-"571
+"482
+[u S385 . 1 `S377 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES385  1 e 1 @17 ]
+"568
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
-"590
+"587
 [v _TMR1 TMR1 `VEus  1 e 2 @22 ]
-[s S250 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S249 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -182,33 +181,33 @@
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-"656
-[s S259 . 1 `uc 1 . 1 0 :4:0 
+"653
+[s S258 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[u S263 . 1 `S250 1 . 1 0 `S259 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES263  1 e 1 @24 ]
-"776
+[u S262 . 1 `S249 1 . 1 0 `S258 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES262  1 e 1 @24 ]
+"773
 [v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
-[s S280 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S279 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
+`uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
 `uc 1 T2OUTPS1 1 0 :1:4 
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-"835
-[s S288 . 1 `uc 1 T2CKPS 1 0 :2:0 
-`uc 1 TMR2ON 1 0 :1:2 
+"832
+[s S287 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
-[u S292 . 1 `S280 1 . 1 0 `S288 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES292  1 e 1 @28 ]
-"902
-[v _TRISAbits TRISAbits `VES88  1 e 1 @140 ]
-[s S218 . 1 `uc 1 PS0 1 0 :1:0 
+[u S291 . 1 `S279 1 . 1 0 `S287 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES291  1 e 1 @28 ]
+"899
+[v _TRISAbits TRISAbits `VES87  1 e 1 @140 ]
+[s S217 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -217,19 +216,19 @@
 `uc 1 INTEDG 1 0 :1:6 
 `uc 1 nWPUEN 1 0 :1:7 
 ]
-"1066
-[s S227 . 1 `uc 1 PS 1 0 :3:0 
+"1063
+[s S226 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S232 . 1 `S218 1 . 1 0 `S227 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES232  1 e 1 @149 ]
-"1296
+[u S231 . 1 `S217 1 . 1 0 `S226 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES231  1 e 1 @149 ]
+"1293
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
-"1422
+"1414
 [v _ADRES ADRES `VEus  1 e 2 @155 ]
-[s S308 . 1 `uc 1 ADON 1 0 :1:0 
+[s S307 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -237,22 +236,22 @@
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-"1495
-[s S316 . 1 `uc 1 . 1 0 :1:0 
+"1487
+[s S315 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S320 . 1 `uc 1 . 1 0 :1:0 
+[s S319 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S323 . 1 `uc 1 . 1 0 :1:0 
+[s S322 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[u S326 . 1 `S308 1 . 1 0 `S316 1 . 1 0 `S320 1 . 1 0 `S323 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES326  1 e 1 @157 ]
-"1554
+[u S325 . 1 `S307 1 . 1 0 `S315 1 . 1 0 `S319 1 . 1 0 `S322 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES325  1 e 1 @157 ]
+"1546
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
-[s S497 . 1 `uc 1 . 1 0 :2:0 
+[s S454 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACPSS0 1 0 :1:2 
 `uc 1 DACPSS1 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
@@ -260,32 +259,32 @@
 `uc 1 DACLPS 1 0 :1:6 
 `uc 1 DACEN 1 0 :1:7 
 ]
-"1991
-[s S505 . 1 `uc 1 . 1 0 :2:0 
+"1983
+[s S462 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACPSS 1 0 :2:2 
 ]
-[u S508 . 1 `S497 1 . 1 0 `S505 1 . 1 0 ]
-[v _DACCON0bits DACCON0bits `VES508  1 e 1 @280 ]
-"2187
+[u S465 . 1 `S454 1 . 1 0 `S462 1 . 1 0 ]
+[v _DACCON0bits DACCON0bits `VES465  1 e 1 @280 ]
+"2179
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-[s S101 . 1 `uc 1 ANSA0 1 0 :1:0 
+[s S100 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 ANSA4 1 0 :1:4 
 ]
-"2204
-[s S107 . 1 `uc 1 ANSELA 1 0 :5:0 
+"2196
+[s S106 . 1 `uc 1 ANSELA 1 0 :5:0 
 ]
-[u S109 . 1 `S101 1 . 1 0 `S107 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES109  1 e 1 @396 ]
-"2233
+[u S108 . 1 `S100 1 . 1 0 `S106 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES108  1 e 1 @396 ]
+"2225
 [v _PMADR PMADR `VEus  1 e 2 @401 ]
-"2239
+"2231
 [v _PMADRL PMADRL `VEuc  1 e 1 @401 ]
-"2277
+"2269
 [v _PMDAT PMDAT `VEus  1 e 2 @403 ]
-[s S526 . 1 `uc 1 RD 1 0 :1:0 
+[s S483 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -293,18 +292,18 @@
 `uc 1 LWLO 1 0 :1:5 
 `uc 1 CFGS 1 0 :1:6 
 ]
-"2337
-[u S534 . 1 `S526 1 . 1 0 ]
-[v _PMCON1bits PMCON1bits `VES534  1 e 1 @405 ]
-"2376
+"2329
+[u S491 . 1 `S483 1 . 1 0 ]
+[v _PMCON1bits PMCON1bits `VES491  1 e 1 @405 ]
+"2368
 [v _PMCON2 PMCON2 `VEuc  1 e 1 @406 ]
-"2428
+"2420
 [v _RCREG RCREG `VEuc  1 e 1 @409 ]
-"2447
+"2439
 [v _TXREG TXREG `VEuc  1 e 1 @410 ]
-"2472
+"2464
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
-[s S123 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S122 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -313,80 +312,61 @@
 `uc 1 TX9 1 0 :1:6 
 `uc 1 CSRC 1 0 :1:7 
 ]
-"2527
-[u S132 . 1 `S123 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES132  1 e 1 @413 ]
-"2588
-[v _TXSTAbits TXSTAbits `VES132  1 e 1 @414 ]
-"2649
-[v _BAUDCONbits BAUDCONbits `VES132  1 e 1 @415 ]
-"6416
+"2519
+[u S131 . 1 `S122 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES131  1 e 1 @413 ]
+"2580
+[v _TXSTAbits TXSTAbits `VES131  1 e 1 @414 ]
+"2641
+[v _BAUDCONbits BAUDCONbits `VES131  1 e 1 @415 ]
+"5478
 [v _PWM3PH PWM3PH `VEus  1 e 2 @3505 ]
-"6576
+"5622
 [v _PWM3DC PWM3DC `VEus  1 e 2 @3507 ]
-"6736
+"5766
 [v _PWM3PR PWM3PR `VEus  1 e 2 @3509 ]
-[s S397 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 MODE 1 0 :2:2 
-`uc 1 POL 1 0 :1:4 
-`uc 1 OUT 1 0 :1:5 
-`uc 1 OE 1 0 :1:6 
-`uc 1 EN 1 0 :1:7 
-]
-"7249
-[s S404 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 PWM3MODE0 1 0 :1:2 
-`uc 1 PWM3MODE1 1 0 :1:3 
-]
-[s S408 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 PWM3MODE 1 0 :2:2 
+[s S396 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PWM3MOD 1 0 :2:2 
 `uc 1 PWM3POL 1 0 :1:4 
 `uc 1 PWM3OUT 1 0 :1:5 
 `uc 1 PWM3OE 1 0 :1:6 
 `uc 1 PWM3EN 1 0 :1:7 
 ]
-[s S415 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 MODE0 1 0 :1:2 
-`uc 1 MODE1 1 0 :1:3 
+"6218
+[s S403 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PWM3MOD0 1 0 :1:2 
+`uc 1 PWM3MOD1 1 0 :1:3 
 ]
-[u S419 . 1 `S397 1 . 1 0 `S404 1 . 1 0 `S408 1 . 1 0 `S415 1 . 1 0 ]
-[v _PWM3CONbits PWM3CONbits `VES419  1 e 1 @3515 ]
-[s S455 . 1 `uc 1 LDS 1 0 :2:0 
-`uc 1 . 1 0 :4:2 
-`uc 1 LDT 1 0 :1:6 
-`uc 1 LDA 1 0 :1:7 
-]
-"7707
-[s S460 . 1 `uc 1 PWM3LDS0 1 0 :1:0 
-`uc 1 PWM3LDS1 1 0 :1:1 
-]
-[s S463 . 1 `uc 1 PWM3LDS 1 0 :2:0 
-`uc 1 . 1 0 :4:2 
+[u S407 . 1 `S396 1 . 1 0 `S403 1 . 1 0 ]
+[v _PWM3CONbits PWM3CONbits `VES407  1 e 1 @3515 ]
+[s S430 . 1 `uc 1 PWM3LDS 1 0 :3:0 
+`uc 1 . 1 0 :3:3 
 `uc 1 PWM3LDM 1 0 :1:6 
 `uc 1 PWM3LD 1 0 :1:7 
 ]
-[s S468 . 1 `uc 1 LDS0 1 0 :1:0 
-`uc 1 LDS1 1 0 :1:1 
+"6407
+[s S435 . 1 `uc 1 PWM3LDS0 1 0 :1:0 
+`uc 1 PWM3LDS1 1 0 :1:1 
 ]
-[u S471 . 1 `S455 1 . 1 0 `S460 1 . 1 0 `S463 1 . 1 0 `S468 1 . 1 0 ]
-[v _PWM3LDCONbits PWM3LDCONbits `VES471  1 e 1 @3519 ]
+[u S438 . 1 `S430 1 . 1 0 `S435 1 . 1 0 ]
+[v _PWM3LDCONbits PWM3LDCONbits `VES438  1 e 1 @3519 ]
 [s S19 . 18 `ui 1 id 2 0 `ui 1 power 2 2 `ui 1 health 2 4 `ui 1 shield 2 6 `ui 1 respawn_delay 2 8 `ui 1 fire_threshold 2 10 `ui 1 fire_cheating 2 12 `ui 1 fire_holdoff 2 14 `ui 1 death_period 2 16 ]
-"25 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"25 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _config config `S19  1 e 18 0 ]
 "26
 [v _hitlist hitlist `[16]ui  1 e 32 0 ]
-"26 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+"24 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v __x _x `uc  1 e 1 0 ]
 [v __y _y `uc  1 e 1 0 ]
 [v __checksum _checksum `uc  1 e 1 0 ]
-"27
+"25
 [v __i _i `ui  1 e 2 0 ]
-"29
+"27
 [v _one_up one_up `DCC[6]ui  1 e 12 0 ]
-"13 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"13 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _my_random_number my_random_number `uc  1 e 1 0 ]
 "14
-[v _cur_song cur_song `*.25ui  1 e 2 0 ]
+[v _cur_song cur_song `*.24ui  1 e 1 0 ]
 "15
 [v _cur_song_length cur_song_length `uc  1 e 1 0 ]
 "16
@@ -401,109 +381,12 @@
 [v _fire_song fire_song `DCC[16]ui  1 e 32 0 ]
 "30
 [v _dead_song dead_song `DCC[3]ui  1 e 6 0 ]
-"48 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"49 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
 "62
 } 0
-"135 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
-[v _handle_serial handle_serial `(uc  1 e 1 0 ]
-{
-"139
-[v handle_serial@b b `uc  1 a 1 59 ]
-"137
-[v handle_serial@rx_id rx_id `uc  1 s 1 rx_id ]
-"138
-[v handle_serial@rx_counter rx_counter `uc  1 s 1 rx_counter ]
-"162
-} 0
-"349 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _hit_by hit_by `(v  1 e 0 0 ]
-{
-[v hit_by@who who `uc  1 a 1 wreg ]
-"383
-[v hit_by@i_747 i `uc  1 a 1 56 ]
-"373
-[v hit_by@i i `uc  1 a 1 55 ]
-"351
-[v hit_by@respawn_timer respawn_timer `ui  1 a 2 53 ]
-"349
-[v hit_by@who who `uc  1 a 1 wreg ]
-"353
-[v hit_by@who who `uc  1 a 1 52 ]
-"389
-} 0
-"323
-[v _super_dead_mode super_dead_mode `(v  1 e 0 0 ]
-{
-"328
-[v super_dead_mode@b b `uc  1 a 1 47 ]
-"324
-[v super_dead_mode@counter counter `ui  1 a 2 48 ]
-"347
-} 0
-"112
-[v _handle_music handle_music `(v  1 e 0 0 ]
-{
-"131
-} 0
-"44 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
-[v _control_transfer control_transfer `(v  1 e 0 0 ]
-{
-"51
-[v control_transfer@data data `[16]ui  1 a 32 5 ]
-"50
-[v control_transfer@page page `ui  1 a 2 42 ]
-"53
-[v control_transfer@x x `uc  1 a 1 44 ]
-"46
-[v control_transfer@i i `uc  1 a 1 41 ]
-"52
-[v control_transfer@dptr dptr `*.4uc  1 a 1 40 ]
-"48
-[v control_transfer@id id `uc  1 a 1 39 ]
-[v control_transfer@random_number random_number `uc  1 a 1 38 ]
-"47
-[v control_transfer@cmd cmd `uc  1 a 1 37 ]
-"133
-} 0
-"38
-[v _SEND_SOF SEND_SOF `(v  1 s 0 SEND_SOF ]
-{
-} 0
-"39
-[v _SEND_EOF SEND_EOF `(v  1 s 0 SEND_EOF ]
-{
-} 0
-"37
-[v _SEND_DATA_BYTE SEND_DATA_BYTE `(v  1 s 0 SEND_DATA_BYTE ]
-{
-[v SEND_DATA_BYTE@b b `uc  1 a 1 wreg ]
-[v SEND_DATA_BYTE@b b `uc  1 a 1 wreg ]
-[v SEND_DATA_BYTE@b b `uc  1 a 1 2 ]
-} 0
-"31
-[v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
-{
-[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 wreg ]
-[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 wreg ]
-[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 2 ]
-} 0
-"305 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
-[v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
-{
-[v add_to_hitlist@gun gun `uc  1 a 1 wreg ]
-"308
-[v add_to_hitlist@i i `uc  1 a 1 8 ]
-"307
-[v add_to_hitlist@gun16 gun16 `ui  1 a 2 6 ]
-"305
-[v add_to_hitlist@gun gun `uc  1 a 1 wreg ]
-"307
-[v add_to_hitlist@gun gun `uc  1 a 1 5 ]
-"321
-} 0
-"246
+"246 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _handle_fire handle_fire `(uc  1 e 1 0 ]
 {
 "249
@@ -514,34 +397,103 @@
 [v handle_fire@counter counter `ui  1 s 2 counter ]
 "291
 } 0
-"105
-[v _stop_song stop_song `(v  1 e 0 0 ]
-{
-"110
-} 0
-"92
-[v _play_song play_song `(v  1 e 0 0 ]
-{
-[v play_song@song song `*.25ui  1 p 2 1 ]
-[v play_song@length length `uc  1 p 1 3 ]
-[v play_song@note_duration note_duration `ui  1 p 2 4 ]
-[v play_song@repeat repeat `uc  1 p 1 6 ]
-"103
-} 0
-"86
+"87
 [v _green_led_on green_led_on `(v  1 e 0 0 ]
 {
 "90
 } 0
-"155
+"74
+[v _ADC_read ADC_read `(ui  1 e 2 0 ]
+{
+"78
+} 0
+"134 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+[v _handle_serial handle_serial `(uc  1 e 1 0 ]
+{
+"137
+[v handle_serial@b b `uc  1 a 1 59 ]
+"135
+[v handle_serial@rx_id rx_id `uc  1 s 1 rx_id ]
+"136
+[v handle_serial@rx_counter rx_counter `uc  1 s 1 rx_counter ]
+"160
+} 0
+"350 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _hit_by hit_by `(v  1 e 0 0 ]
+{
+[v hit_by@who who `uc  1 a 1 52 ]
+"383
+[v hit_by@i_704 i `uc  1 a 1 56 ]
+"373
+[v hit_by@i i `uc  1 a 1 55 ]
+"351
+[v hit_by@respawn_timer respawn_timer `ui  1 a 2 53 ]
+"350
+[v hit_by@who who `uc  1 a 1 52 ]
+"389
+} 0
+"306
+[v _add_to_hitlist add_to_hitlist `(v  1 e 0 0 ]
+{
+[v add_to_hitlist@gun gun `uc  1 a 1 5 ]
+"308
+[v add_to_hitlist@i i `uc  1 a 1 8 ]
+"307
+[v add_to_hitlist@gun16 gun16 `ui  1 a 2 6 ]
+"306
+[v add_to_hitlist@gun gun `uc  1 a 1 5 ]
+"321
+} 0
+"323
+[v _super_dead_mode super_dead_mode `(v  1 e 0 0 ]
+{
+"328
+[v super_dead_mode@b b `uc  1 a 1 47 ]
+"324
+[v super_dead_mode@counter counter `ui  1 a 2 48 ]
+"347
+} 0
+"43 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+[v _control_transfer control_transfer `(v  1 e 0 0 ]
+{
+"49
+[v control_transfer@data data `[16]ui  1 a 32 5 ]
+"48
+[v control_transfer@page page `ui  1 a 2 42 ]
+"51
+[v control_transfer@x x `uc  1 a 1 44 ]
+"44
+[v control_transfer@i i `uc  1 a 1 41 ]
+"50
+[v control_transfer@dptr dptr `*.4uc  1 a 1 40 ]
+"46
+[v control_transfer@id id `uc  1 a 1 39 ]
+[v control_transfer@random_number random_number `uc  1 a 1 38 ]
+"45
+[v control_transfer@cmd cmd `uc  1 a 1 37 ]
+"131
+} 0
+"37
+[v _SEND_EOF SEND_EOF `(v  1 s 0 SEND_EOF ]
+{
+} 0
+"36
+[v _SEND_SOF SEND_SOF `(v  1 s 0 SEND_SOF ]
+{
+} 0
+"35
+[v _SEND_DATA_BYTE SEND_DATA_BYTE `(v  1 s 0 SEND_DATA_BYTE ]
+{
+[v SEND_DATA_BYTE@b b `uc  1 a 1 2 ]
+[v SEND_DATA_BYTE@b b `uc  1 a 1 2 ]
+} 0
+"156 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Send_Byte Send_Byte `(v  1 e 0 0 ]
 {
-[v Send_Byte@data data `uc  1 a 1 wreg ]
+[v Send_Byte@data data `uc  1 a 1 9 ]
 "161
 [v Send_Byte@i i `ui  1 a 2 10 ]
-"155
-[v Send_Byte@data data `uc  1 a 1 wreg ]
-"157
+"156
 [v Send_Byte@data data `uc  1 a 1 9 ]
 "175
 } 0
@@ -549,28 +501,49 @@
 [v _cheat cheat `(v  1 e 0 0 ]
 {
 "240
-[v cheat@i_724 i `uc  1 a 1 7 ]
+[v cheat@i_686 i `uc  1 a 1 7 ]
 "236
 [v cheat@i i `uc  1 a 1 6 ]
 "244
 } 0
-"133
+"81
+[v _red_led_on red_led_on `(v  1 e 0 0 ]
+{
+"84
+} 0
+"29 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
+[v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
+{
+[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 2 ]
+[v GET_CHAR_HELPER@val val `*.4uc  1 a 1 2 ]
+} 0
+"93 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+[v _play_song play_song `(v  1 e 0 0 ]
+{
+[v play_song@song song `*.24ui  1 a 1 7 ]
+[v play_song@song song `*.24ui  1 a 1 7 ]
+[v play_song@length length `uc  1 p 1 1 ]
+[v play_song@note_duration note_duration `ui  1 p 2 2 ]
+[v play_song@repeat repeat `uc  1 p 1 4 ]
+"103
+} 0
+"113
+[v _handle_music handle_music `(v  1 e 0 0 ]
+{
+"131
+} 0
+"134
 [v _tone tone `(v  1 e 0 0 ]
 {
 [v tone@period period `ui  1 p 2 1 ]
 "141
 } 0
-"80
-[v _red_led_on red_led_on `(v  1 e 0 0 ]
+"106
+[v _stop_song stop_song `(v  1 e 0 0 ]
 {
-"84
+"110
 } 0
-"73
-[v _ADC_read ADC_read `(ui  1 e 2 0 ]
-{
-"78
-} 0
-"32
+"33
 [v _Setup Setup `(v  1 e 0 0 ]
 {
 "71
@@ -582,12 +555,12 @@
 [v delay_1_ms@i i `ui  1 a 2 1 ]
 "395
 } 0
-"28 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"29 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
 {
 "46
 } 0
-"198 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
+"198 C:\Users\Eric\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Save Save `(v  1 e 0 0 ]
 {
 "218
