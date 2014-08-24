@@ -37,12 +37,13 @@ class Database:
                     time timestamp DEFAULT CURRENT_TIMESTAMP
                   )''')
     def new_gun_id(self):
-        m = self.c.execute('SELECT MAX(gun_id) FROM guns WHERE active').fetchone()
-        v = m[0] or 0
-        while max([0x81, v + 1]) in self.blacklist:
+        m = self.c.execute('SELECT gun_id FROM guns').fetchall()
+	ids = {x[0] for x in m} | set(self.blacklist)
+        v = 0x81
+        while v in ids:
             v += 1
         assert v < 0xFF
-        return v + 1
+        return v 
     def confirm_id(self, val, config=None):
         if config is None:
             config = {}
@@ -53,6 +54,7 @@ class Database:
         self.c.execute("UPDATE guns SET athena=? WHERE gun_id=?", (name, gun_id,))
         self.conn.commit()
     def get_name_from_gun(self, gun_id):
+        print gun_id
         return self.c.execute("SELECT athena FROM guns WHERE gun_id=?", (gun_id,)).fetchone()[0]
     def get_gun_from_name(self, athena):
         return self.c.execute("SELECT gun_id FROM guns WHERE athena=?", (athena,)).fetchone()[0]
@@ -68,6 +70,7 @@ class Database:
         return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score from hits, guns WHERE hits.victim_id = guns.gun_id AND hits.victim_id=? GROUP BY hits.shooter_id ORDER BY score DESC",(gun_id,)).fetchall()
     def add_hit(self, shooter_id, victim_id):
         self.c.execute("INSERT INTO hits (shooter_id, victim_id)  VALUES(?, ?)", (shooter_id, victim_id))
+        self.conn.commit()
     def high_scores(self):
         return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score FROM hits, guns WHERE hits.shooter_id = guns.gun_id GROUP BY hits.shooter_id ORDER BY score DESC").fetchall()
     def most_hit(self):

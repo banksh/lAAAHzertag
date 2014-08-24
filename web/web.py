@@ -7,12 +7,12 @@ import db
 from flask import Flask, request, render_template, g
 app = Flask(__name__)
 
-DATABASE = 'guns.db'
+DATABASE = '/home/ervanalb/lAAAHzertag/BaseStation/guns.db'
 
 def get_db():
     gdb = getattr(g, '_database', None)
     if gdb is None:
-        gdb = g._database = db.Database("guns.db")
+        gdb = g._database = db.Database(DATABASE)
     return gdb
 
 # Web Interfaces
@@ -44,4 +44,4 @@ def gun_by_athena(athena):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='')
