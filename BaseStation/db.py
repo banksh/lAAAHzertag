@@ -70,6 +70,11 @@ class Database:
     def set_config(self, gun_id, config):
         self.c.execute("UPDATE guns SET config=? WHERE gun_id=?", (json.dumps(config),gun_id,))
         self.conn.commit()
+    def read_config(self, gun_id):
+        p = self.c.execute("SELECT config_to_write from guns WHERE gun_id=?",(gun_id,)).fetchone()
+        if result is None:
+            return result
+        return json.loads(result[0])
     def read_hits(self, gun_id):
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score
                                  FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
@@ -78,7 +83,7 @@ class Database:
                                  ORDER BY score DESC""",(gun_id,)).fetchall()
     def read_hits_by(self, gun_id):
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score 
-                                 FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
+                                 FROM guns LEFT OUTER JOIN hits ON hits.shooter_id = guns.gun_id 
                                  WHERE hits.victim_id=? 
                                  GROUP BY hits.shooter_id 
                                  ORDER BY score DESC""",(gun_id,)).fetchall()

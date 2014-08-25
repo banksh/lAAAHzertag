@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <ul class="nav nav-pills pull-right">
+            <ul class="nav nav-pills pull-right hidden-print">
                 <li><a href="/">High Scores</a></li>
                 <li class="active"><a href="/static/instructions.html">Assembly</a></li>
                 <li><a href="/static/rules.html">Rules</a></li>
@@ -22,11 +22,11 @@
             <h2 class="muted">lAAAHzertag!</h2>
         </div>
 
-        <hr></hr>
+        <hr class="hidden-print"></hr>
 
-    <h3>Part list</h3>
+    <h3 class="hidden-print">Part list</h3>
 	<div id="partlist">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped table-condensed">
         <thead>
             <tr>
                 <th>Part name</th>
@@ -165,7 +165,7 @@
 	   </tr>
 	</table></div>
 	</p>
-    <h3>How to solder your circuit board</h3>
+    <h3>Solder the Circuit Board</h3>
 
     <div class="row">
         <div class="col-lg-6">
@@ -180,15 +180,53 @@
         </div>
     </div>
 
-<p>Start with the smaller components (resistors, capacitors, and diode <code>D1</code>), push them all the way down onto your board and then bend the leads on the other side to hold them in place. Be careful, some of the resistors have very similar color schemes so make sure you don't mix them up. Touch the soldering iron to the lead where it goes into the bottom of the board, and gently add a bit of solder. When you remove the iron, the solder should look smooth and shiny. Which direction the resistors and capacitors are facing doesn't matter, but make sure you put your diode D1 in facing the right way (the black line on the part should lign up with the white line on the circuit board).</p>
+    <p>Start with the smaller components (resistors, capacitors, and diode <code>D1</code>), push them all the way down onto your board and then bend the leads on the other side to hold them in place. Be careful, some of the resistors have very similar color schemes so make sure you don't mix them up. Touch the soldering iron to the lead where it goes into the bottom of the board, and gently add a bit of solder. When you remove the iron, the solder should look smooth and shiny. Which direction the resistors and capacitors are facing doesn't matter, but make sure you put your diode <code>D1</code> in facing the right way (the black line on the part should light up with the white line on the circuit board).</p>
 <p>Next solder in your two transistors (2N3904s, labeled <code>Q1</code> and <code>Q2</code>). Bend the middle lead out a bit so that they fit correctly into the board. <strong>Make sure</strong> you put them in the right direction, the rounded side should be facing inward towards the center of the board.</p>
 <p>Put the 8-pin chip socket in, there's a cutout at the front that should be facing the side of the board the transistors go on.</p>
 <p>Push the black buzzer all the way down into the holes at the back of the board, making sure that you line up the '+' sign on the plastic of the buzzer with the '+' sign on the circuit board. Before soldering it, bend it forward so it's pointing off the back.</p>
 <p>For the LEDs (<code>D2</code>, <code>D3</code>, and <code>D4</code>), snip the leads down to a little under 1/4&quot;, then bend them inward slightly so they pinch the board. The black IR led goes on the front of the board, the red LED goes on the right side, and the green LED goes on the left. <strong>Be careful</strong> to have the little flat on the round base of the LED pointing <strong>down</strong>. Push the LEDs so that the plastic case is touching the side of your circuit board, and then solder them down.</p>
 <p>Add the 3-pin header that goes between the two 2N3904's. <strong>Note: DO NOT solder in your photodetector.</strong></p>
 <p>The microphone goes on the bottom of the board, make sure you have it aligned in the same direction as the picture. Finally, once everything else is done, solder your red battery wire to the '+' side next to BATTERY on the circuit board, and the black wire to the '-' side. Make sure you have the wires coming off the top side.</p>
-<h3 id="how-to-assemble-your-gun">How to Assemble your gun</h3>
+<h3 id="how-to-assemble-your-gun">Assemble Gun</h3>
+    <div class="row hidden-print">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-6">
+            <a href="/static/Gun_side.jpg">
+                <img src="/static/Gun_side.jpg" class="img-responsive img-thumbnail">
+            </a>
+        </div>
+        <div class="col-lg-2">
+            <a href="/static/Gun_back.jpg">
+                <img src="/static/Gun_back.jpg" class="img-responsive img-thumbnail">
+            </a>
+        </div>
+        <div class="col-lg-2">
+            <a href="/static/Gun_front.jpg">
+                <img src="/static/Gun_front.jpg" class="img-responsive img-thumbnail">
+            </a>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
 
+    <div class="row">
+        <div class="col-lg-12">
+<p>Insert your PIC microcontroller into the socket, and the photodetector into the 3-pin header. Come ask us for batteries, and we'll glance over your board to make sure everything looks OK. Put the batteries in the battery case and turn it on, then verify that you can fire by yelling into the microphone. If that works, pull your photodetector back out and you can go ahead and start putting your full gun together. Stick the acrylic front plate (one hole) on the front of your board, with the IR LED sticking through the middle. Press the back plate (3 holes) onto the back of the board, it should be a tight fit around the speaker and colored LEDs. You can now press your board with the acrylic plates into the gun tube. 
+</p>
+<p>A few things to make sure of:</p>
+<ul>
+    <li>The board goes into the side of the PVC closest to the hole drilled in the top.</li>
+    <li>Try to get the little slits at the top of the backplate pointing in the same direction as the hole in the PVC.</li>
+    <li>Make sure the battery wires are routed out through the slits.</li>
+    <li>Press the acrylic backplate until it sits flush with the back of your PVC.</li>
+    <li>You should be able to see the 3-pin header from the hole in the PVC. If you can't see it, you'll have to pull the board back out (easiest done by pushing from the other side of the PVC with something that fits in it) and re-align it.</li>
+</ul>
+<p>You can now insert the photodetector through the hole in the PVC. Hot glue a handle onto the bottom of your gun (opposite the hole). You can attach the battery case wherever you prefer, so long as it doesn't get in the way of the photodetector. We've found the top (behind the detector) or the side to be the most comfortable. When you hot glue the battery case, make sure you glue the side that doesn't actually hold the batteries, and don't get hot glue into the latching mechanism. This way you'll still be able to open up the battery case and change them out if you need to later. 
+</p>
+<p>
+Hot glue a ring on the front side of the PVC (away from the hole), and place the lens on it. Finally, add some hot glue to the hole that the photodetector passes through to hold it in place. Congratulations, you're ready to go! Go fire your gun ("<em>AAAAAAAHHH</em>") at the base to initialize your gun and join the game.
+</p>
+        <img src="/static/Gun_side.jpg" class="img-responsive img-thumbnail visible-print-block">
+        </div>
     </div>
 </body>
 </html>

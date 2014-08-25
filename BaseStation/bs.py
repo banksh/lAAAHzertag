@@ -1,30 +1,21 @@
 #!/usr/bin/python
 
-import comm
-import serial
-import db
-import time
-import gun
-import graphics
 import Tkinter
+import comm
+import db
+import graphics
+import gun
 import os
+import serial
+import time
 
 c=comm.Comm('/dev/ttyUSB0',2400,debug=True);
 #c=comm.SimComm(debug=True);
 #c=comm.SimComm2(debug=True);
 DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)),'guns.db')
 d=db.Database(DATABASE)
+DEFAULT_CONFIG = gun.Config()
 
-DEFAULT_CONFIG=[0x3FFF]*16
-
-DEFAULT_CONFIG[gun.CONFIG_POWER]=0
-DEFAULT_CONFIG[gun.CONFIG_HEALTH]=10
-DEFAULT_CONFIG[gun.CONFIG_SHIELD]=2
-DEFAULT_CONFIG[gun.CONFIG_RESPAWN_DELAY]=100
-DEFAULT_CONFIG[gun.CONFIG_FIRE_THRESHOLD]=500
-DEFAULT_CONFIG[gun.CONFIG_FIRE_CHEATING]=1000
-DEFAULT_CONFIG[gun.CONFIG_FIRE_HOLDOFF]=1000
-DEFAULT_CONFIG[gun.CONFIG_DEATH_PERIOD]=3000
 
 BG={
 'idle':'#660000',
@@ -89,8 +80,8 @@ def new_gun(gun_id):
 	d.add_name(new_gun_id,name)
 
 	config=DEFAULT_CONFIG
-	config[gun.CONFIG_ID]=new_gun_id
-	d.set_config(new_gun_id,config)
+    config = gun.Config(gun_id=new_gun_id)
+	d.set_config(new_gun_id,config.dump())
 
 	set_text("Fire your gun again to finish.")
 
@@ -111,8 +102,13 @@ def talk(gun_id,config):
 	for victim in hitlist:
 		d.add_hit(gun_id,victim)
 
-	config=d.read_config(gun_id)
-	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config)
+	raw_config=d.read_config(gun_id)
+    if raw_config:
+        config = Config(**raw_config)
+    else:
+        config = Config(gun_id=gun_id)
+        d.write_config(gun_id, config.dump())
+	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config.page())
 	c.success(gun_id)
 	graphic_success()
 
