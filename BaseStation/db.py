@@ -49,6 +49,12 @@ class Database:
         json_config = json.dumps(config)
         self.c.execute("INSERT INTO guns (gun_id, config, active)  VALUES(?, ?, 1)", (int(val), json_config))
         self.conn.commit()
+    def set_inactive(self, gun_id):
+        self.c.execute("UPDATE guns SET active=0 WHERE gun_id=?", (gun_id,))
+        self.conn.commit()
+    def set_active(self, gun_id):
+        self.c.execute("UPDATE guns SET active=1 WHERE gun_id=?", (gun_id,))
+        self.conn.commit()
     def add_name(self, gun_id, name):
         self.c.execute("UPDATE guns SET athena=? WHERE gun_id=?", (name, gun_id,))
         self.conn.commit()
