@@ -72,7 +72,7 @@ class Database:
     def high_scores(self):
         return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score FROM hits, guns WHERE hits.shooter_id = guns.gun_id GROUP BY hits.shooter_id ORDER BY score DESC").fetchall()
     def most_hit(self):
-        return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score FROM hits, guns WHERE hits.shooter_id = guns.gun_id GROUP BY hits.victim_id ORDER BY score DESC").fetchall()
+        return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score FROM hits, guns WHERE hits.victim_id = guns.gun_id GROUP BY hits.victim_id ORDER BY score DESC").fetchall()
     def close(self):
         self.conn.close()
 
