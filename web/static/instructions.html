@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/scorechart.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+
+    <script type='text/javascript' src="/static/js/underscore.js"></script>
+    <script type='text/javascript' src="/static/js/backbone.js"></script>
+    <script type='text/javascript' src="/static/js/bootstrap.js"></script>
+
+    <title>Instructions</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li><a href="/">High Scores</a></li>
+                <li class="active"><a href="/static/instructions.html">Assembly</a></li>
+                <li><a href="/static/rules.html">Rules</a></li>
+            </ul>
+            <h2 class="muted">lAAAHzertag!</h2>
+        </div>
+
+        <hr></hr>
+
+    <h3>Part list</h3>
+	<div id="partlist"><table>
+	   <tr>
+	      <td><b>Part name</b></td>
+	      <td><b>Part value</b></td>
+	      <td><b>Description</b></td>
+	   </tr>
+	   <tr>
+	      <td>R1</td>
+	      <td> 2.2K</td>
+	      <td>Red red red gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R2</td>
+	      <td>330</td>
+	      <td>Orange orange brown gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R3</td>
+	      <td> 47K</td>
+	      <td>Yellow violet orange gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R4</td>
+	      <td> 10K</td>
+	      <td>Brown black orange gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R5</td>
+	      <td> 1M</td>
+	      <td>Brown black green gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R6</td>
+	      <td>47</td>
+	      <td>Yellow violet black gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R8</td>
+	      <td>470</td>
+	      <td>Yellow violet brown gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>R9</td>
+	      <td>4.7</td>
+	      <td>Yellow violet gold gold, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>C1</td>
+	      <td> 1uF</td>
+	      <td>Blue, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>C2</td>
+	      <td> 1uF</td>
+	      <td>Blue, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>C4</td>
+	      <td> 47nF</td>
+	      <td>Yellow, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>D1</td>
+	      <td> DIODE</td>
+	      <td>Orange with a black ring, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>Q1</td>
+	      <td> 2N3904</td>
+	      <td>Black, rounded with a flat side, 3 leads</td>
+	   </tr>
+	   <tr>
+	      <td>Q2</td>
+	      <td> 2N3904</td>
+	      <td>Black, rounded with a flat side, 3 leads</td>
+	   </tr>
+	   <tr>
+	      <td>U1</td>
+	      <td> PIC12LF SOCKET</td>
+	      <td>Black, 8 leads</td>
+	   </tr>
+	   <tr>
+	      <td>SP1</td>
+	      <td> SPEAKER</td>
+	      <td>Black, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>D2</td>
+	      <td> RED LED</td>
+	      <td>Red, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>D3</td>
+	      <td> GREEN LED</td>
+	      <td>Green, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>D4</td>
+	      <td> IR LED</td>
+	      <td>Black, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>P1</td>
+	      <td> PHOTODETECTOR</td>
+	      <td>Black, flat with a rounded dome, 3 leads</td>
+	   </tr>
+	   <tr>
+	      <td>M1</td>
+	      <td> MICROPHONE</td>
+	      <td>Silver with fluff on top, 2 leads</td>
+	   </tr>
+	   <tr>
+	      <td>BT1</td>
+	      <td> BATTERY</td>
+	      <td>Battery case</td>
+	   </tr>
+	</table></div>
+	</p>
+    <h3>How to solder your circuit board</h3>
+	<style img {float:left}><img src="/static/Board_top.jpg" width="833" height="481"></style>
+	<style img {float:right}><img src="/static/Board_bottom.jpg" width="833" height="481"></style>
+Start with the smaller components (resistors, capacitors, diode), push them all the way down onto your board and then bend the leads on the other side to hold them in place. Be careful, some of the resistors have very similar color schemes so make sure you don't mix them up. Touch the soldering iron to the lead where it goes into the bottom of the board, and gently add a bit of solder. When you remove the iron, the solder should look smooth and shiny. Which direction the resistors and capacitors are facing doesn't matter, but make sure you put your diode D1 in facing the right way (the black line on the part should lign up with the white line on the circuit board).
+</p>
+Next solder in your two transistors (2N3904s, labeled Q1 and Q2). Bend the middle lead out a bit so that they fit correctly into the board. <b>Make sure</b> you put them in the right direction, the rounded side should be facing inward towards the center of the board.
+</p>
+Put the 8-pin chip socket in, there's a cutout at the front that should be facing the side of the board the transistors go on.
+</p>
+Push the black buzzer all the way down into the holes at the back of the board, making sure that you line up the '+' sign on the plastic of the buzzer with the '+' sign on the circuit board. Before soldering it, bend it forward so it's pointing off the back.
+</p>
+For the LEDs, snip the leads down to a little under 1/4", then bend them inward slightly so they pinch the board. The black IR led goes on the front of the board, the red LED goes on the right side, and the green LED goes on the left. <b>Be careful</b> to have the little flat on the round base of the LED pointing <b>down</b>. Push the LEDs so that the plastic case is touching the side of your circuit board, and then solder them down.
+</p>
+Add the 3-pin header that goes between the two 2N3904s. <b>Note: DO NOT solder in your photodetector.</b>
+</p>
+The microphone goes on the bottom of the board, make sure you have it aligned in the same direction as the picture.
+</p>
+Finally, once everything else is done, solder your red battery wire to the '+' side next to BATTERY on the circuit board, and the black wire to the '-' side. Make sure you have the wires coming off the top side.
+</p>
+    <h3>How to assemble your gun</h3>
+
+
+    </div>
+</body>
+</html>
