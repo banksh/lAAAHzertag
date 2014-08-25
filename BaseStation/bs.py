@@ -80,7 +80,7 @@ def new_gun(gun_id):
 	d.add_name(new_gun_id,name)
 
 	config=DEFAULT_CONFIG
-    config = gun.Config(gun_id=new_gun_id)
+	config = gun.Config(gun_id=new_gun_id)
 	d.set_config(new_gun_id,config.dump())
 
 	set_text("Fire your gun again to finish.")
@@ -103,11 +103,11 @@ def talk(gun_id,config):
 		d.add_hit(gun_id,victim)
 
 	raw_config=d.read_config(gun_id)
-    if raw_config:
-        config = Config(**raw_config)
-    else:
-        config = Config(gun_id=gun_id)
-        d.write_config(gun_id, config.dump())
+	if raw_config:
+		config = Config(**raw_config)
+	else:
+		config = Config(gun_id=gun_id)
+		d.write_config(gun_id, config.dump())
 	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config.page())
 	c.success(gun_id)
 	graphic_success()
