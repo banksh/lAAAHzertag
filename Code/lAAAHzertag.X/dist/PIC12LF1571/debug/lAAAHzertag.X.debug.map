@@ -3,10 +3,10 @@ Microchip MPLAB XC8 Compiler V1.32 ()
 Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.32\dat\en_msgs.txt -cs \
-  -h+dist/PIC12LF1571/production\lAAAHzertag.X.production.sym \
-  --cmf=dist/PIC12LF1571/production\lAAAHzertag.X.production.cmf -z \
-  -Q12LF1572 -oC:\Users\Banks\AppData\Local\Temp\s13cg.6 \
-  -Mdist/PIC12LF1571/production/lAAAHzertag.X.production.map -E1 -ver=XC8 \
+  -h+dist/PIC12LF1571/debug\lAAAHzertag.X.debug.sym \
+  --cmf=dist/PIC12LF1571/debug\lAAAHzertag.X.debug.cmf -z -Q12LF1572 \
+  -oC:\Users\Banks\AppData\Local\Temp\s11ug.6 \
+  -Mdist/PIC12LF1571/debug/lAAAHzertag.X.debug.map -E1 -ver=XC8 \
   -ASTACK=02082h-020efh -pstack=STACK -ACONST=00h-0FFhx7,0700h-07DFh \
   -ACODE=00h-07DFh -ASTRCODE=00h-07DFh -AENTRY=00h-0FFhx7,0700h-07DFh \
   -ASTRING=00h-0FFhx7,0700h-07DFh -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -27,8 +27,8 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 \
   -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Banks\AppData\Local\Temp\s13cg.obj \
-  dist/PIC12LF1571/production\lAAAHzertag.X.production.obj 
+  C:\Users\Banks\AppData\Local\Temp\s11ug.obj \
+  dist/PIC12LF1571/debug\lAAAHzertag.X.debug.obj 
 
 Object code version is 3.11
 
@@ -37,45 +37,45 @@ Machine type is 12LF1572
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Banks\AppData\Local\Temp\s13cg.obj
+C:\Users\Banks\AppData\Local\Temp\s11ug.obj
                 end_init                             15       15        1        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
-dist/PIC12LF1571/production\lAAAHzertag.X.production.obj
+dist/PIC12LF1571/debug\lAAAHzertag.X.debug.obj
                 cinit                                16       16       10        8       0
                 intentry                              4        4       11        8       0
-                text24                              784      784       25      AB0       0
-                text23                              6A8      6A8       47      AB0       0
-                text22                              656      656       52      AB0       0
-                text21                              4C1      4C1        F        8       0
-                text20                              75A      75A       2A      AB0       0
-                text19                              7CD      7CD       12      AB0       0
-                text18                              4FB      4FB        5        8       0
-                text17                              4AA      4AA       17        8       0
-                text16                              451      451       21        8       0
-                text15                              6EF      6EF       3A      AB0       0
-                text14                              4F6      4F6        5        8       0
-                text13                              7A9      7A9       24      AB0       0
-                text12                              4F0      4F0        6        8       0
+                text24                              724      724       25      C90       0
+                text23                              648      648       47      C90       0
+                text22                              451      451       60        8       0
+                text21                              5C1      5C1        F        8       0
+                text20                              6FA      6FA       2A      C90       0
+                text19                              5AF      5AF       12        8       0
+                text18                              5FB      5FB        5        8       0
+                text17                              7C6      7C6       17      C90       0
+                text16                              76D      76D       21      C90       0
+                text15                              68F      68F       3A      C90       0
+                text14                              5F6      5F6        5        8       0
+                text13                              749      749       24      C90       0
+                text12                              5F0      5F0        6        8       0
                 text11                              346      346       94        8       0
-                text10                              5AF      5AF       54      AB0       0
-                text9                               472      472       1E        8       0
-                text8                               490      490       1A        8       0
-                text7                               4EA      4EA        6        8       0
-                text6                               4DC      4DC        8        8       0
+                text10                              508      508       54        8       0
+                text9                               78E      78E       1E      C90       0
+                text8                               7AC      7AC       1A      C90       0
+                text7                               5EA      5EA        6        8       0
+                text6                               5DC      5DC        8        8       0
                 text5                                26       26      320        8       0
-                text4                               729      729       31      AB0       0
-                text3                               558      558       57      AB0       0
+                text4                               6C9      6C9       31      C90       0
+                text3                               4B1      4B1       57        8       0
                 text2                               3DA      3DA       77        8       0
-                text1                               603      603       53      AB0       0
-                maintext                            4D0      4D0        C        8       0
+                text1                               55C      55C       53        8       0
+                maintext                            5D0      5D0        C        8       0
                 cstackBANK0                          20       20       3C       20       1
                 cstackCOMMON                         70       70        C       70       1
-                clrtext                             4E4      4E4        6        8       0
+                clrtext                             5E4      5E4        6        8       0
                 bssBANK1                             A0       A0       32       A0       1
                 bssBANK0                             5C       5C       12       20       1
                 bssCOMMON                            7C       7C        1       70       1
-                stringtext                          500      500       58        A       0
+                stringtext                          600      600       48        C       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -87,35 +87,35 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                16       16       10         0
                 intentry                              4        4       11         0
                 reset_vec                             0        0        2         0
-                text24                              784      784       25         0
-                text23                              6A8      6A8       47         0
-                text22                              656      656       52         0
-                text21                              4C1      4C1        F         0
-                text20                              75A      75A       2A         0
-                text19                              7CD      7CD       12         0
-                text18                              4FB      4FB        5         0
-                text17                              4AA      4AA       17         0
-                text16                              451      451       21         0
-                text15                              6EF      6EF       3A         0
-                text14                              4F6      4F6        5         0
-                text13                              7A9      7A9       24         0
-                text12                              4F0      4F0        6         0
+                text24                              724      724       25         0
+                text23                              648      648       47         0
+                text22                              451      451       60         0
+                text21                              5C1      5C1        F         0
+                text20                              6FA      6FA       2A         0
+                text19                              5AF      5AF       12         0
+                text18                              5FB      5FB        5         0
+                text17                              7C6      7C6       17         0
+                text16                              76D      76D       21         0
+                text15                              68F      68F       3A         0
+                text14                              5F6      5F6        5         0
+                text13                              749      749       24         0
+                text12                              5F0      5F0        6         0
                 text11                              346      346       94         0
-                text10                              5AF      5AF       54         0
-                text9                               472      472       1E         0
-                text8                               490      490       1A         0
-                text7                               4EA      4EA        6         0
-                text6                               4DC      4DC        8         0
+                text10                              508      508       54         0
+                text9                               78E      78E       1E         0
+                text8                               7AC      7AC       1A         0
+                text7                               5EA      5EA        6         0
+                text6                               5DC      5DC        8         0
                 text5                                26       26      320         0
-                text4                               729      729       31         0
-                text3                               558      558       57         0
+                text4                               6C9      6C9       31         0
+                text3                               4B1      4B1       57         0
                 text2                               3DA      3DA       77         0
-                text1                               603      603       53         0
-                maintext                            4D0      4D0        C         0
-                clrtext                             4E4      4E4        6         0
+                text1                               55C      55C       53         0
+                maintext                            5D0      5D0        C         0
+                clrtext                             5E4      5E4        6         0
 
         CLASS   STRCODE        
-                stringtext                          500      500       58         0
+                stringtext                          600      600       48         0
 
         CLASS   ENTRY          
 
@@ -275,12 +275,12 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  0004FC  000500         8       0  CODE        2
+                intentry                       000004  0005FC  000600         8       0  CODE        2
                 cstackBANK0                    000020  00004E  00006E        20       1  BANK0       1
                 cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
                 bssBANK1                       0000A0  000032  0000D2        A0       1  BANK1       1
-                stringtext                     000500  000058  000558         A       0  STRCODE     2
-                text3                          000558  000287  0007DF       AB0       0  CODE        2
+                stringtext                     000600  000048  000648         C       0  STRCODE     2
+                text23                         000648  000195  0007DD       C90       0  CODE        2
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
 
@@ -292,12 +292,12 @@ UNUSED ADDRESS RANGES
         BANK2            00120-0016F              50           1
         BIGRAM           02000-020EF              F0           1
         CODE             00002-00003               2           2
-                         007DF-007DF               1
+                         007DD-007DF               3
         COMMON           0007D-0007D               1           1
         CONST            00002-00003               2           2
-                         007DF-007DF               1
+                         007DD-007DF               3
         ENTRY            00002-00003               2           2
-                         007DF-007DF               1
+                         007DD-007DF               3
         IDLOC            08000-08003               4           2
         RAM              0006E-0006F               2           1
                          000D2-000EF              1E
@@ -336,9 +336,9 @@ UNUSED ADDRESS RANGES
         SFR9             00480-004EF              70           1
         STACK            02082-020EF              6E           1
         STRCODE          00002-00003               2           2
-                         007DF-007DF               1
+                         007DD-007DF               3
         STRING           00002-00003               2           2
-                         007DF-007DF               1
+                         007DD-007DF               3
 
                                   Symbol Table
 
@@ -357,17 +357,17 @@ Send_Byte@data                    cstackCOMMON 00079
 Send_Byte@i                       cstackCOMMON 0007A
 _ADCON0bits                       (abs)        0009D
 _ADCON1                           (abs)        0009E
-_ADC_read                         text19       007CD
+_ADC_read                         text19       005AF
 _ADRES                            (abs)        0009B
 _ANSELA                           (abs)        0018C
 _ANSELAbits                       (abs)        0018C
 _BAUDCONbits                      (abs)        0019F
 _DACCON0bits                      (abs)        00118
-_GET_CHAR_HELPER                  text9        00472
+_GET_CHAR_HELPER                  text9        0078E
 _High_Priority_Interrupt          intentry     00004
 _INTCONbits                       (abs)        0000B
-_Load                             text24       00784
-_LoadFromFlash                    text22       00656
+_Load                             text24       00724
+_LoadFromFlash                    text22       00451
 _OPTION_REGbits                   (abs)        00095
 _OSCCON                           (abs)        00099
 _PIR1bits                         (abs)        00011
@@ -384,13 +384,13 @@ _PWM3PH                           (abs)        00DB1
 _PWM3PR                           (abs)        00DB5
 _RCREG                            (abs)        00199
 _RCSTAbits                        (abs)        0019D
-_SEND_DATA_BYTE                   text8        00490
-_SEND_EOF                         text7        004EA
-_SEND_SOF                         text6        004DC
+_SEND_DATA_BYTE                   text8        007AC
+_SEND_EOF                         text7        005EA
+_SEND_SOF                         text6        005DC
 _SPBRGL                           (abs)        0019B
-_Save                             text23       006A8
-_Send_Byte                        text15       006EF
-_Setup                            text20       0075A
+_Save                             text23       00648
+_Send_Byte                        text15       0068F
+_Setup                            text20       006FA
 _T1CONbits                        (abs)        00018
 _T2CONbits                        (abs)        0001C
 _TMR0                             (abs)        00015
@@ -607,37 +607,37 @@ ___int_sp                         stack        00000
 ___latbits                        (abs)        00000
 ___sp                             stack        00000
 __checksum                        bssBANK0     00066
-__end_of_ADC_read                 text19       007DF
-__end_of_GET_CHAR_HELPER          text9        00490
+__end_of_ADC_read                 text19       005C1
+__end_of_GET_CHAR_HELPER          text9        007AC
 __end_of_High_Priority_Interrupt  intentry     00015
-__end_of_Load                     text24       007A9
-__end_of_LoadFromFlash            text22       006A8
-__end_of_SEND_DATA_BYTE           text8        004AA
-__end_of_SEND_EOF                 text7        004F0
-__end_of_SEND_SOF                 text6        004E4
-__end_of_Save                     text23       006EF
-__end_of_Send_Byte                text15       00729
-__end_of_Setup                    text20       00784
+__end_of_Load                     text24       00749
+__end_of_LoadFromFlash            text22       004B1
+__end_of_SEND_DATA_BYTE           text8        007C6
+__end_of_SEND_EOF                 text7        005F0
+__end_of_SEND_SOF                 text6        005E4
+__end_of_Save                     text23       0068F
+__end_of_Send_Byte                text15       006C9
+__end_of_Setup                    text20       00724
 __end_of__initialization          cinit        00023
-__end_of_add_to_hitlist           text10       00603
-__end_of_cheat                    text16       00472
+__end_of_add_to_hitlist           text10       0055C
+__end_of_cheat                    text16       0078E
 __end_of_control_transfer         text5        00346
-__end_of_dead_song                stringtext   00558
-__end_of_death_song               stringtext   00526
-__end_of_delay_1_ms               text21       004D0
-__end_of_fire_song                stringtext   00546
-__end_of_green_led_on             text14       004FB
+__end_of_dead_song                stringtext   00648
+__end_of_death_song               stringtext   00626
+__end_of_delay_1_ms               text21       005D0
+__end_of_fire_song                stringtext   00636
+__end_of_green_led_on             text14       005FB
 __end_of_handle_fire              text11       003DA
-__end_of_handle_music             text4        0075A
-__end_of_handle_serial            text1        00656
+__end_of_handle_music             text4        006FA
+__end_of_handle_serial            text1        005AF
 __end_of_hit_by                   text2        00451
-__end_of_main                     maintext     004DC
-__end_of_one_up                   stringtext   00552
-__end_of_play_song                text13       007CD
-__end_of_red_led_on               text18       00500
-__end_of_stop_song                text12       004F6
-__end_of_super_dead_mode          text3        005AF
-__end_of_tone                     text17       004C1
+__end_of_main                     maintext     005DC
+__end_of_one_up                   stringtext   00642
+__end_of_play_song                text13       0076D
+__end_of_red_led_on               text18       00600
+__end_of_stop_song                text12       005F6
+__end_of_super_dead_mode          text3        00508
+__end_of_tone                     text17       007DD
 __i                               bssBANK0     0005C
 __initialization                  cinit        00016
 __pbssBANK0                       bssBANK0     0005C
@@ -646,32 +646,32 @@ __pbssCOMMON                      bssCOMMON    0007C
 __pcstackBANK0                    cstackBANK0  00020
 __pcstackCOMMON                   cstackCOMMON 00070
 __pintentry                       intentry     00004
-__pmaintext                       maintext     004D0
-__pstringtext                     stringtext   00500
-__ptext1                          text1        00603
-__ptext10                         text10       005AF
+__pmaintext                       maintext     005D0
+__pstringtext                     stringtext   00600
+__ptext1                          text1        0055C
+__ptext10                         text10       00508
 __ptext11                         text11       00346
-__ptext12                         text12       004F0
-__ptext13                         text13       007A9
-__ptext14                         text14       004F6
-__ptext15                         text15       006EF
-__ptext16                         text16       00451
-__ptext17                         text17       004AA
-__ptext18                         text18       004FB
-__ptext19                         text19       007CD
+__ptext12                         text12       005F0
+__ptext13                         text13       00749
+__ptext14                         text14       005F6
+__ptext15                         text15       0068F
+__ptext16                         text16       0076D
+__ptext17                         text17       007C6
+__ptext18                         text18       005FB
+__ptext19                         text19       005AF
 __ptext2                          text2        003DA
-__ptext20                         text20       0075A
-__ptext21                         text21       004C1
-__ptext22                         text22       00656
-__ptext23                         text23       006A8
-__ptext24                         text24       00784
-__ptext3                          text3        00558
-__ptext4                          text4        00729
+__ptext20                         text20       006FA
+__ptext21                         text21       005C1
+__ptext22                         text22       00451
+__ptext23                         text23       00648
+__ptext24                         text24       00724
+__ptext3                          text3        004B1
+__ptext4                          text4        006C9
 __ptext5                          text5        00026
-__ptext6                          text6        004DC
-__ptext7                          text7        004EA
-__ptext8                          text8        00490
-__ptext9                          text9        00472
+__ptext6                          text6        005DC
+__ptext7                          text7        005EA
+__ptext8                          text8        007AC
+__ptext9                          text9        0078E
 __size_of_ADC_read                (abs)        00000
 __size_of_GET_CHAR_HELPER         (abs)        00000
 __size_of_High_Priority_Interrupt (abs)        00000
@@ -700,8 +700,8 @@ __size_of_super_dead_mode         (abs)        00000
 __size_of_tone                    (abs)        00000
 __x                               bssCOMMON    0007C
 __y                               bssBANK0     0006D
-_add_to_hitlist                   text10       005AF
-_cheat                            text16       00451
+_add_to_hitlist                   text10       00508
+_cheat                            text16       0076D
 _config                           bssBANK1     000C0
 _control_transfer                 text5        00026
 _cur_song                         bssBANK0     0005E
@@ -709,31 +709,31 @@ _cur_song_duration                bssBANK0     00060
 _cur_song_length                  bssBANK0     00067
 _cur_song_ptr                     bssBANK0     00068
 _cur_song_repeat                  bssBANK0     00069
-_dead_song                        stringtext   00552
-_death_song                       stringtext   00500
-_delay_1_ms                       text21       004C1
-_fire_song                        stringtext   00526
-_green_led_on                     text14       004F6
+_dead_song                        stringtext   00642
+_death_song                       stringtext   00600
+_delay_1_ms                       text21       005C1
+_fire_song                        stringtext   00626
+_green_led_on                     text14       005F6
 _handle_fire                      text11       00346
-_handle_music                     text4        00729
-_handle_serial                    text1        00603
+_handle_music                     text4        006C9
+_handle_serial                    text1        0055C
 _hit_by                           text2        003DA
 _hitlist                          bssBANK1     000A0
-_main                             maintext     004D0
+_main                             maintext     005D0
 _my_random_number                 bssBANK0     0006A
-_one_up                           stringtext   00546
-_play_song                        text13       007A9
-_red_led_on                       text18       004FB
-_stop_song                        text12       004F0
-_super_dead_mode                  text3        00558
-_tone                             text17       004AA
+_one_up                           stringtext   00636
+_play_song                        text13       00749
+_red_led_on                       text18       005FB
+_stop_song                        text12       005F0
+_super_dead_mode                  text3        004B1
+_tone                             text17       007C6
 add_to_hitlist@gun                cstackCOMMON 00075
 add_to_hitlist@gun16              cstackCOMMON 00076
 add_to_hitlist@i                  cstackCOMMON 00078
 btemp                             (abs)        0007E
 cheat@i                           cstackCOMMON 00076
 cheat@i_724                       cstackCOMMON 00077
-clear_ram0                        clrtext      004E4
+clear_ram0                        clrtext      005E4
 control_transfer@cmd              cstackBANK0  00045
 control_transfer@data             cstackBANK0  00025
 control_transfer@dptr             cstackBANK0  00048
@@ -798,7 +798,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 49 in file "main.c"
+		line 48 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1244,7 +1244,7 @@ Total ram usage:        0 bytes
 		line 92 in file "user.c"
  Parameters:    Size  Location     Type
   song            2    1[COMMON] PTR unsigned int 
-		 -> one_up(12), death_song(38), dead_song(6), fire_song(32), 
+		 -> one_up(12), death_song(38), dead_song(6), fire_song(16), 
   length          1    3[COMMON] unsigned char 
   note_duratio    2    4[COMMON] unsigned int 
   repeat          1    6[COMMON] unsigned char 
@@ -1667,49 +1667,49 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 protocol.c
-		_SEND_EOF      		CODE           	04EA	0000	6
-		_SEND_DATA_BYTE		CODE           	0490	0000	26
-		_handle_serial 		CODE           	0603	0000	83
+		_SEND_EOF      		CODE           	05EA	0000	6
+		_SEND_DATA_BYTE		CODE           	07AC	0000	26
+		_handle_serial 		CODE           	055C	0000	83
 		_control_transf		CODE           	0026	0000	800
-		_GET_CHAR_HELPE		CODE           	0472	0000	30
-		_SEND_SOF      		CODE           	04DC	0000	8
+		_GET_CHAR_HELPE		CODE           	078E	0000	30
+		_SEND_SOF      		CODE           	05DC	0000	8
 
 protocol.c estimated size: 953
 
 shared
-		_death_song    		STRCODE        	0500	0000	38
-		_fire_song     		STRCODE        	0526	0000	32
-		_dead_song     		STRCODE        	0552	0000	6
+		_death_song    		STRCODE        	0600	0000	38
+		_fire_song     		STRCODE        	0626	0000	16
+		_dead_song     		STRCODE        	0642	0000	6
 		__initializatio		CODE           	0016	0000	13
-		_one_up        		STRCODE        	0546	0000	12
+		_one_up        		STRCODE        	0636	0000	12
 
-shared estimated size: 101
+shared estimated size: 85
 
 user.c
-		_cheat         		CODE           	0451	0000	33
-		_Load          		CODE           	0784	0000	37
-		_red_led_on    		CODE           	04FB	0000	5
+		_cheat         		CODE           	076D	0000	33
+		_Load          		CODE           	0724	0000	37
+		_red_led_on    		CODE           	05FB	0000	5
 		_hit_by        		CODE           	03DA	0000	119
-		_tone          		CODE           	04AA	0000	23
+		_tone          		CODE           	07C6	0000	23
 		_handle_fire   		CODE           	0346	0000	148
-		_handle_music  		CODE           	0729	0000	49
-		_ADC_read      		CODE           	07CD	0000	18
+		_handle_music  		CODE           	06C9	0000	49
+		_ADC_read      		CODE           	05AF	0000	18
 		_High_Priority_		CODE           	0004	0000	17
-		_play_song     		CODE           	07A9	0000	36
-		_Setup         		CODE           	075A	0000	42
-		_stop_song     		CODE           	04F0	0000	6
-		_delay_1_ms    		CODE           	04C1	0000	15
-		_add_to_hitlist		CODE           	05AF	0000	84
-		_green_led_on  		CODE           	04F6	0000	5
-		_Send_Byte     		CODE           	06EF	0000	58
-		_Save          		CODE           	06A8	0000	71
-		_super_dead_mod		CODE           	0558	0000	87
+		_play_song     		CODE           	0749	0000	36
+		_Setup         		CODE           	06FA	0000	42
+		_stop_song     		CODE           	05F0	0000	6
+		_delay_1_ms    		CODE           	05C1	0000	15
+		_add_to_hitlist		CODE           	0508	0000	84
+		_green_led_on  		CODE           	05F6	0000	5
+		_Send_Byte     		CODE           	068F	0000	58
+		_Save          		CODE           	0648	0000	71
+		_super_dead_mod		CODE           	04B1	0000	87
 
 user.c estimated size: 853
 
 main.c
-		_main          		CODE           	04D0	0000	12
-		_LoadFromFlash 		CODE           	0656	0000	82
+		_main          		CODE           	05D0	0000	12
+		_LoadFromFlash 		CODE           	0451	0000	96
 
-main.c estimated size: 94
+main.c estimated size: 108
 
