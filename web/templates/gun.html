@@ -14,7 +14,7 @@
     <div class="container">
         <div class="header">
             <ul class="nav nav-pills pull-right">
-                <li class="active"><a href="/gun/id/{{ gun_id }}">Gun: {{ athena }}</a></li>
+                <li class="active"><a href="/gun/name/{{ athena|urlencode }}">Gun: {{ athena }}</a></li>
                 <li><a href="/">High Scores</a></li>
                 <li><a href="/instructions.html">Assembly</a></li>
                 <li><a href="/rules.html">Rules</a></li>
@@ -25,8 +25,10 @@
         <hr></hr>
 
         <div class="row marketing"> 
-            <h3>Top Hits</h3>
-            <h4>Gun: {{ athena }}</h4>
+            <h3>
+                Top Hits
+                <small>Gun: {{ athena }}</small>
+            </h3>
             <table class='table'>
                 <thead>
                     <tr>
@@ -39,7 +41,7 @@
                     {% for gun_id, athena, score in hits %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td><a href="/gun/name/{{ athena|urlencode }}">{{ athena }}</a></td>
                             <td>{{ score }}</td>
                         </tr>
                     {% endfor %}
@@ -61,7 +63,7 @@
                     {% for gun_id, athena, score in hits %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td><a href="/gun/name/{{ athena|urlencode }}">{{ athena }}</a></td>
                             <td>{{ score }}</td>
                         </tr>
                     {% endfor %}

@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/scorechart.css">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
 
+    <script type='text/javascript' src="/static/js/jquery.min.js"></script>
     <script type='text/javascript' src="/static/js/underscore.js"></script>
     <script type='text/javascript' src="/static/js/backbone.js"></script>
     <script type='text/javascript' src="/static/js/bootstrap.js"></script>
@@ -39,7 +40,7 @@
                     {% for gun_id, athena, score in high_scores %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td><a href="/gun/name/{{ athena|urlencode }}">{{ athena }}</a></td>
                             <td>{{ score }}</td>
                         </tr>
                     {% endfor %}
@@ -63,7 +64,7 @@
                     {% for gun_id, athena, score in most_hit %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td><a href="/gun/id/{{ gun_id }}">{{ athena }}</a></td>
+                            <td><a href="/gun/name/{{ athena|urlencode }}">{{ athena }}</a></td>
                             <td>{{ score }}</td>
                         </tr>
                     {% endfor %}
