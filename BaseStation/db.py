@@ -69,7 +69,7 @@ class Database:
             return result
         return result[0]
     def read_config(self, gun_id):
-        p = self.c.execute("SELECT config from guns WHERE gun_id=?",(gun_id,)).fetchone()
+        result = self.c.execute("SELECT config from guns WHERE gun_id=?",(gun_id,)).fetchone()
         if result is None:
             return result
         return json.loads(result[0])
@@ -77,7 +77,7 @@ class Database:
         self.c.execute("UPDATE guns SET config=? WHERE gun_id=?", (json.dumps(config),gun_id,))
         self.conn.commit()
     def read_config(self, gun_id):
-        p = self.c.execute("SELECT config_to_write from guns WHERE gun_id=?",(gun_id,)).fetchone()
+        result = self.c.execute("SELECT config from guns WHERE gun_id=?",(gun_id,)).fetchone()
         if result is None:
             return result
         return json.loads(result[0])
@@ -99,11 +99,13 @@ class Database:
     def high_scores(self):
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score 
                                  FROM guns LEFT OUTER JOIN hits ON hits.shooter_id = guns.gun_id 
+				 WHERE guns.active = 1
                                  GROUP BY hits.shooter_id 
                                  ORDER BY score DESC""").fetchall()
     def most_hit(self):
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score 
                                  FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
+				 WHERE guns.active = 1
                                  GROUP BY hits.victim_id 
                                  ORDER BY score DESC""").fetchall()
     def close(self):

@@ -49,4 +49,4 @@ def gun_by_athena(athena):
 
 
 if __name__ == "__main__":
-    app.run(debug=True,host='')
+    app.run(host='')

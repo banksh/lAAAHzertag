@@ -104,10 +104,9 @@ def talk(gun_id,config):
 
 	raw_config=d.read_config(gun_id)
 	if raw_config:
-		config = Config(**raw_config)
+		config = gun.Config(**raw_config)
 	else:
-		config = Config(gun_id=gun_id)
-		d.write_config(gun_id, config.dump())
+		config = gun.Config(gun_id=gun_id)
 	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config.page())
 	c.success(gun_id)
 	graphic_success()
@@ -119,6 +118,8 @@ def hit_by(gun_id):
 			new_gun(gun_id)
 		else:
 			gun_name=d.get_name_from_gun(gun_id)
+			if gun_name is None:
+				gun_name = "(Unknown ID {})".format(hex(gun_id))
 			config=list(c.get_flash_page(gun_id,gun.FLASH_CONFIG))
 			set_text("Hello, {0}\nSyncing...".format(gun_name))
 			talk(gun_id,config)

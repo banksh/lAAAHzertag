@@ -38,6 +38,7 @@ class Config(object):
         cfg[CONFIG_FIRE_CHEATING] = self.fire_cheating
         cfg[CONFIG_FIRE_HOLDOFF] = self.fire_holdoff
         cfg[CONFIG_DEATH_PERIOD] = self.death_period
+        return cfg
 
     def dump(self):
         attrs = ["gun_id", "power", "health", "shield", "respawn_delay", "fire_threshold", "fire_cheating", "fire_holdoff", "death_period"]
