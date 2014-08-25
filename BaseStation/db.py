@@ -53,26 +53,53 @@ class Database:
         self.c.execute("UPDATE guns SET athena=? WHERE gun_id=?", (name, gun_id,))
         self.conn.commit()
     def get_name_from_gun(self, gun_id):
-        return self.c.execute("SELECT athena FROM guns WHERE gun_id=?", (gun_id,)).fetchone()[0]
+        result = self.c.execute("SELECT athena FROM guns WHERE gun_id=?", (gun_id,)).fetchone()
+        if result is None:
+            return result
+        return result[0]
     def get_gun_from_name(self, athena):
-        return self.c.execute("SELECT gun_id FROM guns WHERE athena=?", (athena,)).fetchone()[0]
+        result = self.c.execute("SELECT gun_id FROM guns WHERE athena=?", (athena,)).fetchone()
+        if result is None:
+            return result
+        return result[0]
     def read_config(self, gun_id):
-        p = self.c.execute("SELECT config from guns WHERE gun_id=?",(gun_id,)).fetchone()[0]
-        return json.loads(p)
+        p = self.c.execute("SELECT config from guns WHERE gun_id=?",(gun_id,)).fetchone()
+        if result is None:
+            return result
+        return json.loads(result[0])
     def set_config(self, gun_id, config):
         self.c.execute("UPDATE guns SET config=? WHERE gun_id=?", (json.dumps(config),gun_id,))
         self.conn.commit()
+    def read_config(self, gun_id):
+        p = self.c.execute("SELECT config_to_write from guns WHERE gun_id=?",(gun_id,)).fetchone()
+        if result is None:
+            return result
+        return json.loads(result[0])
     def read_hits(self, gun_id):
-        return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score from hits, guns WHERE hits.victim_id = guns.gun_id AND hits.shooter_id=? GROUP BY hits.victim_id ORDER BY score DESC ",(gun_id,)).fetchall()
+        return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score
+                                 FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
+                                 WHERE hits.shooter_id=? 
+                                 GROUP BY hits.victim_id 
+                                 ORDER BY score DESC""",(gun_id,)).fetchall()
     def read_hits_by(self, gun_id):
-        return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score from hits, guns WHERE hits.victim_id = guns.gun_id AND hits.victim_id=? GROUP BY hits.shooter_id ORDER BY score DESC",(gun_id,)).fetchall()
+        return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score 
+                                 FROM guns LEFT OUTER JOIN hits ON hits.shooter_id = guns.gun_id 
+                                 WHERE hits.victim_id=? 
+                                 GROUP BY hits.shooter_id 
+                                 ORDER BY score DESC""",(gun_id,)).fetchall()
     def add_hit(self, shooter_id, victim_id):
         self.c.execute("INSERT INTO hits (shooter_id, victim_id)  VALUES(?, ?)", (shooter_id, victim_id))
         self.conn.commit()
     def high_scores(self):
-        return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score FROM hits, guns WHERE hits.shooter_id = guns.gun_id GROUP BY hits.shooter_id ORDER BY score DESC").fetchall()
+        return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score 
+                                 FROM guns LEFT OUTER JOIN hits ON hits.shooter_id = guns.gun_id 
+                                 GROUP BY hits.shooter_id 
+                                 ORDER BY score DESC""").fetchall()
     def most_hit(self):
-        return self.c.execute("SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score FROM hits, guns WHERE hits.shooter_id = guns.gun_id GROUP BY hits.victim_id ORDER BY score DESC").fetchall()
+        return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score 
+                                 FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
+                                 GROUP BY hits.victim_id 
+                                 ORDER BY score DESC""").fetchall()
     def close(self):
         self.conn.close()
 

@@ -5,7 +5,7 @@ import cPickle as pickle
 import db
 import os
 
-from flask import Flask, request, render_template, g
+from flask import Flask, request, render_template, g, abort
 app = Flask(__name__)
 
 DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)),'guns.db')
@@ -33,14 +33,18 @@ def gun_by_id(gun_id, athena=None):
     gdb = get_db()
     if athena is None:
         athena = gdb.get_name_from_gun(gun_id)
+    if athena is None:
+        abort(404)
     hits = gdb.read_hits(gun_id)
     hit_by = gdb.read_hits_by(gun_id)
     return render_template("gun.html", **locals())
 
-@app.route("/gun/athena/<athena>")
+@app.route("/gun/name/<athena>")
 def gun_by_athena(athena):
     gdb = get_db()
     gun_id = gdb.get_gun_from_name(athena)
+    if gun_id is None:
+        abort(404)
     return gun_by_id(gun_id, athena=athena)
 
 

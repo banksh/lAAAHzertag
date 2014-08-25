@@ -69,24 +69,3 @@ body {
 	float: center;
 	width: 20%;
 }
-
-table, td, th {
-	border:none;
-}
-
-#partlist table {
-	border-collapse: collapse;
-}
-
-#partlist td {
-	border: 1px solid black;
-}
-
-#partlist th {
-	border: 1px solid black;
-}
-
-#partlist td, th {
-	padding: 5px;
-}
-
