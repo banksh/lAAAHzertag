@@ -70,14 +70,23 @@ body {
 	width: 20%;
 }
 
-table {
+table, td, th {
+	border:none;
+}
+
+#partlist table {
 	border-collapse: collapse;
 }
 
-table, th, td {
+#partlist td {
+	border: 1px solid black;
+}
+
+#partlist th {
 	border: 1px solid black;
 }
 
 #partlist td, th {
 	padding: 5px;
 }
+
