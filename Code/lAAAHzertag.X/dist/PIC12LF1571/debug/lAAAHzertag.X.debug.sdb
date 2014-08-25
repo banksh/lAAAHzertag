@@ -77,7 +77,7 @@
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 "28 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
-"49
+"48
 [v _main main `(v  1 e 0 0 ]
 "29 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _GET_CHAR_HELPER GET_CHAR_HELPER `(uc  1 s 1 GET_CHAR_HELPER ]
@@ -398,13 +398,13 @@
 "28
 [v _death_song death_song `DCC[19]ui  1 e 38 0 ]
 "29
-[v _fire_song fire_song `DCC[16]ui  1 e 32 0 ]
+[v _fire_song fire_song `DCC[8]ui  1 e 16 0 ]
 "30
 [v _dead_song dead_song `DCC[3]ui  1 e 6 0 ]
-"49 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
+"48 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"63
+"62
 } 0
 "133 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\protocol.c
 [v _handle_serial handle_serial `(uc  1 e 1 0 ]
@@ -585,7 +585,7 @@
 "28 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\main.c
 [v _LoadFromFlash LoadFromFlash `(v  1 s 0 LoadFromFlash ]
 {
-"47
+"46
 } 0
 "198 C:\Users\Banks\Documents\GitHub\lAAAHzertag\Code\lAAAHzertag.X\user.c
 [v _Save Save `(v  1 e 0 0 ]
