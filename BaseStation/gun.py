@@ -14,7 +14,7 @@ FLASH_HITLIST = 0x7E0
 ID_UNINIT = 0x80
 
 class Config(object):
-    def __init__(self, gun_id=0x80, power=0, health=10, shield=2, respawn_delay=100,
+    def __init__(self, gun_id=0x80, power=0, health=10, shield=2, respawn_delay=40,
                  fire_threshold=500, fire_cheating=1000, fire_holdoff=1000,
                  death_period=3000):
         self.gun_id = gun_id

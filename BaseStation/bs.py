@@ -34,7 +34,7 @@ coord = fsg.center()
 arc = cv.create_text(coord, text=DEFAULT_TEXT, fill="white", justify=Tkinter.CENTER, font=("Helvetica",64))
 
 txt = Tkinter.Entry(cv,justify=Tkinter.CENTER,font=("Helvetica",64),highlightthickness=0,border=0,bg=BG['talk'],fg='white')
-w=cv.create_window((coord[0],coord[1]+120),window=txt)
+w=cv.create_window((coord[0],coord[1]+200),window=txt)
 
 cv.itemconfig(w,state=Tkinter.HIDDEN)
 
@@ -75,8 +75,11 @@ def new_gun(gun_id):
 	c.assign_id(gun_id,rn,new_gun_id)
 	d.confirm_id(new_gun_id)
 
-	set_text("Welcome! Enter your name:")
+	set_text("Welcome!\nEnter your athena:")
 	name=get_text_input()
+	existing_gun = d.get_gun_from_name(name)
+	if existing_gun is not None:
+		name = "{}_{}".format(name, new_gun_id) # Not guarenteed to be unique but close enough
 	d.add_name(new_gun_id,name)
 
 	config=DEFAULT_CONFIG
@@ -105,6 +108,7 @@ def talk(gun_id,config):
 	raw_config=d.read_config(gun_id)
 	if raw_config:
 		config = gun.Config(**raw_config)
+		config.gun_id = gun_id
 	else:
 		config = gun.Config(gun_id=gun_id)
 	c.set_flash_page(gun_id,gun.FLASH_CONFIG,config.page())

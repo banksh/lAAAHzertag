@@ -85,13 +85,13 @@ class Database:
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score
                                  FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
                                  WHERE hits.shooter_id=? 
-                                 GROUP BY hits.victim_id 
+                                 GROUP BY guns.gun_id
                                  ORDER BY score DESC""",(gun_id,)).fetchall()
     def read_hits_by(self, gun_id):
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score 
                                  FROM guns LEFT OUTER JOIN hits ON hits.shooter_id = guns.gun_id 
                                  WHERE hits.victim_id=? 
-                                 GROUP BY hits.shooter_id 
+                                 GROUP BY guns.gun_id
                                  ORDER BY score DESC""",(gun_id,)).fetchall()
     def add_hit(self, shooter_id, victim_id):
         self.c.execute("INSERT INTO hits (shooter_id, victim_id)  VALUES(?, ?)", (shooter_id, victim_id))
@@ -100,13 +100,13 @@ class Database:
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.shooter_id) AS score 
                                  FROM guns LEFT OUTER JOIN hits ON hits.shooter_id = guns.gun_id 
 				 WHERE guns.active = 1
-                                 GROUP BY hits.shooter_id 
+                                 GROUP BY guns.gun_id
                                  ORDER BY score DESC""").fetchall()
     def most_hit(self):
         return self.c.execute("""SELECT guns.gun_id, guns.athena, COUNT(hits.victim_id) AS score 
                                  FROM guns LEFT OUTER JOIN hits ON hits.victim_id = guns.gun_id 
 				 WHERE guns.active = 1
-                                 GROUP BY hits.victim_id 
+                                 GROUP BY guns.gun_id
                                  ORDER BY score DESC""").fetchall()
     def close(self):
         self.conn.close()
