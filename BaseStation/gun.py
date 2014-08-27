@@ -2,7 +2,7 @@ CONFIG_ID=0
 CONFIG_POWER=1
 CONFIG_HEALTH=2
 CONFIG_SHIELD=3
-CONFIG_RESPAWN_DELAY=4
+CONFIG_RESPAWN_DELAY=100
 CONFIG_FIRE_THRESHOLD=5
 CONFIG_FIRE_CHEATING=6
 CONFIG_FIRE_HOLDOFF=7
@@ -14,7 +14,7 @@ FLASH_HITLIST = 0x7E0
 ID_UNINIT = 0x80
 
 class Config(object):
-    def __init__(self, gun_id=0x80, power=0, health=10, shield=2, respawn_delay=40,
+    def __init__(self, gun_id=0x80, power=0, health=10, shield=2, respawn_delay=100,
                  fire_threshold=500, fire_cheating=1000, fire_holdoff=1000,
                  death_period=3000):
         self.gun_id = gun_id
